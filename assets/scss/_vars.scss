@@ -6,9 +6,25 @@
     font-family: Qanelas;
     src: url("../fonts/Police-Qanelas/Regular/Qanelas-Regular.woff2") format("woff2");
 }
+
 @font-face {
     font-family: 'Qanelas Medium';
     src: url("../fonts/Police-Qanelas/Medium/Qanelas-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Qanelas-Bold';
+    src: url("../fonts/Police-Qanelas/Bold/Qanelas-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Qanelas Light';
+    src: url("../fonts/Police-Qanelas/Light/Qanelas-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Qanelas Black';
+    src: url("../fonts/Police-Qanelas/Black/Qanelas-Black.woff2") format("woff2");
 }
 
 $primary: #00384f;
