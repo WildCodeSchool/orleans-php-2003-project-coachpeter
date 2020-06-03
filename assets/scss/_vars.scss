@@ -1,6 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+@font-face {
+    font-family: Qanelas;
+    src: url("../fonts/Police-Qanelas/Regular/Qanelas-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Qanelas Medium';
+    src: url("../fonts/Police-Qanelas/Medium/Qanelas-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Qanelas-Bold';
+    src: url("../fonts/Police-Qanelas/Bold/Qanelas-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Qanelas Light';
+    src: url("../fonts/Police-Qanelas/Light/Qanelas-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Qanelas Black';
+    src: url("../fonts/Police-Qanelas/Black/Qanelas-Black.woff2") format("woff2");
+}
+
 $primary: #00384f;
-$secondary: #85C041;
-$gray : #3D3D3D;
+$secondary: #85c041;
+
+$lightgray: #dadada;
+$darkgray: #6a6b6a;
 
 $light: #F4F4F4;
 $dark: #000307;
+
+$main-font: Qanelas;
+$nav-font: Montserrat;
+$caption-font: Raleway;
