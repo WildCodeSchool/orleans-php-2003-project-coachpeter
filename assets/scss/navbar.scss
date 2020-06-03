@@ -1,10 +1,11 @@
 @mixin background-image($img, $background-position, $background-color) {
-  background-image: url('#{$path--rel}/#{$img}');
+  background-image: url('#{$img}');
   background-repeat: no-repeat;
   background-position: $background-position;
   background-color: $background-color ;
 }
 
-.navbar-inverse {
-  @include background-image("header.png", right, $black);
+nav {
+  @include background-image("../header.jpg", absolute, rgba(0, 56, 79, 0.61));
 }
+
