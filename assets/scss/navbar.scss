@@ -1,0 +1,6 @@
+@mixin background-image($img, $background-position, $background-color) {
+  background-image: url('#{$path--rel}/#{$img}');
+  background-repeat: no-repeat;
+  background-position: $background-position;
+  background-color: $background-color ;
+}
