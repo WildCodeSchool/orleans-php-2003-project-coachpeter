@@ -6,6 +6,10 @@
     font-family: Qanelas;
     src: url("../fonts/Police-Qanelas/Regular/Qanelas-Regular.woff2") format("woff2");
 }
+@font-face {
+    font-family: 'Qanelas Medium';
+    src: url("../fonts/Police-Qanelas/Medium/Qanelas-Medium.woff2") format("woff2");
+}
 
 $primary: #00384f;
 $secondary: #85c041;
