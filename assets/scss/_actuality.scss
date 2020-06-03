@@ -1,9 +1,48 @@
-.card-theme{
-  top: -50px;
+
+.card{
+  width: 350px;
 }
 
-.badge-primary{
+.card-img-top {
+  height: 360px;
+  width: 350px;
+}
+
+.card-body{
+  background-color: $lightgray;
+  top: 350px;
+}
+
+.card-theme{
+  top: -30px;
+  left: 0;
+}
+
+.badge{
   height: 39px;
   width: 239px;
-  text-align: left ;
+}
+
+.card-text{
+  color : $darkgray;
+  font-family: $main-font;
+  font-size: 16px;
+}
+
+.card-actu .badge{
+  background-color: $primary;
+  color: $light;
+  padding-left: 17px;
+  padding-top: 11px;
+  font-family: $main-font;
+  font-size: 15px;
+}
+
+.card-actu:nth-child(even) .badge{
+  background-color: $secondary;
+}
+
+.date-blog{
+  color: $darkgray;
+  font-size: 13px;
 }
