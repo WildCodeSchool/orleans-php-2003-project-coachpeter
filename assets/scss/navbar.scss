@@ -1,10 +1,26 @@
-@mixin background-color($background-image, $background-position, $background-color) {
-  background-repeat: no-repeat;
-  background-position: $background-position;
-  background-color: $background-color ;
+.top-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 689px;
+    background-image: url("../../assets/images/z-photo_1483721310020_03333e577078-a1d3eaa6ce67c395470b97cc9a9bca2d-915656.jpg");
 }
 
-.backgrounded {
-  @include background-color(absolute, rgba(0, 56, 79, 0.85));
+.primary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 689px;
+    background-color: rgba(0, 56, 79, 0.85);
 }
 
+.navbar, .nav-link {
+    color: var(--light);
+}
+
+.nav-item img {
+    height: 17px;
+    width: 17px;
+}
