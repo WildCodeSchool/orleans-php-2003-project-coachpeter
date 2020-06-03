@@ -4,3 +4,7 @@
   background-position: $background-position;
   background-color: $background-color ;
 }
+
+.navbar-inverse {
+  @include background-image("header.png", right, $black);
+}
