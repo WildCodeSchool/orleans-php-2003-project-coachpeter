@@ -1,5 +1,5 @@
 <section>
-    <h2 class="text-primary text-center w-100">LES ACTUALITÉS - <b>SANTÉ, SPORT, NUTRITION</b></h2>
+    <h2 class="text-primary text-center w-100">LES ACTUALITÉS - <span class="font-weight-bold">SANTÉ, SPORT, NUTRITION</span></h2>
     <div class="row justify-content-center justify-content-md-around">
         {%  for actuality in actualities %}
         <div class="card card-actu m-3">
@@ -9,7 +9,7 @@
                     {{ actuality.theme }}
                 </div>
                 <h3 class="card-title card-title-actu text-primary">{{ actuality.title|upper }}</h3>
-                <p class="card-text card-actu-text">{{ actuality.content }}</p>
+                <p class="card-text card-actu-text">{{ actuality.content|length > 150 ? actuality.content|slice(0, 150) ~ '...' : actuality.content }}</p>
                 <div class="d-flex justify-content-end align-items-baseline ">
                     <div class="mr-2">
                         <svg class="bi bi-calendar3" width="1em" height="1em" viewBox="0 0 16 16" fill=darkgray

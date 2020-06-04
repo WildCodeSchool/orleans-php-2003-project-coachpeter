@@ -40,12 +40,6 @@
     color: $darkgray;
     font-family: $main-font;
     font-size: $small-font-size;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    text-align: left;
 }
 
 .date-blog {
@@ -56,5 +50,4 @@
 .card-title-actu{
     font-family: Qanelas-Bold;
     font-size: $small-font-size;
-
 }
