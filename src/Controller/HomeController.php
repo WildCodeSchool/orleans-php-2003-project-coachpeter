@@ -16,12 +16,10 @@ class HomeController extends AbstractController
     {
         $actualities = $this->getDoctrine()
             ->getRepository(Actuality::class)
-            ->findBy( [],['date' => 'desc'], 3);
+            ->findBy([], ['date' => 'desc'], 3);
 
         return $this->render('home/home.html.twig', [
             'actualities' => $actualities,
         ]);
     }
-
-
 }
