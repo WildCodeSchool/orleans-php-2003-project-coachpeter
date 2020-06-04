@@ -1,4 +1,3 @@
-
 .span-about-me-primary-color {
     color: $primary;
 }
@@ -20,6 +19,7 @@
     background: $secondary;
     transition: width .3s;
 }
+
 .nav-link:hover::after {
     width: 100%;
 }
