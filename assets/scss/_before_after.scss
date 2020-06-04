@@ -1,0 +1,21 @@
+#before_after {
+  background-color: $primary;
+  height: 540px;
+}
+.first_image {
+  transform: rotate(-10deg);
+  width: 100%;
+}
+.second_image {
+  top: 20%;
+  left: 85%;
+  transform: rotate(15deg);
+}
+.pola_label {
+  font-weight: 900;
+  font-size: 3vmin;
+}
+.picture_duo{
+  height: 430px;
+}
+
