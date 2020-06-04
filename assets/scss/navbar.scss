@@ -7,7 +7,7 @@
     background-image: url("../../assets/images/z-photo_1483721310020_03333e577078-a1d3eaa6ce67c395470b97cc9a9bca2d-915656.jpg");
 }
 
-.primary {
+.bluehover {
     position: absolute;
     top: 0;
     left: 0;
@@ -23,4 +23,21 @@
 .nav-item img {
     height: 17px;
     width: 17px;
+}
+
+.top-nav {
+    border-bottom: solid 1px white ;
+}
+
+.navbar-brand img {
+    width: 159px;
+}
+
+.headband {
+    z-index: 0;
+    color: var(--light);
+}
+
+.nav-item {
+    font-family: $nav-font;
 }

@@ -1,58 +1,63 @@
 <header>
     // ces deux div servent à faire l'image de fond recouverte d'un fond bleu sur la page d'accueil
     <div class="top-img"></div>
-    <div class="primary"></div>
+    <div class="bluehover"></div>
 
     <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg">
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item d-flex flex-row align-items-center mr-3">
-                    <img src="{{ asset('build/blue_location.svg') }}">
-                    <a class="nav-link">50 rue de tudelle, 45100 Orléans</a>
-                </li>
-                <li class="nav-item d-flex flex-row align-items-center">
-                    <img src="{{ asset('build/icons/blue_tel.svg') }}">
-                    <a class="nav-link">06 80 34 17 27</a>
-                </li>
-            </ul>
-            <div class="navbar-icons col-2 d-flex justify-content-around">
-                <a href="https://fr-fr.facebook.com/coachpeter.orleans/" target="_blank"><img class="navbar-text" src="{{ asset('build/icons/blue_facebook.svg') }}" alt="Lien vers page Facebook"></a>
-                <a href="https://instagram.com/coach_peter.orleans?igshid=crqgsjokas3f" target="_blank"><img class="navbar-text" src="{{ asset('build/icons/blue_insta.svg') }}" alt="Lien vers page Instagram"></a>
-                <a href=""><img class="navbar-text" src="{{ asset('build/blue_connection.svg') }}" alt="Lien vers page de connexion"></a>
+        <nav class="top-nav navbar navbar-expand-lg">
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item d-flex flex-row align-items-center mr-3">
+                        <img src="{{ asset('build/blue_location.svg') }}">
+                        <a class="nav-link">50 rue de tudelle, 45100 Orléans</a>
+                    </li>
+                    <li class="nav-item d-flex flex-row align-items-center">
+                        <img src="{{ asset('build/blue_tel.svg') }}">
+                        <a class="nav-link">06 80 34 17 27</a>
+                    </li>
+                </ul>
+                <div class="navbar-icons col-2 d-flex justify-content-around">
+                    <a href="https://fr-fr.facebook.com/coachpeter.orleans/" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_facebook.svg') }}" alt="Lien vers page Facebook"></a>
+                    <a href="https://instagram.com/coach_peter.orleans?igshid=crqgsjokas3f" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_insta.svg') }}" alt="Lien vers page Instagram"></a>
+                    <a href=""><img class="navbar-text" src="{{ asset('build/blue_connection.svg') }}" alt="Lien vers page de connexion"></a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#"><img src="assets/images" alt="logo coach Peter"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#"><img src="{{ asset('build/peter_logo_white.png') }}" alt="logo coach Peter"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">
-            <ul class="navbar-nav mr-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Qui suis-je</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Transformations</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Coaching</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Team training</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">
+                <ul class="navbar-nav mr-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Qui suis-je</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Transformations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Coaching</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Team training</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="row">
+            {% include 'home/_headband.html.twig' %}
         </div>
-    </nav>
-</div>
+    </div>
 
 </header>
+
