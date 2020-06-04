@@ -11,6 +11,11 @@
     width: 500px;
 }
 
+.coach-name-about-me {
+    font-family: $caption-font;
+    font-size: $large-font-size;
+}
+
 .nav-link::after {
     content: '';
     display: block;
