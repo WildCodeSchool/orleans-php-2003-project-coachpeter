@@ -1,25 +1,25 @@
 
 .span-about-me-primary-color {
-  color: $primary;
+    color: $primary;
 }
 
 .span-about-me-secondary-color {
-  color: $secondary;
+    color: $secondary;
 }
 
 .img-coach-about-me-home {
-  object-fit: contain;
-  width: 500px;
+    object-fit: contain;
+    width: 500px;
 }
 
 .nav-link::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  background: $secondary;
-  transition: width .3s;
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: $secondary;
+    transition: width .3s;
 }
 .nav-link:hover::after {
-  width: 100%;
+    width: 100%;
 }
