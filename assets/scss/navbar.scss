@@ -17,7 +17,7 @@
 }
 
 .navbar, .nav-link {
-    color: var(--light);
+    color: $light;
 }
 
 .nav-item img {
@@ -35,9 +35,16 @@
 
 .headband {
     z-index: 0;
-    color: var(--light);
+    color: $light;
 }
 
 .nav-item {
     font-family: $nav-font;
+}
+
+@keyframes hoverNav {
+    0% {}
+}
+.nav-item:hover {
+    border-bottom: solid 1px blue;
 }
