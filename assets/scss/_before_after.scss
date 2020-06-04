@@ -2,6 +2,7 @@
     width:100vw;
     background-color: $primary;
     height: 540px;
+    margin-bottom: 30px;
 }
 
 .first_image {
@@ -11,13 +12,13 @@
 
 .second_image {
     top: 20%;
-    left: 85%;
-    transform: rotate(15deg);
+    left: 80%;
+    transform: rotate(10deg);
 }
 
 .polaroid_label {
     font-weight: 900;
-    font-size: 3vmin;
+    font-size: 2vh;
 }
 
 .picture_duo{
