@@ -5,20 +5,21 @@
 body {
     background-color: $light;
     font-family: 'Qanelas';
-
-h1 {
-    font-size: var(--xlarge-font-size);
-    font-family: var(--main-font);
-    color: var(--light);
 }
 
-h2 {
-    font-size: var(--medium-font-size);
-    font-family: var(--main-font);
-    color: var(--light);
-}
+    h1 {
+        font-size: var(--xlarge-font-size);
+        font-family: var(--main-font);
+        color: var(--light);
+    }
 
-section {
-    width: 80%;
-    margin: 0 auto;
-}
+    h2 {
+        font-size: var(--medium-font-size);
+        font-family: var(--main-font);
+        color: var(--light);
+    }
+
+    section {
+        width: 80%;
+        margin: 0 auto;
+    }
