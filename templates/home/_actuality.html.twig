@@ -8,7 +8,7 @@
                 <div class="badge position-absolute card-theme text-left align-items-center rounded-0 ">
                     {{ actuality.theme }}
                 </div>
-                <h5 class="card-title">{{ actuality.title }}</h5>
+                <h3 class="card-title">{{ actuality.title }}</h3>
                 <p class="card-text card-actu-text">{{ actuality.content|length > 200 ? actuality.content|slice(0, 200) ~ '...' : actuality.content  }}</p>
                 <div class="d-flex justify-content-end align-items-baseline ">
                     <div class="mr-2">
@@ -26,4 +26,7 @@
         </div>
         {% endfor %}
     </div>
+
+    <a class="btn btn-light float-right border-primary" href="">VOIR TOUTE L'ACTU</a>
+
 </section>
