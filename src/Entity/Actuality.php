@@ -21,7 +21,8 @@ class Actuality
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Indiquer le titre de l'article")
-     * @Assert\Length(max="255", maxMessage="Le nom du titre {{ value }} est trop long, il ne devrait pas dépasser {{ limit}} caractères")
+     * @Assert\Length(max="255", maxMessage="Le nom du titre {{ value }} est trop long,
+     * il ne devrait pas dépasser {{ limit}} caractères")
      */
     private $title;
 
@@ -41,14 +42,15 @@ class Actuality
     /**
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="Indiquer un thème à l'article")
-     * * @Assert\Length(max="50", maxMessage="Le nom du thème {{ value }} est trop long, il ne devrait pas dépasser {{ limit}} caractères")
+     * * @Assert\Length(max="50", maxMessage="Le nom du thème {{ value }} est trop long,
+     * il ne devrait pas dépasser {{ limit}} caractères")
      */
     private $theme;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="enregistrer un lien vers une image")
-     * @Assert\Length(max="255", maxMessage="Le lien est trop long, il ne devrait pas dépasser {{ limit}} caractères")
+     * @Assert\NotBlank(message="enregistrer un chemin vers une image")
+     * @Assert\Length(max="255", maxMessage="Le chemin est trop long, il ne devrait pas dépasser {{ limit}} caractères")
      */
     private $picture;
 
