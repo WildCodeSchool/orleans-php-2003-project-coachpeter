@@ -3,26 +3,28 @@
     <div class="top-img"></div>
     <div class="bluehover"></div>
 
-    <div class="container-fluid">
-        <nav class="top-nav navbar navbar-expand-lg">
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item d-flex flex-row align-items-center mr-3">
-                        <img class="mx-1 mb-1" src="{{ asset('build/blue_location.svg') }}">
-                        <a class="nav-item this">50 rue de tudelle, 45100 Orléans</a>
-                    </li>
-                    <li class="nav-item nav-item-small d-flex flex-row align-items-center">
-                        <img class="mx-1 mb-1" src="{{ asset('build/blue_tel.svg') }}">
-                        <a class="nav-item">06 80 34 17 27</a>
-                    </li>
-                </ul>
-                <div class="navbar-icons col-2 d-flex justify-content-around">
+    <div class="container">
+        <div class="supnavbar row  mt-3">
+            <div class=" col-6 infoheader d-flex flex-row">
+                <div class="ml-3 mr-4 d-flex flex-row">
+                    <img class="mx-1 d-flex flex-row" src="{{ asset('build/blue_location.svg') }}">
+                    <p>50 rue de tudelle, 45100 Orléans</p>
+                </div>
+                <div class="d-flex flex-row">
+                    <img class="mx-1 d-flex flex-row" src="{{ asset('build/blue_tel.svg') }}">
+                    <p> 06 80 34 17 27</p>
+                </div>
+            </div>
+
+            <div class="col-6 d-flex justify-content-end">
+                <div class="col-4 d-flex justify-content-around">
                     <a href="https://fr-fr.facebook.com/coachpeter.orleans/" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_facebook.svg') }}" alt="Lien vers page Facebook"></a>
                     <a href="https://instagram.com/coach_peter.orleans?igshid=crqgsjokas3f" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_insta.svg') }}" alt="Lien vers page Instagram"></a>
                     <a href=""><img class="navbar-text" src="{{ asset('build/blue_connection.svg') }}" alt="Lien vers page de connexion"></a>
                 </div>
+
             </div>
-        </nav>
+        </div>
 
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="#"><img src="{{ asset('build/peter_logo_white.png') }}" alt="logo coach Peter"></a>

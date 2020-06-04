@@ -1,10 +1,19 @@
+//variables
+
+$colorHoverHeader: rgba(0, 56, 79, 0.85);
+$navbarUnderlineHover: #00ffff;
+
 .top-img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 689px;
-    background-image: url("../../assets/images/z-photo_1483721310020_03333e577078-a1d3eaa6ce67c395470b97cc9a9bca2d-915656.jpg");
+    background-image: url("../../assets/images/header_sportif_lacets.jpg");
+}
+
+.navbar {
+    border-top: solid 1px $light ;
 }
 
 .bluehover {
@@ -13,29 +22,29 @@
     left: 0;
     width: 100vw;
     height: 689px;
-    background-color: rgba(0, 56, 79, 0.85);
+    background-color: $colorHoverHeader;
 }
 
 .navbar, .nav-link {
     color: $light;
 }
 
-.nav-item img {
+.infoheader img {
     height: 17px;
     width: 17px;
 }
 
-.top-nav {
-    border-bottom: solid 1px white ;
+.infoheader p {
+    font-family: $nav-font;
+    font-size: $xtra-small-font-size;
+    color: $light;
+}
+
+.supnavbar {
 }
 
 .navbar-brand img {
     width: 159px;
-}
-
-.headband {
-    z-index: 0;
-    color: $light;
 }
 
 .nav-item {
@@ -52,14 +61,10 @@
     display: block;
     width: 0;
     height: 2px;
-    background: #00ffff;
+    background: $navbarUnderlineHover;
     transition: width .3s;
 }
 
 .navbar-link:hover::after {
     width: 100%;
-}
-
-.navbar-link.active{
-    border-bottom: solid 2px #00ffff;
 }
