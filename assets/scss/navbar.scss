@@ -42,9 +42,24 @@
     font-family: $nav-font;
 }
 
-@keyframes hoverNav {
-    0% {}
+
+.navbar-link:hover {
+    color: $light;
 }
-.nav-item:hover {
-    border-bottom: solid 1px blue;
+
+.navbar-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #00ffff;
+    transition: width .3s;
+}
+
+.navbar-link:hover::after {
+    width: 100%;
+}
+
+.navbar-link.active{
+    border-bottom: solid 2px #00ffff;
 }

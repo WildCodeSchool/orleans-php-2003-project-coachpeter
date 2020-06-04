@@ -1,5 +1,5 @@
 <header>
-    // ces deux div servent à faire l'image de fond recouverte d'un fond bleu sur la page d'accueil
+    {# ces deux div servent à faire l'image de fond recouverte d'un fond bleu sur la page d'accueil #}
     <div class="top-img"></div>
     <div class="bluehover"></div>
 
@@ -8,12 +8,12 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item d-flex flex-row align-items-center mr-3">
-                        <img src="{{ asset('build/blue_location.svg') }}">
-                        <a class="nav-link">50 rue de tudelle, 45100 Orléans</a>
+                        <img class="mx-1 mb-1" src="{{ asset('build/blue_location.svg') }}">
+                        <a class="nav-item this">50 rue de tudelle, 45100 Orléans</a>
                     </li>
-                    <li class="nav-item d-flex flex-row align-items-center">
-                        <img src="{{ asset('build/blue_tel.svg') }}">
-                        <a class="nav-link">06 80 34 17 27</a>
+                    <li class="nav-item nav-item-small d-flex flex-row align-items-center">
+                        <img class="mx-1 mb-1" src="{{ asset('build/blue_tel.svg') }}">
+                        <a class="nav-item">06 80 34 17 27</a>
                     </li>
                 </ul>
                 <div class="navbar-icons col-2 d-flex justify-content-around">
@@ -33,22 +33,22 @@
             <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">
                 <ul class="navbar-nav mr-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Accueil</a>
+                        <a class="nav-link navbar-link" href="{{ path('app_index') }}" >Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Qui suis-je</a>
+                        <a class="nav-link navbar-link" href="#">Qui suis-je</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Transformations</a>
+                        <a class="nav-link navbar-link" href="#">Transformations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Coaching</a>
+                        <a class="nav-link navbar-link" href="#">Coaching</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Team training</a>
+                        <a class="nav-link navbar-link" href="#">Team training</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link navbar-link" href="#">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -56,5 +56,4 @@
 
     </div>
 </header>
-{% include 'home/_headband.html.twig' %}
 
