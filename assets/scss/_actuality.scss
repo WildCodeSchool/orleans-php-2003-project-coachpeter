@@ -9,7 +9,7 @@
     padding-left: 17px;
     padding-top: 11px;
     font-family: $main-font;
-    font-size: 15px;
+    font-size: $small-font-size;
 }
 
 .card-actu:nth-child(even) .badge {
@@ -39,7 +39,7 @@
 .card-actu-text {
     color: $darkgray;
     font-family: $main-font;
-    font-size: 16px;
+    font-size: $small-font-size;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -50,5 +50,11 @@
 
 .date-blog {
     color: $darkgray;
-    font-size: 13px;
+    font-size: $xtra-small-font-size;
+}
+
+.card-title-actu{
+    font-family: Qanelas-Bold;
+    font-size: $small-font-size;
+
 }
