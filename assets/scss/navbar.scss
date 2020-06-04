@@ -1,10 +1,10 @@
 @mixin background-color($background-image, $background-position, $background-color) {
-  background-repeat: no-repeat;
-  background-position: $background-position;
-  background-color: $background-color ;
+    background-repeat: no-repeat;
+    background-position: $background-position;
+    background-color: $background-color ;
 }
 
 .backgrounded {
-  @include background-color(absolute, rgba(0, 56, 79, 0.85));
+    @include background-color(absolute, rgba(0, 56, 79, 0.85));
 }
 
