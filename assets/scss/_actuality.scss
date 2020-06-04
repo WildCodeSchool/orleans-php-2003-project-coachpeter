@@ -1,31 +1,6 @@
 
-.card{
+.card-actu{
   width: 350px;
-}
-
-.card-img-top {
-  height: 360px;
-  width: 350px;
-}
-
-.card-body{
-  background-color: $lightgray;
-}
-
-.card-theme {
-  margin-left: -20px;
-  margin-top: -45px;
-}
-
-.badge{
-  height: 39px;
-  width: 239px;
-}
-
-.card-text{
-  color : $darkgray;
-  font-family: $main-font;
-  font-size: 16px;
 }
 
 .card-actu .badge{
@@ -40,6 +15,32 @@
 .card-actu:nth-child(even) .badge{
   background-color: $secondary;
 }
+
+.card-actu-img {
+  height: 360px;
+  width: 350px;
+}
+
+.card-actu-body{
+  background-color: $lightgray;
+}
+
+.card-theme {
+  margin-left: -20px;
+  margin-top: -45px;
+}
+
+.badge{
+  height: 39px;
+  width: 239px;
+}
+
+.card-actu-text{
+  color : $darkgray;
+  font-family: $main-font;
+  font-size: 16px;
+}
+
 
 .date-blog{
   color: $darkgray;
