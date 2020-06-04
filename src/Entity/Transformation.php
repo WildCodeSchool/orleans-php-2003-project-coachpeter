@@ -20,28 +20,28 @@ class Transformation
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(message='Veuillez indiquez le nom de la personne.')
+     * @Assert\NotBlank(message="Veuillez indiquez le nom de la personne.")
      * @Assert\Length(max=50, maxMessage="Le nom ne doit pas dépasser {{ limit }} caractères." )
      */
     private $name;
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\NotBlank(message='Veuillez indiquez le nombre de kilos perdu.')
-     * @Assert\Positive(message='Le nombre de kilos doit être un entier positif.')
-     * @Assert\LessThan(value=150, maxMessage('Le poid perdu ne peut dépasser {{value}} kilos.')
+     * @Assert\NotBlank(message="Veuillez indiquez le nombre de kilos perdu.")
+     * @Assert\Positive(message="Le nombre de kilos doit être un entier positif.")
+     * @Assert\LessThan(value=150, message="Le poid perdu ne peut dépasser {{value}} kilos.")
      */
     private $pound;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message='Veuillez indiquez une image AVANT.')
+     * @Assert\NotBlank(message="Veuillez indiquez une image AVANT.")
      */
     private $pictureBefore;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message='Veuillez indiquez une image APRES.')
+     * @Assert\NotBlank(message="Veuillez indiquez une image APRES.")
      */
     private $pictureAfter;
 
