@@ -42,7 +42,7 @@ class Actuality
     /**
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="Indiquer un thème à l'article")
-     * * @Assert\Length(max=50, maxMessage="Le nom du thème {{ value }} est trop long,
+     * @Assert\Length(max=50, maxMessage="Le nom du thème {{ value }} est trop long,
      * il ne devrait pas dépasser {{ limit}} caractères")
      */
     private $theme;
