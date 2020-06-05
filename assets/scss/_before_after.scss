@@ -1,0 +1,27 @@
+.before_after {
+    width:100vw;
+    background-color: $primary;
+    height: 540px;
+    margin-bottom: 30px;
+}
+
+.first_image {
+    transform: rotate(-10deg);
+    width: 100%;
+}
+
+.second_image {
+    top: 20%;
+    left: 80%;
+    transform: rotate(10deg);
+}
+
+.polaroid_label {
+    font-weight: 900;
+    font-size: 2vh;
+}
+
+.picture_duo{
+    height: 430px;
+}
+
