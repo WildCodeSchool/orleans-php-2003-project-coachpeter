@@ -1,9 +1,22 @@
 @import "vars";
+@import "navbar";
+@import "before_after";
+@import "actuality";
+@import "~bootstrap/scss/bootstrap";
 
-body {
-    background-color: $secondary-color;
+h1 {
+    font-size: var(--xlarge-font-size);
+    font-family: var(--main-font);
+    color: var(--light);
 }
 
-a {
-    color: $warm-color;
+h2 {
+    font-size: var(--medium-font-size);
+    font-family: var(--main-font);
+    color: var(--light);
+}
+
+section {
+    width: 80%;
+    margin: 0 auto;
 }
