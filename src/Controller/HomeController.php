@@ -8,6 +8,7 @@ use App\Entity\Degree;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Transformation;
 
 class HomeController extends AbstractController
 {
@@ -24,6 +25,10 @@ class HomeController extends AbstractController
             ->getRepository(Degree::class)
             ->findAll();
 
+        $transformations = $this->getDoctrine()
+            ->getRepository(Transformation::class)
+            ->findAll();
+
         $actualities = $this->getDoctrine()
             ->getRepository(Actuality::class)
             ->findBy([], ['date' => 'desc'], 3);
@@ -31,6 +36,7 @@ class HomeController extends AbstractController
         return $this->render('home/home.html.twig', [
             'degrees' => $coachDegrees,
             'coachInfos' => $coachInfos,
+            'transformations'=>$transformations,
             'actualities' => $actualities,
         ]);
     }
