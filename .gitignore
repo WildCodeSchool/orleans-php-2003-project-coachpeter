@@ -1,5 +1,6 @@
 
 ###> symfony/framework-bundle ###
+/public/uploads/
 /.env.local
 /.env.local.php
 /.env.*.local
@@ -33,3 +34,4 @@ npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 .DS_Store
+/assets/images
