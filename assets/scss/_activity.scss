@@ -1,15 +1,32 @@
+.card-activity{
+     width: 371px;
+}
+
+
+
+
+
 .card-text-activity{
-  color: $darkgray;
-  font-family: $main-font;
-  font-size: $small-font-size;
+    color: $darkgray;
+    font-family: $main-font;
+    font-size: $small-font-size;
 }
 
-.card-theme-activity {
-  margin-left: -20px;
-  margin-top: -45px;
+.card-img-top-activity {
+    width: 371px;
+    height: 280px;
+    object-fit: cover;
 }
 
-.badge-activity{
-    height: 39px;
-    width: 239px;
+.badge-activity {
+    width: 77px;
+    height: 77px;
+    border-radius:50%;
+    border :8px solid $light ;
+    margin-top: -35px;
+    background-color: $primary;
+}
+
+.card-activity:nth-child(even) .badge-activity {
+    background-color: $secondary;
 }
