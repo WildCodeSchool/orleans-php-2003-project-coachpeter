@@ -8,6 +8,8 @@ $navbarUnderlineHover: #00ffff;
     left: 0;
     width: 100vw;
     height: 689px;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-image: url("../../assets/images/header_sportif_lacets.jpg");
 }
 
@@ -21,6 +23,7 @@ $navbarUnderlineHover: #00ffff;
     left: 0;
     width: 100vw;
     height: 689px;
+    background-repeat: no-repeat;
     background-color: $colorHoverHeader;
 }
 
