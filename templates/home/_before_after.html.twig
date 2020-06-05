@@ -1,18 +1,17 @@
-
 <section id="before_after" class="before_after">
     <!-- Titre de section -->
     <div class="pt-2">
         <h2 class="text-light w-100 text-center">ILS ONT <span class="font-weight-bold">RÉUSSI</span> !</h2>
     </div>
     <!-- Carousel -->
-<div class="col-xs-12 col-sm-10 offset-sm-1">
-    <div id="carouselExampleControls" class="w-100 carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-        {% for transformation in transformations %}
-            {% if loop.index is odd %}
-            <div class="w-100 carousel-item {% if loop.index == 1 %}active{% endif %}">
-                <div class="picture_duo row mx-xs-5 px-xs-0 px-md-5">
-            {% endif %}
+    <div class="col-xs-12 col-sm-10 offset-sm-1">
+        <div id="carouselExampleControls" class="w-100 carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                {% for transformation in transformations %}
+                    {% if loop.index is odd %}
+                        <div class="w-100 carousel-item {% if loop.index == 1 %}active{% endif %}">
+                        <div class="picture_duo row mx-xs-5 px-xs-0 px-md-5">
+                    {% endif %}
                     <div class="d-flex align-items-center col-6 col-md-5 {% if loop.index is even %}offset-1 offset-md-0{% endif %}">
                         <div class="position-relative pt-md-5 px-xs-5 offset-xs-1 col-md-6 offset-md-3">
                             <div class="first_image position-relative bg-light col-xs-7 col-md-12 p-2">
@@ -34,13 +33,13 @@
                         </div>
                     </div>
 
-            {% if loop.index is even %}
-                </div>
-            </div>
-             {% endif %}
+                    {% if loop.index is even %}
+                        </div>
+                        </div>
+                    {% endif %}
 
-        {% endfor %}
-    </div>
+                {% endfor %}
+            </div>
             <!-- Les contrôles < & > -->
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span class="h-25 col-md-3 col-sm-1 carousel-control-prev-icon" aria-hidden="true"></span>
@@ -50,8 +49,8 @@
                 <span class="h-25 col-md-3 col-sm-1 carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
+        </div>
     </div>
-</div>
     <!-- Btn lien vers page -->
     <div class="pt-1 text-center w-100">
         <a class="btn btn-light" href="#">VOIR LES TRANSFORMATIONS</a>
