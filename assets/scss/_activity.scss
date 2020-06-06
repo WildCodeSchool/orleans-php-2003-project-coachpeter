@@ -1,3 +1,6 @@
+$circle: #ffffff;
+
+
 .card-activity{
     width: 371px;
 }
@@ -18,7 +21,7 @@
     width: 77px;
     height: 77px;
     border-radius:50%;
-    border :8px solid white ;
+    border :8px solid $circle ;
     margin-top: -35px;
     background-color: $primary;
 }
