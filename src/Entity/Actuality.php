@@ -20,7 +20,7 @@ class Actuality
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Indiquer le titre de l'article")
+     * @Assert\NotBlank(message="Veuillez indiquer le titre de l'article")
      * @Assert\Length(max=255, maxMessage="Le nom du titre {{ value }} est trop long,
      * il ne devrait pas dépasser {{ limit}} caractères")
      */
@@ -28,20 +28,20 @@ class Actuality
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Remplir le contenu de l'article")
+     * @Assert\NotBlank(message="Veuillez remplir le contenu de l'article")
      */
     private $content;
 
     /**
      * @ORM\Column(type="date")
-     * @Assert\NotBlank(message = "Indiquer la date de parution de l'article sous le format AAAA-MM-JJ")
-     * @Assert\Date(message = "Indiquer une date valide")
+     * @Assert\NotBlank(message = "Veuillez indiquer la date de parution de l'article sous le format AAAA-MM-JJ")
+     * @Assert\Date(message = "Veuillez indiquer une date valide")
      */
     private $date;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(message="Indiquer un thème à l'article")
+     * @Assert\NotBlank(message="Veuillez indiquer un thème à l'article")
      * @Assert\Length(max=50, maxMessage="Le nom du thème {{ value }} est trop long,
      * il ne devrait pas dépasser {{ limit}} caractères")
      */
@@ -49,8 +49,8 @@ class Actuality
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="enregistrer un chemin vers une image")
-     * @Assert\Length(max=255, maxMessage="Le chemin est trop long, il ne devrait pas dépasser {{ limit}} caractères")
+     * @Assert\NotBlank(message="Veuillez indiquer le nom d'un fichier")
+     * @Assert\Length(max=255, maxMessage="Le nom est trop long, il ne devrait pas dépasser {{ limit}} caractères")
      */
     private $picture;
 
