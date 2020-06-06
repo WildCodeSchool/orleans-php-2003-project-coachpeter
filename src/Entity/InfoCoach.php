@@ -20,15 +20,16 @@ class InfoCoach
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Merci de renseigner un slogan")
+     * @Assert\NotBlank(message="Merci de renseigner une phrase d'acccroche")
      * @Assert\Length(max=255, maxMessage="Le slogan ne doit pas dépasser {{limit}} caractères")
      */
     private $catchline;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Merci d'enregistrer un chemin vers une image'")
-     * @Assert\Length(max=255, maxMessage="Le chemin est trop long, il ne devrait pas dépasser {{limit}} caractères")
+     * @Assert\NotBlank(message="Merci de sélectionner une image")
+     * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long, il ne devrait pas dépasser {{limit}}
+     * caractères")
      */
     private $image;
 

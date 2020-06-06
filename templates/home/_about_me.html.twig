@@ -1,27 +1,22 @@
 <section class="pt-4 pb-4">
     <div class="container-fluid">
-        {# --- TITLE --- #}
         <h2 class="text-center mb-5 mt-5"><span class="span-about-me-primary-color">
                 À PROPOS</span> <span class="font-weight-bold span-about-me-primary-color">DE MOI</span>
         </h2>
         {% for coachInfo in coachInfos %}
             <div class="row">
-                {# --- COACH PHOTO --- #}
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center">
                     <img class="img-coach-about-me-home" src="uploads/{{ coachInfo.image }}"
                          alt="Coach Peter">
                 </div>
-
-                {# --- COACH HEADER --- #}
                 <div class="col-lg-6 c">
                     <h3 class="coach-name-about-me font-weight-bold">
-                        <span class="span-about-me-primary-color">PETER</span>
-                        <span class="span-about-me-secondary-color">DIONISIO</span>
+                        <span class="text-primary">PETER</span>
+                        <span class="text-secondary">DIONISIO</span>
                     </h3>
                     <p class="font-italic">
                         "{{ coachInfo.catchline }}"
                     </p>
-                    {# --- COACH PRESENTATION TABS --- #}
                     <div>
                         <ul class="nav mt-3" id="myTab" role="tablist">
                             <li class="nav-item">
