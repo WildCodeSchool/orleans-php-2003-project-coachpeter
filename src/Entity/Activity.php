@@ -20,7 +20,7 @@ class Activity
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(message="Indiquer le nom de l'activité")
+     * @Assert\NotBlank(message="Veuillez indiquer le nom de l'activité")
      * @Assert\Length(max=255, maxMessage="Le nom de l'activité {{ value }} est trop long,
      * il ne devrait pas dépasser {{ limit}} caractères")
      */
@@ -28,7 +28,7 @@ class Activity
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Remplir la description de l'activité")
+     * @Assert\NotBlank(message="Veuillez remplir la description de l'activité")
      */
     private $description;
 
@@ -39,8 +39,8 @@ class Activity
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="enregistrer un chemin vers une image")
-     * @Assert\Length(max=255, maxMessage="Le chemin est trop long, il ne devrait pas dépasser {{ limit}} caractères")
+     * @Assert\NotBlank(message="Veuillez indiquer le nom d'un fichier")
+     * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long, il ne devrait pas dépasser {{ limit}} caractères")
      */
     private $picture;
 
