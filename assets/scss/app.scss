@@ -4,6 +4,11 @@
 @import "actuality";
 @import "~bootstrap/scss/bootstrap";
 
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 h1 {
     font-size: var(--xlarge-font-size);
     font-family: var(--main-font);
