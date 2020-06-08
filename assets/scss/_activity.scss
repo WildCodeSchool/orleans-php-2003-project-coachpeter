@@ -11,6 +11,17 @@ $circle: #ffffff;
     font-size: $small-font-size;
 }
 
+.card-deck{
+    top: -100px;
+    background-color: $circle;
+    border-radius: 16px;
+    border: solid 5px $circle;
+}
+
+.activity{
+    height: 500px;
+}
+
 .card-img-top-activity {
     width: 371px;
     height: 280px;

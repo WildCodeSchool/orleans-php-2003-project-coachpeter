@@ -3,22 +3,22 @@ $colorHoverHeader: rgba(0, 56, 79, 0.85);
 $navbarUnderlineHover: #00ffff;
 
 .top-img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100vw;
     height: 689px;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url("../../assets/images/header_sportif_lacets.jpg");
 }
-
+header .container-banner{
+    top:0;
+    margin: auto;
+    width: 80%;
+}
 .navbar {
     border-top: solid 1px $light ;
 }
 
 .bluehover {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;

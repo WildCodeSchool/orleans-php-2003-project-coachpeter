@@ -1,15 +1,13 @@
-<section>
-        <div class="card-deck justify-content-sm-center mb-2">
+<section class="activity position-relative">
+        <div class="card-deck position-relative">
             {% for activity in activities %}
                 <div class="card-activity m-2 ">
                     <img class="card-img-top card-img-top-activity"
                          src="{{ activity.picture }}"
                          alt="Card image cap">
-                    <div class="d-flex flex-column justify-content-center align-items-center ">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
                         <div class="badge-activity d-flex justify-content-center align-items-center">
-
                             <img src="build/{{ activity.pictogram }}">
-
                         </div>
                         <h2 class="card-title text-primary text-center mt-2">{{ activity.title|upper }}</h2>
                         <p class="card-text card-text-activity text-center">{{ activity.description|length > 150 ? activity.description|slice(0, 150) ~ '...' : activity.description }}</p>
