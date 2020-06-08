@@ -1,6 +1,6 @@
 <section>
     <h2 class="text-primary text-center w-100">LES ACTUALITÉS - <span class="font-weight-bold">SANTÉ, SPORT, NUTRITION</span></h2>
-    <div class="row justify-content-center justify-content-md-around">
+    <div class="row justify-content-center justify-content-lg-between">
         {%  for actuality in actualities %}
         <div class="card card-actu m-3">
             <img class="card-img-top card-actu-img" src="{{ actuality.picture }}" alt="Card image cap">
@@ -8,7 +8,7 @@
                 <div class="badge position-absolute card-theme text-left align-items-center rounded-0 ">
                     {{ actuality.theme }}
                 </div>
-                <h3 class="card-title card-title-actu text-primary">{{ actuality.title|upper }}</h3>
+                <h3 class="card-title card-title-actu text-primary mt-1">{{ actuality.title|upper }}</h3>
                 <p class="card-text card-actu-text">{{ actuality.content|length > 150 ? actuality.content|slice(0, 150) ~ '...' : actuality.content }}</p>
                 <div class="d-flex justify-content-end align-items-baseline ">
                     <div class="mr-2">
@@ -26,7 +26,7 @@
         </div>
         {% endfor %}
     </div>
-
-    <a class="btn btn-light float-right border-primary text-primary" href="">VOIR TOUTE L'ACTU</a>
-
+<div class="text-center m-1">
+    <a class="btn btn-light float-lg-right border-primary text-primary" href="">VOIR TOUTE L'ACTU</a>
+</div>
 </section>
