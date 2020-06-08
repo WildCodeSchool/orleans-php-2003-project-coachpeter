@@ -21,7 +21,7 @@ class Activity
     /**
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="Veuillez indiquer le nom de l'activité")
-     * @Assert\Length(max=255, maxMessage="Le nom de l'activité {{ value }} est trop long,
+     * @Assert\Length(max=50, maxMessage="Le nom de l'activité {{ value }} est trop long,
      * il ne devrait pas dépasser {{ limit}} caractères")
      */
     private $title;
