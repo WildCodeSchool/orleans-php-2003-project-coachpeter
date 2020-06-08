@@ -18,7 +18,7 @@ class HomeController extends AbstractController
     {
         $activities = $this->getDoctrine()
             ->getRepository(Activity::class)
-            ->findByFocus(true);
+            ->findBy(['focus' => true]);
 
         $transformations = $this->getDoctrine()
             ->getRepository(Transformation::class)
