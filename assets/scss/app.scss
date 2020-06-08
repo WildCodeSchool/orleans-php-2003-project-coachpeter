@@ -1,19 +1,20 @@
 @import "vars";
 @import "navbar";
+@import "headband";
 @import "before_after";
 @import "actuality";
 @import "~bootstrap/scss/bootstrap";
 
 h1 {
-    font-size: var(--xlarge-font-size);
-    font-family: var(--main-font);
-    color: var(--light);
+    font-size: $xlarge-font-size;
+    font-family: $main-font;
+    color: $light;
 }
 
 h2 {
-    font-size: var(--medium-font-size);
-    font-family: var(--main-font);
-    color: var(--light);
+    font-size: $medium-font-size;
+    font-family: $main-font;
+    color: $light;
 }
 
 section {
