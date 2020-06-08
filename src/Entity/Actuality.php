@@ -34,7 +34,7 @@ class Actuality
 
     /**
      * @ORM\Column(type="date")
-     * @Assert\NotBlank(message = "Veuillez indiquer la date de parution de l'article sous le format JJ/MM/AAAAgit st")
+     * @Assert\NotBlank(message = "Veuillez indiquer la date de parution de l'article sous le format JJ/MM/AAAA")
      * @Assert\Date(message = "Veuillez indiquer une date valide")
      */
     private $date;
