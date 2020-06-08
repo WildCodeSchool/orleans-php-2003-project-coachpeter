@@ -19,8 +19,9 @@ class Degree
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      * @Assert\Length(max=255, maxMessage="Le nom de la certification doit être inférieur à {{ limit }} caractères")
+     * @Assert\NotBlank(message="Merci de saisir un nom")
      */
     private $name;
 

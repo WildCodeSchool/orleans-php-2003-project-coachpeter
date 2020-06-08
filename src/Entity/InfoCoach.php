@@ -21,7 +21,7 @@ class InfoCoach
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Merci de renseigner une phrase d'acccroche")
-     * @Assert\Length(max=255, maxMessage="Le slogan ne doit pas dépasser {{limit}} caractères")
+     * @Assert\Length(max=255, maxMessage="La phrase d'accroche ne doit pas dépasser {{limit}} caractères")
      */
     private $catchline;
 
