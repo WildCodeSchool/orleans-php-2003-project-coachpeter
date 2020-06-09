@@ -1,0 +1,68 @@
+//variables
+$colorHoverHeader: rgba(0, 56, 79, 0.85);
+$navbarUnderlineHover: #00ffff;
+
+.top-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 689px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../assets/images/header_sportif_lacets.jpg");
+}
+
+.navbar {
+    border-top: solid 1px $light ;
+}
+
+.bluehover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 689px;
+    background-repeat: no-repeat;
+    background-color: $colorHoverHeader;
+}
+
+.navbar, .nav-link {
+    color: $light;
+}
+
+.infoheader img {
+    height: 17px;
+    width: 17px;
+}
+
+.infoheader p {
+    font-family: $nav-font;
+    font-size: $xtra-small-font-size;
+    color: $light;
+}
+
+.navbar-brand img {
+    width: 159px;
+}
+
+.nav-item {
+    font-family: $nav-font;
+}
+
+.navbar-link:hover {
+    color: $light;
+}
+
+.navbar-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: $navbarUnderlineHover;
+    transition: width .3s;
+}
+
+.navbar-link:hover::after {
+    width: 100%;
+}

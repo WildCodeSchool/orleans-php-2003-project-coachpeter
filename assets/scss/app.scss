@@ -1,13 +1,29 @@
 @import "vars";
-@import "~bootstrap/scss/bootstrap";
+@import "navbar";
+@import "before_after";
+@import "actuality";
+@import "activity";
 @import "footer";
+@import "~bootstrap/scss/bootstrap";
 
 body {
     background-color: $light;
     font-family: 'Qanelas';
 }
 
-a {
-    color: $darkgray;
+h1 {
+    font-size: var(--xlarge-font-size);
+    font-family: var(--main-font);
+    color: var(--light);
 }
 
+h2 {
+    font-size: var(--medium-font-size);
+    font-family: var(--main-font);
+    color: var(--light);
+}
+
+section {
+    width: 80%;
+    margin: 0 auto;
+}
