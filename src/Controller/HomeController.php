@@ -3,6 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Actuality;
+use App\Entity\InfoCoach;
+use App\Entity\Degree;
+use App\Entity\Activity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,6 +18,18 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
+        $coachInfos = $this->getDoctrine()
+            ->getRepository(InfoCoach::class)
+            ->findAll();
+
+        $coachDegrees = $this->getDoctrine()
+            ->getRepository(Degree::class)
+            ->findAll();
+
+        $activities = $this->getDoctrine()
+            ->getRepository(Activity::class)
+            ->findBy(['focus' => true]);
+
         $transformations = $this->getDoctrine()
             ->getRepository(Transformation::class)
             ->findAll();
@@ -24,6 +39,9 @@ class HomeController extends AbstractController
             ->findBy([], ['date' => 'desc'], 3);
 
         return $this->render('home/home.html.twig', [
+            'degrees' => $coachDegrees,
+            'coachInfos' => $coachInfos,
+            'activities' => $activities,
             'transformations'=>$transformations,
             'actualities' => $actualities,
         ]);
