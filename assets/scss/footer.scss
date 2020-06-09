@@ -1,29 +1,29 @@
 $footerColor: $dark;
 
 footer {
-  font-size: $xtra-small-font-size;
-  bottom: 0;
-  color: $light;
+    font-size: $xtra-small-font-size;
+    bottom: 0;
+    color: $light;
 
-  svg {
-    margin-right: 4px;
-    color: $navbarUnderlineHover;
-  }
+    svg {
+      margin-right: 4px;
+      color: $navbarUnderlineHover;
+    }
 
   .container-fluid {
-    background-color: $dark;
-    height: 74px;
-  }
+      background-color: $dark;
+      height: 74px;
+    }
 
-  img {
-    height: 17px;
-    width: 17px;
-  }
+    img {
+      height: 17px;
+      width: 17px;
+    }
 
   .scrollUp {
-    img {
-      height: 39px;
-      width: 39px;
+      img {
+        height: 39px;
+        width: 39px;
+      }
     }
-  }
 }
