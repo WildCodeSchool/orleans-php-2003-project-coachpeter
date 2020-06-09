@@ -1,0 +1,22 @@
+.img-coach-about-me-home {
+    object-fit: contain;
+    width: 500px;
+}
+
+.coach-name-about-me {
+    font-family: $caption-font;
+    font-size: $large-font-size;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: $secondary;
+    transition: width .3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
