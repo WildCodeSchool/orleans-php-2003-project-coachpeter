@@ -1,5 +1,3 @@
-$footerColor: $dark;
-
 footer {
     font-size: $xtra-small-font-size;
     bottom: 0;
@@ -25,5 +23,14 @@ footer {
             height: 39px;
             width: 39px;
         }
+    }
+
+    a {
+        color: $light;
+    }
+
+    a:hover {
+        color: $navbarUnderlineHover;
+        text-decoration: none;
     }
 }
