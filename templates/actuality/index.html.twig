@@ -22,10 +22,10 @@
             <tr>
                 <td>{{ actuality.id }}</td>
                 <td>{{ actuality.title }}</td>
-                <td>{{ actuality.content }}</td>
-                <td>{{ actuality.date ? actuality.date|date('Y-m-d') : '' }}</td>
+                <td>{{ actuality.content|length > 100 ? actuality.content|slice(0, 100) ~ '...' : actuality.content }}</td>
+                <td>{{ actuality.date ? actuality.date|date('d-m-Y') : '' }}</td>
                 <td>{{ actuality.theme }}</td>
-                <td>{{ actuality.picture }}</td>
+                <td><img class="w-25" src="{{ actuality.picture }}" alt="{{ actuality.title }}"></td>
                 <td>
                     <a href="{{ path('actuality_show', {'id': actuality.id}) }}">show</a>
                     <a href="{{ path('actuality_edit', {'id': actuality.id}) }}">edit</a>
