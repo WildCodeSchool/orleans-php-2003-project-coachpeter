@@ -3,11 +3,8 @@
 @import "before_after";
 @import "actuality";
 @import "activity";
-<<<<<<< HEAD
 @import "map";
-=======
 @import "footer";
->>>>>>> 9aa4409380c6f78718edac158c217119a3baea40
 @import "~bootstrap/scss/bootstrap";
 @import "_about_me.scss";
 
@@ -18,7 +15,7 @@ body {
 }
 
 body {
-    background-color: $light;
+    background-color: white;
     font-family: 'Qanelas';
 }
 
@@ -37,4 +34,6 @@ h2 {
 section {
     width: 80%;
     margin: 0 auto;
+}
+.headband {
 }
