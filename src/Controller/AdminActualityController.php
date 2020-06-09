@@ -11,16 +11,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/actuality")
+ * @Route("/admin/actuality")
  */
-class ActualityController extends AbstractController
+class AdminActualityController extends AbstractController
 {
     /**
      * @Route("/", name="actuality_index", methods={"GET"})
      */
     public function index(ActualityRepository $actualityRepository): Response
     {
-        return $this->render('actuality/index.html.twig', [
+        return $this->render('admin_actuality/index.html.twig', [
             'actualities' => $actualityRepository->findAll(),
         ]);
     }
@@ -42,8 +42,8 @@ class ActualityController extends AbstractController
             return $this->redirectToRoute('actuality_index');
         }
 
-        return $this->render('actuality/new.html.twig', [
-            'actuality' => $actuality,
+        return $this->render('admin_actuality/new.html.twig', [
+            'admin_actuality' => $actuality,
             'form' => $form->createView(),
         ]);
     }
@@ -53,8 +53,8 @@ class ActualityController extends AbstractController
      */
     public function show(Actuality $actuality): Response
     {
-        return $this->render('actuality/show.html.twig', [
-            'actuality' => $actuality,
+        return $this->render('admin_actuality/show.html.twig', [
+            'admin_actuality' => $actuality,
         ]);
     }
 
@@ -72,8 +72,8 @@ class ActualityController extends AbstractController
             return $this->redirectToRoute('actuality_index');
         }
 
-        return $this->render('actuality/edit.html.twig', [
-            'actuality' => $actuality,
+        return $this->render('admin_actuality/edit.html.twig', [
+            'admin_actuality' => $actuality,
             'form' => $form->createView(),
         ]);
     }
