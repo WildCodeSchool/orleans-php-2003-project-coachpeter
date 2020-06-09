@@ -16,12 +16,8 @@
                 <td>{{ actuality.title }}</td>
             </tr>
             <tr>
-                <th>Content</th>
-                <td>{{ actuality.content }}</td>
-            </tr>
-            <tr>
                 <th>Date</th>
-                <td>{{ actuality.date ? actuality.date|date('Y-m-d') : '' }}</td>
+                <td>{{ actuality.date ? actuality.date|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Theme</th>
@@ -30,6 +26,10 @@
             <tr>
                 <th>Picture</th>
                 <td>{{ actuality.picture }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                 <td>{{ actuality.content }}</td>
             </tr>
         </tbody>
     </table>
