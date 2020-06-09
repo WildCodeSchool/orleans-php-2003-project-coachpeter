@@ -7,6 +7,11 @@
 @import "_about_me.scss";
 
 
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 h1 {
     font-size: var(--xlarge-font-size);
     font-family: var(--main-font);
