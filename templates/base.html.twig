@@ -17,5 +17,10 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+        <footer>
+            {% block footer %}
+                {% include 'home/_footer.html.twig' %}
+            {% endblock %}
+        </footer>
     </body>
 </html>
