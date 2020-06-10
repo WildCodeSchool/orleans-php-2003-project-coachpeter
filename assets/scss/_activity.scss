@@ -6,9 +6,30 @@ $circle: #ffffff;
 }
 
 .card-text-activity{
+    width: 80%;
     color: $darkgray;
     font-family: $main-font;
     font-size: $small-font-size;
+}
+
+.card-deck{
+    top: -100px;
+    background-color: $circle;
+    border-radius: 16px;
+    border: solid 5px $circle;
+}
+
+.round{
+    position: absolute;
+    top: -25px;
+    height: 25px;
+    width: 100vw;
+    border-top-left-radius: 75% 30px;
+    border-top-right-radius: 75% 30px;
+}
+
+.activity{
+    max-width: 1150px;
 }
 
 .card-img-top-activity {
