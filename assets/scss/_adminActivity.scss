@@ -1,0 +1,31 @@
+@import "vars";
+
+
+.activityHeandband {
+    height: 389px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../assets/images/backgroundActivity.jpeg");
+
+    h1 {
+        font-size: $xlarge-font-size;
+        color: $dark;
+    }
+
+    h2 {
+        font-size: $xlarge-font-size;
+        color: $dark;
+    }
+}
+
+.adminActivity {
+    .table {
+        background-color: $darkgray;
+    }
+    img {
+        width: 100px;
+    }
+    .picto {
+        width: 40px;
+    }
+}

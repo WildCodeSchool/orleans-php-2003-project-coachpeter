@@ -1,0 +1,62 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Administration Peter Coach{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('activity') }}
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid d-flex justify-content-around flex-column activityHeandband">
+        <div class="row justify-content-center">
+            <h1 class="mt-5">Administrateur</h1>
+        </div>
+
+        <div class="row justify-content-center">
+            <h2>Gestion des activitées</h2>
+        </div>
+    </div>
+
+    <div class="adminActivity mt-5">
+        <div class="container-fluid">
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="text-center">Identifiant</th>
+                <th class="text-center">Nom</th>
+                <th class="text-center">Description</th>
+                <th class="text-center">Pictogramme</th>
+                <th class="text-center">Image</th>
+                <th class="text-center">Focus</th>
+                <th class="text-center">Actions</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for activity in activities %}
+                <tr>
+                    <td class="text-center">{{ activity.id }}</td>
+                    <td class="text-center">{{ activity.title }}</td>
+                    <td>{{ activity.description [:100]}}...</td>
+                    <td class="text-center"><img class="picto" src="{{ asset(activity.pictogram) }}"></td>
+                    <td><img class="picture" src="{{ activity.picture }}"></td>
+                    <td class="text-center">{{ activity.focus ? 'Yes' : 'No' }}</td>
+                    <td>
+                        <a href="{{ path('activity_show', {'id': activity.id}) }}">Détails</a>
+                        <a href="{{ path('activity_edit', {'id': activity.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7" class="text-center">Aucune activité trouvée en base de données.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    <a href="{{ path('activity_new') }}">Créer une nouvelle activité</a>
+    </div>
+    </div>
+
+{% endblock %}
