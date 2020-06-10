@@ -3,6 +3,7 @@
 @import "before_after";
 @import "actuality";
 @import "activity";
+@import "footer";
 @import "~bootstrap/scss/bootstrap";
 @import "_about_me.scss";
 
@@ -10,6 +11,11 @@
 body {
     width: 100vw;
     overflow-x: hidden;
+}
+
+body {
+    background-color: $light;
+    font-family: 'Qanelas';
 }
 
 h1 {
