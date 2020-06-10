@@ -1,0 +1,18 @@
+.localisation {
+  color: $primary;
+  left: -30px;
+  top: 100px;
+}
+.map {
+  margin-top:70px;
+  height:400px;
+  background-image: url("/build/map.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.card-adress {
+  background-color: white;
+  height:250px;
+  width: 350px;
+  left:50%;
+}
