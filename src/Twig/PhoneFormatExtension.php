@@ -20,11 +20,11 @@ class PhoneFormatExtension extends AbstractExtension
 
     public function formatPhoneFr($value)
     {
-        $array = str_split($value,2);
-        $new_num = '';
-        for ($i=0; $i<5; $i++){
-            $new_num .= ($array[$i]." ");
+        $array = str_split($value, 2);
+        $newNum = '';
+        for ($i=0; $i<5; $i++) {
+            $newNum .= ($array[$i]." ");
         }
-        return $new_num;
+        return $newNum;
     }
 }
