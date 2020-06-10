@@ -10,12 +10,23 @@
         {% endblock %}
     </head>
     <body>
+<<<<<<< HEAD
        {% block navbar %}
         {% include '_navbar.html.twig' %}
     {% endblock %}
+=======
+        {% block navbar %}
+            {% include 'home/_navbar.html.twig' %}
+        {% endblock %}
+>>>>>>> b6efcbbf401fccbe5682086a2b89acd80324c388
         {% block body %}{% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+        <footer>
+            {% block footer %}
+                {% include 'home/_footer.html.twig' %}
+            {% endblock %}
+        </footer>
     </body>
 </html>

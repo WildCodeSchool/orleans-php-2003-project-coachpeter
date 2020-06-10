@@ -50,19 +50,22 @@ header .container-banner{
     font-family: $nav-font;
 }
 
-.navbar-link:hover {
-    color: $light;
+header {
+    .navbar-link:hover {
+        color: $light;
+    }
+
+    .navbar-link::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $navbarUnderlineHover;
+        transition: width .3s;
+    }
+
+    .navbar-link:hover::after {
+        width: 100%;
+    }
 }
 
-.navbar-link::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: $navbarUnderlineHover;
-    transition: width .3s;
-}
-
-.navbar-link:hover::after {
-    width: 100%;
-}
