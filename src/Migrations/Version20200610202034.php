@@ -22,7 +22,7 @@ final class Version20200610202034 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE info_coach ADD phone VARCHAR(10) DEFAULT NULL, ADD mail VARCHAR(255) NOT NULL, ADD adress VARCHAR(255) DEFAULT NULL, ADD cod_post INT DEFAULT NULL, ADD country VARCHAR(255) DEFAULT NULL');
+        $this->addSql('ALTER TABLE info_coach ADD phone VARCHAR(10) DEFAULT NULL, ADD mail VARCHAR(255) NOT NULL, ADD adress VARCHAR(255) DEFAULT NULL, ADD country VARCHAR(255) DEFAULT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +30,6 @@ final class Version20200610202034 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE info_coach DROP phone, DROP mail, DROP adress, DROP cod_post, DROP country');
+        $this->addSql('ALTER TABLE info_coach DROP phone, DROP mail, DROP adress, DROP country');
     }
 }
