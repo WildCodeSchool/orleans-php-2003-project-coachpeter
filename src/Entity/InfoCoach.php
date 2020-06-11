@@ -46,7 +46,7 @@ class InfoCoach
     /**
      * @ORM\Column(type="string", length=10, nullable=true)
      * @Assert\NotBlank(message="Merci de renseigner un numéro de téléphone.")
-     * @Assert\Length(10, message="Le numéro doit faire {{limit}} caractères. (Ex:0611223344)")
+     * @Assert\Length(10, exactMessage="Le numéro doit faire {{limit}} caractères. (Ex:0611223344)")
      */
     private $phone;
 
@@ -70,14 +70,14 @@ class InfoCoach
      * @Assert\NotBlank(message="Merci de renseigner une ville.")
      * @Assert\Length(max=255, maxMessage="La ville ne doit pas dépasser {{limit}} caractères.")
      */
-    private $country;
+    private $city;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      * @Assert\NotBlank(message="Merci de renseigner un code postal.")
-     * @Assert\Length(5, message="Le code postal doit être de {{limit}} caractères.")
+     * @Assert\Length(5, exactMessage="Le code postal doit faire {{limit}} caractères. (Ex:45100)")
      */
-    private $codpost;
+    private $zipCode;
 
     public function getId(): ?int
     {
@@ -168,26 +168,26 @@ class InfoCoach
         return $this;
     }
 
-    public function getCodPost(): ?int
+    public function getZipCode(): ?string
     {
-        return $this->codpost;
+        return $this->zipCode;
     }
 
-    public function setCodPost(?int $codpost): self
+    public function setZipCode(?int $zipCode): self
     {
-        $this->codpost = $codpost;
+        $this->zipCode = $zipCode;
 
         return $this;
     }
 
-    public function getCountry(): ?string
+    public function getCity(): ?string
     {
-        return $this->country;
+        return $this->city;
     }
 
-    public function setCountry(?string $country): self
+    public function setCity(?string $city): self
     {
-        $this->country = $country;
+        $this->city = $city;
 
         return $this;
     }
