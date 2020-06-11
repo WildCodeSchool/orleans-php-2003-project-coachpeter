@@ -10,53 +10,57 @@
 {% block body %}
     <div class="container-fluid d-flex justify-content-around flex-column activityHeandband">
         <div class="row justify-content-center">
-            <h1 class="mt-5">Administrateur</h1>
+            <h1 class="mt-5">ADMINISTRATEUR</h1>
         </div>
 
         <div class="row justify-content-center">
-            <h2>Gestion des activitées</h2>
+            <h2>Gestion des activités</h2>
         </div>
     </div>
 
     <div class="adminActivity mt-5">
         <div class="container-fluid">
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <tr>
-                <th class="text-center">Identifiant</th>
-                <th class="text-center">Nom</th>
-                <th class="text-center">Description</th>
-                <th class="text-center">Pictogramme</th>
-                <th class="text-center">Image</th>
-                <th class="text-center">Focus</th>
-                <th class="text-center">Actions</th>
+                <th >Identifiant</th>
+                <th >Nom</th>
+                <th >Description</th>
+                <th >Image</th>
+                <th >En avant</th>
+                <th >Actions</th>
             </tr>
             </thead>
 
             <tbody>
             {% for activity in activities %}
                 <tr>
-                    <td class="text-center">{{ activity.id }}</td>
-                    <td class="text-center">{{ activity.title }}</td>
+                    <td >{{ activity.id }}</td>
+                    <td >{{ activity.title }}</td>
                     <td>{{ activity.description [:100]}}...</td>
-                    <td class="text-center"><img class="picto" src="{{ asset(activity.pictogram) }}"></td>
-                    <td><img class="picture" src="{{ activity.picture }}"></td>
-                    <td class="text-center">{{ activity.focus ? 'Yes' : 'No' }}</td>
-                    <td>
-                        <a href="{{ path('activity_show', {'id': activity.id}) }}">Détails</a>
-                        <a href="{{ path('activity_edit', {'id': activity.id}) }}">Modifier</a>
+                    <td ><img class="picture" src="{{ activity.picture }}"></td>
+                    <td >{{ activity.focus ? 'Oui' : 'Non' }}</td>
+                    <td >
+                        <a href="{{ path('activity_show', {'id': activity.id}) }}">
+                            <svg class="bi bi-pencil-square" width="25px" height="25px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                            </svg>
+                        </a>
+                        <a href="{{ path('activity_edit', {'id': activity.id}) }}">
+                            <svg class="bi bi-trash-fill" width="25px" height="25px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                            </svg>
+                        </a>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="7" class="text-center">Aucune activité trouvée en base de données.</td>
+                    <td colspan="7" >Aucune activité trouvée en base de données.</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
-
-    <a href="{{ path('activity_new') }}">Créer une nouvelle activité</a>
     </div>
     </div>
-
 {% endblock %}

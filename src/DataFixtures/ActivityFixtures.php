@@ -23,20 +23,28 @@ class ActivityFixtures extends Fixture
             'picture' => 'http://formation.naveilhan.com/fixtures/activity1.jpg',
             'focus' => 1
         ],
+
+        'Team training' => [
+            'description' => 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+     voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non 
+     provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. 
+     Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est 
+     eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas
+     assumenda est, omnis dolor repellendus.',
+            'pictogram' => 'build/white_team.svg',
+            'picture' => 'http://formation.naveilhan.com/fixtures/activity4.jpg',
+            'focus' => 1
+        ],
+
+        'Coaching à distance' => [
+            'description' => 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+     voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non 
+     provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
+            'pictogram' => 'build/white_distance-coaching.svg',
+            'picture' => 'http://formation.naveilhan.com/fixtures/activity3.jpg',
+            'focus' => 1
+        ],
     ];
-
-
-        /*'Team training',
-        'Coaching à distance'
-    ];
-
-
-     const PICTOGRAMS = [
-         '',
-         'white_distance-coaching.svg',
-         'white_team.svg'
-     ];
-        */
 
 
     public function load(ObjectManager $manager)
