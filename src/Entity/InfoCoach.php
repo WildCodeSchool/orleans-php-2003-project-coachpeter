@@ -20,16 +20,16 @@ class InfoCoach
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Merci de renseigner une phrase d'acccroche")
-     * @Assert\Length(max=255, maxMessage="La phrase d'accroche ne doit pas dépasser {{limit}} caractères")
+     * @Assert\NotBlank(message="Merci de renseigner une phrase d'acccroche.")
+     * @Assert\Length(max=255, maxMessage="La phrase d'accroche ne doit pas dépasser {{limit}} caractères.")
      */
     private $catchline;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Merci de sélectionner une image")
+     * @Assert\NotBlank(message="Merci de sélectionner une image.")
      * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long, il ne devrait pas dépasser {{limit}}
-     * caractères")
+     * caractères.")
      */
     private $image;
 
@@ -42,6 +42,42 @@ class InfoCoach
      * @ORM\Column(type="text", nullable=true)
      */
     private $presentation;
+
+    /**
+     * @ORM\Column(type="string", length=10, nullable=true)
+     * @Assert\NotBlank(message="Merci de renseigner un numéro de téléphone.")
+     * @Assert\Length(10, message="Le numéro doit faire {{limit}} caractères. (Ex:0611223344)")
+     */
+    private $phone;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de renseigner une adresse mail.")
+     * @Assert\Length(max=255, maxMessage="L'adresse mail ne doit pas dépasser {{limit}} caractères.")
+     * @Assert\Email(message="Merci de renseigner une adresse mail valide. {{ value }} ne l'est pas.")
+     */
+    private $mail;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de renseigner une adresse.")
+     * @Assert\Length(max=255, maxMessage="L'adresse ne doit pas dépasser {{limit}} caractères.")
+     */
+    private $adress;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de renseigner une ville.")
+     * @Assert\Length(max=255, maxMessage="La ville ne doit pas dépasser {{limit}} caractères.")
+     */
+    private $country;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Merci de renseigner un code postal.")
+     * @Assert\Length(5, message="Le code postal doit être de {{limit}} caractères.")
+     */
+    private $codpost;
 
     public function getId(): ?int
     {
@@ -92,6 +128,66 @@ class InfoCoach
     public function setPresentation(?string $presentation): self
     {
         $this->presentation = $presentation;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getMail(): ?string
+    {
+        return $this->mail;
+    }
+
+    public function setMail(string $mail): self
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+    public function setAdress(?string $adress): self
+    {
+        $this->adress = $adress;
+
+        return $this;
+    }
+
+    public function getCodPost(): ?int
+    {
+        return $this->codpost;
+    }
+
+    public function setCodPost(?int $codpost): self
+    {
+        $this->codpost = $codpost;
+
+        return $this;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?string $country): self
+    {
+        $this->country = $country;
 
         return $this;
     }
