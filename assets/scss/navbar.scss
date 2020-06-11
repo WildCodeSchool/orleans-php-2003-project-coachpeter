@@ -3,9 +3,6 @@ $colorHoverHeader: rgba(0, 56, 79, 0.85);
 $navbarUnderlineHover: #00ffff;
 
 .top-img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100vw;
     height: 689px;
     background-repeat: no-repeat;
@@ -13,12 +10,17 @@ $navbarUnderlineHover: #00ffff;
     background-image: url("../../assets/images/header_sportif_lacets.jpg");
 }
 
+header .container-banner{
+    top:0;
+    margin: auto;
+    width: 80%;
+}
+
 .navbar {
     border-top: solid 1px $light ;
 }
 
 .bluehover {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
@@ -50,19 +52,22 @@ $navbarUnderlineHover: #00ffff;
     font-family: $nav-font;
 }
 
-.navbar-link:hover {
-    color: $light;
+header {
+    .navbar-link:hover {
+        color: $light;
+    }
+
+    .navbar-link::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $navbarUnderlineHover;
+        transition: width .3s;
+    }
+
+    .navbar-link:hover::after {
+        width: 100%;
+    }
 }
 
-.navbar-link::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: $navbarUnderlineHover;
-    transition: width .3s;
-}
-
-.navbar-link:hover::after {
-    width: 100%;
-}
