@@ -1,9 +1,8 @@
 <section class="pt-4 pb-4">
     <div class="container-fluid">
-        <h2 class="text-center mb-5 mt-5"><span class="span-about-me-primary-color">
-                À PROPOS</span> <span class="font-weight-bold span-about-me-primary-color">DE MOI</span>
+        <h2 class="text-center mb-5"><span class="text-primary">
+                À PROPOS</span> <span class="font-weight-bold text-secondary">DE MOI</span>
         </h2>
-        {% for coachInfo in coachInfos %}
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center">
                     <img class="img-coach-about-me-home" src="build/{{ coachInfo.image }}"
@@ -20,17 +19,17 @@
                     <div>
                         <ul class="nav mt-3" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active span-about-me-secondary-color" id="home-tab" data-toggle="tab"
+                                <a class="nav-link active text-primary" id="home-tab" data-toggle="tab"
                                    href="#home" role="tab" aria-controls="home" aria-selected="true">
                                     Présentation
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                <a class="nav-link text-primary" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
                                    aria-controls="profile" aria-selected="false">Ma Philosophie</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                                <a class="nav-link text-primary" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
                                    aria-controls="contact" aria-selected="false">Mes Certifications</a>
                             </li>
                         </ul>
@@ -60,6 +59,5 @@
                     </div>
                 </div>
             </div>
-        {% endfor %}
     </div>
 </section>

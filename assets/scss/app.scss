@@ -4,9 +4,9 @@
 @import "actuality";
 @import "activity";
 @import "footer";
+@import "map";
 @import "~bootstrap/scss/bootstrap";
 @import "_about_me.scss";
-
 
 body {
     width: 100vw;
@@ -14,7 +14,7 @@ body {
 }
 
 body {
-    background-color: $light;
+    background-color: $ultra-light;
     font-family: 'Qanelas';
 }
 
@@ -33,4 +33,8 @@ h2 {
 section {
     width: 80%;
     margin: 0 auto;
+}
+
+.end-page {
+    height: 50px;
 }
