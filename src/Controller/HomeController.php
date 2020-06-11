@@ -18,9 +18,9 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        $coachInfos = $this->getDoctrine()
+        $coachInfo = $this->getDoctrine()
             ->getRepository(InfoCoach::class)
-            ->findAll();
+            ->findOneBy([]);
 
         $coachDegrees = $this->getDoctrine()
             ->getRepository(Degree::class)
@@ -40,7 +40,7 @@ class HomeController extends AbstractController
 
         return $this->render('home/home.html.twig', [
             'degrees' => $coachDegrees,
-            'coachInfos' => $coachInfos,
+            'coachInfo' => $coachInfo,
             'activities' => $activities,
             'transformations'=>$transformations,
             'actualities' => $actualities,
