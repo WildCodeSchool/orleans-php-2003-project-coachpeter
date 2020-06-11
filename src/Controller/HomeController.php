@@ -20,7 +20,7 @@ class HomeController extends AbstractController
     {
         $coachInfo = $this->getDoctrine()
             ->getRepository(InfoCoach::class)
-            ->find(['id'=>1]);
+            ->findOneBy([]);
 
         $coachDegrees = $this->getDoctrine()
             ->getRepository(Degree::class)

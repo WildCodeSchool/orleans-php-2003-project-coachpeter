@@ -21,10 +21,7 @@ class PhoneFormatExtension extends AbstractExtension
     public function formatPhoneFr($value)
     {
         $array = str_split($value, 2);
-        $newNum = '';
-        for ($i=0; $i<5; $i++) {
-            $newNum .= ($array[$i]." ");
-        }
+        $newNum = implode(' ', $array);
         return $newNum;
     }
 }
