@@ -46,11 +46,7 @@ class InfoCoach
     /**
      * @ORM\Column(type="string", length=10, nullable=true)
      * @Assert\NotBlank(message="Merci de renseigner un numéro de téléphone.")
-     * @Assert\Length(
-     *     min=10,
-     *     max=10,
-     *     minMessage="Le numéro doit faire {{limit}} caractères. (Ex:0611223344)")
-     *     maxMessage="Le numéro doit faire {{limit}} caractères. (Ex:0611223344)"))
+     * @Assert\Length(10, message="Le numéro doit faire {{limit}} caractères. (Ex:0611223344)")
      */
     private $phone;
 
