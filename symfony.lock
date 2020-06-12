@@ -114,6 +114,9 @@
     "fig/link-util": {
         "version": "1.0.0"
     },
+    "fzaninotto/faker": {
+        "version": "v1.9.1"
+    },
     "gitonomy/gitlib": {
         "version": "v1.0.4"
     },
@@ -163,7 +166,7 @@
         "version": "2.5.2"
     },
     "php": {
-        "version": "7.3"
+        "version": "7.2"
     },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
