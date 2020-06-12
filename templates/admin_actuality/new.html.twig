@@ -3,9 +3,9 @@
 {% block title %}New Actuality{% endblock %}
 
 {% block body %}
-    <h1>Create new Actuality</h1>
-
+    <h1  class="text-primary text-center">Create new Actuality</h1>
+<div class="form-group">
     {{ include('admin_actuality/_form.html.twig') }}
-
-    <a href="{{ path('actuality_index') }}">back to list</a>
+</div>
+    <a class="btn btn-light border-primary float-left mx-2" href="{{ path('actuality_index') }}">Retour</a>
 {% endblock %}
