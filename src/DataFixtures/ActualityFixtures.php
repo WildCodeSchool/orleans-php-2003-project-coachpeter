@@ -13,17 +13,16 @@ class ActualityFixtures extends Fixture
 
     public function load(\Doctrine\Persistence\ObjectManager $manager)
     {
-        $faker = Faker\Factory::create( 'fr_FR');
-        for ($i = 1; $i <= 50; $i++) {
+        $faker = Faker\Factory::create('fr_FR');
+        for ($i = 1; $i <= 10; $i++) {
             $actuality = new Actuality();
-            $actuality->setTitle($faker->title);
+            $actuality->setTitle($faker->text(20));
             $actuality->setDate($faker->dateTime);
             $actuality->setContent($faker->text);
-            $actuality->setPicture($faker->imageUrl($width = 640, $height = 480));
-            $actuality->setTheme($faker->title);
+            $actuality->setPicture($faker->imageUrl());
+            $actuality->setTheme($faker->text(20));
             $manager->persist($actuality);
         }
         $manager->flush();
-
     }
 }
