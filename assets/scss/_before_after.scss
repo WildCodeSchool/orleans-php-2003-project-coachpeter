@@ -8,12 +8,14 @@
 .first_image {
     transform: rotate(-10deg);
     width: 100%;
+    box-shadow: -4px 4px 4px 0 rgba(15,15,15,0.5);
 }
 
 .second_image {
     top: 20%;
     left: 80%;
     transform: rotate(10deg);
+    box-shadow: -4px 4px 4px 0 rgba(15,15,15,0.5);
 }
 
 .polaroid_label {
