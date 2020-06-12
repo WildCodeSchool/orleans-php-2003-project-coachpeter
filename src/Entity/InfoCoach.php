@@ -75,7 +75,7 @@ class InfoCoach
     /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank(message="Merci de renseigner un code postal.")
-     * @Assert\Length(5, exactMessage="Le code postal doit faire {{limit}} caractères. (Ex:45100)")
+     * @Assert\Length(5, exactMessage="Le code postal doit être de {{limit}} caractères.")
      */
     private $zipCode;
 
