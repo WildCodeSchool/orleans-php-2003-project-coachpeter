@@ -21,14 +21,14 @@ class ActualityType extends AbstractType
             ->add('content', TextareaType::class, [
                 'label' => 'Article',
             ])
-            ->add('date', DateType::class,[
+            ->add('date', DateType::class, [
                 'label' => 'Date: jour-mois-année',
                 'format' => 'dd MM yyyy',
             ])
             ->add('theme', TextType::class, [
                 'label' => 'Thème'])
             ->add('picture', TextType::class, [
-                'label' => 'Thème']);
+                'label' => 'Image']);
     }
 
     public function configureOptions(OptionsResolver $resolver)
