@@ -5,11 +5,11 @@ namespace App\Form;
 use App\Entity\Actuality;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class ActualityType extends AbstractType
 {
@@ -27,8 +27,11 @@ class ActualityType extends AbstractType
             ])
             ->add('theme', TextType::class, [
                 'label' => 'Thème'])
-            ->add('picture', TextType::class, [
-                'label' => 'Image']);
+            ->add('actualityFile', VichFileType::class, [
+                'required' => false,
+                'allow_delete' => true,
+                'download_uri' => true,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
