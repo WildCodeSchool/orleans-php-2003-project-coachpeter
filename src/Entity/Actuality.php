@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+
 /**
  * @ORM\Entity(repositoryClass=ActualityRepository::class)
  * @Vich\Uploadable()
@@ -59,12 +60,12 @@ class Actuality
 
     /**
      * @Vich\UploadableField(mapping="actuality_file",fileNameProperty="picture")
-     * @var File
+     * @var File|null
      */
     private $actualityFile;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime")
      * @var \DateTime
      */
     private $updatedAt;
