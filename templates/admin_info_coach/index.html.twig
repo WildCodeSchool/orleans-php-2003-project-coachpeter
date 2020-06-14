@@ -1,0 +1,43 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}InfoCoach index{% endblock %}
+
+{% block body %}
+    <h1>InfoCoach index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Catchline</th>
+                <th>Image</th>
+                <th>Philosophy</th>
+                <th>Presentation</th>
+                <th>Phone</th>
+                <th>Mail</th>
+                <th>Adress</th>
+                <th>City</th>
+                <th>ZipCode</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ infoCoach.catchline }}</td>
+                <td>{{ infoCoach.image }}</td>
+                <td>{{ infoCoach.philosophy }}</td>
+                <td>{{ infoCoach.presentation }}</td>
+                <td>{{ infoCoach.phone }}</td>
+                <td>{{ infoCoach.mail }}</td>
+                <td>{{ infoCoach.adress }}</td>
+                <td>{{ infoCoach.city }}</td>
+                <td>{{ infoCoach.zipCode }}</td>
+                <td>
+                    <a href="{{ path('info_coach_show', {'id': infoCoach.id}) }}">show</a>
+                    <a href="{{ path('info_coach_edit', {'id': infoCoach.id}) }}">edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('info_coach_new') }}">Create new</a>
+{% endblock %}
