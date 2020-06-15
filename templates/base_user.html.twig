@@ -1,21 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block meta %}
-    <meta name="robots" content="noindex">
 {% endblock %}
 
 {% block title %}
-    Administration du site Coach Peter
+    Coach Peter
 {% endblock %}
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('app') }}
 {% endblock %}
 {% block navbar %}
-    {% include '_admin_navbar.html.twig' %}
+    {% include '_navbar.html.twig' %}
 {% endblock %}
+
 {% block body %}
 
+{% endblock %}
+
+{% block footer %}
+    {% include 'home/_footer.html.twig' %}
 {% endblock %}
 
 {% block javascripts %}
