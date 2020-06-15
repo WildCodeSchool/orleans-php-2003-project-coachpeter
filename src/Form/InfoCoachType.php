@@ -12,15 +12,15 @@ class InfoCoachType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('phone')
+            ->add('mail')
+            ->add('adress')
+            ->add('zipCode')
+            ->add('city')
             ->add('catchline')
             ->add('image')
             ->add('philosophy')
             ->add('presentation')
-            ->add('phone')
-            ->add('mail')
-            ->add('adress')
-            ->add('city')
-            ->add('zipCode')
         ;
     }
 

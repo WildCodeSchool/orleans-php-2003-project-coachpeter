@@ -1,4 +1,79 @@
-{{ form_start(form) }}
+<div class="container-fluid"> {{ form_start(form) }}
+
+<div class="w-50 m-auto text-center">
+
+    <table class="table w-50 m-auto">
+        <thead>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Téléphone</th>
+            <td>
+                {{ form_errors(form.phone) }}
+                {{ form_widget(form.phone) }}</td>
+        </tr>
+        <tr>
+            <th>Adresse mail</th>
+            <td>
+                {{ form_errors(form.mail) }}
+                {{ form_widget(form.mail) }}
+            </td>
+        </tr>
+        <tr>
+            <th>Adresse</th>
+            <td>
+                {{ form_errors(form.adress) }}
+                {{ form_widget(form.adress) }}</td>
+        </tr>
+        <tr>
+            <th>Code Postal</th>
+            <td>
+                {{ form_errors(form.zipCode) }}
+                {{ form_widget(form.zipCode) }}
+            </td>
+        </tr>
+        <tr>
+            <th>Ville</th>
+            <td>
+                {{ form_errors(form.city) }}
+                {{ form_widget(form.city) }}
+            </td>
+        </tr>
+        <tr>
+            <th>Phrase d'accroche</th>
+            <td>
+                {{ form_errors(form.catchline) }}
+                {{ form_widget(form.catchline) }}
+            </td>
+        </tr>
+        <tr>
+            <th>Image</th>
+            <td>
+                {{ form_errors(form.image) }}
+                {{ form_widget(form.image) }}
+            </td>
+        </tr>
+        <tr>
+            <th>Philosophie</th>
+            <td>
+                {{ form_errors(form.philosophy) }}
+                {{ form_widget(form.philosophy) }}
+            </td>
+        </tr>
+        <tr>
+            <th>Présentation</th>
+            <td>
+                {{ form_errors(form.presentation) }}
+                {{ form_widget(form.presentation) }}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <div>
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+</div>
+    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}
+</div>
