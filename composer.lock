@@ -6473,7 +6473,6 @@
             "keywords": [
                 "database"
             ],
-<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -6488,8 +6487,6 @@
                     "type": "tidelift"
                 }
             ],
-=======
->>>>>>> 22b9f64d88dc076f47ab93d723779344139736e0
             "time": "2020-05-25T19:45:03+00:00"
         },
         {
@@ -6558,7 +6555,6 @@
                 "Fixture",
                 "persistence"
             ],
-<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -6626,11 +6622,9 @@
             "time": "2019-12-12T13:22:17+00:00"
         },
         {
-=======
             "time": "2020-04-02T16:40:37+00:00"
         },
         {
->>>>>>> 22b9f64d88dc076f47ab93d723779344139736e0
             "name": "gitonomy/gitlib",
             "version": "v1.2.1",
             "source": {
