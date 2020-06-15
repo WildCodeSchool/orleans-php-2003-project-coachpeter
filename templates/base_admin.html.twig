@@ -11,7 +11,9 @@
 {% block stylesheets %}
     {{ encore_entry_link_tags('app') }}
 {% endblock %}
-
+{% block navbar %}
+    {% include '_admin_navbar.html.twig' %}
+{% endblock %}
 {% block body %}
 
 {% endblock %}
