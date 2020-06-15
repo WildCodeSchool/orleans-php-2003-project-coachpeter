@@ -17,17 +17,21 @@ class ActualityType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'Titre'])
+                'label' => 'Titre',
+                'attr' => ['style' => "width:300px"]])
             ->add('content', TextareaType::class, [
                 'label' => 'Article',
-            ])
+                'attr' => ['style' => "width:500px; height:500px"
+            ]])
             ->add('date', DateType::class, [
                 'label' => 'Date: jour-mois-année',
                 'format' => 'dd MM yyyy',
             ])
             ->add('theme', TextType::class, [
-                'label' => 'Thème'])
+                'label' => 'Thème',
+                'attr' => ['style' => "width:300px"]])
             ->add('actualityFile', VichFileType::class, [
+                'label' => 'Image à télécharger',
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
