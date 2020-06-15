@@ -20,7 +20,9 @@ class ActualityType extends AbstractType
                 'label' => 'Titre',
                 'attr' => ['style' => "width:300px"]])
             ->add('date', DateType::class, [
-                'format' => "dd MM yyyy"])
+                'label' => 'Date: jour-mois-année',
+                'format' => 'dd MM yyyy',
+            ])
             ->add('theme', TextType::class, [
                 'label' => 'Thème',
                 'attr' => ['style' => "width:300px"]])
