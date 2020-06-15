@@ -7,9 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use \DateTime;
 
 /**
- * @ORM\Entity(repositoryClass=ActualityRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\ActualityRepository", repositoryClass=ActualityRepository::class)
  * @Vich\Uploadable()
  */
 class Actuality
@@ -65,7 +66,7 @@ class Actuality
 
     /**
      * @ORM\Column(type="datetime")
-     * @var \DateTime
+     * @var DateTime
      */
     private $updatedAt;
 
@@ -126,7 +127,7 @@ class Actuality
     {
         $this->actualityFile = $image;
         if ($image) {
-            $this->updatedAt = new \DateTime('now');
+            $this->updatedAt = new DateTime('now');
         }
     }
 
