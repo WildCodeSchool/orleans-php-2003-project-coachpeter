@@ -19,14 +19,8 @@ class ActualityType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Titre',
                 'attr' => ['style' => "width:300px"]])
-            ->add('content', TextareaType::class, [
-                'label' => 'Article',
-                'attr' => ['style' => "width:500px; height:500px"
-            ]])
             ->add('date', DateType::class, [
-                'label' => 'Date: jour-mois-année',
-                'format' => 'dd MM yyyy',
-            ])
+                'format' => "dd MM yyyy"])
             ->add('theme', TextType::class, [
                 'label' => 'Thème',
                 'attr' => ['style' => "width:300px"]])
@@ -35,7 +29,11 @@ class ActualityType extends AbstractType
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
-            ]);
+            ])
+            ->add('content', TextareaType::class, [
+                'label' => 'Contenu',
+                'attr' => ['style' => "width:500px; height:500px"
+                ]]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
