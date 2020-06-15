@@ -1,17 +1,23 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-    <a class="navbar-brand text-primary " href="{{ path('app_admin') }}">Home Admin</a>
+    <a class="navbar-brand text-primary " href="{{ path('app_admin') }}">Accueil Admin</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link text-primary" href="#">Informations</a>
-
-            <a class="nav-item nav-link text-primary" href="#">Certifications</a>
-            <a class="nav-item nav-link text-primary" href="#">Transformations</a>
+            <li class="nav-item dropdown py-2 mr-1">
+                <a class="dropdown-toggle text-primary" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    À propos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item text-primary" href="#">Informations</a>
+                    <a class="dropdown-item text-primary" href="#">Certifications</a>
+                </div>
+            </li>
             <a class="nav-item nav-link text-primary" href="#">Activités</a>
-            <a class="nav-item nav-link text-primary" href="#">F.A.Q.</a>
             <a class="nav-item nav-link text-primary" href="{{ path('actuality_index') }}">Actualités</a>
+            <a class="nav-item nav-link text-primary" href="#">F.A.Q.</a>
+            <a class="nav-item nav-link text-primary" href="#">Transformations</a>
             <a class="nav-item nav-link text-primary" href="{{ path('actuality_index') }}">Gestion de la clientèle</a>
             <a class="nav-item nav-link text-primary" href="{{ path('actuality_index') }}">Gestion des programmes</a>
         </div>
