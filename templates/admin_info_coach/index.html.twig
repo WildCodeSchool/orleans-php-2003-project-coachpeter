@@ -3,41 +3,64 @@
 {% block title %}InfoCoach index{% endblock %}
 
 {% block body %}
-    <h1>InfoCoach index</h1>
-
-    <table class="table">
+    <h1 class="text-primary m-auto text-center">Administration InfoCoach</h1>
+        {% if infoCoach %}
+    <table class="table w-50 m-auto">
         <thead>
-            <tr>
-                <th>Catchline</th>
-                <th>Image</th>
-                <th>Philosophy</th>
-                <th>Presentation</th>
-                <th>Phone</th>
-                <th>Mail</th>
-                <th>Adress</th>
-                <th>City</th>
-                <th>ZipCode</th>
-                <th>actions</th>
-            </tr>
         </thead>
         <tbody>
             <tr>
-                <td>{{ infoCoach.catchline }}</td>
-                <td>{{ infoCoach.image }}</td>
-                <td>{{ infoCoach.philosophy }}</td>
-                <td>{{ infoCoach.presentation }}</td>
+                <th>Téléphone</th>
                 <td>{{ infoCoach.phone }}</td>
+            </tr>
+            <tr>
+                <th>E_Mail</th>
                 <td>{{ infoCoach.mail }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
                 <td>{{ infoCoach.adress }}</td>
-                <td>{{ infoCoach.city }}</td>
+            </tr>
+            <tr>
+                <th>Code Postal</th>
                 <td>{{ infoCoach.zipCode }}</td>
-                <td>
-                    <a href="{{ path('info_coach_show', {'id': infoCoach.id}) }}">show</a>
-                    <a href="{{ path('info_coach_edit', {'id': infoCoach.id}) }}">edit</a>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ infoCoach.city }}</td>
+            </tr>
+            <tr>
+                <th>Phrase d'accroche</th>
+                <td>{{ infoCoach.catchline }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img class="w-25" src="/./build/{{ infoCoach.image }}" alt="image">
                 </td>
+            </tr>
+            <tr>
+                <th>Philosophie</th>
+                <td>{{ infoCoach.philosophy }}</td>
+            </tr>
+            <tr>
+                <th>Présentation</th>
+                <td>{{ infoCoach.presentation }}</td>
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('info_coach_new') }}">Create new</a>
+    <div class="w-25 m-auto text-center">
+        <a class="btn btn-primary mx-2" href="{{ path('info_coach_edit', {'id': infoCoach.id}) }}">
+            <svg class="bi bi-pencil-square" width="24px" height="24px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+            </svg>
+        </a>
+    </div>
+        {% else %}
+            <a class="btn btn-primary" href="{{ path('info_coach_new') }}">
+                <svg class="bi bi-plus-circle-fill" width="24px" height="24px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
+                </svg>
+            </a>
+        {% endif %}
 {% endblock %}
