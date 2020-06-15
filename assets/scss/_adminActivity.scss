@@ -1,39 +1,9 @@
 @import "vars";
-$textbg: rgba(255, 255, 255, 0.53);
-
-@mixin htext($fontFam, $fontSize, $color, $background, $bradius) {
-    font-family: $fontFam;
-    font-size: $fontSize;
-    color: $dark;
-    background-color: $background;
-    border-radius: $bradius;
-}
-
-.activityHeandband {
-    height: 389px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("../../assets/images/backgroundActivity.jpeg");
-
-    h1 {
-        @include htext($nav-font, $xlarge-font-size, $dark, $textbg, 10px)
-    }
-
-    h2 {
-        @include htext($main-font, $large-font-size, $dark, $textbg, 10px)
-    }
-}
 
 .adminActivity {
 
-    td, th {
-        text-align: center;
-        text-justify: auto;
-    }
-
     thead {
         background-color: $primary;
-        color: $light;
     }
 
     img {
@@ -43,9 +13,5 @@ $textbg: rgba(255, 255, 255, 0.53);
 
     a:hover {
         text-decoration: none;
-    }
-
-    .picto {
-        width: 40px;
     }
 }

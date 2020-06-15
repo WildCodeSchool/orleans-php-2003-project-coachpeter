@@ -50,6 +50,11 @@ class Activity
      */
     private $focus;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=CoachType::class, inversedBy="activities")
+     */
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -111,6 +116,18 @@ class Activity
     public function setFocus(bool $focus): self
     {
         $this->focus = $focus;
+
+        return $this;
+    }
+
+    public function getCategory(): ?CoachType
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?CoachType $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
