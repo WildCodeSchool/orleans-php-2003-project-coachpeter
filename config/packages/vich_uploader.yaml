@@ -6,3 +6,8 @@ vich_uploader:
       uri_prefix: /uploads
       upload_destination:  '%upload_directory%'
       namer: Vich\UploaderBundle\Naming\UniqidNamer
+
+    actuality_file:
+       uri_prefix: /uploads/actualites
+       upload_destination:  '%upload_directory%/actualites'
+       namer: Vich\UploaderBundle\Naming\UniqidNamer
