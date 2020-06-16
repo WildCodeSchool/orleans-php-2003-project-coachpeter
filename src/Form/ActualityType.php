@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ActualityType extends AbstractType
 {
@@ -26,7 +27,7 @@ class ActualityType extends AbstractType
             ->add('theme', TextType::class, [
                 'label' => 'Thème',
                 'attr' => ['style' => "width:300px"]])
-            ->add('actualityFile', VichFileType::class, [
+            ->add('actualityFile', VichImageType::class, [
                 'label' => 'Image à télécharger',
                 'required' => false,
                 'allow_delete' => true,
