@@ -9,14 +9,20 @@
 
 {% block body %}
     <div class="adminActivity">
-        <h1 class="text-primary text-center">Actualités</h1>
+        <h1 class="text-primary text-center">Activités</h1>
 
         <div class="m-2 mb-4 mr-4 text-right">
-            <a class="btn btn-light border-primary float-left mx-2" href="">Retour</a>
-            <a class="btn btn-primary mx-2" href="{{ path('activity_new') }}">Nouvelle activité</a>
+            <a class="btn btn-light text-primary border-primary mx-2" href="{{ path('activity_new') }}">
+                Ajouter
+                <svg class="bi bi-plus-circle-fill" width="24px" height="24px" viewBox="0 0 16 16" fill="#00384f" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
+                </svg>
+            </a>
         </div>
 
-        <table class="table w-75 text-center m-auto table-hover">
+
+
+        <table class="table table-striped w-75 text-center m-auto table-hover table-borderless">
             <thead class="bg-primary text-light">
             <tr class="row mx-0">
                 <th class="col-2">Nom</th>
@@ -30,10 +36,10 @@
 
             <tbody>
             {% for activity in activities %}
-                <tr class="d-flex">
+                <tr class="d-flex align-items-center">
                     <td class="col-2" >{{ activity.title }}</td>
                     <td class="col-3">{{ activity.description [:70]}}...</td>
-                    <td class="col-2" ><img class="picture" src="{{ activity.picture }}"></td>
+                    <td class="col-2" ><img class="picture w-50" src="{{ activity.picture }}"></td>
                     <td class="col-2">{{ activity.category.category }}</td>
                     <td class="col-1">{{ activity.focus ? 'Oui' : 'Non' }}</td>
                     <td class="col-2">
