@@ -1,0 +1,11 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}New InfoCoach{% endblock %}
+
+{% block body %}
+    <h1>Create new InfoCoach</h1>
+
+    {{ include('admin_info_coach/_form.html.twig') }}
+
+    <a href="{{ path('info_coach_index') }}">back to list</a>
+{% endblock %}
