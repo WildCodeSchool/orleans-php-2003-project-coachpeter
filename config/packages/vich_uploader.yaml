@@ -3,5 +3,5 @@ vich_uploader:
 
     mappings:
        actuality_file:
-           uri_prefix: /images/actualities
+           uri_prefix: /images/actualites
            upload_destination:  '%upload_directory%'
