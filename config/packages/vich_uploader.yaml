@@ -1,0 +1,8 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+       actuality_file:
+           uri_prefix: /uploads/actualites
+           upload_destination:  '%upload_directory%/actualites'
+           namer: Vich\UploaderBundle\Naming\UniqidNamer
