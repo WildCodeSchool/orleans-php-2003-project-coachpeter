@@ -65,7 +65,7 @@ class Actuality
      *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
      * il ne doit pas dépasser {{ limit }} {{ suffix }}",
      *     mimeTypes = {"image/jpeg", "image/jpg", "image/gif","image/png"},
-     *     mimeTypesMessage = "Veuillez entrer un format de fichier valide: jpg, jpeg, png ou gif.")
+     *     mimeTypesMessage = "Veuillez entrer un type de fichier valide: jpg, jpeg, png ou gif.")
      */
     private $actualityFile;
 
