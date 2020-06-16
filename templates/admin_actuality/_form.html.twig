@@ -2,12 +2,18 @@
 <div class="justify-content-center m-2 text-primary text-center">
     <div class="h5">
         {{ form_label(form.title) }}
+        <div class="text-danger">
+        {{ form_errors(form.title) }}
+        </div>
     </div>
     {{ form_widget(form.title) }}
 </div>
 <div class="justify-content-center m-2 my-4 text-primary text-center">
     <div class="h5">
         {{ form_label(form.date) }}
+        <div class="text-danger">
+            {{ form_errors(form.date) }}
+        </div>
     </div>
     {{ form_widget(form.date) }}
 
@@ -15,18 +21,27 @@
 <div class="justify-content-center m-2 my-4 text-primary text-center">
     <div class="h5">
         {{ form_label(form.theme) }}
+        <div class="text-danger">
+            {{ form_errors(form.theme) }}
+        </div>
     </div>
     {{ form_widget(form.theme) }}
 </div>
 <div class="justify-content-center m-2 my-4 text-primary text-center">
     <div class="h5">
         {{ form_label(form.actualityFile) }}
+        <div class="text-danger">
+            {{ form_errors(form.actualityFile) }}
+        </div>
     </div>
     {{ form_widget(form.actualityFile) }}
 </div>
 <div class="justify-content-center m-2 text-primary text-center">
     <div class="h5">
         {{ form_label(form.content) }}
+        <div class="text-danger">
+            {{ form_errors(form.content) }}
+        </div>
     </div>
     {{ form_widget(form.content) }}
 </div>
