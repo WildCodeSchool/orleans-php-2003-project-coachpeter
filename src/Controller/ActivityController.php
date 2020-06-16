@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Activity;
-use App\Entity\CoachType;
+use App\Entity\CoachingCategory;
 use App\Form\ActivityType;
 use App\Repository\ActivityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/activités")
+ * @Route("/activites")
  */
 class ActivityController extends AbstractController
 {
@@ -21,12 +21,13 @@ class ActivityController extends AbstractController
      */
     public function index(ActivityRepository $activityRepository): Response
     {
-        $category = $this->getDoctrine()
-            ->getRepository(CoachType::class)
+        $activity = $this->getDoctrine()
+            ->getRepository(Activity::class)
             ->findAll();
+
         return $this->render('admin_activity/index.html.twig', [
             'activities' => $activityRepository->findBy(
-                ['category' => $category],
+                ['id' => $activity],
                 ['category' => 'DESC']
             ),
         ]);

@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\CoachTypeRepository;
+use App\Repository\CoachingCategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CoachTypeRepository::class)
+ * @ORM\Entity(repositoryClass=CoachingCategoryRepository::class)
  */
-class CoachType
+class CoachingCategory
 {
     /**
      * @ORM\Id()

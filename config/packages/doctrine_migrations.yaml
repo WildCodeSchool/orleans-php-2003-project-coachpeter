@@ -1,4 +1,0 @@
-doctrine_migrations:
-  # List of namespace/path pairs to search for migrations, at least one required
-  migrations_paths:
-    'App\Migrations': 'src/App'

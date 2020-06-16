@@ -40,7 +40,7 @@
                     <td class="col-2" >{{ activity.title }}</td>
                     <td class="col-3">{{ activity.description [:70]}}...</td>
                     <td class="col-2" ><img class="picture w-50" src="{{ activity.picture }}"></td>
-                    <td class="col-2">{{ activity.category.category }}</td>
+                    <td class="col-2">{{ activity.category.category ?? 'Sans catégorie' }}</td>
                     <td class="col-1">{{ activity.focus ? 'Oui' : 'Non' }}</td>
                     <td class="col-2">
                         <a href="{{ path('activity_show', {'id': activity.id}) }}">
