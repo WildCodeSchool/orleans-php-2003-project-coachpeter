@@ -5791,8 +5791,6 @@
             ],
             "description": "Symfony Templating Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5807,7 +5805,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> 8dea4aec9afd09a21352fad2f52731b102cfa6cf
             "time": "2020-05-26T09:42:42+00:00"
         },
         {
