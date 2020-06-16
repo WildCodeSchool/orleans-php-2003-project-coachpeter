@@ -4,10 +4,14 @@ namespace App\Entity;
 
 use App\Repository\InfoCoachRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use \DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=InfoCoachRepository::class)
+ * @Vich\Uploadable
  */
 class InfoCoach
 {
@@ -32,6 +36,21 @@ class InfoCoach
      * caractères.")
      */
     private $image;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="coach_image", fileNameProperty="image")
+     *
+     * @Assert\File(maxSize = "200k",
+     *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
+     * il ne doit pas dépasser {{ limit }} {{ suffix }}",
+     *     mimeTypes = {"image/jpeg", "image/jpg", "image/gif","image/png"},
+     *     mimeTypesMessage = "Veuillez entrer un type de fichier valide: jpg, jpeg, png ou gif.")
+     *
+     * @var File
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -79,6 +98,12 @@ class InfoCoach
      */
     private $zipCode;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var DateTime
+     */
+    private $updatedAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -101,7 +126,7 @@ class InfoCoach
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage($image): self
     {
         $this->image = $image;
 
@@ -190,5 +215,17 @@ class InfoCoach
         $this->city = $city;
 
         return $this;
+    }
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+    }
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
     }
 }
