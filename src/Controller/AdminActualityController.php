@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/actuality")
+ * @Route("/admin/actualite")
  */
 class AdminActualityController extends AbstractController
 {
     /**
-     * @Route("/", name="actuality_index", methods={"GET"})
+     * @Route("/", name="actualite_index", methods={"GET"})
      */
     public function index(ActualityRepository $actualityRepository): Response
     {
@@ -26,7 +26,7 @@ class AdminActualityController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="actuality_new", methods={"GET","POST"})
+     * @Route("/new", name="actualite_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -43,23 +43,23 @@ class AdminActualityController extends AbstractController
         }
 
         return $this->render('admin_actuality/new.html.twig', [
-            'admin_actuality' => $actuality,
+            'actuality' => $actuality,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="actuality_show", methods={"GET"})
+     * @Route("/{id}", name="actualite_show", methods={"GET"})
      */
     public function show(Actuality $actuality): Response
     {
         return $this->render('admin_actuality/show.html.twig', [
-            'admin_actuality' => $actuality,
+            'actuality' => $actuality,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="actuality_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="actualite_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Actuality $actuality): Response
     {
@@ -73,13 +73,13 @@ class AdminActualityController extends AbstractController
         }
 
         return $this->render('admin_actuality/edit.html.twig', [
-            'admin_actuality' => $actuality,
+            'actuality' => $actuality,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="actuality_delete", methods={"DELETE"})
+     * @Route("/{id}", name="actualite_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Actuality $actuality): Response
     {
@@ -89,6 +89,6 @@ class AdminActualityController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('actuality_index');
+        return $this->redirectToRoute('actualite_index');
     }
 }
