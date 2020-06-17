@@ -33,7 +33,7 @@
                 <tr class="d-flex align-items-center">
                     <td class="col-2" >{{ activity.title }}</td>
                     <td class="col-3">{{ activity.description [:70]}}...</td>
-                    <td class="col-2" ><img class="picture w-50" src="{{ activity.picture }}"></td>
+                    <td class="col-2" ><img class="picture w-50" src="{{ activity.picture }}" alt="Photo d'illustration de l'activité"></td>
                     <td class="col-2">{{ activity.category.category ?? 'Sans catégorie' }}</td>
                     <td class="col-1">{{ activity.focus ? 'Oui' : 'Non' }}</td>
                     <td class="col-2">
