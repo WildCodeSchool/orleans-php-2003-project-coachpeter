@@ -88,7 +88,7 @@ class AdminActualityController extends AbstractController
             $entityManager->remove($actuality);
             $entityManager->flush();
         }
-
+        $this->addFlash('success', 'L\'actualité a bien été supprimée');
         return $this->redirectToRoute('actuality_index');
     }
 }
