@@ -1,0 +1,41 @@
+{{ form_start(form) }}
+
+
+<table class="table w-50 m-auto">
+    <thead>
+    </thead>
+    <tbody>
+    <tr>
+        <th>Nom</th>
+        <td>
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name) }}
+        </td>
+    </tr>
+    <tr>
+        <th>Poids perdu</th>
+        <td>
+            {{ form_errors(form.pound) }}
+            {{ form_widget(form.pound) }}
+        </td>
+    </tr>
+    <tr>
+        <th>Photo avant</th>
+        <td>
+            {{ form_errors(form.pictureBefore) }}
+            {{ form_widget(form.pictureBefore) }}
+        </td>
+    </tr>
+    <tr>
+        <th>Photo après</th>
+        <td>
+            {{ form_errors(form.pictureAfter) }}
+            {{ form_widget(form.pictureAfter) }}
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+    {{ form_widget(form) }}
+    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}
