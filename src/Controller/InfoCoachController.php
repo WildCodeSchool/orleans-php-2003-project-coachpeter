@@ -68,6 +68,7 @@ class InfoCoachController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Les informations ont bien été mise à jour.');
 
             return $this->redirectToRoute('info_coach_index');
         }

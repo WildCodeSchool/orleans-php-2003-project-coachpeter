@@ -4,10 +4,14 @@ namespace App\Entity;
 
 use App\Repository\ActualityRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use \DateTime;
 
 /**
- * @ORM\Entity(repositoryClass=ActualityRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\ActualityRepository", repositoryClass=ActualityRepository::class)
+ * @Vich\Uploadable()
  */
 class Actuality
 {
@@ -48,11 +52,28 @@ class Actuality
     private $theme;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Veuillez indiquer le nom d'un fichier")
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
      * @Assert\Length(max=255, maxMessage="Le nom est trop long, il ne devrait pas dépasser {{ limit}} caractères")
      */
     private $picture;
+
+    /**
+     * @Vich\UploadableField(mapping="actuality_file",fileNameProperty="picture")
+     * @var File|null
+     * @Assert\File(maxSize = "200k",
+     *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
+     * il ne doit pas dépasser {{ limit }} {{ suffix }}",
+     *     mimeTypes = {"image/jpeg", "image/jpg", "image/gif","image/png"},
+     *     mimeTypesMessage = "Veuillez entrer un type de fichier valide: jpg, jpeg, png ou gif.")
+     */
+    private $actualityFile;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var DateTime|null
+     */
+    private $updatedAt;
 
     public function getId(): ?int
     {
@@ -105,6 +126,19 @@ class Actuality
         $this->theme = $theme;
 
         return $this;
+    }
+
+    public function setActualityFile(File $image = null)
+    {
+        $this->actualityFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+    }
+
+    public function getActualityFile(): ?File
+    {
+        return $this->actualityFile;
     }
 
     public function getPicture(): ?string
