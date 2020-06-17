@@ -1,0 +1,29 @@
+input {
+    width: $form-width-s;
+}
+
+
+.form-w-1 {
+    width: $form-width-xs ;
+}
+
+.form-w-2 {
+    width: $form-width-m ;
+}
+
+.form-w-3 {
+    width: $form-width-l ;
+}
+
+.form-w-4 {
+    width: $form-width-xl ;
+}
+.form-h-1 {
+    height: $form-height-s;
+}
+.form-h-2 {
+    height: $form-height-m;
+}
+.form-h-3 {
+    height: $form-height-l;
+}
