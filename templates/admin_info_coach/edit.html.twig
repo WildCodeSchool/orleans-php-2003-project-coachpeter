@@ -3,11 +3,10 @@
 {% block title %}Edition des informations liées au Coach Peter{% endblock %}
 
 {% block body %}
-    <h1>Edition des informations liées au Coach Peter</h1>
+    <h1 class="text-center text-primary">Edition des informations liées au Coach Peter</h1>
 
-    {{ include('admin_info_coach/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin_info_coach/_form.html.twig', {'button_label': 'Enregistrer'}) }}
 
-    <a href="{{ path('info_coach_index') }}">Retour</a>
+    <a class="btn btn-primary" href="{{ path('info_coach_index') }}">Retour</a>
 
-    {{ include('admin_info_coach/_delete_form.html.twig') }}
 {% endblock %}

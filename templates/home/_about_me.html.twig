@@ -5,7 +5,7 @@
         </h2>
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center">
-                    <img class="img-coach-about-me-home" src="build/{{ coachInfo.image }}"
+                    <img class="img-coach-about-me-home" src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
                          alt="Coach Peter">
                 </div>
                 <div class="col-lg-6 c">
