@@ -12,22 +12,18 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/activites")
+ * @Route("/admin/activites")
  */
-class ActivityController extends AbstractController
+class AdminActivityController extends AbstractController
 {
     /**
      * @Route("/index", name="activity_index", methods={"GET"})
      */
     public function index(ActivityRepository $activityRepository): Response
     {
-        $activity = $this->getDoctrine()
-            ->getRepository(Activity::class)
-            ->findAll();
-
         return $this->render('admin_activity/index.html.twig', [
             'activities' => $activityRepository->findBy(
-                ['id' => $activity],
+                [],
                 ['category' => 'DESC']
             ),
         ]);

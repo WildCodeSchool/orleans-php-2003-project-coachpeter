@@ -21,6 +21,9 @@ class CoachingCategory
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez indiquer le nom de la catégorie")
+     * @Assert\Length(max=255, maxMessage="Le nom de la catégorie {{ value }} est trop long,
+     * il ne devrait pas dépasser {{ limit}} caractères.")
      */
     private $category;
 
