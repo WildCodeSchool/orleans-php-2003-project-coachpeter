@@ -21,7 +21,7 @@ class Faq
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Merci de saisir une question")
-     * @Assert\Length(max=255, maxMessage="La question doit être inférieur à {{ limit }} caractères")
+     * @Assert\Length(max=255, maxMessage="La question doit être inférieure à {{ limit }} caractères")
      */
     private $question;
 
