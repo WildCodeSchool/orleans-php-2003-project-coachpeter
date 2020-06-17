@@ -38,7 +38,7 @@ class AdminActualityController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($actuality);
             $entityManager->flush();
-
+            $this->addFlash('success', 'L\'actualité a bien été ajoutée');
             return $this->redirectToRoute('actuality_index');
         }
 
