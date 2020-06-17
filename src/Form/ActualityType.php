@@ -34,7 +34,7 @@ class ActualityType extends AbstractType
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu',
-                'attr' => ['style' => "width:500px; height:500px"
+                'attr' => ['style' => "width:500px; height:300px"
                 ]]);
     }
 
