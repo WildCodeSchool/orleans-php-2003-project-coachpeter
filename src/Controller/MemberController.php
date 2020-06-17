@@ -8,10 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MembreController extends AbstractController
+class MemberController extends AbstractController
 {
     /**
-     * @Route("/membre", name="app_membre")
+     * @Route("/membre", name="app_member")
      */
     public function index() : Response
     {
@@ -19,7 +19,7 @@ class MembreController extends AbstractController
             ->getRepository(InfoCoach::class)
             ->findOneBy([]);
 
-        return $this->render('membre/index.html.twig', [
+        return $this->render('member/index.html.twig', [
             'coachInfo' => $coachInfo,
         ]);
     }
