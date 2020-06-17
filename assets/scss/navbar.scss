@@ -69,5 +69,9 @@ header {
     .navbar-link:hover::after {
         width: 100%;
     }
+
+    .nav a {
+        color: $light;
+    }
 }
 
