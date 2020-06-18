@@ -18,14 +18,17 @@ class ActualityType extends AbstractType
         $builder
             ->add('title', TextType::class, [
                 'label' => 'Titre',
-            ])
+                'attr' => ['class' => "col-12"
+            ]])
             ->add('date', DateType::class, [
                 'label' => 'Date: jour-mois-année',
                 'format' => 'dd/MM/yyyy',
             ])
             ->add('theme', TextType::class, [
                 'label' => 'Thème',
-            ])
+                'attr' => ['class' => "col-12"
+                ]])
+
             ->add('actualityFile', VichImageType::class, [
                 'label' => 'Image à télécharger',
                 'required' => false,
@@ -34,7 +37,7 @@ class ActualityType extends AbstractType
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu',
-                'attr' => ['class' => "form-h-3 form-w-3"
+                'attr' => ['class' => "col-12 form-h-2"
                 ]]);
     }
 
