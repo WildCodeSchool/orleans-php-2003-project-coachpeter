@@ -15,8 +15,8 @@ class FaqFixtures extends Fixture
 
         for ($i = 1; $i <= 10; $i++) {
             $faq = new Faq();
-            $faq->setQuestion($faker->text(100));
-            $faq->setAnswer($faker->text(200));
+            $faq->setQuestion($faker->realText(100));
+            $faq->setAnswer($faker->realText(200));
             $manager->persist($faq);
         }
         $manager->flush();
