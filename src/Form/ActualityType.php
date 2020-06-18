@@ -19,7 +19,7 @@ class ActualityType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Titre',
                 'attr' => ['class' => "col-12"
-            ]])
+                ]])
             ->add('date', DateType::class, [
                 'label' => 'Date: jour-mois-année',
                 'format' => 'dd/MM/yyyy',
@@ -28,7 +28,6 @@ class ActualityType extends AbstractType
                 'label' => 'Thème',
                 'attr' => ['class' => "col-12"
                 ]])
-
             ->add('actualityFile', VichImageType::class, [
                 'label' => 'Image à télécharger',
                 'required' => false,
