@@ -9,8 +9,8 @@
         {% endif %}
 
         {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            <div class="m-3 text-center text-primary">
+                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}" class="btn btn-light text-primary border-primary" >Logout</a>
             </div>
         {% endif %}
 
