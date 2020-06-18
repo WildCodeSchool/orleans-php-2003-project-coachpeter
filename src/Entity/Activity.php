@@ -34,6 +34,8 @@ class Activity
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long,
+     * il ne devrait pas dépasser {{ limit}} caractères")
      */
     private $pictogram;
 
@@ -47,6 +49,9 @@ class Activity
 
     /**
      * @ORM\Column(type="boolean")
+     * @Assert\Type(
+     *     type="boolean",
+     *     message="{{ value }} n'est pas une bonne valeur, votre choix doit être oui ou non")
      */
     private $focus;
 
