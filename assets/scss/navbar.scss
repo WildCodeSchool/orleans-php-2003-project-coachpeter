@@ -3,7 +3,6 @@ $colorHoverHeader: rgba(0, 56, 79, 0.85);
 $navbarUnderlineHover: #00ffff;
 $navbar-light-brand-color: #FFF;
 
-header {
     .top-img {
         width: 100vw;
         height: 689px;
@@ -15,13 +14,15 @@ header {
     header .container-banner{
         top:0;
         margin: auto;
-        width: 80%;
     }
 
     .navbar {
         border-top: solid 1px $light ;
     }
-
+    .navbar-collapse {
+        z-index: 50;
+        top: -20px;
+    }
     .bluehover {
         top: 0;
         left: 0;
@@ -77,5 +78,11 @@ header {
         }
     }
 
+    @media screen and (max-width: 500px) {
 
-}
+        .navbar-collapse {
+            top:50px;
+            background-color: $primary-transparent;
+        }
+    }
+
