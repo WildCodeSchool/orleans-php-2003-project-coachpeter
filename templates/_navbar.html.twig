@@ -1,21 +1,21 @@
 <header class="top-img d-flex justify-content-center">
-    {# ces deux div servent à faire l'image de fond recouverte d'un fond bleu sur la page d'accueil #}
     <div class="bluehover position-relative"></div>
+
     <div class="container-banner position-absolute ">
-        <div class="supnavbar row  m-auto mt-3">
-            <div class=" col-6 infoheader d-flex flex-row">
-                <div class="ml-3 mr-4 d-flex flex-row">
+        <div class="supnavbar d-flex flex-column flex-md-row m-auto mt-3">
+            <div class="justify-content-center infoheader d-flex flex-row mt-2">
+                <div class="col-6 col-md-9 ml-4 d-flex flex-row">
                     <img class="mx-1 d-flex flex-row" src="{{ asset('build/blue_location.svg') }}">
                     <p>{{ coachInfo.adress }}, {{ coachInfo.zipCode }} {{ coachInfo.city|upper }}</p>
                 </div>
-                <div class="d-flex flex-row">
+                <div class="col-6 col-md-5 px-0 d-flex">
                     <img class="mx-1 d-flex flex-row" src="{{ asset('build/blue_tel.svg') }}">
                     <p>{{ coachInfo.phone|formatPhoneFr }}</p>
                 </div>
             </div>
 
-            <div class="col-6 d-flex justify-content-end">
-                <div class="col-4 d-flex justify-content-around">
+            <div class="col-4 offset-md-2 offset-4 mr-0 col-6 d-flex  justify-content-sm-end">
+                <div class="col-10 col-md-4 d-flex justify-content-between">
                     <a href="https://fr-fr.facebook.com/coachpeter.orleans/" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_facebook.svg') }}" alt="Lien vers page Facebook"></a>
                     <a href="https://instagram.com/coach_peter.orleans?igshid=crqgsjokas3f" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_insta.svg') }}" alt="Lien vers page Instagram"></a>
                     <a href=""><img class="navbar-text" src="{{ asset('build/blue_connection.svg') }}" alt="Lien vers page de connexion"></a>
@@ -24,14 +24,14 @@
             </div>
         </div>
 
-        <nav class="navbar m-auto navbar-expand-lg">
+
+        <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#"><img src="{{ asset('build/peter_logo_white.png') }}" alt="logo coach Peter"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">
-                <ul class="navbar-nav mr-0">
+            <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
                         <a class="nav-link navbar-link" href="{{ path('app_index') }}" >Accueil</a>
                     </li>
