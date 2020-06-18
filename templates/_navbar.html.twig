@@ -39,7 +39,7 @@
                     {% endif %}
                     {% if is_granted('ROLE_MEMBER') %}
                         <li class="nav-item">
-                            <a class="nav-link navbar-link" href="">Espace Membre</a>
+                            <a class="nav-link navbar-link" href="{{ path('app_member') }}">Espace Membre</a>
                         </li>
                     {% endif %}
                     <li class="nav-item">
