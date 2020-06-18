@@ -37,6 +37,11 @@
                             <a class="nav-link navbar-link" href="{{ path('app_admin') }}">Admin</a>
                         </li>
                     {% endif %}
+                    {% if is_granted('ROLE_MEMBER') %}
+                        <li class="nav-item">
+                            <a class="nav-link navbar-link" href="">Espace Membre</a>
+                        </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link navbar-link" href="{{ path('app_index') }}" >Accueil</a>
                     </li>
