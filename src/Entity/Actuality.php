@@ -70,8 +70,8 @@ class Actuality
     private $actualityFile;
 
     /**
-     * @ORM\Column(type="datetime")
-     * @var DateTime
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var DateTime|null
      */
     private $updatedAt;
 

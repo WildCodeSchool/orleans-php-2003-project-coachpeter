@@ -10,14 +10,14 @@
                     À propos
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item text-primary" href="#">Informations</a>
+                    <a class="dropdown-item text-primary" href="{{ path('info_coach_index') }}">Informations</a>
                     <a class="dropdown-item text-primary" href="#">Certifications</a>
                 </div>
             </li>
-            <a class="nav-item nav-link text-primary" href="#">Activités</a>
+            <a class="nav-item nav-link text-primary" href="{{ path('activity_index') }}">Activités</a>
             <a class="nav-item nav-link text-primary" href="{{ path('actuality_index') }}">Actualités</a>
             <a class="nav-item nav-link text-primary" href="#">F.A.Q.</a>
-            <a class="nav-item nav-link text-primary" href="#">Transformations</a>
+            <a class="nav-item nav-link text-primary" href="{{ path('transformation_index') }}">Transformations</a>
             <a class="nav-item nav-link text-primary" href="{{ path('actuality_index') }}">Gestion de la clientèle</a>
             <a class="nav-item nav-link text-primary" href="{{ path('actuality_index') }}">Gestion des programmes</a>
         </div>
