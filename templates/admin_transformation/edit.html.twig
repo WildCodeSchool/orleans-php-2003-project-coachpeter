@@ -1,0 +1,13 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Administration Transformations{% endblock %}
+
+{% block body %}
+    <h1 class="text-primary text-center">Edit Transformation</h1>
+
+    {{ include('admin_transformation/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-primary" href="{{ path('transformation_index') }}">Retour</a>
+
+    {{ include('admin_transformation/_delete_form.html.twig') }}
+{% endblock %}
