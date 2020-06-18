@@ -32,6 +32,11 @@
 
             <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">
                 <ul class="navbar-nav mr-0">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item">
+                            <a class="nav-link navbar-link" href="{{ path('app_admin') }}">Admin</a>
+                        </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link navbar-link" href="{{ path('app_index') }}" >Accueil</a>
                     </li>
