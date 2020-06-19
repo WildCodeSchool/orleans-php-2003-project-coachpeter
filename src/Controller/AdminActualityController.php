@@ -43,7 +43,7 @@ class AdminActualityController extends AbstractController
         }
 
         return $this->render('admin_actuality/new.html.twig', [
-            'admin_actuality' => $actuality,
+            'actuality' => $actuality,
             'form' => $form->createView(),
         ]);
     }
@@ -54,7 +54,7 @@ class AdminActualityController extends AbstractController
     public function show(Actuality $actuality): Response
     {
         return $this->render('admin_actuality/show.html.twig', [
-            'admin_actuality' => $actuality,
+            'actuality' => $actuality,
         ]);
     }
 
@@ -68,12 +68,12 @@ class AdminActualityController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('success', 'L\'actualité a bien été modifiée');
             return $this->redirectToRoute('actuality_index');
         }
 
         return $this->render('admin_actuality/edit.html.twig', [
-            'admin_actuality' => $actuality,
+            'actuality' => $actuality,
             'form' => $form->createView(),
         ]);
     }
@@ -88,7 +88,7 @@ class AdminActualityController extends AbstractController
             $entityManager->remove($actuality);
             $entityManager->flush();
         }
-
+        $this->addFlash('success', 'L\'actualité a bien été supprimée');
         return $this->redirectToRoute('actuality_index');
     }
 }
