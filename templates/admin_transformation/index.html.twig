@@ -20,8 +20,8 @@
             <tr class="row mx-0">
                 <td class="col-2 m-auto">{{ transformation.name }}</td>
                 <td class="col-2 m-auto">{{ transformation.pound }}</td>
-                <td class="col-3 m-auto"><img class="w-50" src="{{ transformation.pictureBefore }}" alt="Photo avant la perte de poids de {{ transformation.name }}"></td>
-                <td class="col-3 m-auto"><img class="w-50" src="{{ transformation.pictureAfter }}" alt="Photo après la perte de poids de {{ transformation.name }}"></td>
+                <td class="col-3 m-auto"><img class="w-50" src="../../uploads/transformations/{{ transformation.pictureBefore }}" alt="Photo avant la perte de poids de {{ transformation.name }}"></td>
+                <td class="col-3 m-auto"><img class="w-50" src="../../uploads/transformations/{{ transformation.pictureAfter }}" alt="Photo après la perte de poids de {{ transformation.name }}"></td>
                 <td class="col-1 m-auto align-middle">
                     <a class="btn text-primary" href="{{ path('transformation_edit', {'id': transformation.id}) }}">
                         <svg class="bi bi-pencil-square" width="24px" height="24px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
