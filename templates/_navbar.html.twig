@@ -17,40 +17,48 @@
                 <div class="col-12 d-flex justify-content-between">
                     <a href="https://fr-fr.facebook.com/coachpeter.orleans/" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_facebook.svg') }}" alt="Lien vers page Facebook"></a>
                     <a href="https://instagram.com/coach_peter.orleans?igshid=crqgsjokas3f" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_insta.svg') }}" alt="Lien vers page Instagram"></a>
-                    <a href=""><img class="navbar-text" src="{{ asset('build/blue_connection.svg') }}" alt="Lien vers page de connexion"></a>
+                    <a href="{{ path('app_login') }}"><img class="navbar-text" src="{{ asset('build/blue_connection.svg') }}" alt="Lien vers page de connexion"></a>
                 </div>
             </div>
         </div>
-        <nav class="w-100 navbar navbar-expand-lg navbar-light">
-            <div class="col-3">
-                <a class="navbar-brand" href="#"><img src="{{ asset('build/peter_logo_white.png') }}" alt="logo coach Peter"></a>
-            </div>
-            <div class="col-9 text-right ">
-                <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="col-11 col-md-12 collapse navbar-collapse text-right position-absolute" id="navbarTogglerDemo01">
-                    <ul class="w-100 navbar-nav mr-auto mt-2 mt-lg-0 justify-content-between">
+
+        <nav class="navbar m-auto navbar-expand-lg">
+            <a class="navbar-brand" href="#"><img src="{{ asset('build/peter_logo_white.png') }}" alt="logo coach Peter"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">
+                <ul class="navbar-nav mr-0">
+                    {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item">
-                            <a class="nav-link navbar-link text-light" href="{{ path('app_index') }}" >Accueil</a>
+                            <a class="nav-link navbar-link" href="{{ path('app_admin') }}">Admin</a>
                         </li>
+                    {% endif %}
+                    {% if is_granted('ROLE_MEMBER') %}
                         <li class="nav-item">
-                            <a class="nav-link navbar-link text-light" href="#">Qui suis-je</a>
+                            <a class="nav-link navbar-link" href="{{ path('app_member') }}">Espace Membre</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link navbar-link text-light" href="#">Transformations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link navbar-link text-light" href="#">Coaching</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link navbar-link text-light" href="#">Team training</a>
-                        </li>
-                        <li class="nav-item text-light">
-                            <a class="nav-link navbar-link text-light" href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link navbar-link" href="{{ path('app_index') }}" >Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-link" href="#">Qui suis-je</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-link" href="#">Transformations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-link" href="#">Coaching</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-link" href="#">Team training</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link navbar-link" href="#">Contact</a>
+                    </li>
+                </ul>
             </div>
         </nav>
         {% include 'home/_headband.html.twig' %}
