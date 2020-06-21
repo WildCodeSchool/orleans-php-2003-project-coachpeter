@@ -20,7 +20,6 @@ class TransformationType extends AbstractType
                 'allow_delete'  => true, // not mandatory, default is true
                 'download_uri' => true, // not mandatory, default is true
             ])
-
             ->add('pictureAfterFile', VichFileType::class, [
                 'required'      => false,
                 'allow_delete'  => true, // not mandatory, default is true
