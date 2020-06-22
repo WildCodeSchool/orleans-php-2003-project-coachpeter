@@ -89,6 +89,6 @@ class TransformationController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('admin_transformation_index');
+        return $this->redirectToRoute('transformation_index');
     }
 }

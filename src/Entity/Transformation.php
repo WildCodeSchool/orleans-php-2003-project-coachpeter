@@ -118,7 +118,7 @@ class Transformation
         return $this->pictureBefore;
     }
 
-    public function setPictureBefore(string $pictureBefore): self
+    public function setPictureBefore($pictureBefore): self
     {
         $this->pictureBefore = $pictureBefore;
 
@@ -130,7 +130,7 @@ class Transformation
         return $this->pictureAfter;
     }
 
-    public function setPictureAfter(string $pictureAfter): self
+    public function setPictureAfter($pictureAfter): self
     {
         $this->pictureAfter = $pictureAfter;
 
@@ -140,6 +140,9 @@ class Transformation
     public function setPictureBeforeFile(File $image = null)
     {
         $this->pictureBeforeFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
     }
 
     public function getPictureBeforeFile(): ?File
