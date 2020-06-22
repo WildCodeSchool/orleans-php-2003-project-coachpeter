@@ -42,7 +42,7 @@ class InfoCoach
      *
      * @Vich\UploadableField(mapping="coach_image", fileNameProperty="image")
      *
-     * @Assert\File(maxSize = "200k",
+     * @Assert\File(maxSize = "500k",
      *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
      * il ne doit pas dépasser {{ limit }} {{ suffix }}",
      *     mimeTypes = {"image/jpeg", "image/jpg", "image/gif","image/png"},
