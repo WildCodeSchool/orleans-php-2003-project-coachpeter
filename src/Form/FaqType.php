@@ -17,12 +17,11 @@ class FaqType extends AbstractType
             ->add('question', TextType::class, [
                 'label' => 'Question',
                 'attr' => ['class' => "col-12"
-            ]])
+                ]])
             ->add('answer', TextareaType::class, [
                 'label' => 'Réponse',
                 'attr' => ['class' => "col-12"
-            ]]);
-
+                ]]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
