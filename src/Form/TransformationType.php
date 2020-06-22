@@ -6,6 +6,7 @@ use App\Entity\Transformation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class TransformationType extends AbstractType
 {
@@ -14,8 +15,16 @@ class TransformationType extends AbstractType
         $builder
             ->add('name')
             ->add('pound')
-            ->add('pictureBefore')
-            ->add('pictureAfter')
+            ->add('pictureBeforeFile', VichFileType::class, [
+                'required'      => false,
+                'allow_delete'  => true, // not mandatory, default is true
+                'download_uri' => true, // not mandatory, default is true
+            ])
+            ->add('pictureAfterFile', VichFileType::class, [
+                'required'      => false,
+                'allow_delete'  => true, // not mandatory, default is true
+                'download_uri' => true, // not mandatory, default is true
+            ])
         ;
     }
 
