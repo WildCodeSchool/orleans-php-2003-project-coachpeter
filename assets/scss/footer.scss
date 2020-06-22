@@ -2,15 +2,15 @@ footer {
     font-size: $xtra-small-font-size;
     bottom: 0;
     color: $light;
+    background-color: $dark;
 
     svg {
         margin-right: 4px;
         color: $navbarUnderlineHover;
     }
 
-    .container-fluid {
-        background-color: $dark;
-        height: 74px;
+    .row {
+        height: 90px;
     }
 
     img {
