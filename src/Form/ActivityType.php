@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Activity;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,7 +20,7 @@ class ActivityType extends AbstractType
                 'attr' => ['class' => "col-12"
                 ]])
 
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'attr' => ['class' => "col-12 form-h-2 align-items-end"
                 ]])
 
@@ -27,6 +28,8 @@ class ActivityType extends AbstractType
                 'choices' => [
                     '' => '',
                     'Haltère' => 'white_haltere.svg',
+                    'Team training' => 'white_team.svg',
+                    'Coaching à distance' => 'white_distance-coaching.svg',
                 ]])
 
             ->add('activityFile', VichImageType::class, [
