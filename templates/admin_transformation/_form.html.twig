@@ -22,20 +22,22 @@
     <tr>
         <th>Photo avant</th>
         <td>
-            {{ form_errors(form.pictureBefore) }}
-            {{ form_widget(form.pictureBefore) }}
+            {{ form_errors(form.pictureBeforeFile) }}
+            {{ form_widget(form.pictureBeforeFile) }}
         </td>
     </tr>
     <tr>
         <th>Photo après</th>
         <td>
-            {{ form_errors(form.pictureAfter) }}
-            {{ form_widget(form.pictureAfter) }}
+            {{ form_errors(form.pictureAfterFile) }}
+            {{ form_widget(form.pictureAfterFile) }}
         </td>
     </tr>
     </tbody>
 </table>
 
     {{ form_widget(form) }}
-    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+<div class="text-center">
+    <button class="btn btn-primary m-2">{{ button_label|default('Enregistrer') }}</button>
+</div>
 {{ form_end(form) }}

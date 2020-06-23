@@ -18,7 +18,7 @@ class ActivityFixtures extends Fixture implements DependentFixtureInterface
             $activity->setTitle($faker->realtext(30));
             $activity->setDescription($faker->realtext(500));
             $activity->setPicture('http://formation.naveilhan.com/fixtures/activity'.rand(1, 3).'.jpg');
-            $activity->setPictogram('build/white_haltere.svg');
+            $activity->setPictogram('white_haltere.svg');
             $activity->setFocus(1);
             $activity->setCategory($this->getReference(rand(1, 10)));
             $manager->persist($activity);
