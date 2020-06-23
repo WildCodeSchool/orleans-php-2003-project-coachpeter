@@ -85,7 +85,7 @@ class Actuality
         return $this->title;
     }
 
-    public function setTitle($title): self
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 
@@ -97,7 +97,7 @@ class Actuality
         return $this->content;
     }
 
-    public function setContent($content): self
+    public function setContent(string $content): self
     {
         $this->content = $content;
 
@@ -121,7 +121,7 @@ class Actuality
         return $this->theme;
     }
 
-    public function setTheme($theme): self
+    public function setTheme(string $theme): self
     {
         $this->theme = $theme;
 
