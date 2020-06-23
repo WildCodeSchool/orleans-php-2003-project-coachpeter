@@ -38,6 +38,7 @@ class AdminFaqController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($faq);
             $entityManager->flush();
+            $this->addFlash('success', 'Une nouvelle Question/Réponse a bien été ajoutée');
 
             return $this->redirectToRoute('faq_index');
         }
@@ -68,7 +69,7 @@ class AdminFaqController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('success', 'La mise à jour a bien été effectuée');
             return $this->redirectToRoute('faq_index');
         }
 
