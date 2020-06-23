@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit CoachingCategory{% endblock %}
+
+{% block body %}
+    <h1>Edit CoachingCategory</h1>
+
+    {{ include('coaching_category/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('coaching_category_index') }}">back to list</a>
+
+    {{ include('coaching_category/_delete_form.html.twig') }}
+{% endblock %}

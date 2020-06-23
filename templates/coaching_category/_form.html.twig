@@ -1,0 +1,14 @@
+{{ form_start(categoryform) }}
+<div class="form-group col-8 offset-4 text-primary mt-5 justify-content-center">
+    <div class="mb-5">
+        <div class="h5">
+            {{ form_label(categoryform.category, 'Nom de la nouvelle catégorie') }}
+            <div class="text-danger">
+                {{ form_errors(categoryform.category) }}
+            </div>
+        </div>
+        {{ form_widget(categoryform.category) }}
+
+        <button class="btn btn-outline-success">{{ button_label|default('Enregistrer') }}</button>
+    </div>
+{{ form_end(categoryform) }}

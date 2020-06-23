@@ -12,7 +12,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method CoachingCategory[]    findAll()
  * @method CoachingCategory[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CoachingCategoryRepository extends ServiceEntityRepository
+class CategoryRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
