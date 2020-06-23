@@ -11,16 +11,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/theme")
+ * @Route("/admin/theme")
  */
-class ThemeController extends AbstractController
+class AdminThemeController extends AbstractController
 {
     /**
      * @Route("/", name="theme_index", methods={"GET"})
      */
     public function index(ThemeRepository $themeRepository): Response
     {
-        return $this->render('theme/index.html.twig', [
+        return $this->render('admin_theme/index.html.twig', [
             'themes' => $themeRepository->findAll(),
         ]);
     }
@@ -42,8 +42,8 @@ class ThemeController extends AbstractController
             return $this->redirectToRoute('theme_index');
         }
 
-        return $this->render('theme/new.html.twig', [
-            'theme' => $theme,
+        return $this->render('admin_theme/new.html.twig', [
+            'admin_theme' => $theme,
             'form' => $form->createView(),
         ]);
     }
@@ -53,8 +53,8 @@ class ThemeController extends AbstractController
      */
     public function show(Theme $theme): Response
     {
-        return $this->render('theme/show.html.twig', [
-            'theme' => $theme,
+        return $this->render('admin_theme/show.html.twig', [
+            'admin_theme' => $theme,
         ]);
     }
 
@@ -72,8 +72,8 @@ class ThemeController extends AbstractController
             return $this->redirectToRoute('theme_index');
         }
 
-        return $this->render('theme/edit.html.twig', [
-            'theme' => $theme,
+        return $this->render('admin_theme/edit.html.twig', [
+            'admin_theme' => $theme,
             'form' => $form->createView(),
         ]);
     }

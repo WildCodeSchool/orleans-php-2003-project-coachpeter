@@ -6,7 +6,7 @@
             <img class="card-img-top card-actu-img" src="{{ vich_uploader_asset(actuality, 'actualityFile')}}" alt="{{ actuality.title }}">
             <div class="card-body card-actu-body card-blog rounded-bottom position-relative">
                 <div class="badge position-absolute card-theme text-left align-items-center rounded-0 ">
-                    {{ actuality.theme }}
+                    {{ actuality.topic }}
                 </div>
                 <h3 class="card-title card-title-actu text-primary mt-1">{{ actuality.title|upper }}</h3>
                 <p class="card-text card-actu-text">{{ actuality.content|length > 150 ? actuality.content|slice(0, 150) ~ '...' : actuality.content }}</p>

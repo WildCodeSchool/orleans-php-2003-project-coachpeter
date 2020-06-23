@@ -5,9 +5,9 @@
 {% block body %}
     <h1>Edit Theme</h1>
 
-    {{ include('theme/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin_theme/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('theme_index') }}">back to list</a>
 
-    {{ include('theme/_delete_form.html.twig') }}
+    {{ include('admin_theme/_delete_form.html.twig') }}
 {% endblock %}
