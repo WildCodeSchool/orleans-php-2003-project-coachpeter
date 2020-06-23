@@ -122,7 +122,6 @@ class Actuality
     }
 
     public function setTopic(string $topic): self
-
     {
         $this->topic = $topic;
 
