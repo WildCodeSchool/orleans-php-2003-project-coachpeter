@@ -14,19 +14,19 @@
             </svg>
         </a>
     </div>
-    <table class="table table-striped w-50 text-center m-auto table-hover table-borderless">
+    <table class="table table-striped w-25 text-center m-auto table-hover table-borderless">
         <thead class="bg-primary text-light">
         <tr class="row mx-0">
-            <th class="col-2">Nom</th>
-            <th class="col-1"></th>
-            <th class="col-1"></th>
+            <th class="col-6">Nom</th>
+            <th class="col-3"></th>
+            <th class="col-3"></th>
         </tr>
         </thead>
         <tbody>
         {% for theme in themes %}
         <tr class="d-flex align-items-center">
-            <td class="col-2">{{ theme.name }}</td>
-            <td class="col-1">
+            <td class="col-6">{{ theme.name }}</td>
+            <td class="col-3">
                 <a href="{{ path('theme_edit', {'id': theme.id}) }}">
                     <svg class="bi bi-pencil-square" width="24px" height="24px" viewBox="0 0 16 16" fill="currentColor"
                          xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +36,7 @@
                     </svg>
                 </a>
             </td>
-            <td class="col-1">delete
+            <td class="col-3">delete
             </td>
         </tr>
             {% else %}
