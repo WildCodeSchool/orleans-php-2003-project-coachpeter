@@ -61,7 +61,7 @@ class Actuality
     /**
      * @Vich\UploadableField(mapping="actuality_file",fileNameProperty="picture")
      * @var File|null
-     * @Assert\File(maxSize = "200k",
+     * @Assert\File(maxSize = "500k",
      *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
      * il ne doit pas dépasser {{ limit }} {{ suffix }}",
      *     mimeTypes = {"image/jpeg", "image/jpg", "image/gif","image/png"},
@@ -85,7 +85,7 @@ class Actuality
         return $this->title;
     }
 
-    public function setTitle(string $title): self
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
 
@@ -97,7 +97,7 @@ class Actuality
         return $this->content;
     }
 
-    public function setContent(string $content): self
+    public function setContent(?string $content): self
     {
         $this->content = $content;
 
@@ -121,7 +121,7 @@ class Actuality
         return $this->theme;
     }
 
-    public function setTheme(string $theme): self
+    public function setTheme(?string $theme): self
     {
         $this->theme = $theme;
 

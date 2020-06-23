@@ -4,10 +4,14 @@ namespace App\Entity;
 
 use App\Repository\TransformationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use \DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=TransformationRepository::class)
+ * @Vich\Uploadable
  */
 class Transformation
 {
@@ -35,15 +39,50 @@ class Transformation
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Veuillez indiquez une image AVANT.")
      */
     private $pictureBefore;
 
     /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="transformation_image", fileNameProperty="pictureBefore")
+     *
+     * @Assert\File(maxSize = "500k",
+     *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
+     * il ne doit pas dépasser {{ limit }} {{ suffix }}",
+     *     mimeTypes = {"image/jpeg", "image/jpg", "image/gif","image/png"},
+     *     mimeTypesMessage = "Veuillez entrer un type de fichier valide pour pictureBefore: jpg, jpeg, png ou gif.")
+     *
+     * @var File|null
+     */
+    private $pictureBeforeFile;
+
+    /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Veuillez indiquez une image APRES.")
      */
     private $pictureAfter;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="transformation_image", fileNameProperty="pictureAfter")
+     *
+     * @Assert\File(maxSize = "500k",
+     *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
+     * il ne doit pas dépasser {{ limit }} {{ suffix }}",
+     *     mimeTypes = {"image/jpeg", "image/jpg", "image/gif","image/png"},
+     *     mimeTypesMessage = "Veuillez entrer un type de fichier valide pour pictureAfter: jpg, jpeg, png ou gif.")
+     *
+     * @var File|null
+     */
+
+    private $pictureAfterFile;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var DateTime
+     */
+    private $updatedAt;
 
     public function getId(): ?int
     {
@@ -55,7 +94,7 @@ class Transformation
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -79,7 +118,7 @@ class Transformation
         return $this->pictureBefore;
     }
 
-    public function setPictureBefore(string $pictureBefore): self
+    public function setPictureBefore($pictureBefore): self
     {
         $this->pictureBefore = $pictureBefore;
 
@@ -91,10 +130,36 @@ class Transformation
         return $this->pictureAfter;
     }
 
-    public function setPictureAfter(string $pictureAfter): self
+    public function setPictureAfter($pictureAfter): self
     {
         $this->pictureAfter = $pictureAfter;
 
         return $this;
+    }
+
+    public function setPictureBeforeFile(File $image = null)
+    {
+        $this->pictureBeforeFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+    }
+
+    public function getPictureBeforeFile(): ?File
+    {
+        return $this->pictureBeforeFile;
+    }
+
+    public function setPictureAfterFile(File $image = null)
+    {
+        $this->pictureAfterFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+    }
+
+    public function getPictureAfterFile(): ?File
+    {
+        return $this->pictureAfterFile;
     }
 }

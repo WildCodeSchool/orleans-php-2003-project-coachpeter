@@ -1,27 +1,26 @@
 <footer>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-5 d-flex mt-4">
-                <div class="row ml-3 mr-4">
+        <div class="row ">
+            <div class="col-8 col-md-3 d-flex mt-4">
+                <div class="col-6 col-md-6 d-flex justify-content-center ml-md-3 mr-md-4 pb-0">
                     <svg class="bi bi-geo-alt" width="17px" height="17px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                     </svg>
                     <p>{{ coachInfo.adress }}, {{ coachInfo.zipCode }} {{ coachInfo.city|upper }}</p>
                 </div>
-                <div class="row">
+                <div class="d-flex flex-row col-6 col-md-6 justify-content-center mt-1">
                     <img class="mx-1" src="{{ asset('build/blue_tel.svg') }}">
                     <p> {{ coachInfo.phone|formatPhoneFr }}</p>
                 </div>
             </div>
 
-            <div class="col-3 mt-4 justify-content-center">
-                <div class="ml-3 mr-4 d-flex flex-row justify-content-around">
+            <div class="col-2 col-md-3 offset-md-2 mt-4 justify-content-center ">
+                <div class="ml-md-3 mr-md-4 d-flex flex-row">
                    <a href="" class="mr-4"><p>Mentions légales</p></a>
-                   <a href=""><p>CGV</p></a>
                 </div>
             </div>
 
-            <div class="col-1 offset-3 mt-3 justify-content-end">
+            <div class="col-2 col-md-1 offset-md-3 mt-3 justify-content-end">
                 <div class="scrollUp">
                     <a href="#top"><img src="{{ asset('build/to_top.png') }}"/></a>
                 </div>
