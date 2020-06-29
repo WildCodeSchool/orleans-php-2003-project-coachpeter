@@ -1,0 +1,13 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Modifier le programme{% endblock %}
+
+{% block body %}
+    <h1 class="text-center text-primary">Modifier le programme</h1>
+
+    {{ include('program/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('program_index') }}">Retour</a>
+
+    {{ include('program/_delete_form.html.twig') }}
+{% endblock %}

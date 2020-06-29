@@ -68,6 +68,7 @@ class AdminFaqController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'La fiche a bien été mise à jour.');
 
             return $this->redirectToRoute('faq_index');
         }
