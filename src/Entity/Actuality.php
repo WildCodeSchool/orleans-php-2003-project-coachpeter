@@ -49,7 +49,7 @@ class Actuality
      * @Assert\Length(max=50, maxMessage="Le nom du thème {{ value }} est trop long,
      * il ne devrait pas dépasser {{ limit}} caractères")
      */
-    private $theme;
+    private $topic;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -85,7 +85,7 @@ class Actuality
         return $this->title;
     }
 
-    public function setTitle(string $title): self
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
 
@@ -97,7 +97,7 @@ class Actuality
         return $this->content;
     }
 
-    public function setContent(string $content): self
+    public function setContent(?string $content): self
     {
         $this->content = $content;
 
@@ -116,14 +116,14 @@ class Actuality
         return $this;
     }
 
-    public function getTheme(): ?string
+    public function getTopic(): ?string
     {
-        return $this->theme;
+        return $this->topic;
     }
 
-    public function setTheme(string $theme): self
+    public function setTopic(string $topic): self
     {
-        $this->theme = $theme;
+        $this->topic = $topic;
 
         return $this;
     }

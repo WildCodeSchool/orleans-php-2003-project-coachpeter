@@ -41,7 +41,7 @@ class Faq
         return $this->question;
     }
 
-    public function setQuestion($question): self
+    public function setQuestion(?string $question): self
     {
         $this->question = $question;
 
@@ -53,7 +53,7 @@ class Faq
         return $this->answer;
     }
 
-    public function setAnswer($answer): self
+    public function setAnswer(?string $answer): self
     {
         $this->answer = $answer;
 

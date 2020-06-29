@@ -26,7 +26,7 @@
             <tr class="d-flex align-items-center">
                 <td class="col-3">{{ actuality.title }}</td>
                 <td class="col-2">{{ actuality.date ? actuality.date|date('d-m-Y') : '' }}</td>
-                <td class="col-2">{{ actuality.theme }}</td>
+                <td class="col-2">{{ actuality.topic }}</td>
                 <td class="col-3"><img class="w-50" src=" {{ vich_uploader_asset(actuality, 'actualityFile')}}" alt="{{ actuality.picture }}"></td>
                 <td class="col-1">
                     <a class="" href="{{ path('actuality_edit', {'id': actuality.id}) }}"><svg class="bi bi-pencil-square" width="24px" height="24px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
