@@ -1,23 +1,54 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_user.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <h1 class="text-primary text-center">Inscription</h1>
 
     {{ form_start(registrationForm) }}
-    {{ form_row(registrationForm.firstname) }}
-    {{ form_row(registrationForm.lastname) }}
-    {{ form_row(registrationForm.phone) }}
-    {{ form_row(registrationForm.email) }}
-    {{ form_row(registrationForm.plainPassword, {
-        label: 'Password'
-    }) }}
-
-    <button type="submit" class="btn">Register</button>
+    <div class="form text-center text-primary">
+        <div>
+            {{ form_label(registrationForm.firstname, 'Prénom *') }}
+            {{ form_errors(registrationForm.firstname) }}
+        </div>
+        <div>
+            {{ form_widget(registrationForm.firstname) }}
+        </div>
+        <div>
+            {{ form_label(registrationForm.lastname, 'Nom *') }}
+            {{ form_errors(registrationForm.lastname) }}
+        </div>
+        <div>
+            {{ form_widget(registrationForm.lastname) }}
+        </div>
+        <div>
+            {{ form_label(registrationForm.phone, 'Téléphone') }}
+            {{ form_errors(registrationForm.phone) }}
+        </div>
+        <div>
+            {{ form_widget(registrationForm.phone) }}
+        </div>
+        <div>
+            {{ form_label(registrationForm.email, 'email *') }}
+            {{ form_errors(registrationForm.email) }}
+        </div>
+        <div>
+            {{ form_widget(registrationForm.email) }}
+        </div>
+        <div class="mt-2">
+            {{ form_label(registrationForm.plainPassword, 'Mot de passe *') }}
+            {{ form_errors(registrationForm.plainPassword) }}
+        </div>
+        <div>
+            {{ form_widget(registrationForm.plainPassword) }}
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary m-4">Register</button>
+    </div>
     {{ form_end(registrationForm) }}
 {% endblock %}
