@@ -38,6 +38,7 @@ class AdminThemeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($theme);
             $entityManager->flush();
+            $this->addFlash('success', 'Le thème a bien été ajouté');
 
             return $this->redirectToRoute('theme_index');
         }
