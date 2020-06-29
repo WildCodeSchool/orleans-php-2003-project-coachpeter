@@ -68,7 +68,7 @@ class AdminFaqController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+g
             return $this->redirectToRoute('faq_index');
         }
 
