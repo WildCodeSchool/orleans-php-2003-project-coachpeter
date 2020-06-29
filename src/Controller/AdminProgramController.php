@@ -90,7 +90,7 @@ class AdminProgramController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($program);
             $entityManager->flush();
-            $this->addFlash('danger', 'Le programme a bien été supprimé.');
+            $this->addFlash('success', 'Le programme a bien été supprimé.');
         }
 
         return $this->redirectToRoute('program_index');
