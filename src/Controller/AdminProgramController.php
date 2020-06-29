@@ -38,6 +38,7 @@ class AdminProgramController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($program);
             $entityManager->flush();
+            $this->addFlash('success', 'Le programme a bien été ajouté.');
 
             return $this->redirectToRoute('program_index');
         }
@@ -68,6 +69,8 @@ class AdminProgramController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Le programme a bien été modifié.');
+
 
             return $this->redirectToRoute('program_index');
         }
@@ -87,6 +90,7 @@ class AdminProgramController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($program);
             $entityManager->flush();
+            $this->addFlash('danger', 'Le programme a bien été supprimé.');
         }
 
         return $this->redirectToRoute('program_index');
