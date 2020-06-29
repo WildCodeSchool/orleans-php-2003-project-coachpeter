@@ -24,7 +24,7 @@ class ActualityType extends AbstractType
                 'label' => 'Date: jour-mois-année',
                 'format' => 'dd/MM/yyyy',
             ])
-            ->add('theme', TextType::class, [
+            ->add('topic', TextType::class, [
                 'label' => 'Thème',
                 'attr' => ['class' => "col-12"
                 ]])
