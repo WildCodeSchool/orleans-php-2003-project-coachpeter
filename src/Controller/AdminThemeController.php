@@ -87,6 +87,7 @@ class AdminThemeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($theme);
             $entityManager->flush();
+            $this->addFlash('danger', 'Le thème a bien été supprimé');
         }
 
         return $this->redirectToRoute('theme_index');
