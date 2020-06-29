@@ -20,6 +20,15 @@
                     <a href="{{ path('app_login') }}"><img class="navbar-text" src="{{ asset('build/blue_connection.svg') }}" alt="Lien vers page de connexion"></a>
                 </div>
             </div>
+            {% if app.user %}
+                <a class="nav-item text-light dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ app.user.firstname}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item text-primary" href="">Mon profil</a>
+                    <a class="dropdown-item text-danger" href="{{ path('app_logout')}}">Se déconnecter</a>
+                </div>
+            {% endif %}
         </div>
 
         <nav class="navbar m-auto navbar-expand-lg">
