@@ -69,6 +69,7 @@ class AdminThemeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Le thème a bien été modifié');
 
             return $this->redirectToRoute('theme_index');
         }
