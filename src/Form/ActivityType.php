@@ -30,6 +30,9 @@ class ActivityType extends AbstractType
                     'Haltère' => 'white_haltere.svg',
                     'Team training' => 'white_team.svg',
                     'Coaching à distance' => 'white_distance-coaching.svg',
+                    'Gants de boxe' => 'white_box.svg',
+                    'Corde à sauter' => 'white_jumping_rope.svg',
+                    'Pilate' => 'white_pilate_women.svg',
                 ]])
 
             ->add('activityFile', VichImageType::class, [
