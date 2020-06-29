@@ -77,7 +77,7 @@ class AdminActivityController extends AbstractController
      */
     public function show(Activity $activity): Response
     {
-        return $this->render('activity/show.html.twig', [
+        return $this->render('admin_activity/show.html.twig', [
             'activity' => $activity,
         ]);
     }
@@ -111,6 +111,7 @@ class AdminActivityController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($activity);
             $entityManager->flush();
+            $this->addFlash('danger', 'L\'actualité a bien été supprimée');
         }
 
         return $this->redirectToRoute('activity_index');
