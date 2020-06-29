@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("admin/program")
+ * @Route("admin/programme")
  */
 class AdminProgramController extends AbstractController
 {
