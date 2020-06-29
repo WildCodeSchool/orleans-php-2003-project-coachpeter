@@ -13,8 +13,18 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ActivityType extends AbstractType
 {
+    const PICTOGRAMS = [
+        'Haltère' => 'dumbbel',
+        'Team training' => 'team',
+        'Coaching à distance' => 'computer',
+        'Gants de boxe' => 'box',
+        'Corde à sauter' => 'jumping_rope',
+        'Pilate' => 'pilate_women',
+    ];
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
             ->add('title', TextType::class, [
                 'attr' => ['class' => "col-12"
@@ -25,15 +35,9 @@ class ActivityType extends AbstractType
                 ]])
 
             ->add('pictogram', ChoiceType::class, [
-                'choices' => [
-                    '' => '',
-                    'Haltère' => 'white_haltere.svg',
-                    'Team training' => 'white_team.svg',
-                    'Coaching à distance' => 'white_distance-coaching.svg',
-                    'Gants de boxe' => 'white_box.svg',
-                    'Corde à sauter' => 'white_jumping_rope.svg',
-                    'Pilate' => 'white_pilate_women.svg',
-                ]])
+                'choices' => self::PICTOGRAMS,
+                'required'   => false,
+            ])
 
             ->add('activityFile', VichImageType::class, [
                 'required' => false,

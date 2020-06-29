@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use App\Form;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ActivityRepository", repositoryClass=ActivityRepository::class)
@@ -39,6 +40,7 @@ class Activity
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long,
      * il ne devrait pas dépasser {{ limit}} caractères")
+     * @Assert\Choice(choices=App\Form\ActivityType::PICTOGRAMS, message="Veuillez choisir un prictogramme existant.")
      */
     private $pictogram;
 

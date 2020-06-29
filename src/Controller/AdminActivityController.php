@@ -58,9 +58,7 @@ class AdminActivityController extends AbstractController
             $entityManager->flush();
             $this->addFlash(
                 'success',
-                '<strong>'
-                .$coachingCategory->getCategory()
-                .'</strong> a bien été ajouté aux catégories existantes'
+                $coachingCategory->getCategory() .' a bien été ajouté aux catégories existantes'
             );
             return $this->redirectToRoute('activity_new');
         }
