@@ -29,7 +29,7 @@ class RegistrationFormType extends AbstractType
                 'type' => PasswordType::class,
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
-                'invalid_message' => 'The password fields must match.',
+                'invalid_message' => 'Les mots de passe de sont pas identiques',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
                 'first_options'  => ['label' => 'Mot de passe'],
