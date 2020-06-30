@@ -90,15 +90,32 @@ class AdminActivityController extends AbstractController
         $form = $this->createForm(ActivityType::class, $activity);
         $form->handleRequest($request);
 
+        $coachingCategory = new CoachingCategory();
+        $categoryform = $this->createForm(CoachingCategoryType::class, $coachingCategory);
+        $categoryform->handleRequest($request);
+
+        if ($categoryform->isSubmitted() && $categoryform->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($coachingCategory);
+            $entityManager->flush();
+            $this->addFlash(
+                'success',
+                $coachingCategory->getCategory() .' a bien été ajouté aux catégories existantes'
+            );
+            return $this->redirectToRoute('activity_edit', ['id' => $activity->getId()]);
+        }
+
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'L\'activité a bien été mise à jour');
 
             return $this->redirectToRoute('activity_index');
         }
 
-        return $this->render('activity/edit.html.twig', [
+        return $this->render('admin_activity/edit.html.twig', [
             'activity' => $activity,
             'form' => $form->createView(),
+            'categoryform' => $categoryform->createView(),
         ]);
     }
 

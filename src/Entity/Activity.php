@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ActivityRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -74,6 +75,12 @@ class Activity
      * @ORM\ManyToOne(targetEntity=CoachingCategory::class, inversedBy="activities")
      */
     private $category;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var DateTime
+     */
+    private $updatedAt;
 
 
     public function getId(): ?int
@@ -164,8 +171,11 @@ class Activity
     /**
      * @param File|null $activityFile
      */
-    public function setActivityFile(?File $activityFile): void
+    public function setActivityFile(?File $activityFile)
     {
         $this->activityFile = $activityFile;
+        if ($activityFile) {
+            $this->updatedAt = new DateTime('now');
+        }
     }
 }
