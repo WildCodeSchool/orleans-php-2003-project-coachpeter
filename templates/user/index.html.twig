@@ -8,11 +8,11 @@
     <table class="table table-striped w-75 text-center m-auto table-hover table-borderless">
         <thead class="bg-primary text-light">
         <tr class="row mx-0">
-            <th class="col-2">Email</th>
-            <th class="col-2">Roles</th>
-            <th class="col-2">Prénom</th>
             <th class="col-2">Nom</th>
+            <th class="col-2">Prénom</th>
+            <th class="col-2">Roles</th>
             <th class="col-2">Téléphone</th>
+            <th class="col-2">Email</th>
             <th class="col-1"></th>
             <th class="col-1"></th>
         </tr>
@@ -20,11 +20,11 @@
         <tbody>
         {% for user in users %}
             <tr class="row mx-0">
-                <td class="col-2">{{ user.email }}</td>
-                <td class="col-2">{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td class="col-2">{{ user.firstname }}</td>
                 <td class="col-2">{{ user.lastname }}</td>
+                <td class="col-2">{{ user.firstname }}</td>
+                <td class="col-2">{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td class="col-2">{{ user.phone}}</td>
+                <td class="col-2">{{ user.email }}</td>
                 <td class="col-1">
                     <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
                 </td>
