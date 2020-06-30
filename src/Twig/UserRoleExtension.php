@@ -2,11 +2,12 @@
 
 namespace App\Twig;
 
+use App\Entity\User;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
-class PhoneFormatExtension extends AbstractExtension
+class UserRoleExtension extends AbstractExtension
 {
     public function getFilters(): array
     {
@@ -14,16 +15,19 @@ class PhoneFormatExtension extends AbstractExtension
             // If your filter generates SAFE HTML, you should add a third
             // parameter: ['is_safe' => ['html']]
             // Reference: https://twig.symfony.com/doc/2.x/advanced.html#automatic-escaping
-            new TwigFilter('formatPhoneFr', [$this, 'formatPhoneFr']),
+            new TwigFilter('userRole', [$this, 'userRole']),
         ];
     }
 
-    public function formatPhoneFr($value)
+    public function userRole($roles)
     {
-        $caracters = array("/", "-", "_", " ", ".", ",");
-        $value = str_replace($caracters, '', $value);
-        $array = str_split($value, 2);
-        $newNum = implode(' ', $array);
-        return $newNum;
+        $userRole = "Client";
+        if (in_array("ROLE_ADMIN", $roles)) {
+            $userRole = "Administrateur";
+        } elseif (in_array("ROLE_MEMBER", $roles)) {
+            $userRole = "Membre";
+        }
+
+        return $userRole;
     }
 }
