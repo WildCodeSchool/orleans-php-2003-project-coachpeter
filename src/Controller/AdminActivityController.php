@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Activity;
 use App\Entity\CoachingCategory;
 use App\Form\ActivityType;
+use App\Form\CoachingCategoryType;
 use App\Repository\ActivityRepository;
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,7 +34,7 @@ class AdminActivityController extends AbstractController
     /**
      * @Route("/new", name="activity_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, CategoryRepository $categoryRepository): Response
     {
         $activity = new Activity();
         $form = $this->createForm(ActivityType::class, $activity);
@@ -42,13 +44,31 @@ class AdminActivityController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($activity);
             $entityManager->flush();
-
+            $this->addFlash('success', 'L\'activité a bien été ajoutée');
             return $this->redirectToRoute('activity_index');
         }
 
-        return $this->render('activity/new.html.twig', [
+        $coachingCategory = new CoachingCategory();
+        $categoryform = $this->createForm(CoachingCategoryType::class, $coachingCategory);
+        $categoryform->handleRequest($request);
+
+        if ($categoryform->isSubmitted() && $categoryform->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($coachingCategory);
+            $entityManager->flush();
+            $this->addFlash(
+                'success',
+                $coachingCategory->getCategory() .' a bien été ajouté aux catégories existantes'
+            );
+            return $this->redirectToRoute('activity_new');
+        }
+
+        return $this->render('admin_activity/new.html.twig', [
             'activity' => $activity,
             'form' => $form->createView(),
+            'categoryform' => $categoryform->createView(),
+            'coaching_categories' => $categoryRepository->findAll(),
+
         ]);
     }
 
