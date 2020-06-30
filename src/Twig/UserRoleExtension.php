@@ -20,18 +20,13 @@ class UserRoleExtension extends AbstractExtension
 
     public function userRole($value)
     {
-        $char = ["[", "]", "\""];
-        $value = str_replace($char, "", $value);
-        $words = explode(",", $value);
         $role = "";
-        foreach ($words as $word) {
-            if ($word == "ROLE_ADMIN") {
-                $role .= "Administrateur ";
-            } elseif ($word == "ROLE_MEMBER") {
-                $role .= "Membre ";
-            } elseif ($word == "ROLE_USER") {
-                $role .= "Client ";
-            }
+        if ($value == "[\"ROLE_ADMIN\",\"ROLE_USER\"]") {
+            $role .= "Administrateur ";
+        } elseif ($value == "[\"ROLE_MEMBER\",\"ROLE_USER\"]") {
+            $role .= "Membre ";
+        } elseif ($value == "[\"ROLE_USER\"]") {
+            $role .= "Client ";
         }
         return $role;
     }
