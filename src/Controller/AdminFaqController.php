@@ -88,6 +88,7 @@ class AdminFaqController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($faq);
             $entityManager->flush();
+            $this->addFlash('success', 'La suppression a bien été effectuée');
         }
 
         return $this->redirectToRoute('faq_index');
