@@ -22,7 +22,7 @@
             <tr class="row mx-0">
                 <td class="col-2">{{ user.lastname }}</td>
                 <td class="col-2">{{ user.firstname }}</td>
-                <td class="col-2">{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td class="col-2">{{ user.roles ? user.roles|json_encode|userRole : '' }}</td>
                 <td class="col-2">{{ user.phone}}</td>
                 <td class="col-2">{{ user.email }}</td>
                 <td class="col-1">
