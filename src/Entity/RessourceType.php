@@ -20,8 +20,8 @@ class RessourceType
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank((message="Merci d'indiquer un type de fichier.")
-     * @Assert\Length(max=255, maxMessage="La taille maximale ne peut dépasser {{limit}} caractère.")
+     * @Assert\NotBlank(message="Merci d'indiquer un type de fichier.")
+     * @Assert\Length(max=255, maxMessage="La taille maximale ne peut dépasser {{limit}} caractères.")
      */
     private $name;
 
