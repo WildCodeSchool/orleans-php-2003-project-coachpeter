@@ -38,6 +38,7 @@ class TransformationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($transformation);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'ajout a bien été effectué');
 
             return $this->redirectToRoute('transformation_index');
         }
@@ -68,6 +69,7 @@ class TransformationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'La mise à jour a bien été effectuée');
 
             return $this->redirectToRoute('transformation_index');
         }
@@ -87,6 +89,7 @@ class TransformationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($transformation);
             $entityManager->flush();
+            $this->addFlash('success', 'La suppression a bien été effectuée');
         }
 
         return $this->redirectToRoute('transformation_index');

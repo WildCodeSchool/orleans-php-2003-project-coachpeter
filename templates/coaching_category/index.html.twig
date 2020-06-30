@@ -1,0 +1,24 @@
+{% block body %}
+    <h3 class="text-primary text-center my-5" >Catégories existantes</h3>
+
+    <div class="container d-flex justify-content-center">
+        <table class="table col-4">
+            <tbody>
+            {% for coaching_category in coaching_categories %}
+                <tr>
+                    <td>{{ coaching_category.category }}</td>
+                    <td>
+                        <a href="{{ path('coaching_category_show', {'id': coaching_category.id}) }}">Détail</a>
+                        <a href="{{ path('coaching_category_edit', {'id': coaching_category.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
