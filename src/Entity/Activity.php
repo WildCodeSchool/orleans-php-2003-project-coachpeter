@@ -4,10 +4,14 @@ namespace App\Entity;
 
 use App\Repository\ActivityRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use App\Form;
 
 /**
- * @ORM\Entity(repositoryClass=ActivityRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\ActivityRepository", repositoryClass=ActivityRepository::class)
+ * @Vich\Uploadable()
  */
 class Activity
 {
@@ -36,16 +40,27 @@ class Activity
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long,
      * il ne devrait pas dépasser {{ limit}} caractères")
+     * @Assert\Choice(choices=App\Form\ActivityType::PICTOGRAMS, message="Veuillez choisir un prictogramme existant.")
      */
     private $pictogram;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Veuillez indiquer le nom d'un fichier")
-     * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long,
-     * il ne devrait pas dépasser {{ limit}} caractères")
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     * @Assert\Length(max=255, maxMessage="Le nom est trop long, il ne devrait pas dépasser {{ limit}} caractères")
      */
     private $picture;
+
+    /**
+     * @Vich\UploadableField(mapping="activity_file",fileNameProperty="picture")
+     * @var File|null
+     * @Assert\File(maxSize = "500k",
+     *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
+     * il ne doit pas dépasser {{ limit }} {{ suffix }}",
+     *     mimeTypes = {"image/jpeg", "image/jpg", "image/gif","image/png"},
+     *     mimeTypesMessage = "Veuillez entrer un type de fichier valide: jpg, jpeg, png ou gif.")
+     */
+    private $activityFile;
 
     /**
      * @ORM\Column(type="boolean")
@@ -107,7 +122,7 @@ class Activity
         return $this->picture;
     }
 
-    public function setPicture(string $picture): self
+    public function setPicture($picture): self
     {
         $this->picture = $picture;
 
@@ -136,5 +151,21 @@ class Activity
         $this->category = $category;
 
         return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getActivityFile(): ?File
+    {
+        return $this->activityFile;
+    }
+
+    /**
+     * @param File|null $activityFile
+     */
+    public function setActivityFile(?File $activityFile): void
+    {
+        $this->activityFile = $activityFile;
     }
 }

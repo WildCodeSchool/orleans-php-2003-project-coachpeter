@@ -12,6 +12,11 @@ vich_uploader:
        upload_destination:  '%upload_directory%/actualites'
        namer: Vich\UploaderBundle\Naming\UniqidNamer
 
+    activity_file:
+     uri_prefix: /uploads/activites
+     upload_destination:  '%upload_directory%/activites'
+     namer: Vich\UploaderBundle\Naming\UniqidNamer
+
     transformation_image:
       uri_prefix: /uploads/transformations
       upload_destination:  '%upload_directory%/transformations'
