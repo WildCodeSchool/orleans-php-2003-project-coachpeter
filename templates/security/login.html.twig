@@ -1,6 +1,6 @@
 {% extends 'base_user.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
     <form method="post">
@@ -32,5 +32,7 @@
         </button>
 </div>
     </form>
-
+    <div class="text-primary text-center mb-4">
+        <a href="{{ path('app_register') }}">Créer un compte</a>
+    </div>
 {% endblock %}

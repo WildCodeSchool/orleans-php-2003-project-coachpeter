@@ -20,6 +20,9 @@ class UserFixtures extends Fixture
     {
         // Création d’un utilisateur de type “auteur”
         $member = new User();
+        $member->setFirstname('Jean');
+        $member->setLastname('Dupont');
+        $member->setPhone('06 06 06 06 06');
         $member->setEmail('member@monsite.com');
         $member->setRoles(['ROLE_MEMBER']);
         $member->setPassword($this->passwordEncoder->encodePassword(
@@ -31,6 +34,8 @@ class UserFixtures extends Fixture
 
         // Création d’un utilisateur de type “administrateur”
         $admin = new User();
+        $admin->setFirstname('Peter');
+        $admin->setLastname('Dionisio');
         $admin->setEmail('admin@monsite.com');
         $admin->setRoles(['ROLE_ADMIN']);
         $admin->setPassword($this->passwordEncoder->encodePassword(

@@ -20,7 +20,7 @@ class ActualityFixtures extends Fixture
             $actuality->setDate($faker->dateTime);
             $actuality->setContent($faker->text);
             $actuality->setPicture($faker->imageUrl());
-            $actuality->setTheme($faker->text(20));
+            $actuality->setTopic($faker->text(20));
             $manager->persist($actuality);
         }
         $manager->flush();

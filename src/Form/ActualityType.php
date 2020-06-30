@@ -24,7 +24,7 @@ class ActualityType extends AbstractType
                 'label' => 'Date: jour-mois-année',
                 'format' => 'dd/MM/yyyy',
             ])
-            ->add('theme', TextType::class, [
+            ->add('topic', TextType::class, [
                 'label' => 'Thème',
                 'attr' => ['class' => "col-12"
                 ]])
@@ -33,6 +33,8 @@ class ActualityType extends AbstractType
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
+                'download_link' => false,
+                'delete_label'  => 'Supprimer cette image',
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu',
