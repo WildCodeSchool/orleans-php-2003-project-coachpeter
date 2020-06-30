@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContactController extends AbstractController
 {
     /**
-     * @Route("/contact/")
+     * @Route("/contact/", name="app_contact")
      * @return Response
      */
     public function index(): Response
