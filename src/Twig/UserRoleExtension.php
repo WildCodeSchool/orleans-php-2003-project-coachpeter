@@ -2,6 +2,7 @@
 
 namespace App\Twig;
 
+use App\Entity\User;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
@@ -18,16 +19,15 @@ class UserRoleExtension extends AbstractExtension
         ];
     }
 
-    public function userRole($value)
+    public function userRole($roles)
     {
-        $role = "";
-        if ($value == "[\"ROLE_ADMIN\",\"ROLE_USER\"]") {
-            $role .= "Administrateur ";
-        } elseif ($value == "[\"ROLE_MEMBER\",\"ROLE_USER\"]") {
-            $role .= "Membre ";
-        } elseif ($value == "[\"ROLE_USER\"]") {
-            $role .= "Client ";
+        $userRole = "Client";
+        if (in_array("ROLE_ADMIN", $roles)) {
+            $userRole = "Administrateur";
+        } elseif (in_array("ROLE_MEMBER", $roles)) {
+            $userRole = "Membre";
         }
-        return $role;
+
+        return $userRole;
     }
 }
