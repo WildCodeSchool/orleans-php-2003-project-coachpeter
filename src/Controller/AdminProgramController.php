@@ -21,7 +21,7 @@ class AdminProgramController extends AbstractController
     public function index(ProgramRepository $programRepository): Response
     {
         return $this->render('admin_program/index.html.twig', [
-            'programs' => $programRepository->findAll(),
+            'programs' => $programRepository->findBy([], ['name'=>'ASC']),
         ]);
     }
 
