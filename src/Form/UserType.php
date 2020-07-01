@@ -22,7 +22,7 @@ class UserType extends AbstractType
             ->add('email')
             ->add('roles', ChoiceType::class, [
                 'choices' => self::ROLES,
-                'multiple' => false,
+                'multiple' => true,
                 'expanded' => true,
                 'mapped' => true,
             ])
