@@ -30,7 +30,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="json")
-     * @Assert\Choice (choices=App\Form\UserType::ROLES message="Veuillez choisir un rôle")
+     * @Assert\Choice(choices=App\Form\UserType::ROLES, message="Veuillez choisir au moins un rôle.")
      */
     private $roles = [];
 
@@ -81,7 +81,7 @@ class User implements UserInterface
     }
 
     /**
-     * A visual identifier that represents this admin_user.
+     * A visual identifier that represents this user.
      *
      * @see UserInterface
      */
@@ -136,7 +136,7 @@ class User implements UserInterface
      */
     public function eraseCredentials()
     {
-        // If you store any temporary, sensitive data on the admin_user, clear it here
+        // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
 
