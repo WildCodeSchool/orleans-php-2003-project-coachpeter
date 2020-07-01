@@ -29,6 +29,14 @@ class InfoCoachType extends AbstractType
                 'allow_delete' => true,
                 'download_uri' => true,
             ])
+
+            ->add('planningFile', VichImageType::class, [
+                'label' => 'Ajoutez votre planning',
+                'required' => false,
+                'allow_delete' => false,
+                'download_uri' => false,
+            ])
+
             ->add('philosophy', TextareaType::class, [
                 'attr' => ['class'=>"col-12 form-h-1"
                 ]])
