@@ -5,9 +5,14 @@ namespace App\Entity;
 use App\Repository\ProgramStepRepository;
 use App\Entity\Program;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use \DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=ProgramStepRepository::class)
+ * @Vich\Uploadable
  */
 class ProgramStep
 {
@@ -20,6 +25,8 @@ class ProgramStep
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez indiquez le titre de cette étape.")
+     * @Assert\Length(max=100, maxMessage="Le titre de cette étape ne doit pas dépasser {{ limit }} caractères." )
      */
     private $title;
 
@@ -35,8 +42,26 @@ class ProgramStep
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="Merci de sélectionner un fichier.")
+     * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long, il ne devrait pas dépasser {{limit}}
+     * caractères.")
      */
     private $fileExplain;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="coach_image", fileNameProperty="image")
+     *
+     * @Assert\File(maxSize = "500k",
+     *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
+     * il ne doit pas dépasser {{ limit }} {{ suffix }}",
+     *     mimeTypes = {"application/pdf", "image/webp", "image/jpeg", "image/gif","image/png"},
+     *     mimeTypesMessage = "Veuillez entrer un type de fichier valide: pdf, webp, jpg, jpeg, png ou gif.")
+     *
+     * @var File|null
+     */
+    private $fileExplainFile;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -53,6 +78,12 @@ class ProgramStep
     {
         return $this->id;
     }
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var DateTime
+     */
+    private $updatedAt;
 
     public function getTitle(): ?string
     {
@@ -95,7 +126,7 @@ class ProgramStep
         return $this->fileExplain;
     }
 
-    public function setFileExplain(?string $fileExplain): self
+    public function setFileExplain($fileExplain): self
     {
         $this->fileExplain = $fileExplain;
 
@@ -124,5 +155,18 @@ class ProgramStep
         $this->program = $program;
 
         return $this;
+    }
+
+    public function setFileExplainFile(File $fileExplain = null)
+    {
+        $this->fileExplainFile = $fileExplain;
+        if ($fileExplain) {
+            $this->updatedAt = new DateTime('now');
+        }
+    }
+
+    public function getFileExplainFile(): ?File
+    {
+        return $this->fileExplainFile;
     }
 }
