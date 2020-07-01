@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("admin/attended")
+ * @Route("admin/adhesion")
  */
 class AdminAttendedController extends AbstractController
 {
