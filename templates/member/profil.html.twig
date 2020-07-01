@@ -10,7 +10,7 @@
                 <h5 class="card-title">Mes informations</h5>
                 <p class="card-text">Prénom : {{ app.user.firstname }}</p>
                 <p class="card-text">Nom : {{ app.user.lastname }}</p>
-                <p class="card-text">Téléphone : {{ app.user.phone }}</p>
+                <p class="card-text">Téléphone : {{ app.user.phone|formatPhoneFr }}</p>
                 <p class="card-text">Email : {{ app.user.email }}</p>
                 <a href="" class="btn btn-primary">Modifier</a>
             </div>
