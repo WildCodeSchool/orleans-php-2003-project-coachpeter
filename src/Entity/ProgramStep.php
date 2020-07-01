@@ -42,7 +42,6 @@ class ProgramStep
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank(message="Merci de sélectionner un fichier.")
      * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long, il ne devrait pas dépasser {{limit}}
      * caractères.")
      */
@@ -51,7 +50,7 @@ class ProgramStep
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
-     * @Vich\UploadableField(mapping="coach_image", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="programStep_file", fileNameProperty="fileExplain")
      *
      * @Assert\File(maxSize = "500k",
      *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
