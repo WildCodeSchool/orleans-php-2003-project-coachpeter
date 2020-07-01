@@ -26,7 +26,7 @@ class RegistrationFormType extends AbstractType
             ->add('lastname', TextType::class, [
                 'label' => 'Nom',
             ])
-            ->add('phone', \Symfony\Component\Form\Extension\Core\Type\TextType::class, [
+            ->add('phone', TextType::class, [
                 'label' => 'Téléphone',
                 'required' => false
             ])
