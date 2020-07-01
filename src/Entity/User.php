@@ -80,7 +80,7 @@ class User implements UserInterface
     }
 
     /**
-     * A visual identifier that represents this user.
+     * A visual identifier that represents this admin_user.
      *
      * @see UserInterface
      */
@@ -135,7 +135,7 @@ class User implements UserInterface
      */
     public function eraseCredentials()
     {
-        // If you store any temporary, sensitive data on the user, clear it here
+        // If you store any temporary, sensitive data on the admin_user, clear it here
         // $this->plainPassword = null;
     }
 
