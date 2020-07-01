@@ -18,16 +18,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserProfilController extends AbstractController
 {
     /**
-     * @Route("/{id}", name="profil_show", methods={"GET"})
+     * @Route("/", name="profil_show", methods={"GET"})
      */
-    public function showProfil(User $user): Response
+    public function showProfil(): Response
     {
         $coachInfo = $this->getDoctrine()
             ->getRepository(InfoCoach::class)
             ->findOneBy([]);
 
         return $this->render('member/profil.html.twig', [
-            'user' => $user,
             'coachInfo' => $coachInfo,
         ]);
     }
