@@ -11,16 +11,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/attended")
+ * @Route("admin/attended")
  */
-class AttendedController extends AbstractController
+class AdminAttendedController extends AbstractController
 {
     /**
      * @Route("/", name="attended_index", methods={"GET"})
      */
     public function index(AttendedRepository $attendedRepository): Response
     {
-        return $this->render('attended/index.html.twig', [
+        return $this->render('admin_attended/index.html.twig', [
             'attendeds' => $attendedRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class AttendedController extends AbstractController
             return $this->redirectToRoute('attended_index');
         }
 
-        return $this->render('attended/new.html.twig', [
+        return $this->render('admin_attended/new.html.twig', [
             'attended' => $attended,
             'form' => $form->createView(),
         ]);
@@ -53,7 +53,7 @@ class AttendedController extends AbstractController
      */
     public function show(Attended $attended): Response
     {
-        return $this->render('attended/show.html.twig', [
+        return $this->render('admin_attended/show.html.twig', [
             'attended' => $attended,
         ]);
     }
@@ -72,7 +72,7 @@ class AttendedController extends AbstractController
             return $this->redirectToRoute('attended_index');
         }
 
-        return $this->render('attended/edit.html.twig', [
+        return $this->render('admin_attended/edit.html.twig', [
             'attended' => $attended,
             'form' => $form->createView(),
         ]);
