@@ -30,6 +30,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="json")
+     * @Assert\Choice (choices=App\Form\UserType::ROLES message="Veuillez choisir un rôle")
      */
     private $roles = [];
 
