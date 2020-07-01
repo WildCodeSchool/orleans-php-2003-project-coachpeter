@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProgramRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -30,6 +32,16 @@ class Program
      */
     private $duration;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Attended::class, mappedBy="program", orphanRemoval=true)
+     */
+    private $attendeds;
+
+    public function __construct()
+    {
+        $this->attendeds = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -55,6 +67,37 @@ class Program
     public function setDuration(?int $duration): self
     {
         $this->duration = $duration;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Attended[]
+     */
+    public function getAttendeds(): Collection
+    {
+        return $this->attendeds;
+    }
+
+    public function addAttended(Attended $attended): self
+    {
+        if (!$this->attendeds->contains($attended)) {
+            $this->attendeds[] = $attended;
+            $attended->setProgram($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAttended(Attended $attended): self
+    {
+        if ($this->attendeds->contains($attended)) {
+            $this->attendeds->removeElement($attended);
+            // set the owning side to null (unless already changed)
+            if ($attended->getProgram() === $this) {
+                $attended->setProgram(null);
+            }
+        }
 
         return $this;
     }
