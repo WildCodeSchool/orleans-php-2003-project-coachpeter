@@ -36,7 +36,9 @@ class ProgramStep
     private $description;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
+     * @Assert\Length(max=50, maxMessage="La taille de la référence est trop longue.
+     * Elle ne doit pas dépasser {{limit}} caractères.")
      */
     private $urlVideo;
 

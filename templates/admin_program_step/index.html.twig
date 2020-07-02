@@ -9,7 +9,7 @@
             <tr>
                 <th>Titre de l'étape</th>
                 <th>Description</th>
-                <th>Vidéo d'introduction</th>
+                <th>Code vidéo d'introduction Viméo</th>
                 <th>Fichier explicatif</th>
                 <th>Se déclenche au jour n°</th>
                 <th></th>
@@ -20,7 +20,7 @@
             <tr>
                 <td>{{ program_step.title }}</td>
                 <td>{{ program_step.description }}</td>
-                <td>{{ program_step.urlVideo|raw }}</td>
+                <td>{{ program_step.urlVideo }}</td>
                 <td><a href="{{ vich_uploader_asset(program_step, 'fileExplainFile') }}">Fichier explicatif</a></td>
                 <td>{{ program_step.begin }}</td>
                 <td>
