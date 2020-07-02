@@ -1,0 +1,16 @@
+{% extends 'base_user.html.twig' %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block body %}
+    <h1 class="text-center text-primary">FAQ</h1>
+    <section>
+        {% for faq in faqs %}
+            <div>Question</div>
+            <td class="col-4">{{ faq.question }}</td>
+            <div>Réponse</div>
+            <td class="col-4">{{ faq.answer }}</td>
+        {% endfor %}
+    </section>
+{% endblock %}
+
