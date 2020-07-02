@@ -1,0 +1,41 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Étapes{% endblock %}
+
+{% block body %}
+    <h1 class="text-primary text-center my-5">Étapes</h1>
+    <table class="table w-75 m-auto">
+        <thead>
+            <tr>
+                <th>Titre de l'étape</th>
+                <th>Description</th>
+                <th>Code vidéo d'introduction Viméo</th>
+                <th>Fichier explicatif</th>
+                <th>Se déclenche au jour n°</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for program_step in program_steps %}
+            <tr>
+                <td>{{ program_step.title }}</td>
+                <td>{{ program_step.description }}</td>
+                <td>{{ program_step.urlVideo }}</td>
+                <td><a href="{{ vich_uploader_asset(program_step, 'fileExplainFile') }}">Fichier explicatif</a></td>
+                <td>{{ program_step.begin }}</td>
+                <td>
+                    <a href="{{ path('program_step_show', {'id': program_step.id}) }}">Modifier</a>
+                    <a href="{{ path('program_step_edit', {'id': program_step.id}) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Pas d'enregistrements</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="w-75 m-auto">
+    <a class="btn btn-outline-primary my-4" href="{{ path('program_step_new') }}" >Ajouter</a>
+    </div>
+{% endblock %}
