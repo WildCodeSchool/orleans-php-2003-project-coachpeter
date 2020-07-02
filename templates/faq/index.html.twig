@@ -6,20 +6,20 @@
     <h1 class="text-center text-primary">F.A.Q.</h1>
     <section>
         <div>
-            <div class="accordion" id="accordionFaq">
+            <div class="accordion pb-5 pt-2" id="accordionFaq">
                 {% for faq in faqs %}
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse"
-                                        data-target="#collapse{{ faq.id }}" aria-expanded="true" aria-controls="collapse{{ faq.id }}">
+                                <h2 class="btn mb-0 accordion-question text-left text-primary" type="button" data-toggle="collapse"
+                                        data-target="#collapse{{ faq.id }}" aria-expanded="false" aria-controls="collapse{{ faq.id }}">
                                     {{ faq.question }}
-                                </button>
+                                </h2>
                             </h2>
                         </div>
                         <div id="collapse{{ faq.id }}" class="collapse" aria-labelledby="headingOne"
                              data-parent="#accordionFaq">
-                            <div class="card-body">
+                            <div class="answer card-body pl-5">
                                 {{ faq.answer }}
                             </div>
                         </div>
