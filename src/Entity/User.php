@@ -14,6 +14,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface
 {
+    const ROLES = [
+    "Membre" => "ROLE_MEMBER",
+    "Administrateur" => "ROLE_ADMIN",];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -31,7 +35,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="json")
      * @Assert\All({
-     *      @Assert\Choice(choices=App\Form\UserType::ROLES, message="Le rôle {{value}} n'est pas autorisé.")
+     *      @Assert\Choice(choices=App\Entity\User::ROLES, message="Le rôle {{value}} n'est pas autorisé.")
      * })
      */
     private $roles = [];

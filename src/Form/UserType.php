@@ -13,9 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserType extends AbstractType
 {
-    const ROLES = [
-        "Membre" => "ROLE_MEMBER",
-        "Administrateur" => "ROLE_ADMIN",];
+
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -34,7 +32,7 @@ class UserType extends AbstractType
             ->add('email', EmailType::class)
             ->add('roles', ChoiceType::class, [
                 'label' => 'Rôles',
-                'choices' => self::ROLES,
+                'choices' => User::ROLES,
                 'multiple' => true,
                 'expanded' => true,
                 'mapped' => true,
