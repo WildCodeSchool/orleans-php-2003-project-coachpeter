@@ -37,9 +37,14 @@ class Program
      */
     private $attendeds;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ProgramStep::class, mappedBy="program")
+     */
+    private $programSteps;
+
     public function __construct()
     {
-        $this->attendeds = new ArrayCollection();
+        $this->programSteps = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -85,7 +90,6 @@ class Program
             $this->attendeds[] = $attended;
             $attended->setProgram($this);
         }
-
         return $this;
     }
 
@@ -96,6 +100,37 @@ class Program
             // set the owning side to null (unless already changed)
             if ($attended->getProgram() === $this) {
                 $attended->setProgram(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ProgramStep[]
+     */
+    public function getProgramSteps(): Collection
+    {
+        return $this->programSteps;
+    }
+
+    public function addProgramStep(ProgramStep $programStep): self
+    {
+        if (!$this->programSteps->contains($programStep)) {
+            $this->programSteps[] = $programStep;
+            $programStep->setProgram($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProgramStep(ProgramStep $programStep): self
+    {
+        if ($this->programSteps->contains($programStep)) {
+            $this->programSteps->removeElement($programStep);
+            // set the owning side to null (unless already changed)
+            if ($programStep->getProgram() === $this) {
+                $programStep->setProgram(null);
             }
         }
 
