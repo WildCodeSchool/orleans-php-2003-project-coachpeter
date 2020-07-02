@@ -4,7 +4,6 @@
 
 {% block body %}
     <h1 class="text-primary text-center my-5">Étapes</h1>
-
     <table class="table w-75 m-auto">
         <thead>
             <tr>
@@ -21,8 +20,8 @@
             <tr>
                 <td>{{ program_step.title }}</td>
                 <td>{{ program_step.description }}</td>
-                <td>{{ program_step.urlVideo }}</td>
-                <td><a href="{{ vich_uploader_asset(program_step, 'fileExplainFile') }}" target="_blank">Fichier explicatif</a></td>
+                <td>{{ program_step.urlVideo|raw }}</td>
+                <td><a href="{{ vich_uploader_asset(program_step, 'fileExplainFile') }}">Fichier explicatif</a></td>
                 <td>{{ program_step.begin }}</td>
                 <td>
                     <a href="{{ path('program_step_show', {'id': program_step.id}) }}">Modifier</a>

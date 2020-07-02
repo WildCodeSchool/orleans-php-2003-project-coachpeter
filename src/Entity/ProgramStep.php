@@ -26,7 +26,7 @@ class ProgramStep
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Veuillez indiquez le titre de cette étape.")
-     * @Assert\Length(max=100, maxMessage="Le titre de cette étape ne doit pas dépasser {{ limit }} caractères." )
+     * @Assert\Length(max=255, maxMessage="Le titre de cette étape ne doit pas dépasser {{ limit }} caractères." )
      */
     private $title;
 
