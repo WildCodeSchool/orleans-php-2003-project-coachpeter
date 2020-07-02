@@ -47,7 +47,7 @@ class UserProfilController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('app_index');
+            return $this->redirectToRoute('profil_show');
         }
 
         return $this->render('member/editProfil.html.twig', [
