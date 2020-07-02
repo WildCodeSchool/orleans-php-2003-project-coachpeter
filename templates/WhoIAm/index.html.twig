@@ -1,0 +1,193 @@
+{% extends 'base_user.html.twig' %}
+{% block body %}
+<section class="whoami">
+    <div class="row">
+        <div class="col">
+            <div class="row my-5 d-flex justify-content-center">
+                <div class="col-4 d-flex justify-content-center">
+                    <img class="img-coach-about-me-home w-75"
+                         src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
+                         alt="Photo de Coach Peter"
+                    >
+                </div>
+
+                <div class="col-lg-6 c">
+                    <h3 class="coach-name-about-me font-weight-bold">
+                        Qui-suis-je ?
+                    </h3>
+
+                    <div>
+                        <ul class="nav mt-3" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active text-primary" id="home-tab" data-toggle="tab"
+                                   href="#home" role="tab" aria-controls="home" aria-selected="true">
+                                    Présentation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-primary" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                   aria-controls="profile" aria-selected="false">Ma Philosophie</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-primary" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                                   aria-controls="contact" aria-selected="false">Mes Certifications</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <p>
+                                Expeditionis eventus languentibus partium animis, quas periculorum varietas fregerat et laborum,
+                                nondum tubarum cessante clangore vel milite locat Post emensos insuperabilis expeditionis eventus
+                                languentibus partium animis, quas periculorum varietas fregerat et laborum, nondum tubarum cessante
+                                clangore vel milite locatPost emensos insuperabilis expeditionis eventus languentibus partium animis,
+                                quas periculorum varietas fregerat et laborum, nondum tubarum cessante clangore vel milite locat nondum
+                                tubarum cessante clangore vel milite locatPost emensos insuperabilis expeditionis eventus languentibus
+                                partium animis, quas periculorum varietas.
+                            </p>
+
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            {{ coachInfo.philosophy }}
+                        </div>
+
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            {% for degree in degrees %}
+                                <ul>
+                                    <p>
+                                        {{ degree.name }}
+                                    </p>
+                                </ul>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <h3 class="offset-2 mr-4 font-italic">
+            Mes compétences
+        </h3>
+        <img src="/build/path.png" style="width: 100px">
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <img src="/build/whoiam/image1.png" class="w-75">
+        </div>
+
+        <div class="col-6">
+            <h3><span class="h1">1</span>.PERTE DE POIDS</h3>
+            <p>
+                Expeditionis eventus languentibus partium animis, quas periculorum varietas fregerat et laborum,
+                nondum tubarum cessante clangore vel milite locat Post emensos insuperabilis expeditionis eventus
+                languentibus partium animis, quas periculorum varietas fregerat et laborum, nondum tubarum cessante
+                clangore vel milite locatPost emensos insuperabilis expeditionis eventus languentibus partium animis,
+                quas periculorum varietas fregerat et laborum, nondum tubarum cessante clangore vel milite locat nondum
+                tubarum cessante clangore vel milite locatPost emensos insuperabilis expeditionis eventus languentibus
+                partium animis, quas periculorum varietas.
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-6">
+            <h3><span class="h1">2</span>.POSTURE ET DOS</h3>
+            <p>
+                Expeditionis eventus languentibus partium animis, quas periculorum varietas fregerat et laborum,
+                nondum tubarum cessante clangore vel milite locat Post emensos insuperabilis expeditionis eventus
+                languentibus partium animis, quas periculorum varietas fregerat et laborum, nondum tubarum cessante
+                clangore vel milite locatPost emensos insuperabilis expeditionis eventus languentibus partium animis,
+                quas periculorum varietas fregerat et laborum, nondum tubarum cessante clangore vel milite locat nondum
+                tubarum cessante clangore vel milite locatPost emensos insuperabilis expeditionis eventus languentibus
+                partium animis, quas periculorum varietas.
+            </p>
+        </div>
+
+        <div class="col-6">
+            <img src="/build/whoiam/image2.png" class="w-75">
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-6">
+            <img src="/build/whoiam/image1.png" class="w-75">
+        </div>
+
+        <div class="col-6">
+            <h3><span class="h1">3</span>.REMISE EN FORME</h3>
+            <p>
+                Expeditionis eventus languentibus partium animis, quas periculorum varietas fregerat et laborum,
+                nondum tubarum cessante clangore vel milite locat Post emensos insuperabilis expeditionis eventus
+                languentibus partium animis, quas periculorum varietas fregerat et laborum, nondum tubarum cessante
+                clangore vel milite locatPost emensos insuperabilis expeditionis eventus languentibus partium animis,
+                quas periculorum varietas fregerat et laborum, nondum tubarum cessante clangore vel milite locat nondum
+                tubarum cessante clangore vel milite locatPost emensos insuperabilis expeditionis eventus languentibus
+                partium animis, quas periculorum varietas.
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-6">
+            <h3><span class="h1">4</span>.PRISE DE MASSE MUSCULAIRE</h3>
+            <p>
+                Expeditionis eventus languentibus partium animis, quas periculorum varietas fregerat et laborum,
+                nondum tubarum cessante clangore vel milite locat Post emensos insuperabilis expeditionis eventus
+                languentibus partium animis, quas periculorum varietas fregerat et laborum, nondum tubarum cessante
+                clangore vel milite locatPost emensos insuperabilis expeditionis eventus languentibus partium animis,
+                quas periculorum varietas fregerat et laborum, nondum tubarum cessante clangore vel milite locat nondum
+                tubarum cessante clangore vel milite locatPost emensos insuperabilis expeditionis eventus languentibus
+                partium animis, quas periculorum varietas.
+            </p>
+        </div>
+
+        <div class="col-6">
+            <img src="/build/whoiam/image2.png" class="w-75">
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        <h4>
+            Me rencontrer
+        </h4>
+    </div>
+
+    <div class="row">
+        <div class="col-2 offset-4 flex-column d-flex justify-content-center">
+            <p class="text-center">OBJECTIF/BILAN</p>
+            <span class="font-italic text-center">Rdv au studio</span>
+        </div>
+
+        <div class="col-2 offset-2 flex-column d-flex justify-content-center">
+            <p class="text-center">PREMIER CONTACT</p>
+            <span class="font-italic text-center">par mail ou par téléphone</span>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        <img src="/build/whoiam/timeline.png" width="70%" >
+    </div>
+
+    <div class="row">
+        <div class="col-2 offset-2 flex-column d-flex justify-content-center">
+            <p>OBJECTIF/BILAN</p>
+            <span class="font-italic">Rdv au studio</span>
+        </div>
+
+        <div class="col-2 offset-2 flex-column d-flex justify-content-center">
+            <p class="text-center">PREMIER CONTACT</p>
+            <span class="font-italic text-center">par mail ou par téléphone</span>
+        </div>
+    </div>
+
+    <div class="row justify-content-center my-5">
+        <a class="btn btn-outline-primary">C'EST PARTI !</a>
+    </div>
+
+</section>
+    {% include 'home/_map.html.twig' %}
+{% endblock %}
