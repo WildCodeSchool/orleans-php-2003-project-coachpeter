@@ -20,12 +20,14 @@ class Attended
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank(message="Merci d'indiquer une date de début")
+     * @Assert\Date(message = "Veuillez indiquer une date valide")
      */
     private $beginDate;
 
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank(message="Merci d'indiquer une date de fin")
+     * @Assert\Date(message = "Veuillez indiquer une date valide")
      */
     private $endDate;
 
