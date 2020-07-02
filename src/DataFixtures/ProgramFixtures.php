@@ -14,7 +14,7 @@ class ProgramFixtures extends Fixture
         $program->setName('Perte de poids');
         $program->setDuration(180);
         $manager->persist($program);
-        $this->addReference('program' . 0, $program);
+        $this->addReference('program', $program);
 
         $manager->flush();
     }

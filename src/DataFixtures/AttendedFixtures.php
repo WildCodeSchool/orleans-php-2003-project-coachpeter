@@ -3,11 +3,12 @@
 namespace App\DataFixtures;
 
 use App\Entity\Attended;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker;
 
-class AttendedFixtures extends Fixture
+class AttendedFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -16,8 +17,8 @@ class AttendedFixtures extends Fixture
         $attended = new Attended();
         $attended->setBeginDate($faker->dateTime);
         $attended->setEndDate($faker->dateTime);
-        $attended->setUser($this->getReference('user_' . 0));
-        $attended->setProgram($this->getReference('program_' . '0'));
+        $attended->setUser($this->getReference('user'));
+        $attended->setProgram($this->getReference('program'));
 
         $manager->persist($attended);
 
