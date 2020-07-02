@@ -14,7 +14,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class UserType extends AbstractType
 {
     const ROLES = [
-        "Client" => "ROLE_USER",
         "Membre" => "ROLE_MEMBER",
         "Administrateur" => "ROLE_ADMIN",];
 

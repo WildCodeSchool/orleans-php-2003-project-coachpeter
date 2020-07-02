@@ -30,6 +30,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="json")
+     * @Assert\All({
+     *      @Assert\Choice(choices=App\Form\UserType::ROLES, message="Le rôle {{value}} n'est pas autorisé.")
+     * })
      */
     private $roles = [];
 

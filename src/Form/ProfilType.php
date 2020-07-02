@@ -24,6 +24,7 @@ class ProfilType extends AbstractType
             ->add('email', EmailType::class)
             ->add('phone', TextType::class, [
                 'label' => 'Téléphone',
+                'required' => false,
             ]);
     }
 
