@@ -12,7 +12,7 @@
                 <p class="card-text">Nom : {{ app.user.lastname }}</p>
                 <p class="card-text">Téléphone : {{ app.user.phone|formatPhoneFr }}</p>
                 <p class="card-text">Email : {{ app.user.email }}</p>
-                <a href="{{ path('profil_edit', {'id' : app.user.id} )}}" class="btn btn-primary">Modifier</a>
+                <a href="{{ path('profil_edit')}}" class="btn btn-primary">Modifier</a>
             </div>
         </div>
     </section>
