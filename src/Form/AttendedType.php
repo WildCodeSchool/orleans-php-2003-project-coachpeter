@@ -19,17 +19,21 @@ class AttendedType extends AbstractType
         $builder
             ->add('beginDate', DateType::class, [
                 'label' => 'Date de début',
+                'format' => 'dd/MM/yyyy',
             ])
             ->add('endDate', DateType::class, [
                 'label' => 'Date de fin',
+                'format' => 'dd/MM/yyyy',
             ])
             ->add('program', EntityType::class, [
                 'class' => Program::class,
                 'choice_label' => 'name',
+                'label' => 'Programme'
             ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'lastname',
+                'label' => 'Utilisateur'
             ])
         ;
     }
