@@ -1,13 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block title %}Edit Attended{% endblock %}
 
 {% block body %}
-    <h1>Edit Attended</h1>
+    <h1 class="text-primary text-center">Edit Attended</h1>
 
-    {{ include('attended/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin_attended/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('attended_index') }}">back to list</a>
 
-    {{ include('attended/_delete_form.html.twig') }}
 {% endblock %}
