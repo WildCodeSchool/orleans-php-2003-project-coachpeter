@@ -7,6 +7,13 @@
         </thead>
         <tbody>
         <tr>
+            <th>Planning</th>
+            <td>
+                {{ form_errors(form.planningFile) }}
+                {{ form_widget(form.planningFile) }}
+            </td>
+        </tr>
+        <tr>
             <th>Téléphone</th>
             <td class="text-left">
                 {{ form_errors(form.phone) }}

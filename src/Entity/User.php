@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -14,6 +16,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface
 {
+    const ROLES = [
+    "Membre" => "ROLE_MEMBER",
+    "Administrateur" => "ROLE_ADMIN",];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -30,7 +36,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="json")
-     * @Assert\Choice(choices=App\Form\UserType::ROLES, message="Veuillez choisir au moins un rôle.")
+     * @Assert\All({
+     *      @Assert\Choice(choices=App\Entity\User::ROLES, message="Le rôle {{value}} n'est pas autorisé.")
+     * })
      */
     private $roles = [];
 
@@ -62,6 +70,16 @@ class User implements UserInterface
      * il ne devrait pas dépasser {{ limit}} caractères.")
      */
     private $phone;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Attended::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $attendeds;
+
+    public function __construct()
+    {
+        $this->attendeds = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -172,6 +190,37 @@ class User implements UserInterface
     public function setphone(?string $phone): self
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Attended[]
+     */
+    public function getAttendeds(): Collection
+    {
+        return $this->attendeds;
+    }
+
+    public function addAttended(Attended $attended): self
+    {
+        if (!$this->attendeds->contains($attended)) {
+            $this->attendeds[] = $attended;
+            $attended->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAttended(Attended $attended): self
+    {
+        if ($this->attendeds->contains($attended)) {
+            $this->attendeds->removeElement($attended);
+            // set the owning side to null (unless already changed)
+            if ($attended->getUser() === $this) {
+                $attended->setUser(null);
+            }
+        }
 
         return $this;
     }
