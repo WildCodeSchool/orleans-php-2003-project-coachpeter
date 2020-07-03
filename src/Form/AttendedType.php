@@ -28,12 +28,12 @@ class AttendedType extends AbstractType
             ->add('program', EntityType::class, [
                 'class' => Program::class,
                 'choice_label' => 'name',
-                'label' => 'Programme'
+                'label' => 'Programme',
             ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'lastname',
-                'label' => 'Utilisateur'
+                'label' => 'Utilisateur',
             ])
         ;
     }
