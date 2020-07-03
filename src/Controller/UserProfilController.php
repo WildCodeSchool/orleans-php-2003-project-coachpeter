@@ -30,4 +30,29 @@ class UserProfilController extends AbstractController
             'coachInfo' => $coachInfo,
         ]);
     }
+
+    /**
+     * @Route("/edit", name="profil_edit", methods={"GET","POST"})
+     */
+
+    public function editProfil(Request $request): Response
+    {
+        $coachInfo = $this->getDoctrine()
+            ->getRepository(InfoCoach::class)
+            ->findOneBy([]);
+
+        $form = $this->createForm(ProfilType::class, $this->getUser());
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('profil_show');
+        }
+
+        return $this->render('member/editProfil.html.twig', [
+            'form' => $form->createView(),
+            'coachInfo' => $coachInfo,
+        ]);
+    }
 }
