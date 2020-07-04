@@ -25,9 +25,9 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{ program.name }}</td>
-                <td>{{ program.duration }}</td>
-                <td>
+                <td class="align-middle">{{ program.name }}</td>
+                <td class="align-middle">{{ program.duration }}</td>
+                <td class="align-middle">
                     <a class="btn text-primary mx-2 col-6" href="{{ path('program_edit', {'id': program.id}) }}">
                         <svg class="bi bi-pencil-square" width="24px" height="24px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -53,8 +53,8 @@
                 <tbody>
             {% for program_step in program.programSteps %}
                 <tr>
-                    <td class="col-8">{{ program_step.title }}</td>
-                    <td class="col-1">
+                    <td class="col-8 align-middle">{{ program_step.title }}</td>
+                    <td class="col-1 align-middle">
                         <a href="{{ path('program_step_edit', {'id': program_step.id}) }}">
                             <svg class="bi bi-pencil-square" width="24px" height="24px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -62,7 +62,7 @@
                             </svg>
                         </a>
                     </td>
-                    <td class="col-1">
+                    <td class="col-1 align-middle">
                         {%  include 'admin_program_step/_delete_form.html.twig' %}
                     </td>
                 </tr>

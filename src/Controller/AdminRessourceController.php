@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Ressource;
+use App\Entity\Theme;
 use App\Form\RessourceType;
+use App\Form\ThemeType;
 use App\Repository\RessourceRepository;
+use App\Repository\ThemeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,7 +31,7 @@ class AdminRessourceController extends AbstractController
     /**
      * @Route("/new", name="ressource_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, ThemeRepository $themeRepository): Response
     {
         $ressource = new Ressource();
         $form = $this->createForm(RessourceType::class, $ressource);
@@ -42,9 +45,26 @@ class AdminRessourceController extends AbstractController
             return $this->redirectToRoute('ressource_index');
         }
 
+        $theme = new Theme();
+        $themeForm = $this->createForm(ThemeType::class, $theme);
+        $themeForm->handleRequest($request);
+
+        if ($themeForm->isSubmitted() && $themeForm->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($theme);
+            $entityManager->flush();
+            $this->addFlash(
+                'success',
+                $theme->getNameTheme() .' a bien été ajouté aux thèmes existants.'
+            );
+            return $this->redirectToRoute('ressource_new');
+        }
+
+
         return $this->render('admin_ressource/new.html.twig', [
             'ressource' => $ressource,
             'form' => $form->createView(),
+            'themeForm' => $themeForm->createView(),
         ]);
     }
 
