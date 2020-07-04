@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\ProgramStepRepository;
 use App\Entity\Program;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -85,6 +87,16 @@ class ProgramStep
      * @var DateTime
      */
     private $updatedAt;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Ressource::class, mappedBy="programStep")
+     */
+    private $ressources;
+
+    public function __construct()
+    {
+        $this->ressources = new ArrayCollection();
+    }
 
     public function getTitle(): ?string
     {
@@ -169,5 +181,36 @@ class ProgramStep
     public function getFileExplainFile(): ?File
     {
         return $this->fileExplainFile;
+    }
+
+    /**
+     * @return Collection|Ressource[]
+     */
+    public function getRessources(): Collection
+    {
+        return $this->ressources;
+    }
+
+    public function addRessource(Ressource $ressource): self
+    {
+        if (!$this->ressources->contains($ressource)) {
+            $this->ressources[] = $ressource;
+            $ressource->setProgramStep($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRessource(Ressource $ressource): self
+    {
+        if ($this->ressources->contains($ressource)) {
+            $this->ressources->removeElement($ressource);
+            // set the owning side to null (unless already changed)
+            if ($ressource->getProgramStep() === $this) {
+                $ressource->setProgramStep(null);
+            }
+        }
+
+        return $this;
     }
 }
