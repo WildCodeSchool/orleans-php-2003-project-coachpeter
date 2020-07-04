@@ -4,24 +4,24 @@
     <div class="col-md-8 container-banner position-absolute ">
         <div class="supnavbar col-12 col-md-10 offset-md-1 d-flex flex-column flex-md-row mt-3">
             <div class="col-md-8 infoheader d-flex flex-row">
-                <div class="p-0 col-7 col-md-12 d-flex flex-row">
+                <div class="p-0 col-7 col-md-12 d-flex flex-row align-items-center">
                     <img class="mx-1 d-flex flex-row" src="{{ asset('build/blue_location.svg') }}">
                     <p>{{ coachInfo.adress }}<br> {{ coachInfo.zipCode }} {{ coachInfo.city|upper }}</p>
                 </div>
-                <div class="col-6 col-md-5 px-0 d-flex">
-                    <img class="mx-1 d-flex flex-row" src="{{ asset('build/blue_tel.svg') }}">
-                    <p>{{ coachInfo.phone|formatPhoneFr }}</p>
+                <div class="col-6 col-md-5 px-0 d-flex align-items-center">
+                    <img class="mx-1" src="{{ asset('build/blue_tel.svg') }}">
+                    <p class="mt-3">{{ coachInfo.phone|formatPhoneFr }}</p>
                 </div>
             </div>
             <div class="col-md-2 offset-md-2 mr-0 d-flex ">
                 <div class="col-12 d-flex justify-content-between">
-                    <a href="https://fr-fr.facebook.com/coachpeter.orleans/" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_facebook.svg') }}" alt="Lien vers page Facebook"></a>
-                    <a href="https://instagram.com/coach_peter.orleans?igshid=crqgsjokas3f" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_insta.svg') }}" alt="Lien vers page Instagram"></a>
-                    <a href="{{ path('app_login') }}"><img class="navbar-text" src="{{ asset('build/blue_connection.svg') }}" alt="Lien vers page de connexion"></a>
+                    <a class="mt-2" href="https://fr-fr.facebook.com/coachpeter.orleans/" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_facebook.svg') }}" alt="Lien vers page Facebook"></a>
+                    <a class="mt-2" href="https://instagram.com/coach_peter.orleans?igshid=crqgsjokas3f" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_insta.svg') }}" alt="Lien vers page Instagram"></a>
+                    <a class="mt-2" href="{{ path('app_login') }}"><img class="navbar-text" src="{{ asset('build/blue_connection.svg') }}" alt="Lien vers page de connexion"></a>
                 </div>
             </div>
             {% if app.user %}
-                <a class="nav-item text-light dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="mt-3 nav-item text-light dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ app.user.firstname}}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
