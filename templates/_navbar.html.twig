@@ -28,7 +28,7 @@
                     {% if is_granted('ROLE_ADMIN') %}
                             <a class="dropdown-item text-primary" href="{{ path('app_admin') }}">Admin</a>
                     {% endif %}
-                    <a class="dropdown-item text-primary" href="">Mon profil</a>
+                    <a class="dropdown-item text-primary" href="{{ path('profil_show')}}">Mon profil</a>
 
                     <a class="dropdown-item text-danger" href="{{ path('app_logout')}}">Déconnexion</a>
                 </div>
@@ -65,7 +65,7 @@
                                 <a class="nav-link navbar-link text-light" href="#">Coaching</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link navbar-link text-light" href="#">Team training</a>
+                                <a class="nav-link navbar-link text-light" href="{{ path('index_team_traing') }}">Team training</a>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link navbar-link text-light" href="#">Contact</a>

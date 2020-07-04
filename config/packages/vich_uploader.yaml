@@ -21,3 +21,13 @@ vich_uploader:
       uri_prefix: /uploads/transformations
       upload_destination:  '%upload_directory%/transformations'
       namer: Vich\UploaderBundle\Naming\UniqidNamer
+
+    planning_file:
+      uri_prefix: /uploads/planning
+      upload_destination:  '%upload_directory%/planning'
+      namer: Vich\UploaderBundle\Naming\UniqidNamer
+
+    programStep_file:
+      uri_prefix: /uploads/programStep
+      upload_destination:  '%upload_directory%/programStep'
+      namer: Vich\UploaderBundle\Naming\UniqidNamer
