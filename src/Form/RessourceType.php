@@ -16,6 +16,7 @@ class RessourceType extends AbstractType
     {
         $builder
             ->add('type', ChoiceType::class, ['choices' => Ressource::TYPES_FILES])
+            ->add('refVideo')
             ->add('name')
             ->add('fileFile', VichFileType::class, [
                 'label' => 'Fichier à télécharger',

@@ -80,6 +80,12 @@ class Ressource
      */
     private $theme;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     * @Assert\Length(max=50, maxMessage="La référence à la vidéo ne peut excéder {{limit}} caractères.")
+     */
+    private $refVideo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +160,18 @@ class Ressource
     public function setTheme(?theme $theme): self
     {
         $this->theme = $theme;
+
+        return $this;
+    }
+
+    public function getRefVideo(): ?string
+    {
+        return $this->refVideo;
+    }
+
+    public function setRefVideo(?string $refVideo): self
+    {
+        $this->refVideo = $refVideo;
 
         return $this;
     }
