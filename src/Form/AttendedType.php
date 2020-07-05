@@ -26,6 +26,14 @@ class AttendedType extends AbstractType
                 'class' => Program::class,
                 'choice_label' => 'name',
                 'label' => 'Programme',
+            ])
+            ->add('beginDate', DateType::class, [
+                'label' => 'Date de début',
+                'format' => 'dd/MM/yyyy',
+            ])
+            ->add('endDate', DateType::class, [
+                'label' => 'Date de fin',
+                'format' => 'dd/MM/yyyy',
             ]);
     }
 

@@ -18,6 +18,24 @@
         </div>
         {{ form_widget(form.program) }}
     </div>
+    <div class="form-group col-4 offset-4 text-primary text-center">
+        <div class="h5">
+            {{ form_label(form.beginDate) }}
+            <div class="text-danger">
+                {{ form_errors(form.beginDate) }}
+            </div>
+        </div>
+        {{ form_widget(form.beginDate) }}
+    </div>
+    <div class="form-group col-4 offset-4 text-primary text-center">
+        <div class="h5">
+            {{ form_label(form.endDate) }}
+            <div class="text-danger">
+                {{ form_errors(form.endDate) }}
+            </div>
+        </div>
+        {{ form_widget(form.endDate) }}
+    </div>
 </div>
 
 <div class="form-inline justify-content-center">
