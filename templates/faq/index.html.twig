@@ -5,17 +5,16 @@
 {% block body %}
     <h1 class="text-center text-primary">F.A.Q.</h1>
     <section>
-        <div>
             <div class="accordion pb-5 pt-2" id="accordionFaq">
                 {% for faq in faqs %}
                     <div class="card">
                         <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
+                            <div class="mb-0">
                                 <h2 class="btn mb-0 accordion-question text-left text-primary" type="button" data-toggle="collapse"
                                         data-target="#collapse{{ faq.id }}" aria-expanded="false" aria-controls="collapse{{ faq.id }}">
                                     {{ faq.question }}
                                 </h2>
-                            </h2>
+                            </div>
                         </div>
                         <div id="collapse{{ faq.id }}" class="collapse" aria-labelledby="headingOne"
                              data-parent="#accordionFaq">
@@ -26,7 +25,6 @@
                     </div>
                 {% endfor %}
             </div>
-        </div>
     </section>
 {% endblock %}
 
