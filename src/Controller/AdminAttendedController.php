@@ -71,6 +71,7 @@ class AdminAttendedController extends AbstractController
             $attended->getUser();
             $attended->getProgram();
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'L\'adhésion a bien été modifiée');
 
             return $this->redirectToRoute('attended_index');
         }
