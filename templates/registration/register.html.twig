@@ -8,7 +8,9 @@
     {% endfor %}
 
     <h1 class="text-primary text-center">Inscription</h1>
+    <div class="text-primary text-center">les champs marqué d'un * sont obligatoires.</div>
     <div class="my-5 container text-center text-primary">
+
     {{ form_start(registrationForm) }}
 
     {{ form_row(registrationForm.firstname) }}
@@ -16,7 +18,6 @@
     {{ form_row(registrationForm.phone) }}
     {{ form_row(registrationForm.email) }}
     {{ form_row(registrationForm.password) }}
-
     <div class="text-center">
         <button type="submit" class="btn btn-primary m-4">S'inscrire</button>
     </div>
