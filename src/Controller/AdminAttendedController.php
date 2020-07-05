@@ -37,8 +37,6 @@ class AdminAttendedController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $attended->setBeginDate(new DateTime('now'));
-            $attended->setBeginDate(new DateTime('now + 180 day'));
             $entityManager->persist($attended);
             $entityManager->flush();
 
