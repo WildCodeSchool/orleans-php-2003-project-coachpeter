@@ -1,13 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
-{% block title %}Edit ProgramStep{% endblock %}
+{% block title %}Modifier une étape{% endblock %}
 
 {% block body %}
-    <h1>Edit ProgramStep</h1>
+    <h1 class="text-primary text-center">Modifier l'étape</h1>
 
-    {{ include('admin_program_step/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('program_step_index') }}">back to list</a>
-
-    {{ include('admin_program_step/_delete_form.html.twig') }}
+    {{ include('admin_program_step/_form_update.html.twig', {'button_label': 'Mettre à jour'}) }}
+    <div class="w-75 m-auto">
+    <a class="btn btn-light text-primary border-primary" href="{{ path('program_index') }}">Retour</a>
+    </div>
 {% endblock %}

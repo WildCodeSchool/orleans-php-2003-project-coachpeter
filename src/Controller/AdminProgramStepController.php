@@ -73,7 +73,7 @@ class AdminProgramStepController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('program_step_index');
+            return $this->redirectToRoute('program_index');
         }
 
         return $this->render('admin_program_step/edit.html.twig', [
