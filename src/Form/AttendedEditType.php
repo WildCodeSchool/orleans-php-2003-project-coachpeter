@@ -16,6 +16,10 @@ class AttendedEditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('beginDate', DateType::class, [
+                'label' => 'Date de début',
+                'format' => 'dd/MM/yyyy',
+            ])
             ->add('endDate', DateType::class, [
                 'label' => 'Date de fin',
                 'format' => 'dd/MM/yyyy',

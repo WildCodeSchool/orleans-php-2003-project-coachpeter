@@ -70,7 +70,6 @@ class AdminAttendedController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $attended->getUser();
             $attended->getProgram();
-            $attended->getBeginDate();
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('attended_index');
