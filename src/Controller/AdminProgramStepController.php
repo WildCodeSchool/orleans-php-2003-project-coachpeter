@@ -37,11 +37,12 @@ class AdminProgramStepController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $programStep->setProgram($program);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($programStep);
             $entityManager->flush();
 
-            return $this->redirectToRoute('program_step_index');
+            return $this->redirectToRoute('program_index');
         }
 
         return $this->render('admin_program_step/new.html.twig', [

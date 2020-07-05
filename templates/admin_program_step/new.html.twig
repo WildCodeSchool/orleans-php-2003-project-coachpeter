@@ -4,10 +4,12 @@
 
 {% block body %}
     <h1 class="text-primary text-center">Créer une nouvelle étape</h1>
-    <h2 class="text-primary text-center">{{ program.name }}</h2>
+    <h2 class="text-primary text-center">{{ program.name|upper }}</h2>
     <div class="w-75 m-auto text-center">
     {{ include('admin_program_step/_form.html.twig') }}
     </div>
-    <a class="btn border-primary" href="{{ path('program_index') }}">Retour</a>
+    <div class="w-75 m-auto">
+    <a class="btn btn-light text-primary border-primary my-4" href="{{ path('program_index') }}">Retour</a>
+    </div>
 {% endblock %}
 
