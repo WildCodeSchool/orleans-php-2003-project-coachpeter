@@ -21,16 +21,18 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'label' => 'Prénom',
+                'label' => 'Prénom *',
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Nom',
+                'label' => 'Nom *',
             ])
             ->add('phone', TextType::class, [
                 'label' => 'Téléphone',
                 'required' => false
             ])
-            ->add('email', EmailType::class)
+            ->add('email', EmailType::class, [
+                'label' => 'Email *',
+            ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 // instead of being set onto the object directly,
@@ -38,17 +40,17 @@ class RegistrationFormType extends AbstractType
                 'invalid_message' => 'Les mots de passe de sont pas identiques',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
-                'first_options'  => ['label' => 'Mot de passe'],
-                'second_options' => ['label' => 'Répétez le mot de passe'],
+                'first_options'  => ['label' => 'Mot de passe *'],
+                'second_options' => ['label' => 'Répétez le mot de passe *'],
 
                 'mapped' => false,
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Veuillez entrer un mot de passe',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'Votre mot de passe doit contenir au moins {{ limit }} caractères',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
