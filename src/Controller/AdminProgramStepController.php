@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\ProgramStep;
 use App\Form\ProgramStepType;
+use App\Repository\ProgramRepository;
 use App\Repository\ProgStepRepository;
+use App\Entity\Program;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,24 +28,26 @@ class AdminProgramStepController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="program_step_new", methods={"GET","POST"})
+     * @Route("/new/{id}", name="program_step_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Program $program): Response
     {
         $programStep = new ProgramStep();
         $form = $this->createForm(ProgramStepType::class, $programStep);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $programStep->setProgram($program);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($programStep);
             $entityManager->flush();
 
-            return $this->redirectToRoute('program_step_index');
+            return $this->redirectToRoute('program_index');
         }
 
         return $this->render('admin_program_step/new.html.twig', [
             'program_step' => $programStep,
+            'program' => $program,
             'form' => $form->createView(),
         ]);
     }
