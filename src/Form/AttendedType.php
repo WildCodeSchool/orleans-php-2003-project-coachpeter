@@ -18,7 +18,7 @@ class AttendedType extends AbstractType
         $builder
             ->add('user', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => 'lastname',
+                'choice_label' => 'FirstAndLastname',
                 'label' => 'Utilisateur',
             ])
             ->add('program', EntityType::class, [
