@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use \DateTime;
 
 /**
  * @Route("admin/adhesion")
@@ -36,6 +37,8 @@ class AdminAttendedController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $attended->setBeginDate(new DateTime('now'));
+            $attended->setBeginDate(new DateTime('now + 180 day'));
             $entityManager->persist($attended);
             $entityManager->flush();
 

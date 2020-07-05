@@ -19,30 +19,26 @@ class Attended
     private $id;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date" )
      * @Assert\NotBlank(message="Merci d'indiquer une date de début")
-     * @Assert\Date(message = "Veuillez indiquer une date valide")
      */
     private $beginDate;
 
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank(message="Merci d'indiquer une date de fin")
-     * @Assert\Date(message = "Veuillez indiquer une date valide")
      */
     private $endDate;
 
     /**
      * @ORM\ManyToOne(targetEntity=Program::class, inversedBy="attendeds")
      * @ORM\JoinColumn(nullable=false)
-     * @Assert\Choice(callback={"App\Entity\Program", "getProgram"})
      */
     private $program;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="attendeds")
      * @ORM\JoinColumn(nullable=false)
-     * @Assert\Choice(callback={"App\Entity\User", "getUser"})
      */
     private $user;
 
