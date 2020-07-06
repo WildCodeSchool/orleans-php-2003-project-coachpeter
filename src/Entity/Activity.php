@@ -16,6 +16,8 @@ use App\Form;
  */
 class Activity
 {
+    const CATEGORY=['coaching'=>'coaching', 'team'=>'team'];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -72,7 +74,8 @@ class Activity
     private $focus;
 
     /**
-     * @ORM\ManyToOne(targetEntity=CoachingCategory::class, inversedBy="activities")
+     * @ORM\Column(type="string", length=20)
+     * @Assert\Choice(choices=Activity::CATEGORY, message="Merci de choisir une catégorie valide.")
      */
     private $category;
 
@@ -148,12 +151,12 @@ class Activity
         return $this;
     }
 
-    public function getCategory(): ?CoachingCategory
+    public function getCategory(): ?string
     {
         return $this->category;
     }
 
-    public function setCategory(?CoachingCategory $category): self
+    public function setCategory(string $category): self
     {
         $this->category = $category;
 
