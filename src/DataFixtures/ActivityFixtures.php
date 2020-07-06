@@ -4,11 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\Activity;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker;
 
-class ActivityFixtures extends Fixture implements DependentFixtureInterface
+class ActivityFixtures extends Fixture
 {
     const ICONS = [
         'box' => 1,
@@ -33,10 +32,5 @@ class ActivityFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist($activity);
         }
         $manager->flush();
-    }
-
-    public function getDependencies()
-    {
-        return [CoachingCategoryFixtures::class];
     }
 }
