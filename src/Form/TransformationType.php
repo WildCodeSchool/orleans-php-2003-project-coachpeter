@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Transformation;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichFileType;
@@ -15,6 +16,8 @@ class TransformationType extends AbstractType
         $builder
             ->add('name')
             ->add('pound')
+            ->add('description', TextareaType::class)
+            ->add('title')
             ->add('pictureBeforeFile', VichFileType::class, [
 
                 'required'      => false,

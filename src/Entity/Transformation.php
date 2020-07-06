@@ -84,6 +84,18 @@ class Transformation
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     * @Assert\Length(max=4294967295, maxMessage="Votre description ne doit pas dépasser {{ limit }} caractères." )
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max=255, maxMessage="Votre titre ne doit pas dépasser {{ limit }} caractères." )
+     */
+    private $title;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -161,5 +173,29 @@ class Transformation
     public function getPictureAfterFile(): ?File
     {
         return $this->pictureAfterFile;
+    }
+
+    public function getdescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setdescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
     }
 }
