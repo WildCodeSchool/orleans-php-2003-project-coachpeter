@@ -224,4 +224,9 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function getFirstAndLastname()
+    {
+        return $this->firstname.' '.$this->lastname;
+    }
 }
