@@ -5,7 +5,13 @@
 {% block body %}
     <h1 class="text-center text-primary">Bienvenue sur votre espace membre </h1>
 <section>
-
+    {% if member.id == app.user.id %}
+        <p>Bonjour {{ member.firstname }},</p>
+        <p>Vous participez au programme "programme.title" depuis le attended.beginDate .</p>
+        <p>Vous avez accès à ces ressources jusqu'au attended.endDate .</p>
+    {%  else %}
+    Ceci n'est pas votre espace. Merci de vous rediriger vers <a href="{{ path('app_member',  {'id':app.user.id}) }}">votre espace-ci</a>.
+    {% endif %}
 </section>
 {% endblock %}
 
