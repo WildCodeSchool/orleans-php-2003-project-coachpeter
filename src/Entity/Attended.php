@@ -35,14 +35,12 @@ class Attended
     /**
      * @ORM\ManyToOne(targetEntity=Program::class, inversedBy="attendeds")
      * @ORM\JoinColumn(nullable=false)
-     * @Assert\Choice(callback={"App\Entity\Program", "getProgram"})
      */
     private $program;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="attendeds")
      * @ORM\JoinColumn(nullable=false)
-     * @Assert\Choice(callback={"App\Entity\User", "getUser"})
      */
     private $user;
 
