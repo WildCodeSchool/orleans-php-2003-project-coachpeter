@@ -36,7 +36,8 @@ class ContactType extends AbstractType
                 'required'   => true,
                 ])
             ->add('message', TextareaType::class, [
-                'attr' => ['class' => "col-12 mb-3", 'placeholder' => "Je suis intéressée par votre programme. Auriez-vous plus d'informations à me communiquer ?"],
+                'attr' => ['class' => "col-12 mb-3", 'placeholder' => "Je suis intéressée par votre programme.
+                Auriez-vous plus d'informations à me communiquer ?"],
                 'label' => 'Message',
                 'required'   => true,
                 ])
