@@ -1,0 +1,22 @@
+.blog:nth-of-type(even) .blog-content {
+  flex-direction: row-reverse;
+}
+
+.date-blog {
+  color: $darkgray;
+  font-size: $xtra-small-font-size;
+}
+
+.blog-img {
+  width: 360px;
+  object-fit: cover;
+}
+
+.badge-blog {
+  background-color: $secondary;
+  color: $light;
+  padding-left: 17px;
+  padding-top: 11px;
+  font-family: $main-font;
+  font-size: $small-font-size;
+}
