@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Étapes{% endblock %}
+
+{% block body %}
+    <h1>ProgramStep</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ program_step.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ program_step.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ program_step.description }}</td>
+            </tr>
+            <tr>
+                <th>UrlVideo</th>
+                <td>{{ program_step.urlVideo }}</td>
+            </tr>
+            <tr>
+                <th>FileExplain</th>
+                <td>{{ program_step.fileExplain }}</td>
+            </tr>
+            <tr>
+                <th>Begin</th>
+                <td>{{ program_step.begin }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ program_step.updatedAt ? program_step.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('program_step_index') }}">back to list</a>
+
+    <a href="{{ path('program_step_edit', {'id': program_step.id}) }}">edit</a>
+
+    {{ include('program_step/_delete_form.html.twig') }}
+{% endblock %}

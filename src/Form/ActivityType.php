@@ -43,6 +43,8 @@ class ActivityType extends AbstractType
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
+                'download_link' => false,
+                'delete_label'  => 'Supprimer cette image',
             ])
 
             ->add('category', null, ['choice_label' => 'category'])

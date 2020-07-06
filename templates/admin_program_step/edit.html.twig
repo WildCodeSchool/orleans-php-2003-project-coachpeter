@@ -1,0 +1,12 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Modifier une étape{% endblock %}
+
+{% block body %}
+    <h1 class="text-primary text-center">Modifier l'étape</h1>
+
+    {{ include('admin_program_step/_form_update.html.twig', {'button_label': 'Mettre à jour'}) }}
+    <div class="w-75 m-auto">
+    <a class="btn btn-light text-primary border-primary" href="{{ path('program_index') }}">Retour</a>
+    </div>
+{% endblock %}
