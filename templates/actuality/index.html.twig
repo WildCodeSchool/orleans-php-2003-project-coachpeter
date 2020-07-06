@@ -1,0 +1,20 @@
+{% extends 'base_user.html.twig' %}
+
+{% block title %}Actualités{% endblock %}
+
+{% block body %}
+    <h1 class="text-center text-primary">Actualités</h1>
+    <section>
+        {% for actuality in actualities %}
+        <div class="text-dark">
+            <h2 class="h2 text-primary">{{ actuality.title }}</h2>
+            <p>{{ actuality.date|date('d M Y') }}</p>
+            <img class="card-img-top card-actu-img" src="{{ vich_uploader_asset(actuality, 'actualityFile') }}"
+                 alt="{{ actuality.title }}">
+            <h3>{{ actuality.topic }}</h3>
+                <div>{{ actuality.content }}</div>
+
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
