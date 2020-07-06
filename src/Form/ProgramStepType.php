@@ -23,7 +23,6 @@ class ProgramStepType extends AbstractType
                 'download_uri' => true,
             ])
             ->add('begin')
-            ->add('program', null, ['choice_label'=>'name'])
         ;
     }
 
