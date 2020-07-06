@@ -25,7 +25,7 @@ class RessourceType extends AbstractType
                 'download_uri' => true,
             ])
             ->add('programStep', null, ['choice_label'=>'title'])
-            ->add('theme', null, ['choice_label'=>'name'])
+            ->add('theme', null, ['choice_label'=>'nameTheme'])
         ;
     }
 

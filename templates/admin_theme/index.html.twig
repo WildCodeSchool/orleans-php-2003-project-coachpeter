@@ -25,7 +25,7 @@
         <tbody>
         {% for theme in themes %}
         <tr class="d-flex align-items-center">
-            <td class="col-6">{{ theme.name }}</td>
+            <td class="col-6">{{ theme.nameTheme }}</td>
             <td class="col-3">
                 <a href="{{ path('theme_edit', {'id': theme.id}) }}">
                     <svg class="bi bi-pencil-square" width="24px" height="24px" viewBox="0 0 16 16" fill="currentColor"
