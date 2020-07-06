@@ -41,7 +41,7 @@
             </tr>
         </tbody>
     </table>
-        <h3 class="mt-2 w-50 mx-auto mb-1 text-center text-primary">
+        <h3 class="mt-2 w-75 mx-auto mb-1 text-left text-primary">
             Les étapes
         <a href="{{ path('program_step_new') }}">
         <svg class="bi bi-plus-circle-fill" width="24px" height="24px" viewBox="0 0 16 16" fill="#00384f" xmlns="http://www.w3.org/2000/svg">
@@ -49,27 +49,72 @@
         </svg>
         </a>
         </h3>
-            <table class="mb-5 mt-0 table table-striped w-50 text-center mx-auto table-hover table-borderless">
-                <tbody>
             {% for program_step in program.programSteps %}
-                <tr>
-                    <td class="col-8">{{ program_step.title }}</td>
-                    <td class="col-1">
-                        <a href="{{ path('program_step_edit', {'id': program_step.id}) }}">
-                            <svg class="bi bi-pencil-square" width="24px" height="24px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                            </svg>
-                        </a>
-                    </td>
-                    <td class="col-1">
-                        {%  include 'admin_program_step/_delete_form.html.twig' %}
-                    </td>
-                </tr>
-            {% endfor %}
-                </tbody>
-            </table>
+                <div class="w-75 m-auto accordion pt-2" id="accordionProgramStep">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <div class="mb-0 row w-100">
+                                    <div class="col-10 align-middle">
+                                        <h2 class="btn mb-0 accordion-programStep text-left text-primary" type="button" data-toggle="collapse"
+                                            data-target="#collapse{{ program_step.id }}" aria-expanded="false" aria-controls="collapse{{ program_step.id }}">
+                                            {{ program_step.title }}
+                                        </h2>
+                                    </div>
+                                    <div class="col-1 align-middle text-center">
+                                    <a href="{{ path('program_step_edit', {'id': program_step.id}) }}">
+                                        <svg class="bi bi-pencil-square" width="24px" height="24px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                        </svg>
+                                    </a>
+                                    </div>
+                                    <div class="col-1 align-middle text-center">
+                                    {%  include 'admin_program_step/_delete_form.html.twig' %}
+                                    </div>
 
+                                </div>
+                            </div>
+                            <div id="collapse{{ program_step.id }}" class="collapse" aria-labelledby="headingOne"
+                                 data-parent="#accordionProgramStep">
+                                <div class="answer card-body pl-5">
+                                    {% for ressource in program_step.ressources %}
+                                    <div class="text-primary">
+                                        {% if ressource.type == 'pdf' %}
+                                        <svg height="2em" width="2em" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path d="m451.7 99.72-71.4-71.44c-15.6-15.55-46.3-28.28-68.3-28.28h-240c-22 0-40 18-40 40v432c0 22 18 40 40 40h368c22 0 40-18 40-40v-304c0-22-12.7-52.7-28.3-68.28z"/>
+                                            <path fill="#fff" d="m448 472c0 4.3-3.7 8-8 8h-368c-4.34 0-8-3.7-8-8v-432c0-4.34 3.66-8 8-8h240c2.4 0 5.1.30 8 .85v127.2h127.1c.6 2.9.9 5.6.9 8v304z"/>
+                                            <path d="m414.5 316.8c-2.1 1.3-8.1 2.1-11.9 2.1-12.4 0-27.6-5.7-49.1-14.9 8.3-.6 15.8-.9 22.6-.9 12.4 0 16 0 28.2 3.1 12.1 3 12.2 9.3 10.2 10.6zm-215.1
+                                             1.9c4.8-8.4 9.7-17.3 14.7-26.8 12.2-23.1 20-41.3 25.7-56.2 11.5 20.9 25.8 38.6 42.5 52.8 2.1 1.8 4.3 3.5 6.7 5.3-34.1 6.8-63.6 15-89.6 24.9zm39.8-218.9c6.8
+                                             0 10.7 17.06 11 33.16.3 16-3.4 27.2-8.1 35.6-3.9-12.4-5.7-31.8-5.7-44.5 0 0-.3-24.26 2.8-24.26zm-133.4 307.2c3.9-10.5 19.1-31.3 41.6-49.8 1.4-1.1 4.9-4.4
+                                             8.1-7.4-23.5 37.6-39.3 52.5-49.7 57.2zm315.2-112.3c-6.8-6.7-22-10.2-45-10.5-15.6-.2-34.3 1.2-54.1 3.9-8.8-5.1-17.9-10.6-25.1-17.3-19.2-18-35.2-42.9-45.2-70.3.6-2.6
+                                             1.2-4.8 1.7-7.1 0 0 10.8-61.5 7.9-82.3-.4-2.9-.6-3.7-1.4-5.9l-.9-2.5c-2.9-6.76-8.7-13.96-17.8-13.57l-5.3-.17h-.1c-10.1 0-18.4 5.17-20.5 12.84-6.6 24.3.2 60.5 12.5
+                                             107.4l-3.2 7.7c-8.8 21.4-19.8 43-29.5 62l-1.3 2.5c-10.2 20-19.5 37-27.9 51.4l-8.7 4.6c-.6.4-15.5 8.2-19 10.3-29.6 17.7-49.28 37.8-52.54 53.8-1.04 5-.26 11.5 5.01
+                                             14.6l8.4 4.2c3.63 1.8 7.53 2.7 11.43 2.7 21.1 0 45.6-26.2 79.3-85.1 39-12.7 83.4-23.3 122.3-29.1 29.6 16.7 66 28.3 89 28.3 4.1 0 7.6-.4 10.5-1.2 4.4-1.1 8.1-3.6
+                                             10.4-7.1 4.4-6.7 5.4-15.9 4.1-25.4-.3-2.8-2.6-6.3-5-8.7z"/>
+                                            <path fill="#fff" d="m429.1 122.3c1.6 1.6 3.1 3.5 4.6 5.7h-81.7v-81.73c2.2 1.52 4.1 3.08 5.7 4.64l71.4 71.39z"/>
+                                        </svg>
+                                        {% endif %}
+                                        {% if ressource.type == 'video' %}
+                                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-camera-video-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.667 3h6.666C10.253 3 11 3.746 11 4.667v6.666c0 .92-.746 1.667-1.667 1.667H2.667C1.747 13 1 12.254 1 11.333V4.667C1 3.747 1.746 3 2.667 3z"/>
+                                            <path d="M7.404 8.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V4.308c0-.63-.693-1.01-1.233-.696L7.404 7.304a.802.802 0 0 0 0 1.393z"/>
+                                        </svg>
+                                        {% endif %}
+                                        {% if ressource.type == 'image' %}
+                                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-card-image" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                            <path d="M10.648 7.646a.5.5 0 0 1 .577-.093L15.002 9.5V13h-14v-1l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71z"/>
+                                            <path fill-rule="evenodd" d="M4.502 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                        </svg>
+                                        {% endif %}
+                                        {{ ressource.name }} <p class="btn btn-light border-primary"> {{ ressource.theme.name }}</p>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            {% endfor %}
     {% else %}
 
     <div class="w-75 m-auto">Pas de programme enregistré.</div>
