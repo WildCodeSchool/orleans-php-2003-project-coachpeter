@@ -26,7 +26,7 @@ class MemberController extends AbstractController
         return $this->render('member/index.html.twig', [
             'coachInfo' => $coachInfo,
             'member' => $user,
-            'attended' => $attendedRepository->findBy([$user->getAttendeds()]),
+            'attendeds' => $user->getAttendeds(),
         ]);
     }
 }

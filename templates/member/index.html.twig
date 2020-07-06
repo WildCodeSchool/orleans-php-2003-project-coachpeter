@@ -7,8 +7,10 @@
 <section>
     {% if member.id == app.user.id %}
         <p>Bonjour {{ member.firstname }},</p>
-        <p>Vous participez au programme "programme.title" depuis le attended.beginDate .</p>
-        <p>Vous avez accès à ces ressources jusqu'au attended.endDate .</p>
+        {%  for attended in attendeds %}
+        <p>Vous participez au programme {{ attended.program.name|upper }} depuis le {{ attended.beginDate|date("d/m/Y") }} .</p>
+        <p>Vous avez accès aux ressources liées jusqu'au {{ attended.endDate|date("d/m/Y") }} .</p>
+        {% endfor %}
     {%  else %}
     Ceci n'est pas votre espace. Merci de vous rediriger vers <a href="{{ path('app_member',  {'id':app.user.id}) }}">votre espace-ci</a>.
     {% endif %}
