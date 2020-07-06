@@ -23,7 +23,7 @@ class AdminActivityController extends AbstractController
         return $this->render('admin_activity/index.html.twig', [
             'activities' => $activityRepository->findBy(
                 [],
-                ['category' => 'DESC']
+                ['category' => 'ASC']
             ),
         ]);
     }
