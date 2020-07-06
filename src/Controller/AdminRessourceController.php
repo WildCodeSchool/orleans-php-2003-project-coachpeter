@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Ressource;
+use App\Entity\ProgramStep;
 use App\Entity\Theme;
 use App\Form\RessourceType;
 use App\Form\ThemeType;
+use App\Repository\ProgramStepRepository;
 use App\Repository\RessourceRepository;
 use App\Repository\ThemeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,20 +31,21 @@ class AdminRessourceController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="ressource_new", methods={"GET","POST"})
+     * @Route("/new/{id}", name="ressource_new", methods={"GET","POST"})
      */
-    public function new(Request $request, ThemeRepository $themeRepository): Response
+    public function new(Request $request, ThemeRepository $themeRepository, ProgramStep $programStep): Response
     {
         $ressource = new Ressource();
         $form = $this->createForm(RessourceType::class, $ressource);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $ressource->setProgramStep($programStep);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($ressource);
             $entityManager->flush();
 
-            return $this->redirectToRoute('ressource_index');
+            return $this->redirectToRoute('program_index');
         }
 
         $theme = new Theme();
@@ -57,7 +60,7 @@ class AdminRessourceController extends AbstractController
                 'success',
                 $theme->getNameTheme() .' a bien été ajouté aux thèmes existants.'
             );
-            return $this->redirectToRoute('ressource_new');
+            return $this->redirectToRoute('ressource_new', ['id'=>$programStep->getId()]);
         }
 
 
@@ -65,6 +68,7 @@ class AdminRessourceController extends AbstractController
             'ressource' => $ressource,
             'form' => $form->createView(),
             'themeForm' => $themeForm->createView(),
+            'programStep' => $programStep,
         ]);
     }
 

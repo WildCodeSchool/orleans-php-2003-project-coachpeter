@@ -21,10 +21,9 @@ class RessourceType extends AbstractType
             ->add('fileFile', VichFileType::class, [
                 'label' => 'Fichier à télécharger',
                 'required' => false,
-                'allow_delete' => true,
-                'download_uri' => true,
+                'allow_delete' => false,
+                'download_uri' => false,
             ])
-            ->add('programStep', null, ['choice_label'=>'title'])
             ->add('theme', null, ['choice_label'=>'nameTheme'])
         ;
     }
