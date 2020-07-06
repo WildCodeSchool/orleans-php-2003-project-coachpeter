@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
 use App\Entity\InfoCoach;
 use App\Form\ContactType;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,27 +20,24 @@ class ContactController extends AbstractController
      */
     public function index(Request $request, MailerInterface $mailer): Response
     {
-        $form = $this->createForm(ContactType::class);
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
         $coachInfo = $this->getDoctrine()
             ->getRepository(InfoCoach::class)
             ->findOneBy([]);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $dataForm = $_POST['contact'];
             $email = (new Email())
-                ->from($dataForm['email'])
+                ->from($contact->getEmail())
                 ->to('peter.dionisiopro@gmail.com')
                 ->subject('coach-peter.com : un nouveau message du formulaire de contact')
-                ->html('<h3>Une nouvelle personne vous a contacté par le biais du formulaire de contact :</h3>
-                        <p>Prénom : ' . $dataForm['firstname'] . '</p>
-                        <p>Nom : ' . $dataForm['lastname'] . '</p>
-                        <p>Numéro de téléphone : ' . $dataForm['phone'] . '</p>
-                        <p>Email : ' . $dataForm['email'] . '</p>
-                        <p>Message : ' . $dataForm['message'] . '</p>
-                        ');
+                ->html($this->renderView('contact/mail.html.twig', [
+                    'contact' => $contact
+                ]));
 
             $mailer->send($email);
+            $this->addFlash('success', 'Votre message a bien été envoyé.');
         }
         return $this->render('contact/contact.html.twig', [
             'coachInfo' => $coachInfo,

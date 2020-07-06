@@ -21,7 +21,6 @@ class Contact
 
     /**
      * @Assert\NotBlank(message="Merci de saisir votre numéro de téléphone")
-     * @Assert\EqualTo(value=10, message="Votre numéro de téléphone doit contenir 10 chiffres")
      */
     private $phone;
 
@@ -88,7 +87,7 @@ class Contact
     /**
      * @return mixed
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
