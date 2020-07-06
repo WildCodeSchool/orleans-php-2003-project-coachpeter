@@ -3,11 +3,23 @@
 {% block title %}Tranformations{% endblock %}
 
 {% block body %}
-    <h1 class="text-center text-primary">Les transformations de mes coachés</h1>
+    <h1 class="text-center text-primary my-5">Les transformations de mes coachés</h1>
     <section>
-        <div>
+        <div class="row my-5">
             {% for transformation in transformations %}
-                <p> {{ transformation.description }}</p>
+                <div class="col d-flex justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <div id="crossfading">
+                            <img class="bottom card-img-top" src="{{ vich_uploader_asset(transformation, 'pictureBeforeFile') }}" alt="Photo avant perte de poids"/>
+                            <img class="top card-img-top" src="{{ vich_uploader_asset(transformation, 'pictureAfterFile') }}" alt="Photo après perte de poids" />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ transformation.name }}</h5>
+                            <h5 class="card-title">a perdu {{ transformation.pound }}kgs</h5>
+                            <p class="card-text">{{ transformation.description }}</p>
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
         </div>
     </section>

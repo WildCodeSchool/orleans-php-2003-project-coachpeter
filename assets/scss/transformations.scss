@@ -1,0 +1,20 @@
+#crossfading {
+    position:relative;
+    height:281px;
+    width:450px;
+    margin:0 auto;
+}
+
+#crossfading img {
+    position:absolute;
+    left:0;
+    width: 18rem;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+
+#crossfading img.top:hover {
+    opacity:0;
+}
