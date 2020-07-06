@@ -30,7 +30,7 @@ class ContactController extends AbstractController
             $email = (new Email())
                 ->from($dataForm['email'])
                 ->to('peter.dionisiopro@gmail.com')
-                ->subject('Un nouvelle personnage vous a contacté depuis votre site Internet')
+                ->subject('coach-peter.com : un nouveau message du formulaire de contact')
                 ->html('<h3>Une nouvelle personne vous a contacté par le biais du formulaire de contact :</h3>
                         <p>Prénom : ' . $dataForm['firstname'] . '</p>
                         <p>Nom : ' . $dataForm['lastname'] . '</p>
