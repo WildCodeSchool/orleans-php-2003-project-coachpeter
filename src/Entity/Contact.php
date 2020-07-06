@@ -87,7 +87,7 @@ class Contact
     /**
      * @return mixed
      */
-    public function getEmail(): string
+    public function getEmail()
     {
         return $this->email;
     }
