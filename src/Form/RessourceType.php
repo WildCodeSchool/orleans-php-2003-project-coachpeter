@@ -2,34 +2,37 @@
 
 namespace App\Form;
 
-use App\Entity\ProgramStep;
+use App\Entity\Ressource;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
-class ProgramStepType extends AbstractType
+class RessourceType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('description')
-            ->add('urlVideo')
-            ->add('fileExplainFile', VichFileType::class, [
+            ->add('type', ChoiceType::class, ['choices' => Ressource::TYPES_FILES])
+            ->add('refVideo')
+            ->add('name')
+            ->add('fileFile', VichFileType::class, [
                 'label' => 'Fichier à télécharger',
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
             ])
-            ->add('begin')
+            ->add('programStep', null, ['choice_label'=>'title'])
+            ->add('theme', null, ['choice_label'=>'name'])
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => ProgramStep::class,
+            'data_class' => Ressource::class,
         ]);
     }
 }

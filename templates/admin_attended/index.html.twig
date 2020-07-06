@@ -42,7 +42,7 @@
                         </svg></a>
                 </td>
                 <td class="col-1">
-                    <a href="">Supprimer</a>
+                    {{ include('admin_attended/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}

@@ -91,6 +91,7 @@ class AdminAttendedController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($attended);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'adhésion a bien été supprimée.');
         }
 
         return $this->redirectToRoute('attended_index');

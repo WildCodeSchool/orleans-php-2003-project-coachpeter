@@ -10,6 +10,15 @@ use Faker;
 
 class ActivityFixtures extends Fixture implements DependentFixtureInterface
 {
+    const ICONS = [
+        'box' => 1,
+        'computer' => 2,
+        'dumbbell'=> 3,
+        'jumping_rope'=> 4,
+        'pilate_women'=> 5,
+        'team'=> 6
+    ];
+
     public function load(ObjectManager $manager)
     {
         $faker  =  Faker\Factory::create('fr_FR');
@@ -17,8 +26,8 @@ class ActivityFixtures extends Fixture implements DependentFixtureInterface
             $activity = new Activity();
             $activity->setTitle($faker->realtext(30));
             $activity->setDescription($faker->realtext(500));
-            $activity->setPicture('http://formation.naveilhan.com/fixtures/activity'.rand(1, 3).'.jpg');
-            $activity->setPictogram('white_haltere.svg');
+            $activity->setPicture('header_sportif_lacets.jpg');
+            $activity->setPictogram(array_rand(self::ICONS));
             $activity->setFocus(1);
             $activity->setCategory($this->getReference(rand(1, 10)));
             $manager->persist($activity);

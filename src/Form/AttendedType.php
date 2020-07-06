@@ -18,21 +18,25 @@ class AttendedType extends AbstractType
         $builder
             ->add('user', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => 'lastname',
-                'label' => 'Utilisateur',
+                'choice_label' => 'FirstAndLastname',
+                'label' => 'Nom',
+                'attr' => ['class' => "col-12 mb-3"]
             ])
             ->add('program', EntityType::class, [
                 'class' => Program::class,
                 'choice_label' => 'name',
                 'label' => 'Programme',
+                'attr' => ['class' => "col-12 mb-3"]
             ])
             ->add('beginDate', DateType::class, [
                 'label' => 'Date de début',
                 'format' => 'dd/MM/yyyy',
+                'attr' => ['class' => "col-12 mb-3"]
             ])
             ->add('endDate', DateType::class, [
                 'label' => 'Date de fin',
                 'format' => 'dd/MM/yyyy',
+                'attr' => ['class' => "col-12 mb-3"]
             ]);
     }
 
