@@ -4,74 +4,81 @@
     <div class="col-md-8 container-banner position-absolute ">
         <div class="supnavbar col-12 col-md-10 offset-md-1 d-flex flex-column flex-md-row mt-3">
             <div class="col-md-8 infoheader d-flex flex-row">
-                <div class="p-0 col-7 col-md-12 d-flex flex-row">
+                <div class="p-0 col-7 col-md-12 d-flex flex-row align-items-center">
                     <img class="mx-1 d-flex flex-row" src="{{ asset('build/blue_location.svg') }}">
                     <p>{{ coachInfo.adress }}<br> {{ coachInfo.zipCode }} {{ coachInfo.city|upper }}</p>
                 </div>
-                <div class="col-6 col-md-5 px-0 d-flex">
-                    <img class="mx-1 d-flex flex-row" src="{{ asset('build/blue_tel.svg') }}">
-                    <p>{{ coachInfo.phone|formatPhoneFr }}</p>
+                <div class="col-6 col-md-5 px-0 d-flex align-items-center">
+                    <img class="mx-1" src="{{ asset('build/blue_tel.svg') }}">
+                    <p class="mt-3">{{ coachInfo.phone|formatPhoneFr }}</p>
                 </div>
             </div>
             <div class="col-md-2 offset-md-2 mr-0 d-flex ">
                 <div class="col-12 d-flex justify-content-between">
-                    <a href="https://fr-fr.facebook.com/coachpeter.orleans/" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_facebook.svg') }}" alt="Lien vers page Facebook"></a>
-                    <a href="https://instagram.com/coach_peter.orleans?igshid=crqgsjokas3f" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_insta.svg') }}" alt="Lien vers page Instagram"></a>
-                    <a href="{{ path('app_login') }}"><img class="navbar-text" src="{{ asset('build/blue_connection.svg') }}" alt="Lien vers page de connexion"></a>
+                    <a class="mt-2" href="https://fr-fr.facebook.com/coachpeter.orleans/" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_facebook.svg') }}" alt="Lien vers page Facebook"></a>
+                    <a class="mt-2" href="https://instagram.com/coach_peter.orleans?igshid=crqgsjokas3f" target="_blank"><img class="navbar-text" src="{{ asset('build/blue_insta.svg') }}" alt="Lien vers page Instagram"></a>
+                    <a class="mt-2" href="{{ path('app_login') }}"><img class="navbar-text" src="{{ asset('build/blue_connection.svg') }}" alt="Lien vers page de connexion"></a>
                 </div>
             </div>
             {% if app.user %}
-                <a class="nav-item text-light dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="mt-3 nav-item text-light dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ app.user.firstname}}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item text-primary" href="">Mon profil</a>
-                    <a class="dropdown-item text-danger" href="{{ path('app_logout')}}">Se déconnecter</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                            <a class="dropdown-item text-primary" href="{{ path('app_admin') }}">Admin</a>
+                    {% endif %}
+                    <a class="dropdown-item text-primary" href="{{ path('profil_show')}}">Mon profil</a>
+
+                    <a class="dropdown-item text-danger" href="{{ path('app_logout')}}">Déconnexion</a>
                 </div>
             {% endif %}
         </div>
-
-        <nav class="navbar m-auto navbar-expand-lg">
-            <a class="navbar-brand" href="#"><img src="{{ asset('build/peter_logo_white.png') }}" alt="logo coach Peter"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">
-                <ul class="navbar-nav mr-0">
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <li class="nav-item">
-                            <a class="nav-link navbar-link" href="{{ path('app_admin') }}">Admin</a>
-                        </li>
-                    {% endif %}
-                    {% if is_granted('ROLE_MEMBER') %}
-                        <li class="nav-item">
-                            <a class="nav-link navbar-link" href="{{ path('app_member') }}">Espace Membre</a>
-                        </li>
-                    {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link navbar-link" href="{{ path('app_index') }}" >Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-link" href="#">Qui suis-je</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-link" href="#">Transformations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-link" href="#">Coaching</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-link" href="#">Team training</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link navbar-link" href="{{ path('app_contact') }}">Contact</a>
-                    </li>
-                </ul>
+        <div class="w-100 d-flex justify-content-between border-top border-light">
+            <div>
+                <a class="navbar-brand" href="{{ path('app_index') }}"><img src="{{ asset('build/peter_logo_white.png') }}" alt="logo coach Peter"></a>
             </div>
-        </nav>
+            <div class="text-right align-content-end">
+                <nav class="navbar navbar-expand-lg navbar-light border-top-0 justify-content-end">
+                    <button class="navbar-toggler border-0 btn text-light align-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </button>
+                    <div class="collapse navbar-collapse text-right bg-transparent" id="navbarNav">
+                        <ul class="navbar-nav mr-0">
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link text-light" href="{{ path('app_index') }}" >Accueil</a>
+                            </li>
+                            {% if is_granted('ROLE_MEMBER') %}
+                                <li class="nav-item">
+                                    <a class="nav-link navbar-link text-light" href="{{ path('app_member') }}">Espace Membre</a>
+                                </li>
+                            {% endif %}
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link text-light" href="#">Qui suis-je</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link text-light" href="#">Transformations</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link text-light" href="#">Coaching</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link text-light" href="{{ path('index_team_traing') }}">Team training</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link navbar-link text-light" href="{{ path('app_contact') }}">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
         {% include 'home/_headband.html.twig' %}
     </div>
+
+
 </header>
 
 

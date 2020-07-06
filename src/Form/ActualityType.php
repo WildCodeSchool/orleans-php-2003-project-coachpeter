@@ -33,6 +33,8 @@ class ActualityType extends AbstractType
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
+                'download_link' => false,
+                'delete_label'  => 'Supprimer cette image',
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu',

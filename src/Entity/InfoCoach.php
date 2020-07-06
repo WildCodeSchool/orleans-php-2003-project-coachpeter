@@ -104,6 +104,24 @@ class InfoCoach
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $planning;
+
+    /**
+     * @Vich\UploadableField(mapping="planning_file", fileNameProperty="planning")
+     *
+     * @Assert\File(maxSize = "500k",
+     *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
+     * il ne doit pas dépasser {{ limit }} {{ suffix }}",
+     *     mimeTypes = {"image/jpeg", "image/jpg", "image/gif","image/png"},
+     *     mimeTypesMessage = "Veuillez entrer un type de fichier valide : jpg, jpeg, png ou gif.")
+     *
+     * @var File|null
+     */
+    private $planningFile;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -224,8 +242,35 @@ class InfoCoach
             $this->updatedAt = new DateTime('now');
         }
     }
+
     public function getImageFile(): ?File
     {
         return $this->imageFile;
+    }
+
+    public function getPlanning(): ?string
+    {
+        return $this->planning;
+    }
+
+    public function setPlanning(?string $planning): self
+    {
+        $this->planning = $planning;
+
+        return $this;
+    }
+
+    public function getPlanningFile(): ?File
+    {
+        return $this->planningFile;
+    }
+
+
+    public function setPlanningFile(File $planning = null)
+    {
+        $this->planningFile = $planning;
+        if ($planning) {
+            $this->updatedAt = new DateTime('now');
+        }
     }
 }
