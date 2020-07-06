@@ -29,7 +29,7 @@ class ActivityFixtures extends Fixture implements DependentFixtureInterface
             $activity->setPicture('header_sportif_lacets.jpg');
             $activity->setPictogram(array_rand(self::ICONS));
             $activity->setFocus(1);
-            $activity->setCategory($this->getReference(rand(1, 10)));
+            $activity->setCategory(array_rand($activity::CATEGORY));
             $manager->persist($activity);
         }
         $manager->flush();

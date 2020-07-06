@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Activity;
+use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -47,7 +48,7 @@ class ActivityType extends AbstractType
                 'delete_label'  => 'Supprimer cette image',
             ])
 
-            ->add('category', null, ['choice_label' => 'category'])
+            ->add('category', ChoiceType::class, ['choices' => Activity::CATEGORY])
 
             ->add('focus');
     }
