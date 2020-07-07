@@ -5,17 +5,45 @@
 {% block body %}
     <h1 class="text-center text-primary">Bienvenue sur votre espace membre </h1>
 <section>
-        <p>Bonjour {{ app.user.firstname }},</p>
-        {%  for attended in app.user.attendeds %}
-        <p>Vous participez au programme {{ attended.program.name|upper }} depuis le {{ attended.beginDate|date("d/m/Y") }} .</p>
-        <p>Vous avez accès aux ressources liées jusqu'au {{ attended.endDate|date("d/m/Y") }} .</p>
+        {% for attended in app.user.attendeds %}
+
+        <h2 class="text-center text-primary">{{ attended.program.name|upper }} Du {{ attended.beginDate|date("d/m/Y") }} au {{ attended.endDate|date("d/m/Y") }} .</h2>
 
             {%  for programStep in attended.program.programSteps %}
                 {% if "now"|date("m/d/Y") > attended.beginDate|date_modify("+"~programStep.begin~" day")|date("m/d/Y") %}
-                    {{ programStep.title }} => accès valide <br>
+
+<div class="w-100 text-center">
+    <p>{{ programStep.title }}</p>
+                    <iframe src="https://player.vimeo.com/video/137812610?title=0&byline=0&portrait=0" width="416" height="234" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+                    </iframe>
+    <div class="my-3 px-5">{{ programStep.description }}</div>
+</div>
+    <div class="w-100 d-flex flex-wrap justify-content-around">
                     {%  for ressource in programStep.ressources %}
-                        <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}"> => {{ ressource.name }} <br>
+
+                        <div class="card border-primary my-5">
+                            <div class="bg-dark text-light text-center w-100">{{ ressource.theme.name }}</div>
+                            <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
+                            <div class="w-100 text-center"> {{ ressource.name }}</div>
+                        </div>
+                        <div class="card border-primary my-5">
+                            <div class="bg-dark text-light text-center w-100">{{ ressource.theme.name }}</div>
+                            <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
+                            <div class="w-100 text-center"> {{ ressource.name }}</div>
+                        </div>
+                        <div class="card border-primary my-5">
+                            <div class="bg-dark text-light text-center w-100">{{ ressource.theme.name }}</div>
+                            <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
+                            <div class="w-100 text-center"> {{ ressource.name }}</div>
+                        </div>
+                        <div class="card border-primary my-5">
+                            <div class="bg-dark text-light text-center w-100">{{ ressource.theme.name }}</div>
+                            <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
+                            <div class="w-100 text-center"> {{ ressource.name }}</div>
+                        </div>
+
                     {% endfor %}
+                    </div>
                 {% endif %}
             {% endfor %}
 
