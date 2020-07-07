@@ -1,11 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
-{% block title %}New Ressource{% endblock %}
+{% block title %}Nouvelle Ressource{% endblock %}
 
 {% block body %}
-    <h1>Create new Ressource</h1>
+    <h1 class="text-primary text-center">Créer une nouvelle ressource</h1>
+    <h2 class="text-primary text-center">Pour l'étape {{ programStep.title }}</h2>
 
     {{ include('admin_ressource/_form.html.twig') }}
 
-    <a href="{{ path('ressource_index') }}">back to list</a>
+    <a class="btn btn-light text-primary border-primary" href="{{ path('program_index') }}">Retour</a>
 {% endblock %}
