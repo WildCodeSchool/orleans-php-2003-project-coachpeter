@@ -24,21 +24,21 @@ class Theme
      * @Assert\Length(max=50, maxMessage="Le nom du thème {{ value }} est trop long,
      * il ne devrait pas dépasser {{ limit}} caractères.")
      */
-    private $name;
+    private $nameTheme;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getNameTheme(): ?string
     {
-        return $this->name;
+        return $this->nameTheme;
     }
 
-    public function setName(string $name): self
+    public function setNameTheme(string $nameTheme): self
     {
-        $this->name = $name;
+        $this->nameTheme = $nameTheme;
 
         return $this;
     }
