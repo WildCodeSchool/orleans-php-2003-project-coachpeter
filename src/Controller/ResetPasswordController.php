@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\InfoCoach;
 use App\Entity\User;
 use App\Form\ChangePasswordFormType;
 use App\Form\ResetPasswordRequestFormType;
@@ -42,6 +43,11 @@ class ResetPasswordController extends AbstractController
         $form = $this->createForm(ResetPasswordRequestFormType::class);
         $form->handleRequest($request);
 
+        $coachInfo = $this->getDoctrine()
+            ->getRepository(InfoCoach::class)
+            ->findOneBy([]);
+
+
         if ($form->isSubmitted() && $form->isValid()) {
             return $this->processSendingPasswordResetEmail(
                 $form->get('email')->getData(),
@@ -51,6 +57,7 @@ class ResetPasswordController extends AbstractController
 
         return $this->render('reset_password/request.html.twig', [
             'requestForm' => $form->createView(),
+            'coachInfo' => $coachInfo,
         ]);
     }
 
@@ -61,13 +68,18 @@ class ResetPasswordController extends AbstractController
      */
     public function checkEmail(): Response
     {
+        $coachInfo = $this->getDoctrine()
+            ->getRepository(InfoCoach::class)
+            ->findOneBy([]);
         // We prevent users from directly accessing this page
         if (!$this->canCheckEmail()) {
             return $this->redirectToRoute('app_forgot_password_request');
         }
 
+
         return $this->render('reset_password/check_email.html.twig', [
             'tokenLifetime' => $this->resetPasswordHelper->getTokenLifetime(),
+            'coachInfo' => $coachInfo,
         ]);
     }
 
@@ -79,6 +91,10 @@ class ResetPasswordController extends AbstractController
     public function reset(Request $request, UserPasswordEncoderInterface
     $passwordEncoder, string $token = null): Response
     {
+        $coachInfo = $this->getDoctrine()
+            ->getRepository(InfoCoach::class)
+            ->findOneBy([]);
+
         if ($token) {
             // We store the token in session and remove it from the URL, to avoid the URL being
             // loaded in a browser and potentially leaking the token to 3rd party JavaScript.
@@ -128,6 +144,7 @@ class ResetPasswordController extends AbstractController
 
         return $this->render('reset_password/reset.html.twig', [
             'resetForm' => $form->createView(),
+            'coachInfo' => $coachInfo,
         ]);
     }
 
@@ -166,7 +183,7 @@ class ResetPasswordController extends AbstractController
         $email = (new TemplatedEmail())
             ->from(new Address('mail@coach-peter.com', 'Réinitialisation mot de passe Coach Peter'))
             ->to($toEmail)
-            ->subject('Your password reset request')
+            ->subject('Demande réinitialisation de mot de passe')
             ->htmlTemplate('reset_password/email.html.twig')
             ->context([
                 'resetToken' => $resetToken,
