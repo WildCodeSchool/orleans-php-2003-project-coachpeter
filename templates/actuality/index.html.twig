@@ -5,19 +5,11 @@
 {% block body %}
     <section>
         <h1 class="text-center text-primary">Actualités</h1>
-<<<<<<< HEAD
-        <div class="articles w-100 text-left">
-        {% for actuality in actualities %}  <div class="blog-content m-4" id="article_{{ actuality.id }}">
-                <div class="float-left m-4">
-                    <div>
-                        <img class="blog-img" src="{{ vich_uploader_asset(actuality, 'actualityFile') }}"
-=======
             {% for actuality in actualities %}
             <div class="blog-content" id="article_{{ actuality.id }}">
                 <div class="float-left mr-4 mb-4">
                     <div>
                         <img class="blog-img " src="{{ vich_uploader_asset(actuality, 'actualityFile') }}"
->>>>>>> 97ce925e02689de2fb9bff5c26070ad47b942812
                              alt="{{ actuality.title }}">
                     </div>
                     <div class="badge-blog text-center pb-2 w-100">
@@ -27,11 +19,7 @@
                 <div class="">
                     <h2 class="h2 text-primary text-left">{{ actuality.title }}</h2>
                     <div class="text-left">
-<<<<<<< HEAD
-                        <div class="mr-2 date-blog">
-=======
                         <div class="date-blog">
->>>>>>> 97ce925e02689de2fb9bff5c26070ad47b942812
                             <svg class="bi bi-calendar3" width="1em" height="1em" viewBox="0 0 16 16" fill=darkgray
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -42,13 +30,7 @@
                             {{ actuality.date|date('d M Y') }}
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <p class="">
-                        {{ actuality.content|nl2br }}
-                    </p>
-=======
                     <p class="blog-content">{{ actuality.content|nl2br }}</p>
->>>>>>> 97ce925e02689de2fb9bff5c26070ad47b942812
                 </div>
             </div>
         </div>

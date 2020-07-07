@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1 class="text-center text-primary">Bienvenue sur votre espace membre </h1>
-<section>
+<section class="w-100">
         {% for attended in app.user.attendeds %}
 
         <h2 class="text-center text-primary">{{ attended.program.name|upper }} Du {{ attended.beginDate|date("d/m/Y") }} au {{ attended.endDate|date("d/m/Y") }} .</h2>
@@ -14,28 +14,13 @@
 
 <div class="w-100 text-center">
     <p>{{ programStep.title }}</p>
-                    <iframe src="https://player.vimeo.com/video/137812610?title=0&byline=0&portrait=0" width="416" height="234" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+                    <iframe src="https://player.vimeo.com/video/137812610?title=0&byline=0&portrait=0" width="360" height="250" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
                     </iframe>
     <div class="my-3 px-5">{{ programStep.description }}</div>
 </div>
     <div class="w-100 d-flex flex-wrap justify-content-around">
                     {%  for ressource in programStep.ressources %}
 
-                        <div class="card border-primary my-5">
-                            <div class="bg-dark text-light text-center w-100">{{ ressource.theme.name }}</div>
-                            <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
-                            <div class="w-100 text-center"> {{ ressource.name }}</div>
-                        </div>
-                        <div class="card border-primary my-5">
-                            <div class="bg-dark text-light text-center w-100">{{ ressource.theme.name }}</div>
-                            <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
-                            <div class="w-100 text-center"> {{ ressource.name }}</div>
-                        </div>
-                        <div class="card border-primary my-5">
-                            <div class="bg-dark text-light text-center w-100">{{ ressource.theme.name }}</div>
-                            <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
-                            <div class="w-100 text-center"> {{ ressource.name }}</div>
-                        </div>
                         <div class="card border-primary my-5">
                             <div class="bg-dark text-light text-center w-100">{{ ressource.theme.name }}</div>
                             <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
