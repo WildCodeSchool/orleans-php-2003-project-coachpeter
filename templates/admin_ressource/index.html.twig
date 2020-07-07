@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ressource index{% endblock %}
+
+{% block body %}
+    <h1>Ressource index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Name</th>
+                <th>File</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ressource in ressources %}
+            <tr>
+                <td>{{ ressource.id }}</td>
+                <td>{{ ressource.type }}</td>
+                <td>{{ ressource.name }}</td>
+                <td>{{ ressource.file }}</td>
+                <td>
+                    <a href="{{ path('ressource_show', {'id': ressource.id}) }}">show</a>
+                    <a href="{{ path('ressource_edit', {'id': ressource.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('ressource_new') }}">Create new</a>
+{% endblock %}

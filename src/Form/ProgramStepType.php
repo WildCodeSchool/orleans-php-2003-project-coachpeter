@@ -17,13 +17,12 @@ class ProgramStepType extends AbstractType
             ->add('description')
             ->add('urlVideo')
             ->add('fileExplainFile', VichFileType::class, [
-                'label' => 'Image à télécharger',
+                'label' => 'Fichier à télécharger',
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
             ])
             ->add('begin')
-            ->add('program', null, ['choice_label'=>'name'])
         ;
     }
 

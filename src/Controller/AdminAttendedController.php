@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Attended;
+use App\Form\AttendedEditType;
 use App\Form\AttendedType;
 use App\Repository\AttendedRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -63,11 +64,14 @@ class AdminAttendedController extends AbstractController
      */
     public function edit(Request $request, Attended $attended): Response
     {
-        $form = $this->createForm(AttendedType::class, $attended);
+        $form = $this->createForm(AttendedEditType::class, $attended);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $attended->getUser();
+            $attended->getProgram();
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'L\'adhésion a bien été modifiée');
 
             return $this->redirectToRoute('attended_index');
         }
@@ -87,6 +91,7 @@ class AdminAttendedController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($attended);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'adhésion a bien été supprimée.');
         }
 
         return $this->redirectToRoute('attended_index');
