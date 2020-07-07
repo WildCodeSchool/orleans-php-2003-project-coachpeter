@@ -3,25 +3,55 @@
 {% block title %}Tranformations{% endblock %}
 
 {% block body %}
-    <h1 class="text-center text-primary my-5">Les transformations de mes coachés</h1>
-    <section>
-        <div class="row my-5">
-            {% for transformation in transformations %}
-                <div class="col d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <div id="crossfading">
-                            <img class="bottom card-img-top" src="{{ vich_uploader_asset(transformation, 'pictureBeforeFile') }}" alt="Photo avant perte de poids"/>
-                            <img class="top card-img-top" src="{{ vich_uploader_asset(transformation, 'pictureAfterFile') }}" alt="Photo après perte de poids" />
+    <section class="mb-5">
+        <div class="col">
+            <h1 class="text-center text-primary my-5 py-5">Les transformations de mes coachés</h1>
+        </div>
+
+        {% for transformation in transformations %}
+            <div class="container-fluid">
+                <div class="row transformations mb-5">
+                    <div class="col-12 col-md-6 d-flex align-items-center justify-content-around flex-column">
+                        <h3 class="font-weight-bold font-italic text-center">
+                            {{transformation.title}}
+                        </h3>
+
+                        <h4 class="font-weight-bold text-center my-3">
+                            {{ transformation.name}} a perdu {{ transformation.pound }}kgs.
+                        </h4>
+
+
+                        <p class="font-italic h4">
+                            <span class="h1 display-1 font-italic">"</span>
+                                {{transformation.description}}
+                        <div class="row d-flex  ">
+                            <span class="h1 display-1 font-italic">"</span>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">{{ transformation.name }}</h5>
-                            <h5 class="card-title">a perdu {{ transformation.pound }}kgs</h5>
-                            <p class="card-text">{{ transformation.description }}</p>
+                        </p>
+                    </div>
+
+                    <div class="col-12 col-md-6 my-4 d-flex">
+                        <div class="position-relative w-50 ">
+                            <div class="first_image position-relative ">
+                                <div class="polaroid_img w-100">
+                                    <img class="w-100 rounded" src="{{ vich_uploader_asset(transformation, 'pictureBeforeFile') }}" alt="{{ transformation.name }} ">
+                                </div>
+                            </div>
+
+                            <div class="second_image position-absolute ">
+                                <div class="polaroid_img w-100">
+                                    <img class="w-100 rounded" src="{{ vich_uploader_asset(transformation, 'pictureAfterFile') }}" alt="{{ transformation.name }} ">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
+
+            <div class="row justify-content-center">
+                <a class="btn btn-outline-primary" href="{{ path('app_contact') }}">Demander mon programme</a>
+            </div>
     </section>
 {% endblock %}
 
