@@ -52,7 +52,7 @@
                             </li>
                             {% if is_granted('ROLE_MEMBER') %}
                                 <li class="nav-item">
-                                    <a class="nav-link navbar-link text-light" href="{{ path('app_member',  {'id':app.user.id}) }}">Espace Membre</a>
+                                    <a class="nav-link navbar-link text-light" href="{{ path('app_member')}}">Espace Membre</a>
                                 </li>
                             {% endif %}
                             <li class="nav-item">

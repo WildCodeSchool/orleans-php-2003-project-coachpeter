@@ -15,9 +15,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class MemberController extends AbstractController
 {
     /**
-     * @Route("/membre/{id}", name="app_member")
+     * @Route("/membre/", name="app_member")
      */
-    public function index(User $user, AttendedRepository $attendedRepository) : Response
+    public function index(AttendedRepository $attendedRepository) : Response
     {
         $coachInfo = $this->getDoctrine()
             ->getRepository(InfoCoach::class)
@@ -25,8 +25,6 @@ class MemberController extends AbstractController
 
         return $this->render('member/index.html.twig', [
             'coachInfo' => $coachInfo,
-            'member' => $user,
-            'attendeds' => $user->getAttendeds(),
         ]);
     }
 }

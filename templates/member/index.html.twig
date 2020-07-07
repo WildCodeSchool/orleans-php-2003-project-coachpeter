@@ -5,15 +5,17 @@
 {% block body %}
     <h1 class="text-center text-primary">Bienvenue sur votre espace membre </h1>
 <section>
-    {% if member.id == app.user.id %}
-        <p>Bonjour {{ member.firstname }},</p>
-        {%  for attended in attendeds %}
+        <p>Bonjour {{ app.user.firstname }},</p>
+        {%  for attended in app.user.attendeds %}
         <p>Vous participez au programme {{ attended.program.name|upper }} depuis le {{ attended.beginDate|date("d/m/Y") }} .</p>
         <p>Vous avez accès aux ressources liées jusqu'au {{ attended.endDate|date("d/m/Y") }} .</p>
+
+            {%  for programStep in attended.program.programSteps %}
+                {% if "now"|date("m/d/Y") > attended.beginDate|date_modify("+"~programStep.begin~" day")|date("m/d/Y") %}
+                    {{ programStep.title }} => accès valide <br>
+                {% endif %}
+            {% endfor %}
+
         {% endfor %}
-    {%  else %}
-    Ceci n'est pas votre espace. Merci de vous rediriger vers <a href="{{ path('app_member',  {'id':app.user.id}) }}">votre espace-ci</a>.
-    {% endif %}
 </section>
 {% endblock %}
-
