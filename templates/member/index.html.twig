@@ -3,35 +3,66 @@
 {% block title %}Bienvenue{% endblock %}
 
 {% block body %}
-    <h1 class="text-center text-primary">Bienvenue sur votre espace membre </h1>
+
+    <h1 class="text-center text-primary">Bienvenue</h1>
 <section class="w-100">
         {% for attended in app.user.attendeds %}
-
-        <h2 class="text-center text-primary">{{ attended.program.name|upper }} Du {{ attended.beginDate|date("d/m/Y") }} au {{ attended.endDate|date("d/m/Y") }} .</h2>
+            <div class="display-4 text-center text-primary">Programme {{ attended.program.name }}</div>
+            <div class="text-center text-primary"> Du {{ attended.beginDate|date("d/m/Y") }} au {{ attended.endDate|date("d/m/Y") }} .</div>
 
             {%  for programStep in attended.program.programSteps %}
-                {% if "now"|date("m/d/Y") > attended.beginDate|date_modify("+"~programStep.begin~" day")|date("m/d/Y") %}
 
-<div class="w-100 text-center">
-    <p>{{ programStep.title }}</p>
-                    <iframe src="https://player.vimeo.com/video/137812610?title=0&byline=0&portrait=0" width="360" height="250" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+<div class="step bg-primary col-md-8 offset-md-2 text-center my-3 p-2">
+    <p class="display-4 text-light">{{ programStep.title }}</p>
+    <p class="text-light">disponible à compter du {{ attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") }}</p>
+    {% if "now"|date("m/d/Y") > attended.beginDate|date_modify("+"~programStep.begin~" day")|date("m/d/Y") %}
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="m-0 p-0 col-md-4 align-items-center mb-2">
+                    <iframe src="https://player.vimeo.com/video/{{ programStep.urlVideo }}?title=0&byline=0&portrait=0" width="360" height="250" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
                     </iframe>
-    <div class="my-3 px-5">{{ programStep.description }}</div>
+        </div>
+        <div class="col-2"></div>
+        <div class="text-light text-left col-md-4">
+            {{ programStep.description }}
+        </div>
+    </div>
+    {% endif %}
 </div>
-    <div class="w-100 d-flex flex-wrap justify-content-around">
-                    {%  for ressource in programStep.ressources %}
+    {% if "now"|date("m/d/Y") > attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") %}
+    <div class="overflow-hidden px-0 border border-primary step col-md-9 m-auto">
+        <div class="w-100 border-bottom border-primary bg-primary text-light text-center">
+            <p>Vos fichiers</p>
+        </div>
 
-                        <div class="card border-primary my-5">
-                            <div class="bg-dark text-light text-center w-100">{{ ressource.theme.name }}</div>
-                            <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
-                            <div class="w-100 text-center"> {{ ressource.name }}</div>
-                        </div>
-
-                    {% endfor %}
-                    </div>
+        <div class="w-100 d-flex flex-wrap justify-content-around">
+        {%  for ressource in programStep.ressources %}
+            <div class="d-flex flex-column justify-content-between card border-primary my-5 mx-0 text-primary">
+                <div class="bg-primary text-light text-center w-100">
+                    {{ ressource.theme.nameTheme }}
+                </div>
+                {% if ressource.type == 'video' %}
+                <iframe src="https://player.vimeo.com/video/{{ ressource.refVideo }}?title=0&byline=0&portrait=0" width="300" height="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+                </iframe>
+                <div class="w-100 text-center text-primary">
+                    {{ ressource.name }}
+                </div>
+                {% else %}
+                <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
+                <div class="w-100 text-center text-primary">
+                    {{ ressource.name }}
+                </div>
                 {% endif %}
-            {% endfor %}
-
+            </div>
         {% endfor %}
+        </div>
+
+        <div class="w-100 py-2">
+        </div>
+
+    {% endif %}
+        </div>
+    {% endfor %}
+{% endfor %}
 </section>
 {% endblock %}
