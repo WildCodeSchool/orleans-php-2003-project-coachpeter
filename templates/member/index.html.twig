@@ -13,6 +13,9 @@
             {%  for programStep in attended.program.programSteps %}
                 {% if "now"|date("m/d/Y") > attended.beginDate|date_modify("+"~programStep.begin~" day")|date("m/d/Y") %}
                     {{ programStep.title }} => accès valide <br>
+                    {%  for ressource in programStep.ressources %}
+                        <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}"> => {{ ressource.name }} <br>
+                    {% endfor %}
                 {% endif %}
             {% endfor %}
 
