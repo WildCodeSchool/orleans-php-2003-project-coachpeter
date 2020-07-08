@@ -16,14 +16,19 @@ class TeamTrainingController extends AbstractController
     /**
      * @Route("/team_training", name="index_team_traing")
      */
-    public function index(): Response
+    public function index() : Response
     {
         $coachInfo = $this->getDoctrine()
             ->getRepository(InfoCoach::class)
             ->findOneBy([]);
 
-        return $this->render('planning/index.html.twig', [
+        $activities = $this->getDoctrine()
+            ->getRepository(Activity::class)
+            ->findBy(['category'=>'team']);
+
+        return $this->render('coaching/index.html.twig', [
             'coachInfo' => $coachInfo,
+            'activities' => $activities,
         ]);
     }
 }
