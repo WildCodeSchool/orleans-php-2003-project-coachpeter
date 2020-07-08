@@ -44,6 +44,7 @@ class AdminRessourceController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($ressource);
             $entityManager->flush();
+            $this->addFlash('success', 'La ressource a bien été ajoutée');
 
             return $this->redirectToRoute('program_index');
         }
@@ -92,6 +93,7 @@ class AdminRessourceController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'La ressource a bien été modifiée');
 
             return $this->redirectToRoute('program_index');
         }
@@ -126,6 +128,7 @@ class AdminRessourceController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($ressource);
             $entityManager->flush();
+            $this->addFlash('success', 'La ressource a bien été supprimée');
         }
 
         return $this->redirectToRoute('program_index');
