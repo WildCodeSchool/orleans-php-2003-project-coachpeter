@@ -11,35 +11,30 @@
         {% for transformation in transformations %}
             <div class="container-fluid">
                 <div class="row transformations mb-5">
-                    <div class="col-12 col-md-6 d-flex align-items-center justify-content-around flex-column">
+                    <div class="col-md-6 d-flex align-items-center justify-content-around flex-column">
                         <h3 class="font-weight-bold font-italic text-center">
-                            {{transformation.title}}
+                            " {{transformation.title}} "
                         </h3>
 
                         <h4 class="font-weight-bold text-center my-3">
                             {{ transformation.name}} a perdu {{ transformation.pound }}kgs.
                         </h4>
 
-
                         <p class="font-italic h4">
-                            <span class="h1 display-1 font-italic">"</span>
-                                {{transformation.description}}
-                        <div class="row d-flex  ">
-                            <span class="h1 display-1 font-italic">"</span>
-                        </div>
+                            {{transformation.description}}
                         </p>
                     </div>
 
-                    <div class="col-12 col-md-6 my-4 d-flex">
+                    <div class="col-md-6 my-4 d-flex">
                         <div class="position-relative w-50 ">
-                            <div class="first_image position-relative ">
-                                <div class="polaroid_img w-100">
+                            <div class="first_image position-relative">
+                                <div class="w-100 rounded">
                                     <img class="w-100 rounded" src="{{ vich_uploader_asset(transformation, 'pictureBeforeFile') }}" alt="Photo avant le programme ">
                                 </div>
                             </div>
 
-                            <div class="second_image position-absolute ">
-                                <div class="polaroid_img w-100">
+                            <div class="second_image position-absolute">
+                                <div class="w-100 rounded">
                                     <img class="w-100 rounded" src="{{ vich_uploader_asset(transformation, 'pictureAfterFile') }}" alt="Photo après le programme ">
                                 </div>
                             </div>
