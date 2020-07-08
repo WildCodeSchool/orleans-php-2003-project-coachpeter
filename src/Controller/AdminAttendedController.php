@@ -39,6 +39,7 @@ class AdminAttendedController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($attended);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'adhésion a bien été ajoutée');
 
             return $this->redirectToRoute('attended_index');
         }
