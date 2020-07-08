@@ -93,7 +93,7 @@ class AdminActivityController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($activity);
             $entityManager->flush();
-            $this->addFlash('danger', 'L\'actualité a bien été supprimée');
+            $this->addFlash('success', 'L\'actualité a bien été supprimée');
         }
 
         return $this->redirectToRoute('activity_index');
