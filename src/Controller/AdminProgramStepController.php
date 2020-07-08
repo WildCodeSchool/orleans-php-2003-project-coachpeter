@@ -41,6 +41,7 @@ class AdminProgramStepController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($programStep);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'étape a bien été ajoutée');
 
             return $this->redirectToRoute('program_index');
         }
@@ -72,7 +73,7 @@ class AdminProgramStepController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('success', 'L\'étape a bien été modifiée');
             return $this->redirectToRoute('program_index');
         }
 
@@ -91,6 +92,7 @@ class AdminProgramStepController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($programStep);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'étape a bien été supprimée');
         }
 
         return $this->redirectToRoute('program_index');

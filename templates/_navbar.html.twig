@@ -52,11 +52,11 @@
                             </li>
                             {% if is_granted('ROLE_MEMBER') %}
                                 <li class="nav-item">
-                                    <a class="nav-link navbar-link text-light" href="{{ path('app_member') }}">Espace Membre</a>
+                                    <a class="nav-link navbar-link text-light" href="{{ path('app_member')}}">Espace Membre</a>
                                 </li>
                             {% endif %}
                             <li class="nav-item">
-                                <a class="nav-link navbar-link text-light" href="#">Qui suis-je</a>
+                                <a class="nav-link navbar-link text-light" href="{{ path('whoiam_index') }}">Qui suis-je</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link navbar-link text-light" href="#">Transformations</a>
@@ -71,7 +71,7 @@
                                 <a class="nav-link navbar-link text-light" href="{{ path('app_actuality') }}">Actualités</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link navbar-link text-light" href="#">Contact</a>
+                                <a class="nav-link navbar-link text-light" href="{{ path('app_contact') }}">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -80,8 +80,9 @@
         </div>
         {% include 'home/_headband.html.twig' %}
     </div>
-
-
 </header>
+<div class="position-relative min-vw-100">
+    <div class="round w-100 bg-white"></div>
+</div>
 
 

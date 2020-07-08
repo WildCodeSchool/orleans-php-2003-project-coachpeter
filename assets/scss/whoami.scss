@@ -1,0 +1,21 @@
+$textfont : Montserrat;
+$italic-font : 'Caveat';
+
+.whoami {
+    p {
+        font-family: $textfont;
+    }
+
+    .font-italic {
+        font-family: $italic-font, cursive;
+        font-size: 22px;
+    }
+}
+
+.downarrow {
+    width: 100px;
+}
+
+.timeline {
+    width: 90%;
+}

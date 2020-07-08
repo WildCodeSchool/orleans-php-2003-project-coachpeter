@@ -76,7 +76,8 @@ class Ressource
     private $programStep;
 
     /**
-     * @ORM\ManyToOne(targetEntity=theme::class)
+     * @ORM\ManyToOne(targetEntity=theme::class, inversedBy="theme")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $theme;
 

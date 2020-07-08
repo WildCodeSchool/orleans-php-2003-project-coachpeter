@@ -8,8 +8,10 @@
 @import "~bootstrap/scss/bootstrap";
 @import "_about_me.scss";
 @import "form";
+@import "whoami.scss";
 @import "faq";
 @import "blog";
+@import "member";
 
 body {
     width: 100vw;
@@ -25,6 +27,7 @@ h1 {
     font-size: $xlarge-font-size;
     font-family: $main-font;
     color: $light;
+    margin: 20px;
 }
 
 h2 {
@@ -41,3 +44,4 @@ section {
 .end-page {
     height: 50px;
 }
+
