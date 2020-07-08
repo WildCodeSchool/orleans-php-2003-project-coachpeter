@@ -6,20 +6,22 @@
     <section class="">
         <h1 class="text-center text-primary">Coaching</h1>
         {% for activity in activities %}
-        <div class="overflow-hidden card-activity row w-100" id="article_{{ activity.id }}">
-            <div class="card-act-image col-md-4 text-center">
-                <div class=" w-100">
+        <div class="card-activity d-flex flex-wrap w-100 my-4">
+            <div class="overflow-hidden card-act-image col-12 col-md-4 text-center">
                     <img class="image-activity w-100" src="{{ vich_uploader_asset(activity, 'activityFile') }}"
                          alt="{{ activity.title }}">
-                </div>
-                <div class="activity-cadre w-100 position-absolute">
-                    <img class="w-100" src="/build/cadre1.png"
-                         alt="cadre">
+                <div class="badge-coaching d-flex position-absolute justify-content-center align-items-center">
+                    <img src="build/pictograms/{{ activity.pictogram }}.svg" alt="pictogramme de l'activité">
                 </div>
             </div>
-            <div class="col-md-8">
-                <h2 class="h2 text-primary text-left">{{ activity.title }}</h2>
-                <p class="blog-content">{{ activity.description|nl2br }}</p>
+            <div class="col-md-8 d-flex flex-column">
+                <div>
+                    <h2 class="h2 w-100 text-center text-primary">{{ activity.title }}</h2>
+                </div>
+                <div class="p-md-5">
+                    <p class="">{{ activity.description|nl2br }}</p>
+                    <a href="{{ path('app_contact') }}" class="btn btn-light border-primary text-primary">ME CONTACTER</a>
+                </div>
             </div>
         </div>
         {% endfor %}

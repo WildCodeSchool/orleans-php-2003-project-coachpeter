@@ -1,11 +1,10 @@
-.card-activity:nth-child(even) {
-    flex-direction: revert;
+.card-activity:nth-of-type(odd) {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
 }
 
 .card-act-image{
-    object-fit: cover;
     width: 360px;
-    height: 370px;
 }
 
 .activity-cadre {
@@ -15,8 +14,17 @@
 }
 .activity-cadre img {
     width: 360px;
-    height: 370px;
 }
 .image-activity{
-    object-fit: cover;
+}
+.badge-coaching{
+    width: 77px;
+    height: 77px;
+    border-radius:50%;
+    border :8px solid $circle ;
+    margin-top: -35px;
+    background-color: $primary;
+    z-index: 10;
+    left: 25px;
+    top: -25px;
 }
