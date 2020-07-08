@@ -7,7 +7,6 @@
 .map {
     margin-top:70px;
     height:400px;
-    background-image: url("/build/map.jpg");
     background-position: center;
     background-size: cover;
 }
@@ -16,4 +15,17 @@
     background-color: $ultra-light;
     height:250px;
     width: 340px;
+}
+
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:20%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    width:100%;
+    position:absolute;
 }
