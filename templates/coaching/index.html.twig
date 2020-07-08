@@ -6,17 +6,18 @@
     <section class="">
         <h1 class="text-center text-primary">Coaching</h1>
         {% for activity in activities %}
-        <div class="card-activity d-flex flex-wrap w-100 my-4">
+        <div class="card-coach-activity d-flex flex-wrap w-100 my-5 py-3">
             <div class="overflow-hidden card-act-image col-12 col-md-4 text-center">
                     <img class="image-activity w-100" src="{{ vich_uploader_asset(activity, 'activityFile') }}"
                          alt="{{ activity.title }}">
-                <div class="badge-coaching d-flex position-absolute justify-content-center align-items-center">
-                    <img src="build/pictograms/{{ activity.pictogram }}.svg" alt="pictogramme de l'activité">
-                </div>
+
             </div>
             <div class="col-md-8 d-flex flex-column">
-                <div>
-                    <h2 class="h2 w-100 text-center text-primary">{{ activity.title }}</h2>
+                <div class="w-100 text-center">
+                    <div class="badge-coaching d-flex justify-content-center align-items-center text-primary mx-auto" >
+                        <img src="build/pictograms/{{ activity.pictogram }}.svg" alt="pictogramme de l'activité">
+                    </div>
+                        <h2 class="h2 w-100 text-center text-primary">{{ activity.title|upper }}</h2>
                 </div>
                 <div class="p-md-5">
                     <p class="">{{ activity.description|nl2br }}</p>

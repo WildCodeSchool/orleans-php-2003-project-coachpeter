@@ -26,7 +26,7 @@ class TeamTrainingController extends AbstractController
             ->getRepository(Activity::class)
             ->findBy(['category'=>'team']);
 
-        return $this->render('coaching/index.html.twig', [
+        return $this->render('team/index.html.twig', [
             'coachInfo' => $coachInfo,
             'activities' => $activities,
         ]);
