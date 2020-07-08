@@ -7,7 +7,7 @@
         {% for activity in activities %}
             <div class="card-activity m-2 ">
                 <img class="card-img-top card-img-top-activity"
-                     src="build/{{activity.picture}}"
+                     src="uploads/activites/{{activity.picture}}"
                      alt="Card image cap">
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <div class="badge-activity d-flex justify-content-center align-items-center">
@@ -16,7 +16,7 @@
                     <h2 class="card-title text-primary text-center mt-2">{{ activity.title|upper }}</h2>
                     <div class="card-text card-text-activity text-center">{{ activity.description|length > 150 ? activity.description|slice(0, 150) ~ '...' : activity.description }}</div>
                     <div class="text-center m-1">
-                        <a href="#" class="btn btn-light border-primary text-primary">ME CONTACTER</a>
+                        <a href="{{ path('app_contact') }}" class="btn btn-light border-primary text-primary">ME CONTACTER</a>
                     </div>
                 </div>
             </div>

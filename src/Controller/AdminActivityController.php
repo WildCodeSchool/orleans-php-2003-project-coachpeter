@@ -3,11 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Activity;
-use App\Entity\CoachingCategory;
 use App\Form\ActivityType;
-use App\Form\CoachingCategoryType;
 use App\Repository\ActivityRepository;
-use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,7 +23,7 @@ class AdminActivityController extends AbstractController
         return $this->render('admin_activity/index.html.twig', [
             'activities' => $activityRepository->findBy(
                 [],
-                ['category' => 'DESC']
+                ['category' => 'ASC']
             ),
         ]);
     }
@@ -34,7 +31,7 @@ class AdminActivityController extends AbstractController
     /**
      * @Route("/new", name="activity_new", methods={"GET","POST"})
      */
-    public function new(Request $request, CategoryRepository $categoryRepository): Response
+    public function new(Request $request): Response
     {
         $activity = new Activity();
         $form = $this->createForm(ActivityType::class, $activity);
@@ -48,26 +45,10 @@ class AdminActivityController extends AbstractController
             return $this->redirectToRoute('activity_index');
         }
 
-        $coachingCategory = new CoachingCategory();
-        $categoryform = $this->createForm(CoachingCategoryType::class, $coachingCategory);
-        $categoryform->handleRequest($request);
-
-        if ($categoryform->isSubmitted() && $categoryform->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($coachingCategory);
-            $entityManager->flush();
-            $this->addFlash(
-                'success',
-                $coachingCategory->getCategory() .' a bien été ajouté aux catégories existantes'
-            );
-            return $this->redirectToRoute('activity_new');
-        }
-
         return $this->render('admin_activity/new.html.twig', [
             'activity' => $activity,
             'form' => $form->createView(),
-            'categoryform' => $categoryform->createView(),
-            'coaching_categories' => $categoryRepository->findAll(),
+            'coaching_categories' => $activity::CATEGORY,
 
         ]);
     }
@@ -90,21 +71,6 @@ class AdminActivityController extends AbstractController
         $form = $this->createForm(ActivityType::class, $activity);
         $form->handleRequest($request);
 
-        $coachingCategory = new CoachingCategory();
-        $categoryform = $this->createForm(CoachingCategoryType::class, $coachingCategory);
-        $categoryform->handleRequest($request);
-
-        if ($categoryform->isSubmitted() && $categoryform->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($coachingCategory);
-            $entityManager->flush();
-            $this->addFlash(
-                'success',
-                $coachingCategory->getCategory() .' a bien été ajouté aux catégories existantes'
-            );
-            return $this->redirectToRoute('activity_edit', ['id' => $activity->getId()]);
-        }
-
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash('success', 'L\'activité a bien été mise à jour');
@@ -115,7 +81,6 @@ class AdminActivityController extends AbstractController
         return $this->render('admin_activity/edit.html.twig', [
             'activity' => $activity,
             'form' => $form->createView(),
-            'categoryform' => $categoryform->createView(),
         ]);
     }
 

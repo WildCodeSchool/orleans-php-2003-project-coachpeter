@@ -1,0 +1,21 @@
+.blog-img {
+    width: 300px;
+    object-fit: cover;
+}
+
+.badge-blog {
+    background-color: $secondary;
+    color: $light;
+    padding-left: 17px;
+    padding-top: 11px;
+    font-family: $main-font;
+    font-size: $small-font-size;
+}
+
+.date-blog {
+    color: $darkgray;
+}
+
+.blog-content {
+    min-height: 300px;
+}
