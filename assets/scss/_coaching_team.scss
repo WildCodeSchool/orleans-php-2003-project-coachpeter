@@ -1,0 +1,22 @@
+.card-activity:nth-child(even) {
+    flex-direction: revert;
+}
+
+.card-act-image{
+    object-fit: cover;
+    width: 360px;
+    height: 370px;
+}
+
+.activity-cadre {
+    z-index: 50;
+    top: 0;
+    left: 0;
+}
+.activity-cadre img {
+    width: 360px;
+    height: 370px;
+}
+.image-activity{
+    object-fit: cover;
+}
