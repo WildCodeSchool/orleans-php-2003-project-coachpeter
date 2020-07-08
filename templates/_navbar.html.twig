@@ -52,7 +52,7 @@
                             </li>
                             {% if is_granted('ROLE_MEMBER') %}
                                 <li class="nav-item">
-                                    <a class="nav-link navbar-link text-light" href="{{ path('app_member') }}">Espace Membre</a>
+                                    <a class="nav-link navbar-link text-light" href="{{ path('app_member')}}">Espace Membre</a>
                                 </li>
                             {% endif %}
                             <li class="nav-item">
@@ -80,8 +80,9 @@
         </div>
         {% include 'home/_headband.html.twig' %}
     </div>
-
-
 </header>
+<div class="position-relative min-vw-100">
+    <div class="round w-100 bg-white"></div>
+</div>
 
 
