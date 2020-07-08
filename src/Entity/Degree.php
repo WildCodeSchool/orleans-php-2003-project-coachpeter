@@ -42,12 +42,14 @@ class Degree
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Merci de saisir l'année de début")
+     * @Assert\Range(min=1950)
      */
     private $startDate;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Merci de saisir l'année de fin")
+     * @Assert\Range(min=1950)
      */
     private $endDate;
 
@@ -80,12 +82,12 @@ class Degree
         return $this;
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
