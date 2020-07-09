@@ -1,0 +1,145 @@
+{% extends 'base_user.html.twig' %}
+
+{% block body %}
+<section class="mb-5">
+    <div class="col mt-5">
+        <h1 class="text-center text-primary">Mentions légales</h1>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3 class="mt-5">Éditeurs du Site :</h3>
+            <p>Peter Dionisio</p>
+            <p>Responsable éditorial : Peter Dionisio</p>
+            <p>Email : mail@coach-peter.com</p>
+            <p>{{coachInfo.adress}} {{coachInfo.zipcode}} {{coachInfo.city}}</p>
+            <p>Téléphone : {{coachInfo.phone | formatPhoneFr}}</p>
+        </div>
+
+        <div class="col">
+            <h3  class="mt-5">Hébergement :</h3>
+            <p>Hébergeur : OVH
+                140 Quai du Sartel, 59100 Roubaix
+                Site Web : www.ovh.fr
+            </p>
+        </div>
+
+        <div class="col">
+            <h3  class="mt-5">Développement :</h3>
+            <p>Emmanuelle Mendels, Kevin Ollivier, Philippe Naveilhan, Yannice Maladin</p>
+            <p>1 Avenue du Champ de Mars, 45074 Orléans</p>
+            <p>Téléphone : 06 58 11 24 70</p>
+            <p>Site Web : https://www.wildcodeschool.com/fr-FR</p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <h3>Conditions d'utilisation :</h3>
+        <p>
+            Ce site (orleans-php-202003-project-coachpeter.phprover.wilders.dev) est proposé en
+            différents langages web (HTML, PHP, Javascript, CSS, etc.)
+            pour un meilleur confort d’utilisation et un graphisme plus agréable,
+            nous vous recommandons de recourir à des navigateurs modernes comme Firefox ou Google Chrome.
+        </p>
+    </div>
+
+    <div class="row mt-5">
+        <h3>Liens hypertextes :</h3>
+        <p>
+            Ce site (orleans-php-202003-project-coachpeter.phprover.wilders.dev) peut offrir des liens vers d’autres sites internet
+            ou d’autres ressources disponibles sur Internet.
+            Peter Dionisio ne dispose d’aucun moyen pour contrôler les sites
+            en connexion avec son site internet.
+            Peter Dionisio ne répond pas de la disponibilité de tels sites et sources externes, ni ne la garantit.
+            Il ne peut être tenu pour responsable de tout dommage,
+            de quelque nature que ce soit, résultant du contenu de ces sites ou sources externes,
+            et notamment des informations, produits ou services qu’ils proposent,
+            ou de tout usage qui peut être fait de ces éléments. Les risques liés à cette utilisation incombent
+            pleinement à l’internaute, qui doit se conformer à leurs conditions d’utilisation.
+
+            Les utilisateurs, les abonnés et les visiteurs du site internet ne peuvent mettre en place
+            un hyperlien en direction de ce site sans l’autorisation expresse et préalable de
+            Peter Dionisio.
+
+            Dans l’hypothèse où un utilisateur ou visiteur souhaiterait mettre en place un hyperlien en direction
+            du site internet de Peter Dionisio, il lui appartiendra d’adresser un email
+            accessible sur le site afin de formuler sa demande de mise en place d’un hyperlien. Peter Dionisio
+            se réserve le droit d’accepter ou de refuser un hyperlien sans avoir à en justifier
+            sa décision.
+        </p>
+    </div>
+
+    <div class="row mt-5">
+        <h3>Services fournis :</h3>
+        <p>
+            L’ensemble des activités proposées par Peter Dionisio ainsi que ses informations sont présentées sur son site
+            orleans-php-202003-project-coachpeter.phprover.wilders.dev.
+
+            Peter Dionisio s’efforce de fournir sur le site
+            orleans-php-202003-project-coachpeter.phprover.wilders.dev des informations aussi précises que possible.
+            Les renseignements figurant sur le site orleans-php-202003-project-coachpeter.phprover.wilders.dev
+            ne sont pas exhaustifs et les photos non contractuelles. Ils sont donnés sous réserve de
+            modifications ayant été apportées depuis leur mise en ligne.
+            Par ailleurs, toutes les informations indiquées sur le site
+            orleans-php-202003-project-coachpeter.phprover.wilders.dev sont données à titre indicatif,
+            et sont susceptibles de changer ou d’évoluer sans préavis.
+        </p>
+    </div>
+
+    <div class="row mt-5">
+        <h3>Limitations contractuelles sur les données :</h3>
+        <p>
+            Les informations contenues sur ce site sont aussi précises que possibles et le site remis à jour
+            à différentes périodes de l’année, mais peut toutefois contenir des inexactitudes ou des omissions.
+            Si vous constatez une lacune, erreur ou ce qui parait être un dysfonctionnement, merci de bien vouloir
+            le signaler par email, à l’adresse mail@coach-peter.com, en décrivant le problème
+            de la manière la plus précise possible (page posant problème, type d’ordinateur et de navigateur utilisé).
+
+            Tout contenu téléchargé se fait aux risques et périls de l’utilisateur et sous sa seule responsabilité.
+            En conséquence, ne saurait être tenu responsable d’un quelconque dommage subi par l’ordinateur
+            de l’utilisateur ou d’une quelconque perte de données consécutives au téléchargement.
+            De plus, l’utilisateur du site s’engage à accéder au site en utilisant un matériel récent,
+            ne contenant pas de virus et avec un navigateur de dernière génération mis-à-jour.
+
+            Les liens hypertextes mis en place dans le cadre du présent site internet en direction
+            d’autres ressources présentes sur le réseau Internet ne sauraient engager la responsabilité de Peter Dionisio.
+        </p>
+    </div>
+
+    <div class="row mt-5">
+        <h3>Propriété intellectuelle :</h3>
+        <p>
+            Tout le contenu du présent sur le site de Peter Dionisio, incluant, de façon non limitative, les graphismes,
+            images, textes, vidéos, animations, sons, logos, gifs et icônes ainsi que leur mise en forme
+            sont la propriété exclusive de la société à l’exception des marques, logos ou contenus appartenant
+            à d’autres sociétés partenaires ou auteurs.
+        </p>
+    </div>
+
+    <div class="row mt-5">
+        <h3>Litiges :</h3>
+        <p>
+            Les présentes conditions du site de Peter Dionisio sont régies par les lois françaises et toute
+            contestation ou litiges qui pourraient naître de l’interprétation ou de l’exécution de celles-ci
+            seront de la compétence exclusive des tribunaux dont dépend le siège social de la société.
+            La langue de référence, pour le règlement de contentieux éventuels, est le français.
+        </p>
+    </div>
+
+    <div class="row mt-5">
+        <h3>Données personnelles :</h3>
+        <p>
+            De manière générale, vous n’êtes pas tenu de communiquer vos données personnelles lorsque vous visitez
+            le site Internet de Peter Dionisio.
+
+            Cependant, ce principe comporte certaines exceptions. En effet, pour certains services proposés par
+            Peter Dionisio, vous pouvez être amenés à lui communiquer certaines données telles que :
+            votre nom, votre prénom, votre âge, votre adresse électronique, et votre numéro de téléphone.
+            Tel est le cas lorsque vous remplissez le formulaire qui vous est proposé en ligne, dans la rubrique
+            « contact ». Dans tous les cas, vous pouvez refuser de fournir vos données personnelles.
+
+            Les bases de données sont protégées par les dispositions de la loi du 1er juillet 1998 transposant
+            la directive 96/9 du 11 mars 1996 relative à la protection juridique des bases de données.
+        </p>
+    </div>
+</section>
+{% endblock %}
