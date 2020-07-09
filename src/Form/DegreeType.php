@@ -18,23 +18,23 @@ class DegreeType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Nom',
-                'attr' => ['class' => "col-12 mb-3"]
+                'attr' => ['class' => "col mb-3"]
             ])
             ->add('organism', TextType::class, [
                 'label' => 'Organisme',
-                'attr' => ['class' => "col-12 mb-3"]
+                'attr' => ['class' => "col mb-3"]
             ])
             ->add('description', TextType::class, [
                 'label' => 'Description',
-                'attr' => ['class' => "col-12 mb-3"]
+                'attr' => ['class' => "col mb-3"]
             ])
             ->add('startDate', NumberType::class, [
                 'label' => 'Date de début',
-                'attr' => ['class' => "col-12 mb-3"]
+                'attr' => ['class' => "col mb-3"]
             ])
             ->add('endDate', NumberType::class, [
                 'label' => 'Date de fin',
-                'attr' => ['class' => "col-12 mb-3"]
+                'attr' => ['class' => "col mb-3"]
             ])
         ;
     }
