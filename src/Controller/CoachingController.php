@@ -20,6 +20,7 @@ class CoachingController extends AbstractController
         $coachInfo = $this->getDoctrine()
             ->getRepository(InfoCoach::class)
             ->findOneBy([]);
+
         $activities = $this->getDoctrine()
             ->getRepository(Activity::class)
             ->findBy(['category'=>'coaching']);
