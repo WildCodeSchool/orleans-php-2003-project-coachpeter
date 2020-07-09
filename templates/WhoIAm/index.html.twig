@@ -53,11 +53,14 @@
 
                         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                             {% for degree in degrees %}
-                                <ul>
-                                    <p>
-                                        {{ degree.name }}
-                                    </p>
-                                </ul>
+                                <div>
+                                       <span class="text-secondary">{{ degree.startDate }} -
+                                       {{ degree.endDate }}</span>
+                                    <span class="text-primary">{{ degree.name|upper }},</span>
+                                    {{ degree.organism }}:
+                                    <span>{{ degree.description }}</span>
+
+                                </div>
                             {% endfor %}
                         </div>
                     </div>
