@@ -17,7 +17,7 @@
     {%  for programStep in attended.program.programSteps %}
 
     <div class="step bg-primary col-md-8 offset-md-2 text-center my-3 p-2">
-        <p class="display-4 text-light">{{ programStep.title }}</p>
+        <p class="h3 text-light">{{ programStep.title }}</p>
         <p class="text-light">disponible à compter du {{ attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") }}</p>
         {% if "now"|date("d/m/Y") > attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") %}
         <div class="row">
@@ -34,56 +34,54 @@
                 {{ programStep.description }}
             </div>
         </div>
+            <div class="overflow-hidden px-0 border border-primary step">
+                <h3 class="pb-1 mx-auto text-center">
+                    <a class="btn btn-light text-primary"
+                       data-toggle="collapse"
+                       href="#collapse{{ programStep.id }}"
+                       role="button"
+                       aria-expanded="false"
+                       aria-controls="collapse{{ programStep.id }}">
+                        Vos fichiers d'accompagnement
+                    </a>
+                </h3>
+                <div class="collapse" id="collapse{{ programStep.id }}">
+                    <div class="card card-body border-0">
+                        <div class="w-100 d-flex flex-wrap justify-content-around">
+                            {%  for ressource in programStep.ressources %}
+                                <div class="d-flex flex-column justify-content-between card border-primary my-5 mx-0 text-primary">
+                                    <div class="bg-primary text-light text-left w-100">
+                                        {{ ressource.theme.nameTheme }}
+                                    </div>
+                                    {% if ressource.type == 'video' %}
+                                        <iframe src="https://player.vimeo.com/video/{{ ressource.refVideo }}?title=0&byline=0&portrait=0" width="300" height="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+                                        </iframe>
+                                        <div class="w-100 text-center text-primary">
+                                            {{ ressource.name }}
+                                        </div>
+                                    {% else %}
+                                        <div class="w-100 text-center py-1">
+                                            <a href="/uploads/ressources/{{ ressource.file }}" target="_blank">
+                                                <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
+                                            </a>
+                                        </div>
+                                        <div class="w-100 text-center text-primary">
+                                            {{ ressource.name }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-100 py-2">
+                </div>
+            </div>
+
         {% endif %}
     </div>
 
-    {% if "now"|date("d/m/Y") > attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") %}
-    <div class="overflow-hidden px-0 border border-primary step col-md-9 m-auto">
-        <h3 class="pb-1 w-100 text-center bg-primary">
-            <a class="btn btn-primary"
-               data-toggle="collapse"
-               href="#collapse{{ programStep.id }}"
-               role="button"
-               aria-expanded="false"
-               aria-controls="collapse{{ programStep.id }}">
-                Vos fichiers d'accompagnement
-            </a>
-        </h3>
-        <div class="collapse" id="collapse{{ programStep.id }}">
-            <div class="card card-body border-0">
-                <div class="w-100 d-flex flex-wrap justify-content-around">
-                    {%  for ressource in programStep.ressources %}
-                        <div class="d-flex flex-column justify-content-between card border-primary my-5 mx-0 text-primary">
-                            <div class="bg-primary text-light text-left w-100">
-                                {{ ressource.theme.nameTheme }}
-                            </div>
-                            {% if ressource.type == 'video' %}
-                                <iframe src="https://player.vimeo.com/video/{{ ressource.refVideo }}?title=0&byline=0&portrait=0" width="300" height="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-                                </iframe>
-                                <div class="w-100 text-center text-primary">
-                                    {{ ressource.name }}
-                                </div>
-                            {% else %}
-                                <div class="w-100 text-center py-1">
-                                    <a href="/uploads/ressources/{{ ressource.file }}" target="_blank">
-                                        <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
-                                    </a>
-                                </div>
-                                <div class="w-100 text-center text-primary">
-                                    {{ ressource.name }}
-                                </div>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-
-        <div class="w-100 py-2">
-        </div>
-
-    {% endif %}
-    </div>
     {% endfor %}
 {% endfor %}
 </section>
