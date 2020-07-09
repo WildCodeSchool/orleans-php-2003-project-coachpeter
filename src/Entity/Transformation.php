@@ -86,7 +86,6 @@ class Transformation
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Assert\Length(max=4294967295, maxMessage="Votre description ne doit pas dépasser {{ limit }} caractères." )
      */
     private $description;
 
