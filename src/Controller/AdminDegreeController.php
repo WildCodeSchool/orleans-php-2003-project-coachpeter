@@ -87,6 +87,7 @@ class AdminDegreeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($degree);
             $entityManager->flush();
+            $this->addFlash('success', 'La certification a bien été supprimée');
         }
 
         return $this->redirectToRoute('degree_index');
