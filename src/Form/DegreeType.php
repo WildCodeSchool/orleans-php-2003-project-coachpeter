@@ -26,7 +26,7 @@ class DegreeType extends AbstractType
             ])
             ->add('description', TextType::class, [
                 'label' => 'Description',
-                'attr' => ['class' => "col mb-3"]
+                 'attr' => ['class' => "col mb-3"]
             ])
             ->add('startDate', NumberType::class, [
                 'label' => 'Date de début',

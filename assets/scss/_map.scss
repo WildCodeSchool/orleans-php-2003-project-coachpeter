@@ -4,16 +4,21 @@
     top: 100px;
 }
 
-.map {
-    margin-top:70px;
-    height:400px;
-    background-image: url("/build/map.jpg");
-    background-position: center;
-    background-size: cover;
-}
-
 .card-adress {
     background-color: $ultra-light;
     height:250px;
     width: 340px;
+}
+
+.map-responsive{
+    overflow:hidden;
+    position:relative;
+}
+
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height: 500px;
+    width:100%;
+    position:absolute;
 }
