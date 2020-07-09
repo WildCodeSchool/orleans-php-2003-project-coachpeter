@@ -32,6 +32,12 @@ class Contact
     private $email;
 
     /**
+     * @Assert\Length(max=255, maxMessage="Votre date de naissance doit être inférieur à {{ limit }} caractères")
+     * @Assert\NotBlank(message="Merci de saisir votre date de naissance")
+     */
+    private $birthDate;
+
+    /**
      * @Assert\NotBlank(message="Merci de saisir votre message")
      */
     private $message;
@@ -98,6 +104,22 @@ class Contact
     public function setEmail($email): void
     {
         $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBirthDate()
+    {
+        return $this->birthDate;
+    }
+
+    /**
+     * @param mixed $birthDate
+     */
+    public function setBirthDate($birthDate): void
+    {
+        $this->birthDate = $birthDate;
     }
 
     /**

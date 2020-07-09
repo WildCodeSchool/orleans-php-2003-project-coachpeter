@@ -16,23 +16,27 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'attr' => ['class' => "col-12 mb-3", 'placeholder' => "Sandrine"],
+                'attr' => ['class' => "col-12 mb-3 p-3", 'placeholder' => "Sandrine"],
                 'label' => 'Prénom',
                 ])
             ->add('lastname', TextType::class, [
-                'attr' => ['class' => "col-12 mb-3", 'placeholder' => "Germain" ],
+                'attr' => ['class' => "col-12 mb-3 p-3", 'placeholder' => "Germain" ],
                 'label' => 'Nom',
                 ])
             ->add('phone', TextType::class, [
-                'attr' => ['class' => "col-12 mb-3", 'placeholder' => "0687654321"],
+                'attr' => ['class' => "col-12 mb-3 p-3", 'placeholder' => "0687654321"],
                 'label' => 'Numéro de téléphone',
                 ])
+            ->add('birthDate', TextType::class, [
+                'attr' => ['class' => "col-12 mb-3 p-3", 'placeholder' => "12/02/1990"],
+                'label' => 'Date de naissance',
+                ])
             ->add('email', EmailType::class, [
-                'attr' => ['class' => "col-12 mb-3", 'placeholder' => "sandrine.germain@gmail.com"],
+                'attr' => ['class' => "col-12 mb-3 p-3", 'placeholder' => "sandrine.germain@gmail.com"],
                 'label' => 'Adresse Email',
                 ])
             ->add('message', TextareaType::class, [
-                'attr' => ['class' => "col-12 mb-3", 'placeholder' => "Je suis intéressée par votre programme.
+                'attr' => ['class' => "col-12 mb-3 p-3", 'placeholder' => "Je suis intéressée par votre programme.
                 Auriez-vous plus d'informations à me communiquer ?"],
                 'label' => 'Message',
                 ])
