@@ -14,7 +14,7 @@ class ThemeFixtures extends Fixture
         $faker = Faker\Factory::create('fr_FR');
         for ($i = 1; $i <= 6; $i++) {
             $theme = new Theme();
-            $theme->setName($faker->text(20));
+            $theme->setNameTheme($faker->text(15));
             $manager->persist($theme);
         }
 
