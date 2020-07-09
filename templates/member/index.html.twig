@@ -7,6 +7,9 @@
 <h1 class="text-center text-primary">Bienvenue</h1>
 <section class="w-100">
 {% for attended in app.user.attendeds %}
+    {% if (attended.beginDate|date("Y/m/d") <= "now"|date("Y/m/d")) and
+        (attended.endDate|date("Y/m/d") > "now"|date("Y/m/d")) %}
+
     <div class="display-4 text-center text-primary">
         Programme {{ attended.program.name }}
     </div>
@@ -83,6 +86,7 @@
     </div>
 
     {% endfor %}
+    {% endif %}
 {% endfor %}
 </section>
 {% endblock %}
