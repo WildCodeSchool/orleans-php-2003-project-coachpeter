@@ -6,12 +6,30 @@
     </thead>
     <tbody>
     <tr>
-        <th>Nom</th>
+        <th>Nom du/de la coaché(e)</th>
         <td>
             {{ form_errors(form.name) }}
             {{ form_widget(form.name) }}
         </td>
     </tr>
+
+    <tr>
+        <th>Titre</th>
+        <td>
+            {{ form_errors(form.title) }}
+            {{ form_widget(form.title) }}
+        </td>
+    </tr>
+
+    <tr>
+        <th>Description</th>
+        <td>
+            {{ form_errors(form.description) }}
+            {{ form_widget(form.description) }}
+        </td>
+    </tr>
+
+
     <tr>
         <th>Poids perdu</th>
         <td>
