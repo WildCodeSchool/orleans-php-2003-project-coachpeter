@@ -10,6 +10,7 @@
     --map-height:400px;
     height: var(--map-height);
     position:relative;
+    
     iframe {
         filter:grayscale(90%);
         width: 100%;
