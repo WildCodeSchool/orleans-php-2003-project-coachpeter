@@ -68,6 +68,7 @@ class ProgramStep
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Positive
      */
     private $begin;
 
