@@ -69,6 +69,7 @@ class AdminDegreeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'La certification a bien été modifiée');
 
             return $this->redirectToRoute('degree_index');
         }
