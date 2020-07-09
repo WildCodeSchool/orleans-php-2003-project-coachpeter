@@ -4,6 +4,7 @@ namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -27,9 +28,9 @@ class ContactType extends AbstractType
                 'attr' => ['class' => "col-12 mb-3 p-3", 'placeholder' => "0687654321"],
                 'label' => 'Numéro de téléphone',
                 ])
-            ->add('birthDate', TextType::class, [
-                'attr' => ['class' => "col-12 mb-3 p-3", 'placeholder' => "12/02/1990"],
-                'label' => 'Date de naissance',
+            ->add('birthDate', IntegerType::class, [
+                'attr' => ['class' => "col-12 mb-3 p-3", 'placeholder' => "35"],
+                'label' => 'Âge',
                 ])
             ->add('email', EmailType::class, [
                 'attr' => ['class' => "col-12 mb-3 p-3", 'placeholder' => "sandrine.germain@gmail.com"],

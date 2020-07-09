@@ -32,8 +32,7 @@ class Contact
     private $email;
 
     /**
-     * @Assert\Length(max=255, maxMessage="Votre date de naissance doit être inférieur à {{ limit }} caractères")
-     * @Assert\NotBlank(message="Merci de saisir votre date de naissance")
+     * @Assert\NotBlank(message="Merci de saisir votre âge (en chiffres)")
      */
     private $birthDate;
 
