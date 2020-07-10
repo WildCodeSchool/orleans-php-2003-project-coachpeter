@@ -4,16 +4,27 @@
     top: 100px;
 }
 
-.map {
-    margin-top:70px;
-    height:400px;
-    background-image: url("/build/map.jpg");
-    background-position: center;
-    background-size: cover;
-}
+.map-responsive {
+    --map-height:400px;
+    height: var(--map-height);
+    position:relative;
 
-.card-adress {
-    background-color: $ultra-light;
-    height:250px;
-    width: 340px;
+    .card-adress {
+        position: absolute;
+        --card-spacing:100px;
+        --card-height:calc(var(--map-height) - 100px);
+        right:var(--card-spacing);
+        top:calc(var(--card-spacing) / 2);
+        background-color: $ultra-light;
+        width:250px;
+        height: calc(var(--map-height) - var(--card-spacing));
+        border-radius: 4px;
+        box-shadow: 1px 1px 4px $shadow;
+    }
+
+    iframe {
+        filter: grayscale(90%);
+        width: 100%;
+        height: 100%;
+    }
 }

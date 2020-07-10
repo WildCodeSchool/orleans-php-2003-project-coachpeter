@@ -21,11 +21,17 @@ class AttendedEditType extends AttendedType
             ->remove('program')
             ->add('beginDate', DateType::class, [
                 'label' => 'Date de début',
+                'widget' => 'single_text',
                 'format' => 'dd/MM/yyyy',
+                'html5' => false,
+                'attr' => ['class' => 'js-datepicker col mb-3', 'placeholder' => '01/01/2020' ],
             ])
             ->add('endDate', DateType::class, [
                 'label' => 'Date de fin',
+                'widget' => 'single_text',
                 'format' => 'dd/MM/yyyy',
+                'html5' => false,
+                'attr' => ['class' => 'js-datepicker col mb-3', 'placeholder' => '01/01/2020' ],
             ]);
     }
 

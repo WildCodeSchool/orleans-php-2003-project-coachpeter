@@ -38,6 +38,7 @@ class AdminDegreeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($degree);
             $entityManager->flush();
+            $this->addFlash('success', 'La certification a bien été ajoutée');
 
             return $this->redirectToRoute('degree_index');
         }
@@ -68,6 +69,7 @@ class AdminDegreeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'La certification a bien été modifiée');
 
             return $this->redirectToRoute('degree_index');
         }
@@ -87,6 +89,7 @@ class AdminDegreeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($degree);
             $entityManager->flush();
+            $this->addFlash('success', 'La certification a bien été supprimée');
         }
 
         return $this->redirectToRoute('degree_index');

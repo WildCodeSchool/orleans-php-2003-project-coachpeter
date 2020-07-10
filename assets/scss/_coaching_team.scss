@@ -1,0 +1,36 @@
+.card-coach-activity:nth-of-type(odd) {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    padding-top: 75px;
+}
+
+.card-coach-activity:nth-of-type(odd) .badge-coaching{
+    background-color: $primary;
+}
+
+.card-act-image{
+    width: 360px;
+    max-height: 500px;
+}
+
+.activity-cadre {
+    z-index: 50;
+    top: 0;
+    left: 0;
+}
+
+.activity-cadre img {
+    width: 360px;
+}
+
+.badge-coaching{
+    width: 77px;
+    height: 77px;
+    border-radius:50%;
+    border :8px solid $circle ;
+    background-color: $secondary;
+}
+
+.image-activity{
+    border-radius: 2px;
+}
