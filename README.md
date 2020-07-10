@@ -72,6 +72,13 @@ Create a repository on Github in WildCodeSchool organization following this exem
 1. Clone this project
 2. Run `composer install`
 3. Run `yarn install`
+4. Create a copy of `env` file named `env.local`
+5. In `env.local`, go to  line #27 and fill informations with your MYSQL data
+ ('DATABASE_URL="mysql://your_mysql_username:your_password@127.0.0.1:3306/your_database_name"') 
+6. In `env.local`, uncomment line #31 for "MAILER_DSN" and fill informations related to your mail
+7. Run `php bin/console doctrine:database:create`
+8. Run `php bin/console doctrine:schema:update --force`
+9. Run `php bin/console doctrine:fixtures:load`
 
 ### Working
 
