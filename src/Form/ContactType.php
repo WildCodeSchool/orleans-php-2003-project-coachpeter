@@ -4,6 +4,7 @@ namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,23 +17,27 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'attr' => ['class' => "col-12 mb-3", 'placeholder' => "Sandrine"],
+                'attr' => ['class' => "w-100 mb-3 p-3", 'placeholder' => "Sandrine"],
                 'label' => 'Prénom',
                 ])
             ->add('lastname', TextType::class, [
-                'attr' => ['class' => "col-12 mb-3", 'placeholder' => "Germain" ],
+                'attr' => ['class' => "w-100 mb-3 p-3", 'placeholder' => "Germain" ],
                 'label' => 'Nom',
                 ])
             ->add('phone', TextType::class, [
-                'attr' => ['class' => "col-12 mb-3", 'placeholder' => "0687654321"],
+                'attr' => ['class' => "w-100 mb-3 p-3", 'placeholder' => "0687654321"],
                 'label' => 'Numéro de téléphone',
                 ])
+            ->add('birthDate', IntegerType::class, [
+                'attr' => ['class' => "w-100 mb-3 p-3", 'placeholder' => "35"],
+                'label' => 'Âge',
+                ])
             ->add('email', EmailType::class, [
-                'attr' => ['class' => "col-12 mb-3", 'placeholder' => "sandrine.germain@gmail.com"],
+                'attr' => ['class' => "w-100 mb-3 p-3", 'placeholder' => "sandrine.germain@gmail.com"],
                 'label' => 'Adresse Email',
                 ])
             ->add('message', TextareaType::class, [
-                'attr' => ['class' => "col-12 mb-3", 'placeholder' => "Je suis intéressée par votre programme.
+                'attr' => ['class' => "w-100 mb-3 p-3", 'placeholder' => "Je suis intéressée par votre programme.
                 Auriez-vous plus d'informations à me communiquer ?"],
                 'label' => 'Message',
                 ])
