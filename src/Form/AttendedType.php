@@ -10,6 +10,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use \DateTime;
 
 class AttendedType extends AbstractType
 {
@@ -20,23 +21,29 @@ class AttendedType extends AbstractType
                 'class' => User::class,
                 'choice_label' => 'FirstAndLastname',
                 'label' => 'Nom',
-                'attr' => ['class' => "col-12 mb-3"]
+                'attr' => ['class' => "col mb-3"]
             ])
             ->add('program', EntityType::class, [
                 'class' => Program::class,
                 'choice_label' => 'name',
                 'label' => 'Programme',
-                'attr' => ['class' => "col-12 mb-3"]
+                'attr' => ['class' => "col mb-3"]
             ])
             ->add('beginDate', DateType::class, [
                 'label' => 'Date de début',
+                'widget' => 'single_text',
                 'format' => 'dd/MM/yyyy',
-                'attr' => ['class' => "col-12 mb-3"]
+                'html5' => false,
+                'attr' => ['class' => 'js-datepicker col mb-3'],
+                'data' => new DateTime("now"),
             ])
             ->add('endDate', DateType::class, [
-                'label' => 'Date de fin',
+                'label' => 'Date de fin ',
+                'widget' => 'single_text',
                 'format' => 'dd/MM/yyyy',
-                'attr' => ['class' => "col-12 mb-3"]
+                'html5' => false,
+                'attr' => ['class' => 'js-datepicker col mb-3' ],
+
             ]);
     }
 
