@@ -4,9 +4,9 @@
     <div class="row justify-content-center justify-content-lg-between">
         {% for actuality in actualities %}
             <div class="card card-actu m-3">
-                <a href="{{ path('app_actuality')}}#article_{{ actuality.id }}">
+                <a href="{{ path('app_actuality')}}#article_{{ actuality.id }}" class="text-decoration-none">
                     <img class="card-img-top card-actu-img" src="{{ vich_uploader_asset(actuality, 'actualityFile') }}"
-                         alt="{{ actuality.title }}"></a>
+                         alt="{{ actuality.title }}">
                 <div class="card-body card-actu-body card-blog rounded-bottom position-relative">
                     <div class="badge position-absolute card-theme text-left align-items-center rounded-0 ">
                         {{ actuality.topic }}
@@ -25,6 +25,7 @@
                         </div>
                         <div class="date-blog pr-2">{{ actuality.date|date('d M Y') }}</div>
                     </div>
+                </a>
                 </div>
             </div>
         {% endfor %}
