@@ -6,8 +6,10 @@
         </h2>
         <div class="row">
             <div class="align-items-start col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center">
+                {% if coachInfo %}
                 <img class=" img-coach-about-me-home" src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
                      alt="Coach Peter">
+                {% endif %}
             </div>
             <div class="col-lg-6 c">
                 <h3 class="coach-name-about-me font-weight-bold">
@@ -15,7 +17,7 @@
                     <span class="text-secondary">DIONISIO</span>
                 </h3>
                 <p class="font-italic">
-                    "{{ coachInfo.catchline }}"
+                    "{{ coachInfo.catchline ?? '' }}"
                 </p>
                 <div>
                     <ul class="nav mt-3" id="myTab" role="tablist">
@@ -37,10 +39,10 @@
                 </div>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        {{ coachInfo.presentation|nl2br }}
+                        {{ (coachInfo.presentation ?? '')|nl2br }}
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        {{ coachInfo.philosophy|nl2br }}
+                        {{ (coachInfo.philosophy ?? '')|nl2br }}
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                             {% for degree in degrees %}
