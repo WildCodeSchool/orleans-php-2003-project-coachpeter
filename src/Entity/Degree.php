@@ -42,14 +42,14 @@ class Degree
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Merci de saisir l'année de début")
-     * @Assert\Range(min=1950)
+     * @Assert\Range(min=2000, max=2050,  notInRangeMessage = "L'année doit être comprise entre {{ min }} et {{ max }}")
      */
     private $startDate;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Merci de saisir l'année de fin")
-     * @Assert\Range(min=1950)
+     * @Assert\Range(min=2000, max=2050,  notInRangeMessage = "L'année doit être comprise entre {{ min }} et {{ max }}")
      */
     private $endDate;
 
