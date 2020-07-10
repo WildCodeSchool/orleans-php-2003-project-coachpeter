@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Actuality;
+use App\Form\ActualityEditType;
 use App\Form\ActualityType;
 use App\Repository\ActualityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -63,7 +64,7 @@ class AdminActualityController extends AbstractController
      */
     public function edit(Request $request, Actuality $actuality): Response
     {
-        $form = $this->createForm(ActualityType::class, $actuality);
+        $form = $this->createForm(ActualityEditType::class, $actuality);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
