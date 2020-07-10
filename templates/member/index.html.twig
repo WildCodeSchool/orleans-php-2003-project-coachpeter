@@ -50,8 +50,12 @@
             <div class="row bg-light border border-primary">
             <div class="col-1 px-0 mx-1"></div>
             <div class="m-0 p-0 col-md-4 align-items-center mb-2">
+                {%  if programStep.urlVideo %}
                 <iframe src="https://player.vimeo.com/video/{{ programStep.urlVideo }}?title=0&byline=0&portrait=0" width="360" height="250" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
                 </iframe>
+                    {% else %}
+                        <img class="w-50 img-coach-about-me-home" src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
+                {% endif %}
                 {% if programStep.fileExplain %}
                 <a class="" href="/uploads/programStep/{{ programStep.fileExplain }}" target="_blank">Récapitulatif</a>
                 {% endif %}
