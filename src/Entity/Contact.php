@@ -21,7 +21,8 @@ class Contact
 
     /**
      * @Assert\NotBlank(message="Merci de saisir votre numéro de téléphone")
-     * @Assert\Length(min=10, max=20, minMessage="Votre numéro de téléphone doit être composé de 10 chiffres", maxMessage="Votre numéro de téléphone doit être composé de 10 chiffres")
+     * @Assert\Length(min=10, max=20, minMessage="Votre numéro de téléphone doit être composé de 10 chiffres",
+     *      maxMessage="Votre numéro de téléphone doit être composé de 10 chiffres")
      */
     private $phone;
 
@@ -40,7 +41,8 @@ class Contact
 
     /**
      * @Assert\NotBlank(message="Merci de saisir votre message")
-     * @Assert\Length(min=20, max=1500, minMessage="Votre message doit être composé d'au moins {{ limit }} caractères", maxMessage="Votre email ne peut pas dépasser {{ limit }} caractères")
+     * @Assert\Length(min=20, max=1500, minMessage="Votre message doit être composé d'au moins {{ limit }} caractères",
+     *      maxMessage="Votre email ne peut pas dépasser {{ limit }} caractères")
      */
     private $message;
 
