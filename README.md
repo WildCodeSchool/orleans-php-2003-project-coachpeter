@@ -1,4 +1,5 @@
-# Project 3 - Starter Kit - Symfony 4.4.*
+# Project 3 COACH-PETER
+# Starter Kit - Symfony 4.4.*
 
 ![Wild Code School](https://wildcodeschool.fr/wp-content/uploads/2019/01/logo_pink_176x60.png)
 
@@ -72,11 +73,25 @@ Create a repository on Github in WildCodeSchool organization following this exem
 1. Clone this project
 2. Run `composer install`
 3. Run `yarn install`
+4. Create a copy of `env` file named `env.local`
+5. In `env.local`, go to  line #27 and fill informations with your MYSQL data
+ ('DATABASE_URL="mysql://your_mysql_username:your_password@127.0.0.1:3306/your_database_name"') 
+6. In `env.local`, uncomment line #31 for "MAILER_DSN" and fill informations related to your mail
+7. Run `php bin/console doctrine:database:create`
+8. Run `php bin/console doctrine:schema:update --force`
+9. Run `php bin/console doctrine:fixtures:load`
 
 ### Working
 
 1. Run `symfony server:start` to launch your local php web server
 2. Run `yarn run dev --watch` to launch your local server for assets
+
+### Administration panel and user panel
+If you want to access to the administration panel as administrator, login with :
+`admin@monsite.com` with password `adminpassword`.
+
+If you want to access to the member panel, login with :
+`member@monsite.com` with password `memberpassword`.
 
 ### Testing
 
