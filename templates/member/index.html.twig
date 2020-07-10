@@ -11,7 +11,8 @@
         (attended.endDate|date("Y/m/d") > "now"|date("Y/m/d")) %}
 
     <div class="display-4 text-center text-primary">
-        Programme {{ attended.program.name }}
+        <p>Programme</p>
+        <p>{{ attended.program.name }}</p>
     </div>
     <div class="text-center text-primary">
         Du {{ attended.beginDate|date("d/m/Y") }} au {{ attended.endDate|date("d/m/Y") }}.
@@ -19,26 +20,53 @@
 
     {%  for programStep in attended.program.programSteps %}
 
-    <div class="step bg-primary col-md-8 offset-md-2 text-center my-3 p-2">
-        <p class="h3 text-light">{{ programStep.title }}</p>
-        <p class="text-light">disponible à compter du {{ attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") }}</p>
+    <div class="step row
         {% if "now"|date("d/m/Y") > attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") %}
-        <div class="row">
-            <div class="col-1"></div>
+         bg-primary text-light
+        {% else%}
+         no-acces text-primary
+        {% endif %}
+        col-md-8 offset-md-2 text-center my-3">
+        <div class="col-2 text-left pt-3">
+            {% if "now"|date("d/m/Y") > attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") %}
+            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-unlock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
+                <path fill-rule="evenodd" d="M8.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
+            </svg>
+            {% else %}
+            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-lock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
+                <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
+            </svg>
+            {% endif %}
+        </div> {# cadenas #}
+
+        <div class="col-8 text-center">
+            <p class="h3">{{ programStep.title }}</p>
+            <p>disponible à compter du {{ attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") }}</p>
+        </div> {# title programStep #}
+        {% if "now"|date("d/m/Y") > attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") %}
+
+            <div class="row bg-light border border-primary">
+            <div class="col-1 px-0 mx-1"></div>
             <div class="m-0 p-0 col-md-4 align-items-center mb-2">
+                {%  if programStep.urlVideo %}
                 <iframe src="https://player.vimeo.com/video/{{ programStep.urlVideo }}?title=0&byline=0&portrait=0" width="360" height="250" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
                 </iframe>
+                    {% else %}
+                        <img class="w-50 img-coach-about-me-home" src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
+                {% endif %}
                 {% if programStep.fileExplain %}
-                <a class="text-light" href="/uploads/programStep/{{ programStep.fileExplain }}" target="_blank">Récapitulatif</a>
+                <a class="" href="/uploads/programStep/{{ programStep.fileExplain }}" target="_blank">Récapitulatif</a>
                 {% endif %}
             </div>
             <div class="col-2"></div>
-            <div class="text-light text-left col-md-4">
+            <div class="text-left text-primary col-md-4 py-2">
                 {{ programStep.description }}
             </div>
         </div>
-            <div class="overflow-hidden px-0 border border-primary step">
-                <h3 class="pb-1 mx-auto text-center">
+            <div class="overflow-hidden px-0 py-2 step mx-0 w-100">
+                <h3 class="py-1 mx-auto mb-0 text-center">
                     <a class="btn btn-light text-primary"
                        data-toggle="collapse"
                        href="#collapse{{ programStep.id }}"
@@ -48,38 +76,32 @@
                         Vos fichiers d'accompagnement
                     </a>
                 </h3>
-                <div class="collapse" id="collapse{{ programStep.id }}">
-                    <div class="card card-body border-0">
+                <div class="collapse mb-3 w-100" id="collapse{{ programStep.id }}">
+                    <div class="card card-body border-0 w-100">
                         <div class="w-100 d-flex flex-wrap justify-content-around">
                             {%  for ressource in programStep.ressources %}
-                                <div class="d-flex flex-column justify-content-between card border-primary my-5 mx-0 text-primary">
-                                    <div class="bg-primary text-light text-left w-100">
-                                        {{ ressource.theme.nameTheme }}
-                                    </div>
+
+                                <div class="card border border-primary text-primary bg-light mb-4 pt-2 pb-0" style="width: 18rem;">
                                     {% if ressource.type == 'video' %}
-                                        <iframe src="https://player.vimeo.com/video/{{ ressource.refVideo }}?title=0&byline=0&portrait=0" width="300" height="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+                                        <iframe class="w-100" src="https://player.vimeo.com/video/{{ ressource.refVideo }}?title=0&byline=0&portrait=0" width="300" height="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
                                         </iframe>
-                                        <div class="w-100 text-center text-primary">
-                                            {{ ressource.name }}
-                                        </div>
                                     {% else %}
                                         <div class="w-100 text-center py-1">
                                             <a href="/uploads/ressources/{{ ressource.file }}" target="_blank">
-                                                <img src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
+                                                <img class="card-img-top w-50" src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
                                             </a>
                                         </div>
-                                        <div class="w-100 text-center text-primary">
-                                            {{ ressource.name }}
-                                        </div>
                                     {% endif %}
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ ressource.name }}</h5>
+                                    </div>
+                                    <div class="w-100 bg-primary text-light py-2 mb-0">{{ ressource.theme.nameTheme|upper }}</div>
                                 </div>
                             {% endfor %}
                         </div>
                     </div>
                 </div>
 
-                <div class="w-100 py-2">
-                </div>
             </div>
 
         {% endif %}
