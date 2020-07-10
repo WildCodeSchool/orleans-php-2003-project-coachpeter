@@ -91,7 +91,7 @@
                                                 "{{ ressource.theme.nameTheme }}"
                                             </p>
                                             <p class="pl-3">
-                                                <img src="/build/{{ressource.type}}.svg" alt="{{ressource.type}}"/>
+                                                <img src="{{ asset('build/' ~ ressource.type ~ '.svg') }}" alt="{{ressource.type}}"/>
                                             {{ ressource.name }}
                                             </p>
                                         </div>
