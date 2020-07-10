@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use \DateTime;
 
 class ActualityType extends AbstractType
 {
@@ -21,8 +22,12 @@ class ActualityType extends AbstractType
                 'attr' => ['class' => "col-12"
                 ]])
             ->add('date', DateType::class, [
-                'label' => 'Date: jour-mois-année',
+                'label' => 'Date: jour/mois/année',
+                'widget' => 'single_text',
                 'format' => 'dd/MM/yyyy',
+                'html5' => false,
+                'attr' => ['class' => 'js-datepicker col mb-3'],
+                'data' => new DateTime("now"),
             ])
             ->add('topic', TextType::class, [
                 'label' => 'Thème',
