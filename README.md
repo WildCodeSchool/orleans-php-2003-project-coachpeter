@@ -85,6 +85,13 @@ Create a repository on Github in WildCodeSchool organization following this exem
 1. Run `symfony server:start` to launch your local php web server
 2. Run `yarn run dev --watch` to launch your local server for assets
 
+### Administration panel and user panel
+If you want to access to the administration panel as administrator, login with :
+`admin@monsite.com` with password `adminpassword`.
+
+If you want to access to the member panel, login with :
+`member@monsite.com` with password `memberpassword`.
+
 ### Testing
 
 1. Run `./bin/phpcs` to launch PHP code sniffer
