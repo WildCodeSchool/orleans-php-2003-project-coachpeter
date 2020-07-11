@@ -2,6 +2,7 @@
 
 ## Symfony cconfiguration
 php bin/console doctrine:database:create --if-not-exists --quiet --no-interaction
+php bin/console doctrine:migrations:diff
 php bin/console doctrine:migrations:migrate --verbose --no-interaction --allow-no-migration
 if [ ${APP_ENV} != "prod" ] 
    then 
