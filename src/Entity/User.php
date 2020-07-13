@@ -37,7 +37,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="json")
      * @Assert\All({
-     *      @Assert\Choice(choices=App\Entity\User::ROLES, message="Le rôle {{value}} n'est pas autorisé.")
+     *      @Assert\Choice(choices=App\Entity\User::ROLES, message="Le rôle {{ value }} n'est pas autorisé.")
      * })
      */
     private $roles = [];
@@ -52,7 +52,8 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
      * @Assert\Length(max=255, maxMessage="Le prénom {{ value }} est trop long,
-     * il ne devrait pas dépasser {{ limit}} caractères.")
+     * il ne devrait pas dépasser {{ limit }} caractères.")
+     * @Assert\Type("string")
      */
     private $firstname;
 
@@ -60,14 +61,15 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
      * @Assert\Length(max=255, maxMessage="Le nom de famille {{ value }} est trop long,
-     * il ne devrait pas dépasser {{ limit}} caractères.")
+     * il ne devrait pas dépasser {{ limit }} caractères.")
+     * @Assert\Type("string")
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255, maxMessage="Le numéro {{ value }} est trop long,
-     * il ne devrait pas dépasser {{ limit}} caractères.")
+     * il ne devrait pas dépasser {{ limit }} caractères.")
      */
     private $phone;
 
