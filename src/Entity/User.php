@@ -66,8 +66,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Length(max=255, maxMessage="Le numéro {{ value }} est trop long,
-     * il ne devrait pas dépasser {{ limit}} caractères.")
+     * @Assert\Regex(pattern="/^[0-9]*$/", message="Le champs téléphone ne doit contenir que des chiffres.")
+     * @Assert\Length(max=10, maxMessage="Le numéro {{ value }} est trop long,
+     * il ne devrait pas dépasser {{ limit }} caractères.")
      */
     private $phone;
 
