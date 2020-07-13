@@ -53,7 +53,11 @@ class User implements UserInterface
      * @Assert\NotBlank
      * @Assert\Length(max=255, maxMessage="Le prénom {{ value }} est trop long,
      * il ne devrait pas dépasser {{ limit }} caractères.")
-     * @Assert\Type("string")
+     * @Assert\Regex(
+     *     pattern="/^(?=.*?[A-Za-z])[A-Za-z+]+$/",
+     *     message="Le nom ne doit contenir que des lettres",
+     * )
+     *
      */
     private $firstname;
 
@@ -62,7 +66,11 @@ class User implements UserInterface
      * @Assert\NotBlank
      * @Assert\Length(max=255, maxMessage="Le nom de famille {{ value }} est trop long,
      * il ne devrait pas dépasser {{ limit }} caractères.")
-     * @Assert\Type("string")
+     * @Assert\Regex(
+     *     pattern="/^(?=.*?[A-Za-z])[A-Za-z+]+$/",
+     *     message="Le nom ne doit contenir que des lettres",
+     * )
+     *
      */
     private $lastname;
 
