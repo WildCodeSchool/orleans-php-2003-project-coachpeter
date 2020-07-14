@@ -6,7 +6,7 @@
     <h1 class="text-center text-primary">Programmes</h1>
     <div class="w-75 m-auto text-right">
         <a class="btn btn-light text-primary border-primary my-4" href="{{ path('program_new') }}">
-            Ajouter
+            Ajouter un programme
             <svg class="bi bi-plus-circle-fill" width="24px" height="24px" viewBox="0 0 16 16" fill="#00384f" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
             </svg>
@@ -43,11 +43,6 @@
     </table>
         <h3 class="mt-2 w-75 mx-auto mb-1 text-left text-primary">
             Les étapes
-        <a href="{{ path('program_step_new', {'id': program.id}) }}">
-        <svg class="bi bi-plus-circle-fill" width="24px" height="24px" viewBox="0 0 16 16" fill="#00384f" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
-        </svg>
-        </a>
         </h3>
             {% for program_step in program.programSteps %}
                 <div class="w-75 m-auto accordion pt-2" id="accordionProgramStep">
@@ -58,6 +53,11 @@
                                         <h2 class="btn mb-0 accordion-programStep text-left text-primary" type="button" data-toggle="collapse"
                                             data-target="#collapse{{ program_step.id }}" aria-expanded="false" aria-controls="collapse{{ program_step.id }}">
                                             {{ program_step.title }}
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                <path fill-rule="evenodd" d="M4.646 7.646a.5.5 0 0 1 .708 0L8 10.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"/>
+                                                <path fill-rule="evenodd" d="M8 4.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5z"/>
+                                            </svg>
                                         </h2>
                                     </div>
                                     <div class="col-1 my-auto text-center">
@@ -81,7 +81,7 @@
                                             <svg class="bi bi-plus-circle-fill" width="24px" height="24px" viewBox="0 0 16 16" fill="#00384f" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
                                             </svg>
-                                            Ajout
+                                            Ajouter une ressource
                                         </a>
                                     </div>
                                     {% for ressource in program_step.ressources %}
@@ -113,6 +113,16 @@
                         </div>
                 </div>
             {% endfor %}
+
+        <div class="w-75 m-auto text-left">
+            <a class="btn btn-light text-primary border-primary my-4" href="{{ path('program_step_new', {'id': program.id}) }}">
+                Ajouter une étape
+                <svg class="bi bi-plus-circle-fill" width="24px" height="24px" viewBox="0 0 16 16" fill="#00384f" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
+                </svg>
+            </a>
+        </div>
+
     {% else %}
 
     <div class="w-75 m-auto">Pas de programme enregistré.</div>
