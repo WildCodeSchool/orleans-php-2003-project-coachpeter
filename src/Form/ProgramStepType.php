@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\ProgramStep;
+use Doctrine\DBAL\Types\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,8 +24,7 @@ class ProgramStepType extends AbstractType
                 'allow_delete' => true,
                 'download_uri' => true,
             ])
-            ->add('begin')
-        ;
+            ->add('begin');
     }
 
     public function configureOptions(OptionsResolver $resolver)
