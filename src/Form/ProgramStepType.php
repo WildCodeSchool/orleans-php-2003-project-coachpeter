@@ -24,7 +24,8 @@ class ProgramStepType extends AbstractType
                 'allow_delete' => true,
                 'download_uri' => true,
             ])
-            ->add('begin');
+            ->add('begin')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
