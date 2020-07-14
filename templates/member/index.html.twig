@@ -88,14 +88,18 @@
                                     {% else %}
                                         <div class="w-100 text-center py-1">
                                             <a href="/uploads/ressources/{{ ressource.file }}" target="_blank">
-                                                <img class="card-img-top w-50" src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
+                                                <img class="card-img-top w-50" src="{{ asset('build/'~ressource.type~'.svg')}}" alt="{{ ressource.type }}">
                                             </a>
                                         </div>
                                     {% endif %}
                                     <div class="card-body">
                                         <h5 class="card-title">{{ ressource.name }}</h5>
                                     </div>
+<<<<<<< HEAD
                                     <div class="w-100 bg-primary text-light py-2 mb-0">{{ ressource.theme.nameTheme|upper }}</div>
+=======
+                                    <div class="w-100 bg-primary text-light py-2 mb-0">{{ ressource.theme.nameTheme ?? '' }}</div>
+>>>>>>> 9476fac9f09855efa4503d5fd613c9f6766165a1
                                 </div>
                             {% endfor %}
                         </div>
