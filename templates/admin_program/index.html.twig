@@ -88,10 +88,10 @@
                                     <div class="row border-bottom border-primary mb-2 pb-1 w-100">
                                         <div class="my-auto align-middle col-10 text-primary">
                                             <p class="border-primary">
-                                                "{{ ressource.theme.nameTheme }}"
+                                                "{{ ressource.theme.nameTheme ?? '' }}"
                                             </p>
                                             <p class="pl-3">
-                                                <img src="{{ asset('build/' ~ ressource.type ~ '.svg') }}" alt="{{ressource.type}}"/>
+                                                <img src="{{ asset('build/'~ressource.type~'.svg') }}" alt="{{ressource.type}}"/>
                                             {{ ressource.name }}
                                             </p>
                                         </div>
