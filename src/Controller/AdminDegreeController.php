@@ -39,7 +39,7 @@ class AdminDegreeController extends AbstractController
             $entityManager->persist($degree);
             $endDatedMin = $degree->getEndDate();
             if ($degree->getStartDate() > $endDatedMin) {
-                $this->addFlash('danger', "Attention : l'année de fin de la certification ne peu pas être 
+                $this->addFlash('danger', "Attention : l'année de fin de la certification ne peut pas être 
                 antérieure à l'année de début");
             } else {
                 $entityManager->flush();
@@ -76,7 +76,7 @@ class AdminDegreeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $endDatedMin = $degree->getEndDate();
             if ($degree->getStartDate() > $endDatedMin) {
-                $this->addFlash('danger', "Attention : l'année de fin de la certification ne peu pas être 
+                $this->addFlash('danger', "Attention : l'année de fin de la certification ne peut pas être 
                 antérieure à l'année de début");
             } else {
                 $this->getDoctrine()->getManager()->flush();
