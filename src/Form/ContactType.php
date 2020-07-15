@@ -37,8 +37,9 @@ class ContactType extends AbstractType
                 'label' => 'Adresse Email',
                 ])
             ->add('message', TextareaType::class, [
-                'attr' => ['class' => "w-100 mb-3 p-3", 'placeholder' => "Je suis intéressée par votre programme.
-                Auriez-vous plus d'informations à me communiquer ?"],
+                'attr' => ['class' => "w-100 mb-3 p-3",
+                    'placeholder' =>
+                        "Je suis intéressée par votre programme. Auriez-vous plus d'informations à me communiquer ?"],
                 'label' => 'Message',
                 ])
         ;

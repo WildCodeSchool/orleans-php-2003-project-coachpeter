@@ -37,6 +37,13 @@ class AdminProgramStepController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $durationMax = $program->getDuration();
+            if ($programStep->getBegin()>$durationMax) {
+                $this->addFlash('danger', "Le déclenchement d'une étape ne peut être supérieure à la durée
+                 du programme");
+
+                return $this->redirectToRoute('program_index');
+            }
             $programStep->setProgram($program);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($programStep);
