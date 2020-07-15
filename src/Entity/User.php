@@ -37,7 +37,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="json")
      * @Assert\All({
-     *      @Assert\Choice(choices=App\Entity\User::ROLES, message="Le rôle {{value}} n'est pas autorisé.")
+     *      @Assert\Choice(choices=App\Entity\User::ROLES, message="Le rôle {{ value }} n'est pas autorisé.")
      * })
      */
     private $roles = [];
@@ -50,24 +50,28 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="Veuillez renseigner votre prénom.")
      * @Assert\Length(max=255, maxMessage="Le prénom {{ value }} est trop long,
-     * il ne devrait pas dépasser {{ limit}} caractères.")
+     * il ne devrait pas dépasser {{ limit }} caractères.")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="Veuillez renseigner votre nom.")
      * @Assert\Length(max=255, maxMessage="Le nom de famille {{ value }} est trop long,
-     * il ne devrait pas dépasser {{ limit}} caractères.")
+     * il ne devrait pas dépasser {{ limit }} caractères.")
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255, maxMessage="Le numéro {{ value }} est trop long,
-     * il ne devrait pas dépasser {{ limit}} caractères.")
+     * il ne devrait pas dépasser {{ limit }} caractères.")
+     *@Assert\Type(
+     *     type="numeric",
+     *     message="{{ value }} doit être un numéro de téléphone au format numérique."
+     * )
      */
     private $phone;
 
@@ -158,36 +162,36 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getfirstname(): ?string
+    public function getFirstname(): ?string
     {
         return $this->firstname;
     }
 
-    public function setfirstname(string $firstname): self
+    public function setFirstname(?string $firstname): self
     {
         $this->firstname = $firstname;
 
         return $this;
     }
 
-    public function getlastname(): ?string
+    public function getLastname(): ?string
     {
         return $this->lastname;
     }
 
-    public function setlastname(string $lastname): self
+    public function setLastname(?string $lastname): self
     {
         $this->lastname = $lastname;
 
         return $this;
     }
 
-    public function getphone(): ?string
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setphone(?string $phone): self
+    public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
 
