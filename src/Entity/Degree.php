@@ -75,7 +75,7 @@ class Degree
         return $this->organism;
     }
 
-    public function setOrganism(string $organism): self
+    public function setOrganism(?string $organism): self
     {
         $this->organism = $organism;
 
