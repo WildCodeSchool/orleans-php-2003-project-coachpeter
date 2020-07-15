@@ -30,6 +30,7 @@ class Program
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Range(min=0, max=1000, notInRangeMessage="La durée d'un programme ne peut excéder 1000 jours.")
      */
     private $duration;
 
