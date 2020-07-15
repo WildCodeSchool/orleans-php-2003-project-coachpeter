@@ -22,7 +22,8 @@ class Program
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max="255", maxMessage="La taille du nom du programme ne peux pas dépasser {{limit}} caractères.")
+     * @Assert\Length(max="255", maxMessage="La taille du nom du programme ne peux pas
+     * dépasser {{ limit }} caractères.")
      * @Assert\NotBlank(message="Merci de donner un nom à votre programme.")
      */
     private $name;
