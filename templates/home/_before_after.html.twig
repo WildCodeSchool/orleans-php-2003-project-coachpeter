@@ -7,7 +7,12 @@
     <div class="col-sm-10 offset-sm-1">
         <div id="carouselExampleControls" class="w-100 carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                {% for transformation in transformations %}
+
+                {% set max = transformations|length %}
+                {% if max is odd %}
+                    {% set max = max-1 %}
+                {% endif %}
+                {% for transformation in transformations|slice(0, max) %}
                     {% if loop.index is odd %}
                     <div class="w-100 carousel-item {% if loop.index == 1 %}active{% endif %}">
                     <div class="picture_duo row mx-sm-5 px-md-5">
