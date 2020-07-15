@@ -21,8 +21,8 @@ class AdminDegreeController extends AbstractController
     public function index(DegreeRepository $degreeRepository): Response
     {
         return $this->render('admin_degree/index.html.twig', [
-            'degrees' => $degreeRepository->findAll(),
-        ]);
+            'degrees' => $degreeRepository->findBy([], ['startDate' => "DESC"])
+            ]);
     }
 
     /**
