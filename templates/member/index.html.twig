@@ -21,14 +21,14 @@
     {%  for programStep in attended.program.programSteps %}
 
     <div class="step row
-        {% if "now"|date("d/m/Y") > attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") %}
+        {% if "now"|date("d/m/Y") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") %}
          bg-primary text-light
         {% else%}
          no-acces text-primary
         {% endif %}
         col-md-8 offset-md-2 text-center my-3">
         <div class="col-2 text-left pt-3">
-            {% if "now"|date("d/m/Y") > attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") %}
+            {% if "now"|date("d/m/Y") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") %}
             <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-unlock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
                 <path fill-rule="evenodd" d="M8.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
@@ -88,22 +88,20 @@
                                     {% else %}
                                         <div class="w-100 text-center py-1">
                                             <a href="/uploads/ressources/{{ ressource.file }}" target="_blank">
-                                                <img class="card-img-top w-50" src="/build/{{ ressource.type }}.svg" alt="{{ ressource.type }}">
+                                                <img class="card-img-top w-50" src="{{ asset('build/'~ressource.type~'.svg')}}" alt="{{ ressource.type }}">
                                             </a>
                                         </div>
                                     {% endif %}
                                     <div class="card-body">
                                         <h5 class="card-title">{{ ressource.name }}</h5>
                                     </div>
-                                    <div class="w-100 bg-primary text-light py-2 mb-0">{{ ressource.theme.nameTheme|upper }}</div>
+                                    <div class="w-100 bg-primary text-light py-2 mb-0">{{ ressource.theme.nameTheme ?? '' }}</div>
                                 </div>
                             {% endfor %}
                         </div>
                     </div>
                 </div>
-
             </div>
-
         {% endif %}
     </div>
 

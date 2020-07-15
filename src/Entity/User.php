@@ -57,7 +57,6 @@ class User implements UserInterface
      *     pattern="/^(?=.*?[A-Za-z])[A-Za-z+]+$/",
      *     message="Le nom ne doit contenir que des lettres",
      * )
-     *
      */
     private $firstname;
 
@@ -70,7 +69,6 @@ class User implements UserInterface
      *     pattern="/^(?=.*?[A-Za-z])[A-Za-z+]+$/",
      *     message="Le nom ne doit contenir que des lettres",
      * )
-     *
      */
     private $lastname;
 
@@ -78,6 +76,10 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255, maxMessage="Le numéro {{ value }} est trop long,
      * il ne devrait pas dépasser {{ limit }} caractères.")
+     *@Assert\Type(
+     *     type="numeric",
+     *     message="{{ value }} doit être un numéro de téléphone au format numérique."
+     * )
      */
     private $phone;
 
