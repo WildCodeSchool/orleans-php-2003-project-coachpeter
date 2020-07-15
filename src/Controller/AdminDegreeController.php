@@ -37,10 +37,16 @@ class AdminDegreeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($degree);
-            $entityManager->flush();
-            $this->addFlash('success', 'La certification a bien été ajoutée');
+            $endDatedMin = $degree->getEndDate();
+            if ($degree->getStartDate() > $endDatedMin) {
+                $this->addFlash('danger', "Attention : l'année de fin de la certification ne peu pas être 
+                antérieure à l'année de début");
+            } else {
+                $entityManager->flush();
+                $this->addFlash('success', 'La certification a bien été ajoutée');
 
-            return $this->redirectToRoute('degree_index');
+                return $this->redirectToRoute('degree_index');
+            }
         }
 
         return $this->render('admin_degree/new.html.twig', [
@@ -68,10 +74,16 @@ class AdminDegreeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-            $this->addFlash('success', 'La certification a bien été modifiée');
+            $endDatedMin = $degree->getEndDate();
+            if ($degree->getStartDate() > $endDatedMin) {
+                $this->addFlash('danger', "Attention : l'année de fin de la certification ne peu pas être 
+                antérieure à l'année de début");
+            } else {
+                $this->getDoctrine()->getManager()->flush();
+                $this->addFlash('success', 'La certification a bien été modifiée');
 
-            return $this->redirectToRoute('degree_index');
+                return $this->redirectToRoute('degree_index');
+            }
         }
 
         return $this->render('admin_degree/edit.html.twig', [
