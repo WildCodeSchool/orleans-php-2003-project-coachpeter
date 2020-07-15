@@ -41,7 +41,7 @@ class AdminAttendedController extends AbstractController
 
             $endAttendedMin = $attended->getEndDate();
             if ($attended->getBeginDate() > $endAttendedMin) {
-                $this->addFlash('danger', "Attention : la date de fin de l'adhésion ne peu pas être 
+                $this->addFlash('danger', "Attention : la date de fin de l'adhésion ne peut pas être 
                 antérieure à la date de début");
             } else {
                 $entityManager->flush();
@@ -82,7 +82,7 @@ class AdminAttendedController extends AbstractController
 
             $endAttendedMin = $attended->getEndDate();
             if ($attended->getBeginDate() > $endAttendedMin) {
-                $this->addFlash('danger', "Attention : la date de fin de l'adhésion ne peu pas être 
+                $this->addFlash('danger', "Attention : la date de fin de l'adhésion ne peut pas être 
                 antérieure à la date de début");
             } else {
                 $this->getDoctrine()->getManager()->flush();
