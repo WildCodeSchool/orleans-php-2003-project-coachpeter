@@ -26,7 +26,7 @@ class Actuality
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Veuillez indiquer le titre de l'article")
      * @Assert\Length(max=255, maxMessage="Le nom du titre {{ value }} est trop long,
-     * il ne devrait pas dépasser {{ limit}} caractères")
+     * il ne devrait pas dépasser {{ limit }} caractères")
      */
     private $title;
 
@@ -47,7 +47,7 @@ class Actuality
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="Veuillez indiquer un thème à l'article")
      * @Assert\Length(max=50, maxMessage="Le nom du thème {{ value }} est trop long,
-     * il ne devrait pas dépasser {{ limit}} caractères")
+     * il ne devrait pas dépasser {{ limit }} caractères")
      */
     private $topic;
 
