@@ -174,7 +174,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getlastname(): ?string
+    public function getLastname(): ?string
     {
         return $this->lastname;
     }
