@@ -44,12 +44,12 @@
         <h3 class="mt-2 w-75 mx-auto mb-1 text-left text-primary">
             Les étapes
         </h3>
-            {% for program_step in program.programSteps %}
+            {% for program_step in program.programSteps|sort((a,b) => a.begin <=> b.begin) %}
                 <div class="w-75 m-auto accordion pt-2" id="accordionProgramStep">
                         <div class="card w-50">
                             <div class="card-header" id="headingOne">
                                 <div class="mb-0 row w-100">
-                                    <div class="col-10 align-middle">
+                                    <div class="col-5 align-middle">
                                         <h2 class="btn mb-0 accordion-programStep text-left text-primary" type="button" data-toggle="collapse"
                                             data-target="#collapse{{ program_step.id }}" aria-expanded="false" aria-controls="collapse{{ program_step.id }}">
                                             {{ program_step.title }}
@@ -59,6 +59,9 @@
                                                 <path fill-rule="evenodd" d="M8 4.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5z"/>
                                             </svg>
                                         </h2>
+                                    </div>
+                                    <div class="col-5 align-middle">
+                                        Commence à J+{{ program_step.begin }} .
                                     </div>
                                     <div class="col-1 my-auto text-center">
                                         <a href="{{ path('program_step_edit', {'id': program_step.id}) }}">
