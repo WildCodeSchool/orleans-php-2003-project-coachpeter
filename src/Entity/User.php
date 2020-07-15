@@ -50,7 +50,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="Veuillez renseigner votre prénom.")
      * @Assert\Length(max=255, maxMessage="Le prénom {{ value }} est trop long,
      * il ne devrait pas dépasser {{ limit }} caractères.")
      */
@@ -58,7 +58,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="Veuillez renseigner votre nom.")
      * @Assert\Length(max=255, maxMessage="Le nom de famille {{ value }} est trop long,
      * il ne devrait pas dépasser {{ limit }} caractères.")
      */
@@ -167,7 +167,7 @@ class User implements UserInterface
         return $this->firstname;
     }
 
-    public function setfirstname(string $firstname): self
+    public function setfirstname(?string $firstname): self
     {
         $this->firstname = $firstname;
 
@@ -179,7 +179,7 @@ class User implements UserInterface
         return $this->lastname;
     }
 
-    public function setlastname(string $lastname): self
+    public function setlastname(?string $lastname): self
     {
         $this->lastname = $lastname;
 
