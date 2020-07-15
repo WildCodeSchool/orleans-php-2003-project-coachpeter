@@ -162,12 +162,12 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getfirstname(): ?string
+    public function getFirstname(): ?string
     {
         return $this->firstname;
     }
 
-    public function setfirstname(?string $firstname): self
+    public function setFirstname(?string $firstname): self
     {
         $this->firstname = $firstname;
 
@@ -179,19 +179,19 @@ class User implements UserInterface
         return $this->lastname;
     }
 
-    public function setlastname(?string $lastname): self
+    public function setLastname(?string $lastname): self
     {
         $this->lastname = $lastname;
 
         return $this;
     }
 
-    public function getphone(): ?string
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setphone(?string $phone): self
+    public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
 
