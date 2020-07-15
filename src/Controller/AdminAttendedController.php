@@ -71,10 +71,18 @@ class AdminAttendedController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $attended->getUser();
             $attended->getProgram();
-            $this->getDoctrine()->getManager()->flush();
-            $this->addFlash('success', 'L\'adhésion a bien été modifiée');
 
-            return $this->redirectToRoute('attended_index');
+
+            $endAttendedMin = $attended->getEndDate();
+            if ($attended->getBeginDate()>$endAttendedMin) {
+                $this->addFlash('danger', "Attention: la date de fin de l'adhésion ne peu pas être 
+                antérieure à la date de début");
+            } else {
+                $this->getDoctrine()->getManager()->flush();
+                $this->addFlash('success', 'L\'adhésion a bien été modifiée');
+
+                return $this->redirectToRoute('attended_index');
+            }
         }
 
         return $this->render('admin_attended/edit.html.twig', [
