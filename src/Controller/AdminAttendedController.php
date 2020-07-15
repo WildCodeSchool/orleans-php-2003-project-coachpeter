@@ -38,10 +38,17 @@ class AdminAttendedController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($attended);
-            $entityManager->flush();
-            $this->addFlash('success', 'L\'adhésion a bien été ajoutée');
 
-            return $this->redirectToRoute('attended_index');
+            $endAttendedMin = $attended->getEndDate();
+            if ($attended->getBeginDate() > $endAttendedMin) {
+                $this->addFlash('danger', "Attention: la date de fin de l'adhésion ne peu pas être 
+                antérieure à la date de début");
+            } else {
+                $entityManager->flush();
+                $this->addFlash('success', 'L\'adhésion a bien été ajoutée');
+
+                return $this->redirectToRoute('attended_index');
+            }
         }
 
         return $this->render('admin_attended/new.html.twig', [
@@ -74,7 +81,7 @@ class AdminAttendedController extends AbstractController
 
 
             $endAttendedMin = $attended->getEndDate();
-            if ($attended->getBeginDate()>$endAttendedMin) {
+            if ($attended->getBeginDate() > $endAttendedMin) {
                 $this->addFlash('danger', "Attention: la date de fin de l'adhésion ne peu pas être 
                 antérieure à la date de début");
             } else {
@@ -96,7 +103,7 @@ class AdminAttendedController extends AbstractController
      */
     public function delete(Request $request, Attended $attended): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$attended->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $attended->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($attended);
             $entityManager->flush();
