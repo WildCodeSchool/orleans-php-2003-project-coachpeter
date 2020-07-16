@@ -17,7 +17,7 @@ class DegreeFixtures extends Fixture
             $degree->setName($faker->realText(20));
             $degree->setOrganism($faker->realText(20));
             $degree->setDescription($faker->realText(20));
-            $degree->setStartDate($faker->year('now'));
+            $degree->setStartDate($faker->numberBetween(2000, 2050));
             $degree->setEndDate($faker->year('now'));
             $manager->persist($degree);
         }
