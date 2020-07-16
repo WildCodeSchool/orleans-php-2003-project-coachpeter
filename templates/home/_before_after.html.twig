@@ -4,32 +4,28 @@
         <h2 class="text-light w-100 text-center">ILS ONT <span class="font-weight-bold">RÉUSSI</span> !</h2>
     </div>
     <!-- Carousel -->
-    <div class="col-sm-10 offset-sm-1">
+    <div class="col-12">
         <div id="carouselExampleControls" class="w-100 carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
+            <div class="carousel-inner w-100">
 
-                {% set max = transformations|length %}
-                {% if max is odd %}
-                    {% set max = max-1 %}
+            {% for transformation in transformations %}
+                {% if loop.index is odd %}
+                <div class="py-5 carousel-item {% if loop.index == 1 %}active{% endif %}">
+                    <div class="d-flex flex-wrap">
                 {% endif %}
-                {% for transformation in transformations|slice(0, max) %}
-                    {% if loop.index is odd %}
-                    <div class="w-100 carousel-item {% if loop.index == 1 %}active{% endif %}">
-                    <div class="picture_duo row mx-sm-5 px-md-5">
-                    {% endif %}
-                    <div class="d-flex align-items-center col-6 col-md-5 {% if loop.index is even %}offset-1 offset-md-0{% endif %}">
-                        <div class="position-relative pt-md-5 offset-1 col-md-6 offset-md-3">
-                            <div class="first_image position-relative bg-light col-md-12 p-2">
-                                <div class="polaroid_img w-100 m-auto">
-                                    <img class="w-100" src="{{ vich_uploader_asset(transformation, 'pictureBeforeFile') }}" alt="{{ transformation.name }} avant">
+                    <div class="col-10 col-lg-4 {% if loop.index is even %}offset-1{% else %}offset-2{% endif %}">
+                        <div class="w-50 position-relative my-5 pt-lg-5">
+                            <div class="picture_duo first_image position-relative bg-light col-lg-12 p-2">
+                                <div class="overflow-hidden polaroid_img w-100 m-auto">
+                                    <img class="w-100 my-auto" src="{{ vich_uploader_asset(transformation, 'pictureBeforeFile') }}" alt="{{ transformation.name }} avant">
                                 </div>
                                 <div class="polaroid_label text-center text-primary">
                                     {{ transformation.name }}
                                 </div>
                             </div>
-                            <div class="second_image position-absolute bg-light col-md-11 p-2">
-                                <div class="polaroid_img w-100">
-                                    <img class="w-100" src="{{ vich_uploader_asset(transformation, 'pictureAfterFile') }}" alt="{{ transformation.name }} après">
+                            <div class="picture_duo second_image position-absolute bg-light col-lg-11 p-2">
+                                <div class="overflow-hidden polaroid_img w-100">
+                                    <img class="w-100 my-auto" src="{{ vich_uploader_asset(transformation, 'pictureAfterFile') }}" alt="{{ transformation.name }} après">
                                 </div>
                                 <div class="polaroid_label text-center text-secondary">
                                     -{{ transformation.pound }} Kg
@@ -37,13 +33,20 @@
                             </div>
                         </div>
                     </div>
+                {% if loop.index is even %}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
 
-                    {% if loop.index is even %}
-                        </div>
-                        </div>
-                    {% endif %}
+            {% if transformations|length is odd %} {# ajout en cas d'entegistrement impaire #}
+                <div class="d-flex align-items-center text-light text-center col-12 col-lg-4 offset-lg-1 my-5">
+                            <p class="align-middle py-auto next">Serez-vous le prochain ?</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
 
-                {% endfor %}
             </div>
             <!-- Les contrôles < & > -->
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -57,7 +60,7 @@
         </div>
     </div>
     <!-- Btn lien vers page -->
-    <div class="pt-1 text-center w-100">
-        <a class="btn btn-light" href="{{ path('transformations') }}">VOIR LES TRANSFORMATIONS</a>
+    <div class="pt-1 text-center w-100 ">
+        <a class="btn btn-light mb-5" href="{{ path('transformations') }}">VOIR LES TRANSFORMATIONS</a>
     </div>
 </section>

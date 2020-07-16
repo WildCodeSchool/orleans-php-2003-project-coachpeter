@@ -1,21 +1,25 @@
 .before_after {
     width:100vw;
     background-color: $primary;
-    height: 540px;
     margin-bottom: 30px;
 }
 
 .first_image {
+    object-fit: contain;
     transform: rotate(-10deg);
-    width: 100%;
+    width: 20vw;
+    max-height: 45vh;
     border-radius: 10px;
     box-shadow: -4px 4px 4px 0 $shadow;
+    margin-bottom: 50px;
 }
 
 .second_image {
+    object-fit: contain;
     top: 20%;
     left: 80%;
-    width: 100%;
+    width: 20vw;
+    max-height: 45vh;
     border-radius: 10px;
     transform: rotate(10deg);
     box-shadow: -4px 4px 4px 0 $shadow;
@@ -23,9 +27,28 @@
 
 .polaroid_label {
     font-weight: 900;
-    font-size: 2vh;
+    font-size: 3vh;
 }
 
 .picture_duo{
-    height: 430px;
+    object-fit: contain;
+    max-height: 430px;
+}
+
+.polaroid_img{
+    overflow: hidden;
+    min-height: 100px;
+    max-height: 250px;
+}
+
+.next{
+    font-size: 2vmax;
+}
+
+.next_image{
+    max-width: 90%;
+    max-height: 20vh;
+    border-radius: 10px;
+    box-shadow: -4px 4px 4px 0 $shadow;
+    margin-bottom: 50px;
 }
