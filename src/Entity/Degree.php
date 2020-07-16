@@ -49,7 +49,7 @@ class Degree
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Merci de saisir l'année de fin")
-     * @Assert\Range(min=2000, max=2050,  notInRangeMessage = "L'année doit être comprise entre {{ min }} et {{ max }}")
+     * @Assert\GreaterThanOrEqual(propertyPath="startDate");
      */
     private $endDate;
 

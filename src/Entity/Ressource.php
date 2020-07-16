@@ -37,13 +37,13 @@ class Ressource
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(max=255, maxMessage="La taille de la référence est trop longue.
-     * Elle ne doit pas dépasser {{limit}} caractères.")
+     * Elle ne doit pas dépasser {{ limit }} caractères.")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long, il ne devrait pas dépasser {{limit}}
+     * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long, il ne devrait pas dépasser {{ limit }}
      * caractères.")
      */
     private $file;

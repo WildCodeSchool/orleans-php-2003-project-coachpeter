@@ -29,7 +29,7 @@ class Activity
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="Veuillez indiquer le nom de l'activité")
      * @Assert\Length(max=50, maxMessage="Le nom de l'activité {{ value }} est trop long,
-     * il ne devrait pas dépasser {{ limit}} caractères")
+     * il ne devrait pas dépasser {{ limit }} caractères")
      */
     private $title;
 
@@ -42,7 +42,7 @@ class Activity
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long,
-     * il ne devrait pas dépasser {{ limit}} caractères")
+     * il ne devrait pas dépasser {{ limit }} caractères")
      * @Assert\Choice(choices=App\Form\ActivityType::PICTOGRAMS, message="Veuillez choisir un prictogramme existant.")
      */
     private $pictogram;
@@ -50,7 +50,7 @@ class Activity
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
-     * @Assert\Length(max=255, maxMessage="Le nom est trop long, il ne devrait pas dépasser {{ limit}} caractères")
+     * @Assert\Length(max=255, maxMessage="Le nom est trop long, il ne devrait pas dépasser {{ limit }} caractères")
      */
     private $picture;
 

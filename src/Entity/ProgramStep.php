@@ -40,13 +40,13 @@ class ProgramStep
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      * @Assert\Length(max=50, maxMessage="La taille de la référence est trop longue.
-     * Elle ne doit pas dépasser {{limit}} caractères.")
+     * Elle ne doit pas dépasser {{ limit }} caractères.")
      */
     private $urlVideo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long, il ne devrait pas dépasser {{limit}}
+     * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long, il ne devrait pas dépasser {{ limit }}
      * caractères.")
      */
     private $fileExplain;
