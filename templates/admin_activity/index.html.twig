@@ -28,8 +28,8 @@
             <tbody>
             {% for activity in activities %}
                 <tr class="d-flex align-items-center">
-                    <td class="col-2" >{{ activity.title }}</td>
-                    <td class="col-3">{{ activity.description [:70]}}...</td>
+                    <td class="col-2 text-break" >{{ activity.title }}</td>
+                    <td class="col-3 text-break">{{ activity.description [:70]}}...</td>
                     <td class="col-2" ><img class="picture w-50" src="{{ vich_uploader_asset(activity, 'activityFile')}}" alt="Photo d'illustration de l'activité"></td>
                     <td class="col-2">{{ activity.category ?? 'Sans catégorie' }}</td>
                     <td class="col-1">{{ activity.focus ? 'Oui' : 'Non' }}</td>
