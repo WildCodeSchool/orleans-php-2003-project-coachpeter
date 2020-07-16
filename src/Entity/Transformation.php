@@ -34,6 +34,7 @@ class Transformation
      * @Assert\NotBlank(message="Veuillez indiquez le nombre de kilos perdu.")
      * @Assert\Positive(message="Le nombre de kilos doit être un entier positif.")
      * @Assert\LessThan(value = 150, message="Le poid perdu ne peut dépasser {{ compared_value }} kilos.")
+
      */
     private $pound;
 

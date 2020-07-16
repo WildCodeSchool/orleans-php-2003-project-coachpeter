@@ -25,14 +25,14 @@ class InfoCoach
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Merci de renseigner une phrase d'acccroche.")
-     * @Assert\Length(max=255, maxMessage="La phrase d'accroche ne doit pas dépasser {{limit}} caractères.")
+     * @Assert\Length(max=255, maxMessage="La phrase d'accroche ne doit pas dépasser {{ limit }} caractères.")
      */
     private $catchline;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Merci de sélectionner une image.")
-     * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long, il ne devrait pas dépasser {{limit}}
+     * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long, il ne devrait pas dépasser {{ limit }}
      * caractères.")
      */
     private $image;
