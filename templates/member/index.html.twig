@@ -18,17 +18,17 @@
                     Du {{ attended.beginDate|date("d/m/Y") }} au {{ attended.endDate|date("d/m/Y") }}.
                 </div>
 
-                {%  for programStep in attended.program.programSteps %}
+                {%  for programStep in attended.program.programSteps|sort((a,b) => a.begin <=> b.begin) %}
 
-                <div class="step row
-                    {% if "now"|date("d/m/Y") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") %}
+                <div class="step row w-100 mx-0 px-0 mx-md-auto
+                    {% if "now"|date("Y/m/d") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("Y/m/d") %}
                      bg-primary text-light
                     {% else%}
                      no-acces text-primary
                     {% endif %}
                     col-md-8 offset-md-2 text-center my-3">
                     <div class="col-2 text-left pt-3">
-                        {% if "now"|date("d/m/Y") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") %}
+                        {% if "now"|date("Y/m/d") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("Y/m/d") %}
                         <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-unlock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
                             <path fill-rule="evenodd" d="M8.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
@@ -45,26 +45,26 @@
                         <p class="h3">{{ programStep.title }}</p>
                         <p>disponible à compter du {{ attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") }}</p>
                     </div> {# title programStep #}
-                    {% if "now"|date("d/m/Y") > attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") %}
-                        <div class="row bg-light border border-primary">
-                        <div class="col-1 px-0 mx-1"></div>
-                        <div class="m-0 p-0 col-md-4 align-items-center mb-2">
-                            {%  if programStep.urlVideo %}
-                                 <iframe src="https://player.vimeo.com/video/{{ programStep.urlVideo }}?title=0&byline=0&portrait=0" width="360" height="250" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                            {% else %}
-                                <img class="w-50 img-coach-about-me-home" src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
-                            {% endif %}
+                    {% if "now"|date("Y/m/d") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("Y/m/d") %}
+                        <div class="px-0 mx-0 col-12 row bg-light border border-primary">
+                                <div class="col-md-1 px-0 mx-1"></div>
+                                <div class="m-0 p-0 col-md-4 align-items-center mb-2 text-center">
+                                    {%  if programStep.urlVideo %}
+                                         <iframe src="https://player.vimeo.com/video/{{ programStep.urlVideo }}?title=0&byline=0&portrait=0" width="360" height="250" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                    {% else %}
+                                        <img class="w-75 img-coach-about-me-home" src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
+                                    {% endif %}
 
-                            {% if programStep.fileExplain %}
-                            <a class="" href="/uploads/programStep/{{ programStep.fileExplain }}" target="_blank">Récapitulatif</a>
-                            {% endif %}
-                        </div>
-                        <div class="col-2"></div>
+                                    {% if programStep.fileExplain %}
+                                    <a class="" href="/uploads/programStep/{{ programStep.fileExplain }}" target="_blank">Récapitulatif</a>
+                                    {% endif %}
+                                </div>
+                        <div class="col-md-2"></div>
                         <div class="text-left text-primary col-md-4 py-2">
                             {{ programStep.description }}
                         </div>
                     </div>
-                        <div class="overflow-hidden px-0 py-2 step mx-0 w-100">
+                        <div class="overflow-hidden px-0 py-2 step mx-0 mx-md-1 w-100">
                             <h3 class="py-1 mx-auto mb-0 text-center">
                                 <a class="btn btn-light text-primary"
                                    data-toggle="collapse"
