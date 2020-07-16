@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Program;
 use App\Form\ProgramType;
 use App\Repository\ProgramRepository;
+use App\Repository\ProgramStepRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +19,14 @@ class AdminProgramController extends AbstractController
     /**
      * @Route("/", name="program_index", methods={"GET"})
      */
-    public function index(ProgramRepository $programRepository): Response
+    public function index(ProgramRepository $programRepository)
     {
+        $programs = $programRepository->findBy([], [
+            'name'=>'ASC',
+            ]);
+
         return $this->render('admin_program/index.html.twig', [
-            'programs' => $programRepository->findBy([], ['name'=>'ASC']),
+           'programs' => $programs,
         ]);
     }
 
