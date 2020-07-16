@@ -1,14 +1,37 @@
 {% extends 'base_user.html.twig' %}
 {% block body %}
-    <section class="whoami">
-        <div class="row">
-            <div class="col">
-                <h1 class="text-center text-primary">Qui suis-je ?</h1>
-                <div class="row my-5 d-flex justify-content-center">
-                    <div class="col-4 d-flex justify-content-center">
-                        <img class="img-coach-about-me-home w-75"
-                             src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
-                             alt="Photo de Coach Peter">
+<section class="whoami">
+    <div class="row">
+        <div class="col">
+          <h1 class="text-center text-primary">Qui suis-je ?</h1>
+            <div class="row my-5 d-flex justify-content-center">
+                <div class="col-4 d-flex justify-content-center">
+                    <img class="img-coach-about-me-home w-75"
+                         src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
+                         alt="Photo de Coach Peter">
+                </div>
+                <div class="col-lg-6 c">
+                    <h3 class="coach-name-about-me font-weight-bold">
+                        Qui-suis-je ?
+                    </h3>
+
+                    <div>
+                        <ul class="nav mt-3" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active text-primary" id="home-tab" data-toggle="tab"
+                                   href="#home" role="tab" aria-controls="home" aria-selected="true">
+                                    Présentation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-primary" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                   aria-controls="profile" aria-selected="false">Ma Philosophie</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-primary" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                                   aria-controls="contact" aria-selected="false">Mes Certifications</a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="col-lg-6 c">
                         <div>
@@ -64,12 +87,18 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="col-4 d-flex flex-row offset-md-4 my-3">
-            <h3 class="mr-md-4 font-italic">
-                Mes compétences
-            </h3>
-            <img src="{{ asset('/build/path.png') }}" alt="flèche descendante" class="downarrow">
+    <div class="col-4 d-flex flex-row offset-md-4 my-3">
+        <h3 class="mr-md-4 font-italic">
+            Mes compétences
+        </h3>
+        <img src="{{ asset('/build/path.png') }}" alt="flèche descendante" class="downarrow">
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 d-flex align-items-center flex-column">
+            <img src="{{ asset('build/whoiam/image1.png') }}" alt="Peter et une coachée" class="w-75">
         </div>
 
         <div class="row">
@@ -154,12 +183,10 @@
                     partium animis, quas periculorum varietas.
                 </p>
             </div>
-
-            <div class="col-md-6 d-flex align-items-center flex-column">
-                <img src="{{ asset('/build/whoiam/image2.png') }}" alt="Selfie de Peter" class="w-75">
-                <div class="col-8 d-flex justify-content-end font-italic ">
-                    Lorem ipsum
-                </div>
+        <div class="col-md-6 d-flex align-items-center flex-column">
+            <img src="{{ asset('build/whoiam/image2.png') }}" alt="Selfie de Peter" class="w-75">
+            <div class="col-8 d-flex justify-content-end font-italic ">
+                Lorem ipsum
             </div>
         </div>
 
@@ -171,10 +198,9 @@
             </h4>
         </div>
 
-        <div class="row">
-            <div class="row d-flex justify-content-center">
-                <img src="{{ asset('/build/whoiam/timeline1.png') }}" class="timeline" alt="timeline d'un coaching" >
-            </div>
+    <div class="row">
+        <div class="row d-flex justify-content-center">
+            <img src="{{ asset('build/whoiam/timeline1.png') }}" class="timeline" alt="timeline d'un coaching" >
         </div>
 
         <div class="row justify-content-center my-5">

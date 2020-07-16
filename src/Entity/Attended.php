@@ -29,6 +29,7 @@ class Attended
      * @ORM\Column(type="date")
      * @Assert\NotBlank(message="Merci d'indiquer une date de fin")
      * @Assert\Date(message = "Veuillez indiquer une date valide")
+     * @Assert\GreaterThan(propertyPath="beginDate")
      */
     private $endDate;
 

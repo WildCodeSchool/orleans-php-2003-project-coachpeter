@@ -24,7 +24,7 @@ class HomeController extends AbstractController
 
         $coachDegrees = $this->getDoctrine()
             ->getRepository(Degree::class)
-            ->findAll();
+            ->findBy([], ['startDate' => "DESC"]);
 
         $activities = $this->getDoctrine()
             ->getRepository(Activity::class)
