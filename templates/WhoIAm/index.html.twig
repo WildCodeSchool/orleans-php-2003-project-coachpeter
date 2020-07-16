@@ -10,13 +10,13 @@
                          src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
                          alt="Photo de Coach Peter">
                 </div>
-                <div class="col-lg-6 c">
+                <div class="col-lg-6">
                     <h3 class="coach-name-about-me font-weight-bold">
                         Qui-suis-je ?
                     </h3>
 
                     <div>
-                        <ul class="nav mt-3" id="myTab" role="tablist">
+                        <ul class="nav mt-3 justify-content-center d-flex" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active text-primary" id="home-tab" data-toggle="tab"
                                    href="#home" role="tab" aria-controls="home" aria-selected="true">
@@ -33,26 +33,8 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-6 c">
-                        <div>
-                            <ul class="nav mt-3" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active text-primary" id="home-tab" data-toggle="tab"
-                                       href="#home" role="tab" aria-controls="home" aria-selected="true">
-                                        Présentation
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-primary" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                       aria-controls="profile" aria-selected="false">Ma Philosophie</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-primary" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                                       aria-controls="contact" aria-selected="false">Mes Certifications</a>
-                                </li>
-                            </ul>
-                        </div>
 
+                    <div>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <p>
@@ -101,11 +83,6 @@
             <img src="{{ asset('build/whoiam/image1.png') }}" alt="Peter et une coachée" class="w-75">
         </div>
 
-        <div class="row">
-            <div class="col-md-6 d-flex align-items-center flex-column">
-                <img src="{{ asset('/build/whoiam/image1.png') }}" alt="Peter et une coachée" class="w-75">
-            </div>
-
             <div class="col-md-6">
                 <h3><span class="h1">1</span>.PERTE DE POIDS</h3>
                 <span class="font-italic row justify-content-center">
@@ -122,6 +99,7 @@
                 </p>
             </div>
         </div>
+    </div>
 
         <div class="row mt-5 flex-column-reverse flex-md-row">
             <div class="col-md-6">
@@ -183,27 +161,32 @@
                     partium animis, quas periculorum varietas.
                 </p>
             </div>
+
         <div class="col-md-6 d-flex align-items-center flex-column">
             <img src="{{ asset('build/whoiam/image2.png') }}" alt="Selfie de Peter" class="w-75">
             <div class="col-8 d-flex justify-content-end font-italic ">
                 Lorem ipsum
             </div>
         </div>
+        </div>
 
 
 
-        <div class="row justify-content-center my-5">
+        <div class="row justify-content-center my-5 w-100 meet">
             <h4>
-                Me rencontrer
+                ME RENCONTRER
             </h4>
         </div>
 
-    <div class="row">
-        <div class="row d-flex justify-content-center">
-            <img src="{{ asset('build/whoiam/timeline1.png') }}" class="timeline" alt="timeline d'un coaching" >
+        <div class="row d-none d-md-flex justify-content-center w-100 my-4">
+            <img src="{{ asset('build/whoiam/desktoptimeline.svg') }}" class="timeline w-75" alt="timeline d'un coaching" >
         </div>
 
-        <div class="row justify-content-center my-5">
+        <div class="row d-flex d-md-none justify-content-center w-100 my-4">
+            <img src="{{ asset('build/whoiam/mobiletimeline.svg') }}" class="timeline w-75" alt="timeline d'un coaching" >
+        </div>
+
+        <div class="row justify-content-center my-5 w-100">
             <a href="{{ path('app_contact') }}"  class="btn btn-primary">C'EST PARTI !</a>
         </div>
 
