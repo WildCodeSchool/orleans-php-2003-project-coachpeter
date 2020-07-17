@@ -33,7 +33,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-primary" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                               aria-controls="contact" aria-selected="false">Mes Certifications</a>
+                               aria-controls="contact" aria-selected="false">Mes Qualités</a>
                         </li>
                     </ul>
                 </div>
@@ -45,15 +45,7 @@
                         {{ (coachInfo.philosophy ?? '')|nl2br }}
                     </div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                            {% for degree in degrees %}
-                                   <div>
-                                       <span class="text-secondary">{{ degree.startDate }} -
-                                       {{ degree.endDate }}</span>
-                                       <span class="text-primary">{{ degree.name|upper }},</span>
-                                        {{ degree.organism }}:
-                                       <span>{{ degree.description }}</span>
-                                   </div>
-                            {% endfor %}
+                        {{ (coachInfo.quality ?? '')|nl2br }}
                     </div>
                     <div class="text-center">
                         <a href="{{ path('app_contact') }}" type="button"
