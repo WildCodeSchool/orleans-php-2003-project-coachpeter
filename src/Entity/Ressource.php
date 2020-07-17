@@ -83,7 +83,7 @@ class Ressource
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Assert\Length(max=50, maxMessage="La référence à la vidéo ne peut excéder {{limit}} caractères.")
+     * @Assert\Length(max=50, maxMessage="La référence à la vidéo ne peut excéder {{ limit }} caractères.")
      */
     private $refVideo;
 
