@@ -1,19 +1,15 @@
-.errorMessage {
-    position: fixed;
-    z-index: 1;
-    margin: 20% 20%;
-    background-color: rgba(244, 255, 248, 0.52);
-    border-radius: 20px;
-}
-
-.errorBackGround {
-    width: 100%;
-    height: 100%;
-    padding-bottom: 100%;
-    position: relative;
-
-    iframe {
-        position: absolute;
-        pointer-events: none;
+.errorPage {
+    margin: 18% auto;
+    background-color: $primary;
+    border-radius: 10px;
+    h3 {
+        color: $light;
+    }
+    a {
+        color: $secondary;
+    }
+    a:hover {
+        text-decoration: none;
+        color: $light;
     }
 }
