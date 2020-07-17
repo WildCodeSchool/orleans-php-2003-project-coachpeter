@@ -27,14 +27,14 @@ body {
 }
 
 h1 {
-    font-size: 4vmax;
+    font-size: $xlarge-font-size;
     font-family: $main-font;
     color: $light;
     margin: 50px;
 }
 
 h2 {
-    font-size: 3vmax;
+    font-size: $medium-font-size;
     font-family: $main-font;
     color: $light;
 }
