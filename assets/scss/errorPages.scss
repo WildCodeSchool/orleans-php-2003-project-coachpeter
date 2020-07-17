@@ -2,12 +2,15 @@
     margin: 18% auto;
     background-color: $primary;
     border-radius: 10px;
+
     h3 {
         color: $light;
     }
+
     a {
         color: $secondary;
     }
+
     a:hover {
         text-decoration: none;
         color: $light;
