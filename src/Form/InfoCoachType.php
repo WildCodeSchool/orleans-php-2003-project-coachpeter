@@ -28,7 +28,7 @@ class InfoCoachType extends AbstractType
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
-                'help'=> 'le fichier ne doit pas dépasser 500ko',
+                'help'=> 'le fichier ne doit pas dépasser '. InfoCoach::MAX_SIZE . "ko",
             ])
 
             ->add('planningFile', VichImageType::class, [

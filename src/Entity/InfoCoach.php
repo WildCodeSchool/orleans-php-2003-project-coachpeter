@@ -15,6 +15,8 @@ use \DateTime;
  */
 class InfoCoach
 {
+    const MAX_SIZE="500";
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -42,7 +44,7 @@ class InfoCoach
      *
      * @Vich\UploadableField(mapping="coach_image", fileNameProperty="image")
      *
-     * @Assert\File(maxSize = "500k",
+     * @Assert\File(maxSize = InfoCoach::MAX_SIZE,
      *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
      * il ne doit pas dépasser {{ limit }} {{ suffix }}",
      *     mimeTypes = {"image/jpeg", "image/jpg", "image/gif","image/png"},

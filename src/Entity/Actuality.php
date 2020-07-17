@@ -15,6 +15,8 @@ use \DateTime;
  */
 class Actuality
 {
+    const MAX_SIZE="500";
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -61,7 +63,7 @@ class Actuality
     /**
      * @Vich\UploadableField(mapping="actuality_file",fileNameProperty="picture")
      * @var File|null
-     * @Assert\File(maxSize = "500k",
+     * @Assert\File(maxSize = Actuality::MAX_SIZE,
      *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
      * il ne doit pas dépasser {{ limit }} {{ suffix }}",
      *     mimeTypes = {"image/jpeg", "image/jpg", "image/gif","image/png"},

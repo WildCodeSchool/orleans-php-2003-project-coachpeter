@@ -17,6 +17,7 @@ use App\Form;
 class Activity
 {
     const CATEGORY=['coaching'=>'coaching', 'team'=>'team'];
+    const MAX_SIZE="500";
 
     /**
      * @ORM\Id()
@@ -41,7 +42,7 @@ class Activity
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long,
+     * @Assert\Length(max=Activity::MAX_SIZE, maxMessage="Le nom du fichier est trop long,
      * il ne devrait pas dépasser {{ limit }} caractères")
      * @Assert\Choice(choices=App\Form\ActivityType::PICTOGRAMS, message="Veuillez choisir un prictogramme existant.")
      */
@@ -50,14 +51,15 @@ class Activity
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
-     * @Assert\Length(max=255, maxMessage="Le nom est trop long, il ne devrait pas dépasser {{ limit }} caractères")
+     * @Assert\Length(max=Activity::MAX_SIZE, maxMessage="Le nom est trop long,
+     * il ne devrait pas dépasser {{ limit }} caractères")
      */
     private $picture;
 
     /**
      * @Vich\UploadableField(mapping="activity_file",fileNameProperty="picture")
      * @var File|null
-     * @Assert\File(maxSize = "500k",
+     * @Assert\File(maxSize = Activity::MAX_SIZE,
      *     maxSizeMessage="Le fichier est trop gros  ({{ size }} {{ suffix }}),
      * il ne doit pas dépasser {{ limit }} {{ suffix }}",
      *     mimeTypes = {"image/jpeg", "image/jpg", "image/gif","image/png"},
