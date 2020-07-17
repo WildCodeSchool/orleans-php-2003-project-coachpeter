@@ -29,7 +29,8 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('phone', TextType::class, [
                 'label' => 'Téléphone',
-                'required' => false
+                'required' => false,
+                'help' => "Votre numéro de téléphone doit être composé de 10 chiffres seulement.",
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Email *',
@@ -41,7 +42,8 @@ class RegistrationFormType extends AbstractType
                 'invalid_message' => 'Les mots de passe de sont pas identiques',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
-                'first_options'  => ['label' => 'Mot de passe *'],
+                'first_options' => ['label' => 'Mot de passe *', 'help' => "Le mot de passe doit contenir 8 caractères 
+                avec au minimum 1 chiffre, 1 majuscule, et un caractère spécial.",],
                 'second_options' => ['label' => 'Répétez le mot de passe *'],
 
                 'mapped' => false,
@@ -61,6 +63,7 @@ class RegistrationFormType extends AbstractType
                         1 majuscule, et un caractère spécial.",
                     ]),
                 ],
+
             ]);
     }
 

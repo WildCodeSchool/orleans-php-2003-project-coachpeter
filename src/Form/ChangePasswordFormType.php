@@ -36,6 +36,8 @@ class ChangePasswordFormType extends AbstractType
                         ]),
                     ],
                     'label' => 'Nouveau mot de passe ',
+                    'help' => "Le mot de passe doit contenir 8 caractères avec au minimum 1 chiffre, 
+                            1 majuscule, et un caractère spécial.",
                 ],
                 'second_options' => [
                     'label' => 'Répétition du mot de passe ',
