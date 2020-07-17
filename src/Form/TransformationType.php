@@ -21,6 +21,7 @@ class TransformationType extends AbstractType
             ->add('pictureBeforeFile', VichFileType::class, [
 
                 'required'      => false,
+                'help'=> 'le fichier ne doit pas dépasser 500ko',
                 'allow_delete'  => true, // not mandatory, default is true
                 'download_uri'  => true, // not mandatory, default is true
                 'download_link' => false,
@@ -28,6 +29,7 @@ class TransformationType extends AbstractType
             ])
             ->add('pictureAfterFile', VichFileType::class, [
                 'required'      => false,
+                'help'=> 'le fichier ne doit pas dépasser 500ko',
                 'allow_delete'  => true, // not mandatory, default is true
                 'download_uri' => true, // not mandatory, default is true
                 'download_link' => true,

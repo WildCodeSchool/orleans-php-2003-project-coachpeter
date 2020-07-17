@@ -34,6 +34,7 @@ class ActualityEditType extends ActualityType
                 ]])
             ->add('actualityFile', VichImageType::class, [
                 'label' => 'Image à télécharger',
+                'help'=> 'le fichier ne doit pas dépasser 500ko',
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
