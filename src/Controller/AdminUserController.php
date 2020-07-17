@@ -70,7 +70,7 @@ class AdminUserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('success', 'Le statut a bien été modifié');
             return $this->redirectToRoute('user_index');
         }
 
