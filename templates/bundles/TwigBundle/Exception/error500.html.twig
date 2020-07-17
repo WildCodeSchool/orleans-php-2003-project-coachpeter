@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="errorPage container d-flex justify-content-center pb-5">
+        <div class="col-10 justify-content-center d-flex flex-column" >
+            <h1 class="text-center ">Oops ! Une erreur 500 est survenue...</h1>
+            <h3 class="text-center ">
+                Il semblerait que le serveur rencontre quelques difficultés, mais vous pouvez retourner à <a href="{{ path('app_index') }}">l'accueil du site en cliquant là</a>.
+            </h3>
+        </div>
+    </div>
+{% endblock %}
