@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="errorPage container d-flex justify-content-center pb-5">
+        <div class="col-10 justify-content-center d-flex flex-column" >
+            <h1 class="text-center ">Oops ! Une erreur 401 est survenue...</h1>
+            <h3 class="text-center ">
+                Vous devez <a href="{{ path('app_login') }}">vous connecter ici</a> pour accéder à cette page, ou vous pouvez retourner à <a href="{{ path('app_index') }}">l'accueil du site en cliquant là</a>.
+            </h3>
+        </div>
+    </div>
+{% endblock %}
