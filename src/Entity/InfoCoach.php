@@ -122,6 +122,11 @@ class InfoCoach
      */
     private $planningFile;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $quality;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -272,5 +277,17 @@ class InfoCoach
         if ($planning) {
             $this->updatedAt = new DateTime('now');
         }
+    }
+
+    public function getQuality(): ?string
+    {
+        return $this->quality;
+    }
+
+    public function setQuality(string $quality): self
+    {
+        $this->quality = $quality;
+
+        return $this;
     }
 }
