@@ -16,7 +16,11 @@
             <div class="col-md-8 d-flex flex-column">
                 <div class="w-100 text-center">
                     <div class="badge-coaching d-flex justify-content-center align-items-center text-primary mx-auto" >
-                        <img src="build/pictograms/{{ activity.pictogram }}.svg" alt="pictogramme de l'activité">
+                        {% if activity.pictogram %}
+                        <img src="{{ asset('build/pictograms/' ~ activity.pictogram ~ '.svg' ) }}" alt="pictogramme de l'activité">
+                        {% else %}
+                            <img class="w-50" src="{{ asset('build/running.svg')}}" alt="pictogramme de l'activité">
+                        {% endif %}
                     </div>
                         <h2 class="h2 w-100 text-center text-primary">{{ activity.title|upper }}</h2>
                 </div>
