@@ -7,7 +7,6 @@
 .first_image {
     object-fit: contain;
     transform: rotate(-10deg);
-    width: 20vw;
     max-height: 45vh;
     border-radius: 10px;
     box-shadow: -4px 4px 4px 0 $shadow;
@@ -18,7 +17,6 @@
     object-fit: contain;
     top: 20%;
     left: 80%;
-    width: 20vw;
     max-height: 45vh;
     border-radius: 10px;
     transform: rotate(10deg);
