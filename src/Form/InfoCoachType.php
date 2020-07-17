@@ -43,6 +43,9 @@ class InfoCoachType extends AbstractType
             ->add('presentation', TextareaType::class, [
                 'attr' => ['class'=>"col-12 form-h-3"
                 ]])
+            ->add('quality', TextareaType::class, [
+                'attr' => ['class'=>"col-12 form-h-3"
+                ]])
         ;
     }
 
