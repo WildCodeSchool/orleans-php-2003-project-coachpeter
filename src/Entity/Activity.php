@@ -17,7 +17,7 @@ use App\Form;
 class Activity
 {
     const CATEGORY=['coaching'=>'coaching', 'team'=>'team'];
-    const MAX_SIZE="500";
+    const MAX_SIZE="500k";
 
     /**
      * @ORM\Id()

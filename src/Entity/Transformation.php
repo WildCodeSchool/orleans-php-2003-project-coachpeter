@@ -15,7 +15,7 @@ use \DateTime;
  */
 class Transformation
 {
-    const MAX_SIZE="500";
+    const MAX_SIZE="500k";
 
     /**
      * @ORM\Id()

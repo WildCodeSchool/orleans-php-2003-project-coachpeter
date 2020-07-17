@@ -15,7 +15,7 @@ use \DateTime;
  */
 class InfoCoach
 {
-    const MAX_SIZE="500";
+    const MAX_SIZE="500k";
 
     /**
      * @ORM\Id()

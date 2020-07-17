@@ -15,7 +15,7 @@ use \DateTime;
  */
 class Actuality
 {
-    const MAX_SIZE="500";
+    const MAX_SIZE="500k";
 
     /**
      * @ORM\Id()
