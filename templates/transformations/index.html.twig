@@ -5,7 +5,7 @@
 {% block body %}
     <section class="mb-5">
         <div class="col">
-            <h1 class="text-center text-primary my-5 py-5">Les transformations de mes coachés</h1>
+            <h1 class="text-center text-primary">Les transformations de mes coachés</h1>
         </div>
 
         {% for transformation in transformations %}
@@ -27,13 +27,13 @@
 
                     <div class="col-md-6 my-4 d-flex">
                         <div class="position-relative w-50 ">
-                            <div class="first_image position-relative">
+                            <div class="before_afterImg first_image position-relative">
                                 <div class="w-100 rounded">
                                     <img class="w-100 rounded" src="{{ vich_uploader_asset(transformation, 'pictureBeforeFile') }}" alt="Photo avant le programme ">
                                 </div>
                             </div>
 
-                            <div class="second_image position-absolute">
+                            <div class=" before_afterImg second_image position-absolute">
                                 <div class="w-100 rounded">
                                     <img class="w-100 rounded" src="{{ vich_uploader_asset(transformation, 'pictureAfterFile') }}" alt="Photo après le programme ">
                                 </div>
