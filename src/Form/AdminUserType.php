@@ -24,7 +24,7 @@ class AdminUserType extends UserType
             ->remove('phone')
             ->remove('email')
             ->add('roles', ChoiceType::class, [
-                'label' => 'Rôles',
+                'label' => 'Rôle',
                 'choices' => User::ROLES,
                 'multiple' => true,
                 'expanded' => true,
