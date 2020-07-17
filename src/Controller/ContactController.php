@@ -37,7 +37,8 @@ class ContactController extends AbstractController
                 ]));
 
             $mailer->send($email);
-            $this->addFlash('success', 'Votre message a bien été envoyé.');
+            $this->addFlash('success', 'Votre message a bien été envoyé. Le Coach Peter reviendra vers vous
+            d\'ici peu');
             return $this->redirectToRoute('app_contact');
         }
         return $this->render('contact/contact.html.twig', [
