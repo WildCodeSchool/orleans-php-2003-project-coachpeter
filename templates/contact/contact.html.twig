@@ -3,35 +3,33 @@
 {% block body %}
     <h1 class="text-primary text-center">Pour me contacter</h1>
     <div class="container mt-5 mb-5">
-        <div class="row">
-            <div class="col-12 text-center">
-    {{ form_start(form) }}
-                {{ form_label(form.firstname) }}
-                {{ form_errors(form.firstname) }}
-                {{ form_widget(form.firstname) }}
-                {{ form_label(form.lastname) }}
-                {{ form_errors(form.lastname) }}
-                {{ form_widget(form.lastname) }}
-                {{ form_label(form.birthDate) }}
-                {{ form_errors(form.birthDate) }}
-                {{ form_widget(form.birthDate) }}
-                <small class="float-left text-muted">{{ form_help(form.birthDate) }}</small>
-                <div class="pt-5">{{ form_label(form.phone) }}</div>
-                {{ form_errors(form.phone) }}
-                {{ form_widget(form.phone) }}
-                <small class="float-left text-muted">{{ form_help(form.phone) }}</small>
-                <div class="pt-5">{{ form_label(form.email) }}</div>
-                {{ form_errors(form.email) }}
-                {{ form_widget(form.email) }}
-                <small class="float-left text-muted">{{ form_help(form.email) }}</small>
-                <div class="pt-5">{{ form_label(form.message) }}</div>
-                {{ form_errors(form.message) }}
-                {{ form_widget(form.message) }}
-                <small class="float-left text-muted">{{ form_help(form.message) }}</small>
+        <div class="col">
+            {{ form_start(form) }}
+            <div class="float-left">{{ form_label(form.firstname) }}</div>
+            <div class="text-danger">{{ form_errors(form.firstname) }}</div>
+            {{ form_widget(form.firstname) }}
+            <div class="float-left">{{ form_label(form.lastname) }}</div>
+            <div class="text-danger">{{ form_errors(form.lastname) }}</div>
+            {{ form_widget(form.lastname) }}
+            <div class="float-left">{{ form_label(form.birthDate) }}</div>
+            <div class="col text-danger">{{ form_errors(form.birthDate) }}</div>
+            {{ form_widget(form.birthDate) }}
+            <small class="float-left text-muted mt-0 col">{{ form_help(form.birthDate) }}</small>
+            <div class="float-left col">{{ form_label(form.phone) }}</div>
+            <div class="col text-danger">{{ form_errors(form.phone) }}</div>
+            {{ form_widget(form.phone) }}
+            <small class="float-left text-muted">{{ form_help(form.phone) }}</small>
+            <div class="float-left col">{{ form_label(form.email) }}</div>
+            <div class="col text-danger">{{ form_errors(form.email) }}</div>
+            {{ form_widget(form.email) }}
+            <small class="float-left text-muted col">{{ form_help(form.email) }}</small>
+            <div class="float-left col">{{ form_label(form.message) }}</div>
+            <div class="col text-danger">{{ form_errors(form.message) }}</div>
+            {{ form_widget(form.message) }}
+            <small class="float-left text-muted">{{ form_help(form.message) }}</small>
 
-        <div class="mt-5"><button class="btn btn-primary text-center">Envoyer</button></div>
-    {{ form_end(form) }}
-            </div>
+            <div class="mt-5 text-center"><button class="btn btn-primary">Envoyer</button></div>
+            {{ form_end(form) }}
         </div>
     </div>
 {% endblock %}
