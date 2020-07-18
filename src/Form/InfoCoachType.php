@@ -8,7 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Vich\UploaderBundle\Form\Type\VichImageType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class InfoCoachType extends AbstractType
 {
@@ -23,14 +23,14 @@ class InfoCoachType extends AbstractType
             ->add('catchline', TextareaType::class, [
                 'attr' => ['class'=>"col-12 form-h-1"
                 ]])
-            ->add('imageFile', VichImageType::class, [
+            ->add('imageFile', VichFileType::class, [
                 'label' => 'Image à télécharger',
                 'required' => false,
-                'allow_delete' => true,
-                'download_uri' => true,
+                'allow_delete' => false,
+                'download_uri' => false,
             ])
 
-            ->add('planningFile', VichImageType::class, [
+            ->add('planningFile', VichFileType::class, [
                 'label' => 'Ajoutez votre planning',
                 'required' => false,
                 'allow_delete' => false,
