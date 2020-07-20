@@ -41,6 +41,7 @@
         <th>Photo avant</th>
         <td>
             {{ form_errors(form.pictureBeforeFile) }}
+            {{ form_help(form.pictureBeforeFile) }}
             {{ form_widget(form.pictureBeforeFile) }}
         </td>
     </tr>
@@ -48,6 +49,7 @@
         <th>Photo après</th>
         <td>
             {{ form_errors(form.pictureAfterFile) }}
+            {{ form_help(form.pictureAfterFile) }}
             {{ form_widget(form.pictureAfterFile) }}
         </td>
     </tr>
