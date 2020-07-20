@@ -42,6 +42,7 @@ class ActivityType extends AbstractType
 
             ->add('activityFile', VichImageType::class, [
                 'required' => false,
+                'help'=> 'le fichier ne doit pas dépasser '. Activity::MAX_SIZE,
                 'allow_delete' => true,
                 'download_uri' => true,
                 'download_link' => false,

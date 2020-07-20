@@ -17,19 +17,19 @@
 
     <table class="table table-striped w-75 text-center m-auto table-hover table-borderless">
         <thead class="bg-primary text-light">
-        <tr>
-            <th class="col-4">Questions</th>
-            <th class="col-4">Réponses</th>
-            <th class="col-3"></th>
-            <th class="col-3"></th>
+        <tr class="row">
+            <th class="col-5">Questions</th>
+            <th class="col-5">Réponses</th>
+            <th class="col-1"></th>
+            <th class="col-1"></th>
         </tr>
         </thead>
         <tbody>
         {% for faq in faqs %}
-            <tr>
-                <td class="col-4">{{ faq.question }}</td>
-                <td class="col-4">{{ faq.answer }}</td>
-                <td>
+            <tr class="row mx-0 px-0">
+                <td class="col-5">{{ faq.question }}</td>
+                <td class="col-5">{{ faq.answer }}</td>
+                <td class="col-1">
                     <a class="" href="{{ path('faq_edit', {'id': faq.id}) }}">
                         <svg class="bi bi-pencil-square" width="24px" height="24px" viewBox="0 0 16 16"
                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -47,8 +47,8 @@
                 </td>
             </tr>
         {% else %}
-            <tr>
-                <td colspan="4">Aucune entrée trouvée</td>
+            <tr class="row">
+                <td colspan="12">Aucune entrée trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
