@@ -7,7 +7,7 @@
         <h1 class="text-center text-primary">Actualités</h1>
             {% for actuality in actualities %}
                 <div class="row flex-md-row">
-                    <div class="blog-content" id="article_{{ actuality.id }}">
+                    <div class="w-100 "id="article_{{ actuality.id }}">
                         <div class="float-left mr-4 mb-4">
                             <div>{% if actuality.picture %}
                                 <img class="blog-img " src="{{ vich_uploader_asset(actuality, 'actualityFile') }}"
@@ -34,7 +34,7 @@
                                     {{ actuality.date|date('d M Y') }}
                                 </div>
                             </div>
-                            <p class="blog-content">{{ actuality.content|nl2br }}</p>
+                            <p class="blog-content ml-0">{{ actuality.content|nl2br }}</p>
                         </div>
                     </div>
                 </div>
