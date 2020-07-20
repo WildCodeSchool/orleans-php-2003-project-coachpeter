@@ -10,7 +10,7 @@
                 {% if (attended.beginDate|date("Y/m/d") <= "now"|date("Y/m/d")) and
                     (attended.endDate|date("Y/m/d") > "now"|date("Y/m/d")) %}
 
-                <div class="display-4 text-center text-primary">
+                <div class="text-center text-primary">
                     <p>Programme</p>
                     <p>{{ attended.program.name }}</p>
                 </div>
