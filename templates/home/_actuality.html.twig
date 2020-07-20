@@ -1,7 +1,7 @@
 <section>
     <h2 class="text-primary text-center w-100">LES ACTUALITÉS - <span
                 class="font-weight-bold">SANTÉ, SPORT, NUTRITION</span></h2>
-    <div class="row justify-content-center justify-content-lg-between">
+    <div class="row justify-content-center justify-content-md-around">
         {% for actuality in actualities %}
             <div class="card card-actu m-3">
                 <a href="{{ path('app_actuality')}}#article_{{ actuality.id }}" class="text-decoration-none">
