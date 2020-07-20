@@ -7,11 +7,14 @@
         <h1 class="text-center text-primary">Actualités</h1>
             {% for actuality in actualities %}
                 <div class="row flex-md-row">
-                    <div class="blog-content" id="article_{{ actuality.id }}">
+                    <div class="w-100 "id="article_{{ actuality.id }}">
                         <div class="float-left mr-4 mb-4">
-                            <div>
+                            <div>{% if actuality.picture %}
                                 <img class="blog-img " src="{{ vich_uploader_asset(actuality, 'actualityFile') }}"
                                      alt="{{ actuality.title }}">
+                                {%  else %}
+                                    <img class="blog-img" src="{{ asset('build/coach_image_about_me_home.jpg')}}" alt="image coach">
+                                    {% endif %}
                             </div>
                             <div class="badge-blog text-center pb-2 w-100">
                                 {{ actuality.topic }}
@@ -31,11 +34,12 @@
                                     {{ actuality.date|date('d M Y') }}
                                 </div>
                             </div>
-                            <p class="blog-content">{{ actuality.content|nl2br }}</p>
+                            <p class="blog-content ml-0">{{ actuality.content|nl2br }}</p>
                         </div>
                     </div>
                 </div>
                 </div>
+                <hr class="mb-5 mt-4">
         {% endfor %}
     </section>
 {% endblock %}
