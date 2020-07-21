@@ -7,13 +7,6 @@
         </thead>
         <tbody>
         <tr>
-            <th>Planning</th>
-            <td>
-                {{ form_errors(form.planningFile) }}
-                {{ form_widget(form.planningFile) }}
-            </td>
-        </tr>
-        <tr>
             <th>Téléphone</th>
             <td class="text-left">
                 {{ form_errors(form.phone) }}
@@ -57,7 +50,9 @@
             <th>Image</th>
             <td>
                 {{ form_errors(form.imageFile) }}
+                {{ form_help(form.imageFile) }}
                 {{ form_widget(form.imageFile) }}
+
             </td>
         </tr>
         <tr>
@@ -72,6 +67,20 @@
             <td>
                 {{ form_errors(form.presentation) }}
                 {{ form_widget(form.presentation) }}
+            </td>
+        </tr>
+        <tr>
+            <th>Qualités</th>
+            <td>
+                {{ form_errors(form.quality) }}
+                {{ form_widget(form.quality) }}
+            </td>
+        </tr>
+        <tr>
+            <th>Planning</th>
+            <td>
+                {{ form_errors(form.planningFile) }}
+                {{ form_widget(form.planningFile) }}
             </td>
         </tr>
         </tbody>
