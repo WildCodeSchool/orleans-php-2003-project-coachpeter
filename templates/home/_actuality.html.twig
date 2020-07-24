@@ -1,14 +1,14 @@
-<section>
+<section class="col-md col-xl-9">
     <h2 class="text-primary text-center w-100">LES ACTUALITÉS - <span
                 class="font-weight-bold">SANTÉ, SPORT, NUTRITION</span></h2>
     <div class="row justify-content-center justify-content-md-around">
         {% for actuality in actualities %}
-            <div class="card card-actu m-3">
+            <div class="card card-actu m-3 col-md-3  p-0">
                 <a href="{{ path('app_actuality')}}#article_{{ actuality.id }}" class="text-decoration-none">
                     <img class="card-img-top card-actu-img" src="{{ vich_uploader_asset(actuality, 'actualityFile') }}"
                          alt="{{ actuality.title }}">
                 <div class="card-body card-actu-body card-blog rounded-bottom position-relative">
-                    <div class="badge position-absolute card-theme text-left align-items-center rounded-0 ">
+                    <div class="badge position-absolute card-theme text-left align-items-center rounded-0 col">
                         {{ actuality.topic }}
                     </div>
                     <h3 class="card-title card-title-actu text-primary mt-1">{{ actuality.title|upper }}</h3>
