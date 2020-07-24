@@ -11,19 +11,19 @@
         <section class="w-100 my-5">
             {% for attended in app.user.attendeds %}
                 {% if (attended.beginDate|date("Y/m/d") <= "now"|date("Y/m/d")) and (attended.endDate|date("Y/m/d") > "now"|date("Y/m/d")) %}
-                    <div class="container d-flex flex-row">
-                        <div class="col-4 text-left">
+                    <div class="col col-md-10 mx-auto d-flex flex-column flex-md-row justify-content-center align-items-center align-content-around">
+                        <div class="col-10 col-md-4 text-left">
                             <h3 class="text-light bg-primary text-center rounded">{{ attended.program.name }}</h3>
                         </div>
 
-                        <div class="col-4 d-flex flex-row justify-content-center">
+                        <div class="col-10 col-md-4 d-flex flex-row justify-content-center">
                             <img src="{{ asset('build/calendar.svg')}}" class="icon">
                             <p class="ml-2">
                                 {{ attended.program.duration }} jours
                             </p>
                         </div>
 
-                        <div class="col-4 d-flex justify-content-end ">
+                        <div class="col col-md-4 d-flex justify-content-end ">
                             <p>
                                 Disponible du {{ attended.beginDate|date("d/m/Y") }} au {{ attended.endDate|date("d/m/Y") }}
                             </p>
@@ -31,7 +31,7 @@
                     </div>
 
                     {%  for programStep in attended.program.programSteps|sort((a,b) => a.begin <=> b.begin) %}
-                        <div class="col-10 mx-auto d-flex flex-row my-2 ">
+                        <div class="col col-md-10 mx-auto d-flex flex-row my-2 ">
                             <a class="collapseLink text-decoration-none rounded d-flex justify-content-center py-2
                                 {% if "now"|date("Y/m/d") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("Y/m/d") %}
                                  bg-secondary text-light
@@ -87,7 +87,8 @@
                             <div class="overflow-hidden col-10 mx-auto">
                                 <div class="collapse programmesCollapse mb-3 w-100 mx-auto text-center " id="collapse{{ programStep.id }}">
                                     <div class="container py-4 d-flex flex-row justify-content-around rounded">
-                                        <div class="col-6">
+
+                                        <div class="col col-md-6 d-none d-md-inline">
                                             {%  if programStep.urlVideo %}
                                                 <iframe src="https://player.vimeo.com/video/{{ programStep.urlVideo }}?title=0&byline=0&portrait=0" width="500" height="300" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                                             {% else %}
@@ -95,7 +96,14 @@
                                             {% endif %}
                                         </div>
 
-                                        <div class="col-6 mt-2">
+                                        <div class="row d-inline mx-auto justify-content-center d-md-none">
+                                            {%  if programStep.urlVideo %}
+                                                <iframe src="https://player.vimeo.com/video/{{ programStep.urlVideo }}?title=0&byline=0&portrait=0" width="200" height="100" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                            {% else %}
+                                                <img class="w-50 img-coach-about-me-home" src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
+                                            {% endif %}
+                                        </div>
+                                        <div class="row col-md-6 mt-2">
                                             <p class="text-left text-primary">
                                                 {{ programStep.description }}
                                             </p>
