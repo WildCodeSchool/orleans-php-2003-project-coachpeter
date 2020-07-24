@@ -84,9 +84,9 @@
 
                         {# title programStep #}
                         {% if "now"|date("Y/m/d") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("Y/m/d") %}
-                            <div class="overflow-hidden col-10 mx-auto">
+                            <div class="overflow-hidden col-md-10 mx-md-auto">
                                 <div class="collapse programmesCollapse mb-3 w-100 mx-auto text-center " id="collapse{{ programStep.id }}">
-                                    <div class="container py-4 d-flex flex-row justify-content-around rounded">
+                                    <div class="container py-4 d-xl-flex flex-xl-row justify-content-around rounded">
 
                                         <div class="col col-md-6 d-none d-md-inline">
                                             {%  if programStep.urlVideo %}
@@ -96,28 +96,29 @@
                                             {% endif %}
                                         </div>
 
-                                        <div class="row d-inline mx-auto justify-content-center d-md-none">
+
+                                        <div class="row mx-auto justify-content-center d-md-none d-flex ">
                                             {%  if programStep.urlVideo %}
-                                                <iframe src="https://player.vimeo.com/video/{{ programStep.urlVideo }}?title=0&byline=0&portrait=0" width="200" height="100" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                                <iframe src="https://player.vimeo.com/video/{{ programStep.urlVideo }}?title=0&byline=0&portrait=0" width="350" height="170" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                                             {% else %}
                                                 <img class="w-50 img-coach-about-me-home" src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
                                             {% endif %}
                                         </div>
-                                        <div class="row col-md-6 mt-2">
+
+                                        <div class="col-xl-6 mt-2">
                                             <p class="text-left text-primary">
                                                 {{ programStep.description }}
                                             </p>
                                         </div>
                                     </div>
 
-
-                                    <div class="container pb-4">
-                                        <div class="oui pl-4 ml-4 mb-3 row justify-content-start ">
-                                            <div class="col-11">
+                                    <div class="container-fluid pb-4">
+                                        <div class="oui pl-md-4 ml-md-4 mb-3 row justify-content-start ">
+                                            <div class="col-12">
                                                 <h4 class="text-primary text-left mb-2 ">Vos fichiers d'accompagnement</h4>
                                             </div>
                                             {%  for ressource in programStep.ressources %}
-                                                <div class="col-2 mb-3 mx-2 px-0 rounded d-flex flex-column justify-content-center fileCard align-items-center">
+                                                <div class="col-5 col-md-2 mb-3 mx-2 px-0 rounded d-flex flex-column justify-content-center fileCard align-items-center">
                                                     {% if ressource.type == 'video' %}
                                                         <iframe class="iframed mb-4" src="https://player.vimeo.com/video/{{ ressource.refVideo }}?title=0&byline=0&portrait=0" width="160" height="80" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                                                         <p class="text-primary p-0 m-0">{{ ressource.name }}</p>
