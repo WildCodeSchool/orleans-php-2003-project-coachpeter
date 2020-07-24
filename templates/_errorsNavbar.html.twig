@@ -1,0 +1,99 @@
+<header class="w-100 top-img d-flex justify-content-center">
+    <div class="bluehover position-relative"></div>
+
+    <div class="col col-xl-8 container-banner position-absolute ">
+        <div class="px-0 supnavbar row d-flex flex-column flex-md-row mt-3">
+            <div class="col-2 d-flex flex-row justify-content-around">
+                <a class="mt-2" href="https://fr-fr.facebook.com/coachpeter.orleans/" target="_blank"><img
+                    class="navbar-text" src="{{ asset('build/blue_facebook.svg') }}"
+                    alt="Lien vers page Facebook">
+                </a>
+                <a class="mt-2" href="https://instagram.com/coach_peter.orleans?igshid=crqgsjokas3f"
+                    target="_blank"><img class="navbar-text" src="{{ asset('build/blue_insta.svg') }}"
+                    alt="Lien vers page Instagram">
+                </a>
+            </div>
+
+            <div class="col-10 d-flex justify-content-end">
+                <div class=" d-flex align-items-end">
+                    <img class="navbar-text mt-2" src="{{ asset('build/blue_connection.svg') }}"
+                         alt="Lien vers page de connexion">
+                    {% if app.user %}
+                        <a class="mb-1 nav-item text-light dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ app.user.firstname }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a class="dropdown-item text-primary" href="{{ path('app_admin') }}">Admin</a>
+                            {% endif %}
+                            <a class="dropdown-item text-primary" href="{{ path('profil_show') }}">Mon profil</a>
+
+                            <a class="dropdown-item text-danger" href="{{ path('app_logout') }}">Déconnexion</a>
+                        </div>
+                    {% else %}
+                        <a href="{{ path('app_login') }}"
+                           class="mb-1 nav-item navbar-link text-light text-decoration-none">Connexion</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 d-flex justify-content-between border-top border-light">
+            <div>
+                <a class="navbar-brand" href="{{ path('app_index') }}"><img
+                            src="{{ asset('build/peter_logo_white.png') }}" alt="logo coach Peter"></a>
+            </div>
+            <div class="text-right align-content-end">
+                <nav class="navbar navbar-expand-lg navbar-light border-top-0 justify-content-end">
+                    <button class="navbar-toggler border-0 btn text-light align-right" type="button"
+                            data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </button>
+                    <div class="collapse navbar-collapse text-right bg-transparent" id="navbarNav">
+                        <ul class="navbar-nav mr-0 ">
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link text-light" href="{{ path('app_index') }}">Accueil</a>
+                            </li>
+                            {% if is_granted('ROLE_MEMBER') %}
+                                <li class="nav-item">
+                                    <a class="nav-link navbar-link text-light" href="{{ path('app_member') }}">Espace Membre</a>
+                                </li>
+                            {% endif %}
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link text-light" href="{{ path('whoiam_index') }}">Qui suis-je</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link text-light" href="{{ path('transformations') }}">Transformations</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link text-light" href="{{ path('app_coaching') }}">Coaching</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link text-light" href="{{ path('index_team_traing') }}">Team training</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-link text-light"
+                                   href="{{ path('app_actuality') }}">Actualités</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link navbar-link text-light" href="{{ path('app_contact') }}">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        {% include '_flash.html.twig' %}
+        {% include 'home/_headband.html.twig' %}
+    </div>
+</header>
+<div class="position-relative min-vw-100">
+    <div class="round w-100 bg-white"></div>
+</div>
+
+
