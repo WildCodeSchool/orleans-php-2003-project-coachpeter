@@ -1,5 +1,7 @@
+$primaryShade: rgba(0, 56, 79, 0.86);
+
 .errorPage {
-    background-color: rgba(0, 56, 79, 0.85);
+    background-color: $primaryShade;
     border-radius: 10px;
     margin-bottom: 50px;
 
