@@ -22,7 +22,7 @@ class AdminActualityController extends AbstractController
     public function index(ActualityRepository $actualityRepository): Response
     {
         return $this->render('admin_actuality/index.html.twig', [
-            'actualities' => $actualityRepository->findAll(),
+            'actualities' => $actualityRepository->findBy([], ['date' => 'DESC']),
         ]);
     }
 

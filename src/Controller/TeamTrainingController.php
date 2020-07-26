@@ -14,7 +14,7 @@ use App\Entity\Transformation;
 class TeamTrainingController extends AbstractController
 {
     /**
-     * @Route("/team_training", name="index_team_traing")
+     * @Route("/team", name="index_team_traing")
      */
     public function index() : Response
     {

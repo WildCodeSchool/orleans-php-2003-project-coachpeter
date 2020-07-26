@@ -3,106 +3,146 @@
 {% block title %}Bienvenue{% endblock %}
 
 {% block body %}
+
     {% if app.user.attendeds.snapshot %}
         <h1 class="text-center text-primary">Bienvenue dans votre espace membre</h1>
-        <section class="w-100">
+        <h3 class="text-center text-primary display-4 my-5">Programme</h3>
+
+        <section class="w-100 my-5">
             {% for attended in app.user.attendeds %}
-                {% if (attended.beginDate|date("Y/m/d") <= "now"|date("Y/m/d")) and
-                    (attended.endDate|date("Y/m/d") > "now"|date("Y/m/d")) %}
+                {% if (attended.beginDate|date("Y/m/d") <= "now"|date("Y/m/d")) and (attended.endDate|date("Y/m/d") > "now"|date("Y/m/d")) %}
+                    <div class="col col-md-10 mx-auto d-flex flex-column flex-md-row justify-content-center align-items-center align-content-around">
+                        <div class="col-10 col-md-4 text-left">
+                            <h3 class="text-light bg-primary text-center rounded">{{ attended.program.name }}</h3>
+                        </div>
 
-                <div class="text-center text-primary">
-                    <p>Programme</p>
-                    <p>{{ attended.program.name }}</p>
-                </div>
-                <div class="text-center text-primary">
-                    Du {{ attended.beginDate|date("d/m/Y") }} au {{ attended.endDate|date("d/m/Y") }}.
-                </div>
+                        <div class="col-10 col-md-4 d-flex flex-row justify-content-center mb-3">
+                            <img src="{{ asset('build/calendar.svg')}}" class="icon mx-2">
+                            <p class="ml-2 mt-3">
+                                {{ attended.program.duration }} jours
+                            </p>
+                        </div>
 
-                {%  for programStep in attended.program.programSteps|sort((a,b) => a.begin <=> b.begin) %}
-
-                <div class="step row w-100 mx-0 px-0 mx-lg-auto
-                    {% if "now"|date("Y/m/d") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("Y/m/d") %}
-                     bg-primary text-light
-                    {% else%}
-                     no-acces text-primary
-                    {% endif %}
-                    col-lg-8 offset-lg-2 text-center my-3">
-                    <div class="col-2 text-left pt-3">
-                        {% if "now"|date("Y/m/d") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("Y/m/d") %}
-                        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-unlock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
-                            <path fill-rule="evenodd" d="M8.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
-                        </svg>
-                        {% else %}
-                        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-lock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
-                            <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
-                        </svg>
-                        {% endif %}
-                    </div> {# cadenas #}
-
-                    <div class="col-8 text-center">
-                        <p class="h3">{{ programStep.title }}</p>
-                        <p>disponible à compter du {{ attended.beginDate|date_modify("+"~programStep.begin~" day")|date("d/m/Y") }}</p>
-                    </div> {# title programStep #}
-                    {% if "now"|date("Y/m/d") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("Y/m/d") %}
-                        <div class="px-0 mx-0 col-12 row bg-light border border-primary">
-                                <div class="col-lg-1 px-0 mx-1"></div>
-                                <div class="m-0 p-0 col-lg-4 align-items-center mb-2 text-center">
-                                    {%  if programStep.urlVideo %}
-                                         <iframe src="https://player.vimeo.com/video/{{ programStep.urlVideo }}?title=0&byline=0&portrait=0" width="360" height="250" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                    {% else %}
-                                        <img class="w-50 img-coach-about-me-home" src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
-                                    {% endif %}
-
-                                    {% if programStep.fileExplain %}
-                                    <a class="" href="/uploads/programStep/{{ programStep.fileExplain }}" target="_blank">Récapitulatif</a>
-                                    {% endif %}
-                                </div>
-                        <div class="col-lg-2"></div>
-                        <div class="text-left text-primary col-lg-4 py-2">
-                            {{ programStep.description }}
+                        <div class="col col-md-4 d-flex justify-content-end ">
+                            <p>
+                                Disponible du {{ attended.beginDate|date("d/m/Y") }} au {{ attended.endDate|date("d/m/Y") }}
+                            </p>
                         </div>
                     </div>
-                        <div class="overflow-hidden px-0 py-2 step mx-0 mx-lg-1 w-100">
-                            <h3 class="py-1 mx-auto mb-0 text-center">
-                                <a class="btn btn-light text-primary"
-                                   data-toggle="collapse"
-                                   href="#collapse{{ programStep.id }}"
-                                   role="button"
-                                   aria-expanded="false"
-                                   aria-controls="collapse{{ programStep.id }}">
-                                    Vos fichiers d'accompagnement
-                                </a>
-                            </h3>
-                            <div class="collapse mb-3 w-100" id="collapse{{ programStep.id }}">
-                                <div class="card card-body border-0 w-100">
-                                    <div class="w-100 d-flex flex-wrap justify-content-around">
-                                        {%  for ressource in programStep.ressources %}
-                                            <div class="card border border-primary text-primary bg-light mb-4 pt-2 pb-0" style="width: 18rem;">
-                                                {% if ressource.type == 'video' %}
-                                                    <iframe class="w-100" src="https://player.vimeo.com/video/{{ ressource.refVideo }}?title=0&byline=0&portrait=0" width="300" height="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-                                                    </iframe>
-                                                {% else %}
-                                                    <div class="w-100 text-center py-1">
-                                                        <a href="/uploads/ressources/{{ ressource.file }}" target="_blank">
-                                                            <img class="card-img-top w-50" src="{{ asset('build/'~ressource.type~'.svg')}}" alt="{{ ressource.type }}">
-                                                        </a>
-                                                    </div>
-                                                {% endif %}
-                                                <div class="card-body">
-                                                    <h5 class="card-title">{{ ressource.name }}</h5>
-                                                </div>
-                                                <div class="w-100 bg-primary text-light py-2 mb-0">{{ ressource.theme.nameTheme ?? '' }}</div>
-                                            </div>
-                                        {% endfor %}
-                                    </div>
+
+                    {%  for programStep in attended.program.programSteps|sort((a,b) => a.begin <=> b.begin) %}
+                        <div class="col col-md-10 mx-auto d-flex flex-row my-2 ">
+                            <a class="collapseLink text-decoration-none rounded d-flex justify-content-center py-2
+                                {% if "now"|date("Y/m/d") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("Y/m/d") %}
+                                 bg-secondary text-light
+                                {% else%}
+                                 no-acces text-primary
+                                {% endif %}"
+                                {# gestion du backgound en fonction de l'access ou non au programme #}
+                               data-toggle="collapse"
+                               href="#collapse{{ programStep.id }}"
+                               role="button"
+                               aria-expanded="false"
+                               aria-controls="collapse{{ programStep.id }};">
+
+                            <div class="col-8 d-flex align-items-center">
+                                <div class="lock p-2 bg-light d-flex justify-content-center">
+                                    {% if "now"|date("Y/m/d") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("Y/m/d") %}
+                                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-unlock" fill="#00384f" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M9.655 8H2.333c-.264 0-.398.068-.471.121a.73.73 0 0 0-.224.296 1.626 1.626 0 0 0-.138.59V14c0 .342.076.531.14.635.064.106.151.18.256.237a1.122 1.122 0 0 0 .436.127l.013.001h7.322c.264 0 .398-.068.471-.121a.73.73 0 0 0 .224-.296 1.627 1.627 0 0 0 .138-.59V9c0-.342-.076-.531-.14-.635a.658.658 0 0 0-.255-.237A1.122 1.122 0 0 0 9.655 8zm.012-1H2.333C.5 7 .5 9 .5 9v5c0 2 1.833 2 1.833 2h7.334c1.833 0 1.833-2 1.833-2V9c0-2-1.833-2-1.833-2zM8.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
+                                        </svg>
+                                    {% else %}
+                                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-lock" fill="#6a6b6a" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
+                                        </svg>
+                                    {% endif %}
+                                    {# gestion du cadena #}
+                                </div>
+
+                                <div class="col">
+                                    <p class="mx-3 my-auto">
+                                        Etape {{ loop.index }} -
+                                        <span class="font-weight-bold">
+                                        {{ programStep.title }}
+                                    </span>
+                                    </p>
                                 </div>
                             </div>
-                        </div>
-                    {% endif %}
-                </div>
 
+                                <div class="col-4 d-flex align-items-center justify-content-end mt-3">
+                                    <p>
+                                        {% if "now"|date("Y/m/d") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("Y/m/d") %}
+                                            Disponible depuis le
+                                        {% else%}
+                                            Disponible à partir du
+                                        {% endif %}
+                                         {{ attended.beginDate | date_modify("+"~programStep.begin~" day") | date("d/m/Y") }}
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+
+                        {# title programStep #}
+                        {% if "now"|date("Y/m/d") >= attended.beginDate|date_modify("+"~programStep.begin~" day")|date("Y/m/d") %}
+                            <div class="overflow-hidden col-md-10 mx-md-auto">
+                                <div class="collapse programmesCollapse mb-3 w-100 mx-auto text-center " id="collapse{{ programStep.id }}">
+                                    <div class="container py-4 d-xl-flex flex-xl-row justify-content-around rounded">
+
+                                        <div class="col col-md-6 d-none d-md-inline">
+                                            {%  if programStep.urlVideo %}
+                                                <iframe src="https://player.vimeo.com/video/{{ programStep.urlVideo }}?title=0&byline=0&portrait=0" width="500" height="300" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                            {% else %}
+                                                <img class="w-50 img-coach-about-me-home" src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
+                                            {% endif %}
+                                        </div>
+
+
+                                        <div class="row mx-auto justify-content-center d-md-none d-flex ">
+                                            {%  if programStep.urlVideo %}
+                                                <iframe src="https://player.vimeo.com/video/{{ programStep.urlVideo }}?title=0&byline=0&portrait=0" width="350" height="170" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                            {% else %}
+                                                <img class="w-50 img-coach-about-me-home" src="{{ vich_uploader_asset(coachInfo, 'imageFile') }}"
+                                            {% endif %}
+                                        </div>
+
+                                        <div class="col-xl-6 mt-2">
+                                            <p class="text-left text-primary">
+                                                {{ programStep.description }}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="container-fluid pb-4">
+                                        <div class="oui pl-md-4 ml-md-4 mb-3 row justify-content-start ">
+                                            <div class="col-12">
+                                                <h4 class="text-primary text-left mb-2 ">Vos fichiers d'accompagnement</h4>
+                                            </div>
+                                            {%  for ressource in programStep.ressources %}
+                                                <div class="col-5 col-md-2 mb-3 mx-2 px-0 rounded d-flex flex-column justify-content-center fileCard align-items-center">
+                                                    {% if ressource.type == 'video' %}
+                                                        <iframe class="iframed mb-4" src="https://player.vimeo.com/video/{{ ressource.refVideo }}?title=0&byline=0&portrait=0" width="160" height="80" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                                        <p class="text-primary p-0 m-0">{{ ressource.name }}</p>
+                                                        <span class="pill px-3 mt-3 bg-primary text-light rounded">{{ ressource.theme.nameTheme ?? '' }}</span>
+
+                                                    {% else %}
+
+                                                        <a href="/uploads/ressources/{{ ressource.file }}" target="_blank" class="text-decoration-none container-fluid h-100 d-flex flex-column justify-content-center">
+                                                            <div class="row flex-column justify-content-center align-items-center">
+                                                                <img src="{{ asset('build/'~ressource.type~'.svg')}}" alt="{{ ressource.type }}" class="fileImg">
+                                                                <p class="">{{ ressource.name }}</p>
+                                                            </div>
+                                                        </a>
+                                                        <span class="pill my-3 px-3 bg-primary text-light rounded">{{ ressource.theme.nameTheme ?? '' }}</span>
+                                                    {% endif %}
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        {% endif %}
+                        </div>
                     {% endfor %}
                 {% endif %}
             {% endfor %}

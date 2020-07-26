@@ -1,29 +1,36 @@
-
 <div class="position-relative min-vw-100">
     <div class="round w-100 bg-white"></div>
 </div>
 <section class="activity position-relative w-100 bg-white">
     <div class="card-deck position-relative d-flex justify-content-center flex-wrap">
         {% for activity in activities %}
-            <div class="card-activity my-2 col-md-4 ">
+            <div class="card-activity m-2 ">
+                <a class="text-decoration-none" {% if activity.category == "coaching" %} href="{{ path('app_coaching') }}"
+                        {% elseif activity.category == "team" %} href="{{ path('index_team_traing') }}"
+                        {% endif %}>
                 <img class="card-img-top card-img-top-activity"
-                     src="{{ asset('uploads/activites/') ~ activity.picture}}"
+                     src="{{ asset('uploads/activites/') ~ activity.picture }}"
                      alt="Card image cap">
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <div class="badge-activity d-flex justify-content-center align-items-center">
                         {% if activity.pictogram %}
-                            <img src="{{ asset('build/pictograms/' ~ activity.pictogram ~ '.svg' ) }}" alt="pictogramme de l'activité">
+                            <img src="{{ asset('build/pictograms/' ~ activity.pictogram ~ '.svg' ) }}"
+                                 alt="pictogramme de l'activité">
                         {% else %}
-                            <img class="w-50" src="{{ asset('build/running.svg')}}" alt="pictogramme de l'activité">
+                            <img class="w-50" src="{{ asset('build/running.svg') }}" alt="pictogramme de l'activité">
                         {% endif %}
-                        </div>
+                    </div>
                     <h3 class="card-title text-primary text-center mt-2">{{ activity.title|upper }}</h3>
                     <div class="card-text card-text-activity text-center text-break">{{ activity.description|length > 150 ? activity.description|slice(0, 150) ~ '...' : activity.description }}</div>
                 </div>
-            </div>
-        {% endfor %}
-        <div class="col-12 text-center p-3">
-            <a href="{{ path('app_contact') }}" class="btn btn-light border-primary text-primary">ME CONTACTER</a>
-        </div>
-        </div>
+                <div class="col-12 text-center p-3">
+                </div>
+        </a>
+
+    </div>
+    {% endfor %}
+    <div class="col-12 text-center p-3">
+        <a href="{{ path('app_contact') }}" class="btn btn-light border-primary text-primary">ME CONTACTER</a>
+    </div>
+    </div>
 </section>
