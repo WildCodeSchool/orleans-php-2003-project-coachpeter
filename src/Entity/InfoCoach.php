@@ -33,9 +33,6 @@ class InfoCoach
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Merci de sélectionner une image.")
-     * @Assert\Length(max=255, maxMessage="Le nom du fichier est trop long, il ne devrait pas dépasser {{ limit }}
-     * caractères.")
      */
     private $image;
 
