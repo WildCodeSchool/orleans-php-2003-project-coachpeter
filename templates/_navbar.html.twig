@@ -73,35 +73,33 @@
                         </svg>
                     </button>
                     <div class="collapse navbar-collapse text-right bg-transparent" id="navbarNav">
+                        {% set items = {
+                            'Qui-suis-je': path('whoiam_index'),
+                            'Transformations': path('transformations'),
+                            'Coaching': path('app_coaching'),
+                            'Team training': path('index_team_traing'),
+                            'Actualités': path('app_actuality'),
+                            'Contact':path('app_contact'),
+                        }
+                        %}
+
                         <ul class="navbar-nav mr-0">
                             {% if is_granted('ROLE_MEMBER') %}
                                 <li class="nav-item">
-                                    <a class="nav-link navbar-link text-light" href="{{ path('app_member') }}">Espace
+                                    <a class="nav-link text-light {{ app.request.pathInfo==path('app_member') ? 'active navbar-focus' : 'navbar-link' }}" href="{{ path('app_member') }}">Espace
                                         Membre</a>
                                 </li>
                             {% endif %}
-                            <li class="nav-item">
-                                <a class="nav-link navbar-link text-light" href="{{ path('whoiam_index') }}">Qui
-                                    suis-je</a>
+                            {% for itemLabel, itemRoute in items %}
+                            <li class="nav-item py-2 pl-2 ">
+                                <a class="nav-item text-light text-decoration-none {{ itemRoute==app.request.pathInfo ? 'active navbar-focus' : 'navbar-link' }}" href="{{ itemRoute }}">
+                                    {{ itemLabel }}
+                                    {% if itemRoute == app.request.pathInfo %}
+                                        <span class="sr-only">(current)</span>
+                                    {% endif %}
+                                </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link navbar-link text-light" href="{{ path('transformations') }}">Transformations</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link navbar-link text-light"
-                                   href="{{ path('app_coaching') }}">Coaching</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link navbar-link text-light" href="{{ path('index_team_traing') }}">Team
-                                    training</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link navbar-link text-light"
-                                   href="{{ path('app_actuality') }}">Actualités</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link navbar-link text-light" href="{{ path('app_contact') }}">Contact</a>
-                            </li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </nav>
