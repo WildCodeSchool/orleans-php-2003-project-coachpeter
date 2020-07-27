@@ -1,6 +1,6 @@
 {% extends 'base_user.html.twig' %}
 {% block body %}
-<section class="whoami">
+<section class="whoami mb-5">
     <div class="row">
         <div class="col">
           <h1 class="text-center text-primary">Qui suis-je ?</h1>
@@ -148,31 +148,28 @@
                 </p>
             </div>
 
-        <div class="col-md-6 d-flex align-items-center flex-column">
-            <img src="{{ asset('build/whoiam/image2.png') }}" alt="Selfie de Peter" class="w-75">
+            <div class="col-md-6 d-flex align-items-center flex-column">
+                <img src="{{ asset('build/whoiam/image2.png') }}" alt="Selfie de Peter" class="w-75">
+            </div>
         </div>
-        </div>
-
-
-
-        <div class="row justify-content-center my-5 w-100 meet">
-            <h4>
-                ME RENCONTRER
-            </h4>
-        </div>
-
-        <div class="row d-none d-md-flex justify-content-center w-100 my-4">
-            <img src="{{ asset('build/whoiam/desktoptimeline.svg') }}" class="timeline w-75" alt="timeline d'un coaching" >
-        </div>
-
-        <div class="row d-flex d-md-none justify-content-center w-100 my-4">
-            <img src="{{ asset('build/whoiam/mobiletimeline.svg') }}" class="timeline w-75" alt="timeline d'un coaching" >
-        </div>
-
-        <div class="row justify-content-center my-5 w-100">
-            <a href="{{ path('app_contact') }}"  class="btn btn-primary">C'EST PARTI !</a>
-        </div>
-
     </section>
+
+    <div class="row justify-content-center mt-5 mb-0 pb-0 w-100 meet">
+        <h4 class="text-center">
+            ME RENCONTRER
+        </h4>
+    </div>
+
+    <div class=" d-none d-md-flex justify-content-center ">
+        <img src="{{ asset('build/whoiam/desktoptimeline.svg') }}" class="timeline" alt="timeline d'un coaching" >
+    </div>
+
+    <div class="d-flex d-md-none justify-content-center w-100 my-4">
+        <img src="{{ asset('build/whoiam/mobiletimeline.svg') }}" class="timeline w-75" alt="timeline d'un coaching" >
+    </div>
+
+    <div class="row justify-content-center my-5 w-100">
+        <a href="{{ path('app_contact') }}"  class="btn btn-primary">C'EST PARTI !</a>
+    </div>
     {% include 'home/_map.html.twig' %}
 {% endblock %}
