@@ -25,6 +25,7 @@ class MemberController extends AbstractController
 
         return $this->render('member/index.html.twig', [
             'coachInfo' => $coachInfo,
+            'page' => 'membre'
         ]);
     }
 }

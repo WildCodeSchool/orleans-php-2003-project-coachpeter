@@ -63,6 +63,15 @@ header .container-banner{
 }
 
 header {
+    .navbar-focus::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: $navbarUnderlineHover;
+        transition: width .3s;
+    }
+
     .navbar-link:hover {
         color: $light;
     }

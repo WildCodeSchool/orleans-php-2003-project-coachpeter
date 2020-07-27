@@ -29,6 +29,7 @@ class WhoIAmController extends AbstractController
         return $this->render('WhoIAm/index.html.twig', [
             'degrees' => $coachDegrees,
             'coachInfo' => $coachInfo,
+            'page' => 'whoiam'
         ]);
     }
 }

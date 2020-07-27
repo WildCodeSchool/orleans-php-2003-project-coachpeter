@@ -28,6 +28,7 @@ class CoachingController extends AbstractController
         return $this->render('coaching/index.html.twig', [
             'coachInfo' => $coachInfo,
             'activities' => $activities,
+            'page' => 'coach'
         ]);
     }
 }

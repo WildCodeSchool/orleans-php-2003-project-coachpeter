@@ -25,6 +25,7 @@ class TransformationController extends AbstractController
         return $this->render('transformations/index.html.twig', [
             'coachInfo' => $coachInfo,
             'transformations' => $transformRepository->findAll(),
+            'page' => 'transformation',
         ]);
     }
 }

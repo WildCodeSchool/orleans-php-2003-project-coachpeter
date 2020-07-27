@@ -44,6 +44,7 @@ class HomeController extends AbstractController
             'activities' => $activities,
             'transformations'=>$transformations,
             'actualities' => $actualities,
+            'page' => 'home'
         ]);
     }
 }

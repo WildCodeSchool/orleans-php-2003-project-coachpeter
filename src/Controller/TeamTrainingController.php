@@ -29,6 +29,7 @@ class TeamTrainingController extends AbstractController
         return $this->render('team/index.html.twig', [
             'coachInfo' => $coachInfo,
             'activities' => $activities,
+            'page' => 'team',
         ]);
     }
 }

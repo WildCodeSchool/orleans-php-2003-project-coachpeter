@@ -56,13 +56,13 @@
         {# Fin bande supérieure#}
         {# Debut bande inférieure (Logo + liens de navigation) #}
         <div class="w-100 d-flex flex-wrap justify-content-between border-top border-light">
-            <div >
+            <div>
                 <a class="navbar-brand" href="{{ path('app_index') }}">
                     <img class="" src="{{ asset('build/peter_logo_white.png') }}" alt="logo coach Peter">
                 </a>
             </div>
-            <div class="text-right align-content-end ml-auto">
-                <nav class="navbar navbar-expand-lg navbar-light border-top-0 justify-content-end">
+            <div class="text-right align-content-end ml-auto ">
+                <nav class="navbar navbar-expand-lg navbar-light border-top-0 justify-content-end px-0">
                     <button class="navbar-toggler border-0 btn text-light align-right" type="button"
                             data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -75,32 +75,32 @@
                     <div class="collapse navbar-collapse text-right bg-transparent" id="navbarNav">
                         <ul class="navbar-nav mr-0">
                             {% if is_granted('ROLE_MEMBER') %}
+                                <a class="pl-0 nav-link text-light {% if page == 'membre' %} navbar-focus{% else %} navbar-link{% endif %}" href="{{ path('app_member') }}" href="{{ path('app_member') }}">Espace
+                                    Membre</a>
                                 <li class="nav-item">
-                                    <a class="nav-link navbar-link text-light" href="{{ path('app_member') }}">Espace
-                                        Membre</a>
                                 </li>
                             {% endif %}
                             <li class="nav-item">
-                                <a class="nav-link navbar-link text-light" href="{{ path('whoiam_index') }}">Qui
+                                <a class="pl-0 nav-link text-light {% if page == 'whoiam' %} navbar-focus {% else %} navbar-link {% endif %}" href="{{ path('whoiam_index') }}" href="{{ path('whoiam_index') }}">Qui
                                     suis-je</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link navbar-link text-light" href="{{ path('transformations') }}">Transformations</a>
+                                <a class="pl-0 nav-link text-light {% if page == 'transformation' %} navbar-focus {% else %} navbar-link {% endif %}" href="{{ path('transformations') }}">Transformations</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link navbar-link text-light"
+                                <a class="pl-0 nav-link text-light {% if page == 'coach' %} navbar-focus {% else %} navbar-link {% endif %}"
                                    href="{{ path('app_coaching') }}">Coaching</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link navbar-link text-light" href="{{ path('index_team_traing') }}">Team
+                                <a class="pl-0 nav-link text-light  {% if page == 'team' %} navbar-focus {% else %} navbar-link {% endif %}" href="{{ path('index_team_traing') }}">Team
                                     training</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link navbar-link text-light"
+                                <a class="pl-0 nav-link text-light {% if page == 'actuality' %} navbar-focus {% else %} navbar-link {% endif %}"
                                    href="{{ path('app_actuality') }}">Actualités</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link navbar-link text-light" href="{{ path('app_contact') }}">Contact</a>
+                                <a class="pl-0 nav-link text-light {% if page == 'contact' %} navbar-focus {% else %} navbar-link {% endif %} " href="{{ path('app_contact') }}">Contact</a>
                             </li>
                         </ul>
                     </div>
