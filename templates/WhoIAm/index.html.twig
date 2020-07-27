@@ -1,4 +1,5 @@
 {% extends 'base_user.html.twig' %}
+
 {% block body %}
 <section class="whoami">
     <div class="row">
@@ -34,29 +35,22 @@
                         <div class="tab-content d-flex mx-md-0" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <p>
-                                    Expeditionis eventus languentibus partium animis, quas periculorum varietas fregerat et laborum,
-                                    nondum tubarum cessante clangore vel milite locat Post emensos insuperabilis expeditionis eventus
-                                    languentibus partium animis, quas periculorum varietas fregerat et laborum, nondum tubarum cessante
-                                    clangore vel milite locatPost emensos insuperabilis expeditionis eventus languentibus partium animis,
-                                    quas periculorum varietas fregerat et laborum, nondum tubarum cessante clangore vel milite locat nondum
-                                    tubarum cessante clangore vel milite locatPost emensos insuperabilis expeditionis eventus languentibus
-                                    partium animis, quas periculorum varietas.
+                                    {{ (coachInfo.presentation ?? '')|nl2br }}
                                 </p>
 
                             </div>
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                {{ coachInfo.philosophy }}
+                                {{ (coachInfo.philosophy ?? '')|nl2br }}
                             </div>
 
                             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                                 {% for degree in degrees %}
                                     <div>
-                                       <span class="text-secondary">{{ degree.startDate }} -
-                                       {{ degree.endDate }}</span>
-                                        <span class="text-primary">{{ degree.name|upper }},</span>
-                                        {{ degree.organism }}:
-                                        <span>{{ degree.description }}</span>
-
+                                       <span class="text-secondary">{{ degree.startDate ?? '' }} -
+                                       {{ degree.endDate ?? '' }}</span>
+                                        <span class="text-primary">{{ (degree.name ?? '')|upper }},</span>
+                                        {{ degree.organism ?? '' }}:
+                                        <span>{{ degree.description ?? '' }}</span>
                                     </div>
                                 {% endfor %}
                             </div>
