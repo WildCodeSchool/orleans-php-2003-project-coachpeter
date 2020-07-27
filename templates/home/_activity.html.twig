@@ -6,6 +6,10 @@
     <div class="card-deck position-relative d-flex justify-content-center flex-wrap">
         {% for activity in activities %}
             <div class="card-activity my-2 col-md-4 ">
+
+                <a class="text-decoration-none" {% if activity.category == "coaching" %} href="{{ path('app_coaching') }}"
+                {% elseif activity.category == "team" %} href="{{ path('index_team_traing') }}"
+                        {% endif %}>
                 <img class="card-img-top card-img-top-activity"
                      src="{{ asset('uploads/activites/') ~ activity.picture}}"
                      alt="Card image cap">
