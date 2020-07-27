@@ -1,29 +1,29 @@
 <footer>
-    <div class="container-fluid d-flex flex-column flex-md-row pt-4">
+    <div class="container-fluid d-flex flex-column flex-md-row justify-content-between pt-4">
 
-        <div class="col-md-4 d-flex flex-row justify-content-center">
-            <div class="col-6 col-md-6 d-flex ml-md-3 mr-md-4 pb-0">
-                <svg class="bi bi-geo-alt" width="17px" height="17px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                </svg>
-                <p>{{ coachInfo.adress ?? '' }}, {{ coachInfo.zipCode ?? '' }} {{ (coachInfo.city ?? '')|upper }}</p>
-            </div>
-            <div class="d-flex flex-row col-6 col-md-6 justify-content-center">
-                <img class="mx-1" src="{{ asset('build/blue_tel.svg') }}">
-                <p> {{ (coachInfo.phone ?? '')|formatPhoneFr }}</p>
-            </div>
+        <div class="col-md-2 d-flex flex-row justify-content-center">
+            <svg class="my-auto bi bi-geo-alt" width="17px" height="17px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+            </svg>
+            <p class="my-auto">{{ coachInfo.adress ?? '' }}, {{ coachInfo.zipCode ?? '' }} {{ (coachInfo.city ?? '')|upper }}</p>
         </div>
 
-        <div class="col-md-4 d-flex flex-row justify-content-center">
-            <div class="d-flex justify-content-center flex-row">
-                <a href="{{ path('app_faq') }}" class="ml-5 ml-md-0 mr-5"><p>F.A.Q.</p></a>
-                <a href="{{ path('index_legals')}}" class=" ml-5"><p>Mentions légales</p></a>
-            </div>
+        <div class="col-md-2 d-flex flex-row justify-content-center">
+            <img class="mx-1 my-auto" src="{{ asset('build/blue_tel.svg') }}">
+            <p class="my-auto"> {{ (coachInfo.phone ?? '')|formatPhoneFr }}</p>
         </div>
 
-        <div class="col-md-4 d-flex flex-row justify-content-center mb-3">
+        <div class="col-md-2 d-flex justify-content-center">
+                <a href="{{ path('app_faq') }}" class="my-auto"><p class="my-auto">F.A.Q.</p></a>
+        </div>
+
+        <div class="col-md-2 d-flex justify-content-center ">
+                <a href="{{ path('index_legals')}}" class="my-auto"><p class="my-auto">Mentions légales</p></a>
+        </div>
+
+        <div class="col-md-2 justify-content-center mb-3 center">
             <div class="scrollUp d-flex">
-                <a href="#top"><img src="{{ asset('build/to_top.png') }}"/></a>
+                <a class="ml-auto mr-md-auto" href="#top"><img src="{{ asset('build/to_top.png') }}"/></a>
             </div>
         </div>
     </div>
