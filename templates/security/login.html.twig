@@ -10,7 +10,7 @@
 
         {% if app.user %}
             <div class="m-3 text-center text-primary">
-                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}" class="btn btn-light text-primary border-primary" >Logout</a>
+                Vous êtes connecté avec l'identifiant <span class="font-weight-bold">{{ app.user.username }}</span>. <a href="{{ path('app_logout') }}" class="btn btn-light text-primary border-primary" >Déconnexion</a>
             </div>
         {% endif %}
 

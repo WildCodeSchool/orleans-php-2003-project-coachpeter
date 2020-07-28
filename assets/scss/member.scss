@@ -9,3 +9,42 @@
 .no-program {
     height: 24vh;
 }
+
+.icon {
+    width: 30px;
+}
+
+.fileCard {
+    background-color: $light;
+    height: 200px;
+}
+
+.fileImg {
+    width: 90px;
+}
+
+.collapseLink {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.smallIcon {
+    width: 16px;
+}
+
+.stepDuration {
+    font-size: $xtra-small-font-size;
+}
+
+.lock {
+    border-radius: 50%;
+}
+
+.files {
+    border-left: solid 7px $primary;
+}
+
+.programmesCollapse {
+    background-color: #FAFAFA;
+}

@@ -15,7 +15,7 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 class ActivityType extends AbstractType
 {
     const PICTOGRAMS = [
-        'Haltère' => 'dumbbel',
+        'Haltère' => 'dumbbell',
         'Team training' => 'team',
         'Coaching à distance' => 'computer',
         'Gants de boxe' => 'box',

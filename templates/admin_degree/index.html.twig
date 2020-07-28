@@ -1,9 +1,9 @@
 {% extends 'base_admin.html.twig' %}
 
-{% block title %}Certifications{% endblock %}
+{% block title %}Diplômes{% endblock %}
 
 {% block body %}
-    <h1 class="text-center text-primary">Certifications</h1>
+    <h1 class="text-center text-primary">Diplômes</h1>
 
     <div class="m-2 mb-4 mr-4 text-right">
         <a class="btn btn-light text-primary border-primary mx-2" href="{{ path('degree_new') }}">Ajouter <svg class="bi bi-plus-circle-fill" width="24px" height="24px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +42,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">Pas de certification trouvée</td>
+                <td colspan="7">Pas de diplôme trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

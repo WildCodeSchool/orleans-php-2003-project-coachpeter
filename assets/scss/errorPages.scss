@@ -1,7 +1,9 @@
+$primaryShade: rgba(0, 56, 79, 0.86);
+
 .errorPage {
-    margin: 18% auto;
-    background-color: $primary;
+    background-color: $primaryShade;
     border-radius: 10px;
+    margin-bottom: 50px;
 
     h3 {
         color: $light;
