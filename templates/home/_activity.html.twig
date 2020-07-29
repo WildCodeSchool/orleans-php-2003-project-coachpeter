@@ -24,6 +24,7 @@
                     <h3 class="card-title text-primary text-center mt-2">{{ activity.title|upper }}</h3>
                     <div class="card-text card-text-activity text-center text-break">{{ activity.description|length > 150 ? activity.description|slice(0, 150) ~ '...' : activity.description }}</div>
                 </div>
+                </a>
             </div>
         {% endfor %}
         <div class="col-12 text-center p-3">
