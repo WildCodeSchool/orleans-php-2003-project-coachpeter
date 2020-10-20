@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 
 class RegistrationController extends AbstractController
@@ -19,7 +20,7 @@ class RegistrationController extends AbstractController
      * @Route("/inscription", name="app_register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler
-    $guardHandler, LoginFormAuthenticator $authenticator): Response
+    $guardHandler, LoginFormAuthenticator $authenticator, TokenGeneratorInterface $tokenGenerator): Response
     {
         $coachInfo = $this->getDoctrine()
             ->getRepository(InfoCoach::class)
@@ -37,6 +38,9 @@ class RegistrationController extends AbstractController
                     $form->get('password')->getData()
                 )
             );
+            $user->setRoles(['ROLE_CLIENT']);
+            $user->setConfirmationToken($tokenGenerator->getRandomSecureToken(30));
+            $user->setIsVerified(false);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
